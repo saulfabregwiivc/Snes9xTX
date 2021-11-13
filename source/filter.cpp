@@ -32,7 +32,7 @@ static uint16 RGBtoBright[1<<NUMBITS];
 
 TFilterMethod FilterMethod;
 
-template<int GuiScale> void CRT (uint8 *srcPtr, uint32 srcPitch, uint8 *dstPtr, uint32 dstPitch, int width, int height);
+template<int GuiScale> void Scanlines (uint8 *srcPtr, uint32 srcPitch, uint8 *dstPtr, uint32 dstPitch, int width, int height);
 
 const char* GetFilterName (RenderFilter filterID)
 {
@@ -40,7 +40,7 @@ const char* GetFilterName (RenderFilter filterID)
 	{
 		default: return "Unknown";
 		case FILTER_NONE: return "Off";
-		case FILTER_CRT: return "On";
+		case FILTER_SCANLINES: return "On";
 	}
 }
 
@@ -49,7 +49,7 @@ static TFilterMethod FilterToMethod (RenderFilter filterID)
 {
 	switch(filterID)
 	{
-		case FILTER_CRT:  return CRT<FILTER_CRT>;
+		case FILTER_SCANLINES:  return Scanlines<FILTER_SCANLINES>;
 		default: return 0;
 	}
 }
@@ -61,7 +61,7 @@ int GetFilterScale(RenderFilter filterID)
 		case FILTER_NONE:
 			return 1;
 		default:
-		case FILTER_CRT:
+		case FILTER_SCANLINES:
 			return 2;
 	}
 }
@@ -361,7 +361,7 @@ void InitLUTs(void)
 	case 255: if (Diff(RGBtoYUVtable[w4], RGBtoYUVtable[w2])) PIXEL00_0; else PIXEL00_100; if (Diff(RGBtoYUVtable[w2], RGBtoYUVtable[w6])) PIXEL01_0; else PIXEL01_100; if (Diff(RGBtoYUVtable[w8], RGBtoYUVtable[w4])) PIXEL10_0; else PIXEL10_100; if (Diff(RGBtoYUVtable[w6], RGBtoYUVtable[w8])) PIXEL11_0; else PIXEL11_100; break;
 
 template<int GuiScale>
-void CRT (uint8 *srcPtr, uint32 srcPitch, uint8 *dstPtr, uint32 dstPitch, int width, int height)
+void Scanlines (uint8 *srcPtr, uint32 srcPitch, uint8 *dstPtr, uint32 dstPitch, int width, int height)
 {
 	unsigned int nextlineSrc = srcPitch / sizeof(uint16);
 	uint16 *p = (uint16 *)srcPtr;

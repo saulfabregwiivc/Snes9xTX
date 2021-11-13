@@ -7,14 +7,29 @@ Snes9x TX is based on original Snes9x GX: https://github.com/dborth/snes9xgx
 Update History
 --------------
 
+---Snes9x TX 1.0.8---
+---September 1 2021---
+
+- Updated to the latest Snes9x GX (git 5bff07b)
+- Added 128 KB SRAM support in sram
+- Reorganized menu video settings
+- Removed all old crosshairs (not used by Snes9x TX)
+- Added custom crosshairs for Super Scope/Justifier
+- Fixed not working option to disable crosshair
+- Removed rumble function from menu (your batteries will last longer)
+- Updated UI PNG images
+- Compiled with latest devkitPPC/libogc
+- Updated Forwarder Channel (1.3)
+
 ---Snes9x TX 1.0.7---
 ---April 22 2021---
 
 - Changed Filtering setting name to CRT Filter with On/Off option
-- Replaced Scanlines filter per CRT filter (lighter scanlines that do not darken image)
+- Replaced Scanlines filter by CRT filter (lighter scanlines that do not darken image)
 - Removed hq2x filters (these filters take too many resources for Wii)
 - Removed Soft and Sharp video filtering (not work with Snes9x GX)
-- Removed "Auto" of name of saves and option to activate/disable it
+- Removed "Auto" of name of saves and option to enable/disable it
+- Updated Forwarder Channel (1.2)
 
 ---Snes9x TX 1.0.6---
 ---March 25 2021---

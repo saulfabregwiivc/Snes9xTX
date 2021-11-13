@@ -232,12 +232,6 @@ msgstr "Le fichier BIOS du FDS (Famicom Disk System) est introuvable !"
 msgid "Filtered"
 msgstr "Filtré"
 
-msgid "Filtered (Sharp)"
-msgstr "Filtré (net)"
-
-msgid "Filtered (Soft)"
-msgstr "Filtré (doux)"
-
 msgid "Fire"
 msgstr "Tirer"
 
@@ -541,9 +535,6 @@ msgstr "DROITE"
 msgid "Right Button"
 msgstr "Clic droit"
 
-msgid "Rumble"
-msgstr "Vibration"
-
 msgid "Save"
 msgstr "Sauver"
 
@@ -592,8 +583,8 @@ msgstr "Sauvegarde en cours..."
 msgid "Scaling"
 msgstr "Format"
 
-msgid "CRT filter"
-msgstr "Filtre CRT"
+msgid "Scanlines"
+msgstr "Ligne de balayage"
 
 msgid "Screen Position"
 msgstr "Position de l'écran"

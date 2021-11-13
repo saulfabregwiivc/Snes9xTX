@@ -158,7 +158,6 @@ preparePrefsData ()
 	createXMLSetting("ExitAction", "Exit Action", toStr(GCSettings.ExitAction));
 	createXMLSetting("MusicVolume", "Music Volume", toStr(GCSettings.MusicVolume));
 	createXMLSetting("SFXVolume", "Sound Effects Volume", toStr(GCSettings.SFXVolume));
-	createXMLSetting("Rumble", "Rumble", toStr(GCSettings.Rumble));
 	createXMLSetting("language", "Language", toStr(GCSettings.language));
 	createXMLSetting("PreviewImage", "Preview Image", toStr(GCSettings.PreviewImage));
 	
@@ -339,7 +338,6 @@ decodePrefsData ()
 			loadXMLSetting(&GCSettings.ExitAction, "ExitAction");
 			loadXMLSetting(&GCSettings.MusicVolume, "MusicVolume");
 			loadXMLSetting(&GCSettings.SFXVolume, "SFXVolume");
-			loadXMLSetting(&GCSettings.Rumble, "Rumble");
 			loadXMLSetting(&GCSettings.language, "language");
 			loadXMLSetting(&GCSettings.PreviewImage, "PreviewImage");
 
@@ -445,11 +443,10 @@ DefaultSettings ()
 	GCSettings.WiimoteOrientation = 0;
 	GCSettings.ExitAction = 0;
 	GCSettings.AutoloadGame = 0;
-	GCSettings.MusicVolume = 20;
+	GCSettings.MusicVolume = 100;
 	GCSettings.SFXVolume = 40;
-	GCSettings.Rumble = 1;
 	GCSettings.PreviewImage = 0;
-	
+
 #ifdef HW_RVL
 	GCSettings.language = CONF_GetLanguage();
 

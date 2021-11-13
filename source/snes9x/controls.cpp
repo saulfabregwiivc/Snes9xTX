@@ -24,6 +24,10 @@
 #include "netplay.h"
 #endif
 
+#ifdef GEKKO
+#include "snes9xgx.h"
+#endif
+
 using namespace	std;
 
 #define NONE					(-2)
@@ -453,9 +457,9 @@ void S9xUnmapAllControls (void)
 		justifier.ID[i] = InvalidControlID;
 
 		if (!(justifier.crosshair[i].set & 1))
-			justifier.crosshair[i].img = 4;
+			justifier.crosshair[i].img = 2;
 		if (!(justifier.crosshair[i].set & 2))
-			justifier.crosshair[i].fg  = i ? 14 : 12;
+			justifier.crosshair[i].fg  = i ? 9 : 11;
 		if (!(justifier.crosshair[i].set & 4))
 			justifier.crosshair[i].bg  = 1;
 	}
@@ -469,18 +473,18 @@ void S9xUnmapAllControls (void)
 	superscope.ID = InvalidControlID;
 
 	if (!(superscope.crosshair.set & 1))
-		superscope.crosshair.img = 2;
+		superscope.crosshair.img = 1;
 	if (!(superscope.crosshair.set & 2))
-		superscope.crosshair.fg  = 5;
+		superscope.crosshair.fg  = 6;
 	if (!(superscope.crosshair.set & 4))
-		superscope.crosshair.bg  = 1;
+		superscope.crosshair.bg  = 19;
 
 	macsrifle.x = macsrifle.y = 0;
 	macsrifle.buttons = 0;
 	macsrifle.ID = InvalidControlID;
 
 	if (!(macsrifle.crosshair.set & 1))
-		macsrifle.crosshair.img = 2;
+		macsrifle.crosshair.img = 0;
 	if (!(macsrifle.crosshair.set & 2))
 		macsrifle.crosshair.fg  = 5;
 	if (!(macsrifle.crosshair.set & 4))
@@ -3202,6 +3206,9 @@ void S9xControlEOF (void)
 						DoGunLatch(superscope.x, superscope.y);
 
 					c = &superscope.crosshair;
+					#ifdef GEKKO
+					if(GCSettings.crosshair)
+					#endif
 					if (IPPU.RenderThisFrame)
 						S9xDrawCrosshair(S9xGetCrosshair(c->img), c->fg, c->bg, superscope.x, superscope.y);
 				}
@@ -3212,6 +3219,9 @@ void S9xControlEOF (void)
 				if (n == 1 && !justifier.offscreen[1])
 				{
 					c = &justifier.crosshair[1];
+					#ifdef GEKKO
+					if(GCSettings.crosshair)
+					#endif
 					if (IPPU.RenderThisFrame)
 						S9xDrawCrosshair(S9xGetCrosshair(c->img), c->fg, c->bg, justifier.x[1], justifier.y[1]);
 				}
@@ -3231,6 +3241,9 @@ void S9xControlEOF (void)
 					if (!justifier.offscreen[0])
 					{
 						c = &justifier.crosshair[0];
+						#ifdef GEKKO
+						if(GCSettings.crosshair)
+						#endif
 						if (IPPU.RenderThisFrame)
 							S9xDrawCrosshair(S9xGetCrosshair(c->img), c->fg, c->bg, justifier.x[0], justifier.y[0]);
 					}

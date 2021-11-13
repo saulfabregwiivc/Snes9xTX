@@ -96,10 +96,6 @@ void ExitCleanup()
 
 void ExitApp()
 {
-#ifdef HW_RVL
-	ShutoffRumble();
-#endif
-
 	SavePrefs(SILENT);
 
 	if (SNESROMSize > 0 && !ConfigRequested && GCSettings.AutoSave == 1)

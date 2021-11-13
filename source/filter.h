@@ -23,7 +23,7 @@
 enum RenderFilter{
 	FILTER_NONE = 0,
 
-	FILTER_CRT,
+	FILTER_SCANLINES,
 
 	NUM_FILTERS
 };

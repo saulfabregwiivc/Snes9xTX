@@ -337,7 +337,6 @@ UpdateGUI (void *arg)
 			if(userInput[i].wpad->ir.valid) {
 				Menu_DrawImg(userInput[i].wpad->ir.x-48, userInput[i].wpad->ir.y-48, 96, 96, pointer[i]->GetImage(), userInput[i].wpad->ir.angle, 1, 1, 255);
 			}
-			DoRumble(i);
 			--i;
 		} while(i>=0);
 		#endif
@@ -916,7 +915,6 @@ static void WindowCredits(void * ptr)
 			if(userInput[i].wpad->ir.valid) {
 				Menu_DrawImg(userInput[i].wpad->ir.x-48, userInput[i].wpad->ir.y-48, 96, 96, pointer[i]->GetImage(), userInput[i].wpad->ir.angle, 1, 1, 255);
 			}
-			DoRumble(i);
 			--i;
 		} while(i >= 0);
 		#endif
@@ -1056,10 +1054,6 @@ static int MenuGameSelection()
 	mainWindow->Append(&preview);
 	ResumeGui();
 
-	#ifdef HW_RVL
-	ShutoffRumble();
-	#endif
-
 	// populate initial directory listing
 	selectLoadedFile = 1;
 	OpenGameList();
@@ -1112,9 +1106,6 @@ static int MenuGameSelection()
 				}
 				else
 				{
-					#ifdef HW_RVL
-					ShutoffRumble();
-					#endif
 					mainWindow->SetState(STATE_DISABLED);
 					SavePrefs(SILENT);
 					if(BrowserLoadFile())
@@ -3378,14 +3369,14 @@ static int MenuSettingsVideo()
 
 	sprintf(options.name[i++], "Rendering");
 	sprintf(options.name[i++], "Scaling");
-	sprintf(options.name[i++], "CRT filter");
 	sprintf(options.name[i++], "Screen Zoom");
 	sprintf(options.name[i++], "Screen Position");
+	sprintf(options.name[i++], "Scanlines");
 	sprintf(options.name[i++], "Crosshair");
-	sprintf(options.name[i++], "Video Mode");
 	sprintf(options.name[i++], "Show Framerate");
 	sprintf(options.name[i++], "Show Local Time");
 	sprintf(options.name[i++], "SuperFX Overclock");
+	sprintf(options.name[i++], "Video Mode");
 	options.length = i;
 	
 #ifdef HW_DOL
@@ -3451,17 +3442,17 @@ static int MenuSettingsVideo()
 				break;
 
 			case 2:
-				GCSettings.FilterMethod++;
-				if (GCSettings.FilterMethod >= NUM_FILTERS)
-					GCSettings.FilterMethod = 0;
-				break;
-
-			case 3:
 				ScreenZoomWindow();
 				break;
 
-			case 4:
+			case 3:
 				ScreenPositionWindow();
+				break;
+
+			case 4:
+				GCSettings.FilterMethod++;
+				if (GCSettings.FilterMethod >= NUM_FILTERS)
+					GCSettings.FilterMethod = 0;
 				break;
 
 			case 5:
@@ -3469,17 +3460,14 @@ static int MenuSettingsVideo()
 				break;
 
 			case 6:
-				GCSettings.videomode++;
-				if(GCSettings.videomode > 4)
-					GCSettings.videomode = 0;
-				break;
-			case 7:
 				Settings.DisplayFrameRate ^= 1;
 				break;
-			case 8:
+
+			case 7:
 				Settings.DisplayTime ^= 1;
 				break;
-			case 9:
+
+			case 8:
 				GCSettings.sfxOverclock++;
 				if (GCSettings.sfxOverclock > 2) {
 					GCSettings.sfxOverclock = 0;
@@ -3492,6 +3480,12 @@ static int MenuSettingsVideo()
 				}
 				S9xResetSuperFX();
 				S9xReset();
+				break;
+				
+			case 9:
+				GCSettings.videomode++;
+				if(GCSettings.videomode > 4)
+					GCSettings.videomode = 0;
 				break;
 		}
 
@@ -3509,41 +3503,42 @@ static int MenuSettingsVideo()
 				sprintf (options.value[0], "Filtered");
 			else if (GCSettings.render == 2)
 				sprintf (options.value[0], "Unfiltered");
-
 			if(GCSettings.widescreen)
 				sprintf (options.value[1], "16:9 Correction");
 			else
 				sprintf (options.value[1], "Default");
+
+			sprintf (options.value[2], "%.2f%%, %.2f%%", GCSettings.zoomHor*100, GCSettings.zoomVert*100);
+			sprintf (options.value[3], "%d, %d", GCSettings.xshift, GCSettings.yshift);
 #ifdef HW_RVL
-			sprintf (options.value[2], "%s", GetFilterName((RenderFilter)GCSettings.FilterMethod));
+			sprintf (options.value[4], "%s", GetFilterName((RenderFilter)GCSettings.FilterMethod));
 #endif
-			sprintf (options.value[3], "%.2f%%, %.2f%%", GCSettings.zoomHor*100, GCSettings.zoomVert*100);
-			sprintf (options.value[4], "%d, %d", GCSettings.xshift, GCSettings.yshift);
 			sprintf (options.value[5], "%s", GCSettings.crosshair == 1 ? "On" : "Off");
+			sprintf (options.value[6], "%s", Settings.DisplayFrameRate ? "On" : "Off");
+			sprintf (options.value[7], "%s", Settings.DisplayTime ? "On" : "Off");
+
+			switch(GCSettings.sfxOverclock)
+			{
+				case 0:
+					sprintf (options.value[8], "Default"); break;
+				case 1:
+					sprintf (options.value[8], "40 MHz"); break;
+				case 2:
+					sprintf (options.value[8], "60 MHz"); break;
+			}
 
 			switch(GCSettings.videomode)
 			{
 				case 0:
-					sprintf (options.value[6], "Automatic (Recommended)"); break;
+					sprintf (options.value[9], "Automatic (Recommended)"); break;
 				case 1:
-					sprintf (options.value[6], "NTSC (480i)"); break;
+					sprintf (options.value[9], "NTSC (480i)"); break;
 				case 2:
-					sprintf (options.value[6], "Progressive (480p)"); break;
+					sprintf (options.value[9], "Progressive (480p)"); break;
 				case 3:
-					sprintf (options.value[6], "PAL (50Hz)"); break;
+					sprintf (options.value[9], "PAL (50Hz)"); break;
 				case 4:
-					sprintf (options.value[6], "PAL (60Hz)"); break;
-			}
-			sprintf (options.value[7], "%s", Settings.DisplayFrameRate ? "On" : "Off");
-			sprintf (options.value[8], "%s", Settings.DisplayTime ? "On" : "Off");
-			switch(GCSettings.sfxOverclock)
-			{
-				case 0:
-					sprintf (options.value[9], "Default"); break;
-				case 1:
-					sprintf (options.value[9], "40 MHz"); break;
-				case 2:
-					sprintf (options.value[9], "60 MHz"); break;
+					sprintf (options.value[9], "PAL (60Hz)"); break;
 			}
 			optionBrowser.TriggerUpdate();
 		}
@@ -3686,7 +3681,7 @@ static int MenuSettings()
 	GuiImage fileBtnIcon(&iconFile);
 	GuiButton savingBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
 	savingBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
-	savingBtn.SetPosition(-125, 186);
+	savingBtn.SetPosition(-125, 120);
 	savingBtn.SetLabel(&savingBtnTxt1, 0);
 	savingBtn.SetLabel(&savingBtnTxt2, 1);
 	savingBtn.SetLabel(&savingBtnTxt3, 2);
@@ -3706,7 +3701,7 @@ static int MenuSettings()
 	GuiImage menuBtnIcon(&iconMenu);
 	GuiButton menuBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
 	menuBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
-	menuBtn.SetPosition(125, 186);
+	menuBtn.SetPosition(125, 120);
 	menuBtn.SetLabel(&menuBtnTxt);
 	menuBtn.SetImage(&menuBtnImg);
 	menuBtn.SetImageOver(&menuBtnImgOver);
@@ -4019,7 +4014,6 @@ static int MenuSettingsMenu()
 	sprintf(options.name[i++], "Wiimote Orientation");
 	sprintf(options.name[i++], "Music Volume");
 	sprintf(options.name[i++], "Sound Effects Volume");
-	sprintf(options.name[i++], "Rumble");
 	sprintf(options.name[i++], "Language");
 	sprintf(options.name[i++], "Preview Image");
 	options.length = i;
@@ -4092,9 +4086,6 @@ static int MenuSettingsMenu()
 					GCSettings.SFXVolume = 0;
 				break;
 			case 4:
-				GCSettings.Rumble ^= 1;
-				break;
-			case 5:
 				GCSettings.language++;
 				
 				if(GCSettings.language == LANG_TRAD_CHINESE) // skip (not supported)
@@ -4102,7 +4093,7 @@ static int MenuSettingsMenu()
 				else if(GCSettings.language >= LANG_LENGTH)
 					GCSettings.language = LANG_JAPANESE;
 				break;
-			case 6:
+			case 5:
 				GCSettings.PreviewImage++;
 				if(GCSettings.PreviewImage > 2)
 					GCSettings.PreviewImage = 0;
@@ -4133,7 +4124,6 @@ static int MenuSettingsMenu()
 			options.name[1][0] = 0; // Wiimote
 			options.name[2][0] = 0; // Music
 			options.name[3][0] = 0; // Sound Effects
-			options.name[4][0] = 0; // Rumble
 			#endif
 
 			if (GCSettings.WiimoteOrientation == 0)
@@ -4151,39 +4141,34 @@ static int MenuSettingsMenu()
 			else
 				sprintf(options.value[3], "Mute");
 
-			if (GCSettings.Rumble == 1)
-				sprintf (options.value[4], "Enabled");
-			else
-				sprintf (options.value[4], "Disabled");
-
 			switch(GCSettings.language)
 			{
-				case LANG_JAPANESE:		sprintf(options.value[5], "Japanese"); break;
-				case LANG_ENGLISH:		sprintf(options.value[5], "English"); break;
-				case LANG_GERMAN:		sprintf(options.value[5], "German"); break;
-				case LANG_FRENCH:		sprintf(options.value[5], "French"); break;
-				case LANG_SPANISH:		sprintf(options.value[5], "Spanish"); break;
-				case LANG_ITALIAN:		sprintf(options.value[5], "Italian"); break;
-				case LANG_DUTCH:		sprintf(options.value[5], "Dutch"); break;
-				case LANG_SIMP_CHINESE:	sprintf(options.value[5], "Chinese (Simplified)"); break;
-				case LANG_TRAD_CHINESE:	sprintf(options.value[5], "Chinese (Traditional)"); break;
-				case LANG_KOREAN:		sprintf(options.value[5], "Korean"); break;
-				case LANG_PORTUGUESE:	sprintf(options.value[5], "Portuguese"); break;
-				case LANG_BRAZILIAN_PORTUGUESE: sprintf(options.value[5], "Brazilian Portuguese"); break;
-				case LANG_CATALAN:		sprintf(options.value[5], "Catalan"); break;
-				case LANG_TURKISH:		sprintf(options.value[5], "Turkish"); break;
+				case LANG_JAPANESE:		sprintf(options.value[4], "Japanese"); break;
+				case LANG_ENGLISH:		sprintf(options.value[4], "English"); break;
+				case LANG_GERMAN:		sprintf(options.value[4], "German"); break;
+				case LANG_FRENCH:		sprintf(options.value[4], "French"); break;
+				case LANG_SPANISH:		sprintf(options.value[4], "Spanish"); break;
+				case LANG_ITALIAN:		sprintf(options.value[4], "Italian"); break;
+				case LANG_DUTCH:		sprintf(options.value[4], "Dutch"); break;
+				case LANG_SIMP_CHINESE:	sprintf(options.value[4], "Chinese (Simplified)"); break;
+				case LANG_TRAD_CHINESE:	sprintf(options.value[4], "Chinese (Traditional)"); break;
+				case LANG_KOREAN:		sprintf(options.value[4], "Korean"); break;
+				case LANG_PORTUGUESE:	sprintf(options.value[4], "Portuguese"); break;
+				case LANG_BRAZILIAN_PORTUGUESE: sprintf(options.value[4], "Brazilian Portuguese"); break;
+				case LANG_CATALAN:		sprintf(options.value[4], "Catalan"); break;
+				case LANG_TURKISH:		sprintf(options.value[4], "Turkish"); break;
 			}
 			
 			switch(GCSettings.PreviewImage)
 			{
 				case 0:	
-					sprintf(options.value[6], "Screenshots");
+					sprintf(options.value[5], "Screenshots");
 					break; 
 				case 1:	
-					sprintf(options.value[6], "Covers");
+					sprintf(options.value[5], "Covers");
 					break; 
 				case 2:	
-					sprintf(options.value[6], "Artwork");
+					sprintf(options.value[5], "Artwork");
 					break; 
 			}
 			
@@ -4371,10 +4356,6 @@ MainMenu (int menu)
 		lastMenu = currentMenu;
 		usleep(THREAD_SLEEP);
 	}
-
-	#ifdef HW_RVL
-	ShutoffRumble();
-	#endif
 
 	CancelAction();
 	HaltGui();
