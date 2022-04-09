@@ -501,7 +501,7 @@ int main(int argc, char *argv[])
 			// since we're entering the menu
 			ResumeDeviceThread();
 
-			SwitchAudioMode(1);
+			AudioMode(1);
 
 			if(SNESROMSize == 0)
 				MainMenu(MENU_GAMESELECTION);
@@ -515,7 +515,7 @@ int main(int argc, char *argv[])
 		autoboot = false;		
 		ConfigRequested = 0;
 		ScreenshotRequested = 0;
-		SwitchAudioMode(0);
+		AudioMode(0);
 
 		Settings.AutoDisplayMessages = (Settings.DisplayFrameRate || Settings.DisplayTime ? true : false);
 		Settings.MultiPlayer5Master = (GCSettings.Controller == CTRL_PAD4 ? true : false);
