@@ -34,9 +34,6 @@ GuiButton::GuiButton(int w, int h)
 		labelClick[i] = NULL;
 	}
 
-	soundOver = NULL;
-	soundHold = NULL;
-	soundClick = NULL;
 	tooltip = NULL;
 	selectable = true;
 	holdable = false;
@@ -109,18 +106,6 @@ void GuiButton::SetLabelClick(GuiText* txt, int n)
 {
 	labelClick[n] = txt;
 	if(txt) txt->SetParent(this);
-}
-void GuiButton::SetSoundOver(GuiSound * snd)
-{
-	soundOver = snd;
-}
-void GuiButton::SetSoundHold(GuiSound * snd)
-{
-	soundHold = snd;
-}
-void GuiButton::SetSoundClick(GuiSound * snd)
-{
-	soundClick = snd;
 }
 void GuiButton::SetTooltip(GuiTooltip* t)
 {
@@ -220,9 +205,6 @@ void GuiButton::Update(GuiTrigger * t)
 			{
 				this->SetState(STATE_SELECTED, t->chan);
 
-				if(soundOver)
-					soundOver->Play();
-
 				if(effectsOver && !effects)
 				{
 					// initiate effects
@@ -282,9 +264,6 @@ void GuiButton::Update(GuiTrigger * t)
 							if(!t->wpad->ir.valid ||	this->IsInside(t->wpad->ir.x, t->wpad->ir.y))
 							{
 								this->SetState(STATE_CLICKED, t->chan);
-
-								if(soundClick)
-									soundClick->Play();
 							}
 						}
 						else if(trigger[i]->type == TRIGGER_BUTTON_ONLY)
