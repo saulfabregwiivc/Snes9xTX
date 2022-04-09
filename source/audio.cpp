@@ -122,7 +122,7 @@ AudioMode(int mode)
 	ASND_Pause(1);
 	AUDIO_StopDMA();
 	AUDIO_SetDSPSampleRate(AI_SAMPLERATE_32KHZ);
-	AUDIO_RegisterDMACallback(GCMixSamples);
+	AUDIO_RegisterDMACallback(S9xMixSamples);
 	#endif
 	memset(soundbuffer[0],0,AUDIOBUFFER);
 	memset(soundbuffer[1],0,AUDIOBUFFER);
