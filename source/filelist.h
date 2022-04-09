@@ -32,15 +32,6 @@
 #include "ca_lang.h"
 #include "tr_lang.h"
 
-// Sounds
-#ifdef HW_RVL
-// background music is Wii-only
-#include "enter_ogg.h"
-#include "exit_ogg.h"
-#endif
-#include "button_over_pcm.h"
-#include "button_click_pcm.h"
-
 // Graphics
 #include "logo_png.h"
 #include "logo_over_png.h"
