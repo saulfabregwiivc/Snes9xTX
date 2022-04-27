@@ -3469,7 +3469,7 @@ static int MenuSettingsVideo()
 
 			case 8:
 				GCSettings.sfxOverclock++;
-				if (GCSettings.sfxOverclock > 2) {
+				if (GCSettings.sfxOverclock > 3) {
 					GCSettings.sfxOverclock = 0;
 				}
 				switch(GCSettings.sfxOverclock)
