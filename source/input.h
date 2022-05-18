@@ -1,14 +1,14 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
  * softdev July 2006
  * crunchy2 May-June 2007
  * Michniewski 2008
- * Tantric 2008-2021
+ * Tantric 2008-2022
  *
  * input.h
  *
- * Wii/Gamecube controller management
+ * Controller management
  ***************************************************************************/
 
 #ifndef _INPUT_H_

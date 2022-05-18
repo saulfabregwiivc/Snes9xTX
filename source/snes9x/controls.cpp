@@ -25,7 +25,7 @@
 #endif
 
 #ifdef GEKKO
-#include "snes9xgx.h"
+#include "snes9xtx.h"
 #endif
 
 using namespace	std;

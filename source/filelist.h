@@ -1,7 +1,7 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
- * Tantric 2008-2021
+ * Tantric 2008-2022
  *
  * filelist.h
  *
@@ -65,6 +65,7 @@
 #include "icon_settings_superscope_png.h"
 #include "icon_settings_justifier_png.h"
 #include "icon_settings_mouse_png.h"
+#include "icon_settings_turbo_png.h"
 #include "icon_settings_file_png.h"
 #include "icon_settings_mappings_png.h"
 #include "icon_settings_menu_png.h"
@@ -131,9 +132,5 @@
 #include "player2_point_png.h"
 #include "player3_point_png.h"
 #include "player4_point_png.h"
-#include "player1_grab_png.h"
-#include "player2_grab_png.h"
-#include "player3_grab_png.h"
-#include "player4_grab_png.h"
 
 #endif

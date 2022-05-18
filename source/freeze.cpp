@@ -1,10 +1,10 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
  * softdev July 2006
  * crunchy2 May 2007-July 2007
  * Michniewski 2008
- * Tantric 2008-2021
+ * Tantric 2008-2022
  *
  * freeze.cpp
  ***************************************************************************/
@@ -13,7 +13,7 @@
 #include <gccore.h>
 #include <stdio.h>
 
-#include "snes9xgx.h"
+#include "snes9xtx.h"
 #include "fileop.h"
 #include "filebrowser.h"
 #include "menu.h"
@@ -39,7 +39,6 @@ void S9xCloseSnapshotFile(STREAM s)
 /****************************************************************************
  * SaveSnapshot
  ***************************************************************************/
-
 int
 SaveSnapshot (char * filepath, bool silent)
 {
@@ -143,7 +142,6 @@ LoadSnapshotAuto (bool silent)
 /****************************************************************************
  * SavePreview
  ***************************************************************************/
-
 int SavePreviewImg (char * filepath, bool silent)
 {
 	int device;

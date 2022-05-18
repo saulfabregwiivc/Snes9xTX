@@ -1,10 +1,10 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
  * softdev July 2006
  * crunchy2 May 2007
  * Michniewski 2008
- * Tantric 2008-2021
+ * Tantric 2008-2022
  *
  * s9xsupport.cpp
  *
@@ -20,7 +20,7 @@
 #include <ogc/lwp_watchdog.h>
 
 #include "snes9x/port.h"
-#include "snes9xgx.h"
+#include "snes9xtx.h"
 #include "video.h"
 #include "audio.h"
 #include "snes9x/snes9x.h"
@@ -193,7 +193,6 @@ bool S9xPollPointer(uint32 id, int16 * x, int16 * y)
  * Note that these are DUMMY functions, and only allow Snes9x to
  * compile. Where possible, they will return an error signal.
  ***************************************************************************/
-
 const char * S9xGetDirectory(enum s9x_getdirtype dirtype)
 {
 	ExitApp();

@@ -1,10 +1,10 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
  * softdev July 2006
  * crunchy2 May 2007
  * Michniewski 2008
- * Tantric 2008-2021
+ * Tantric 2008-2022
  *
  * video.cpp
  *
@@ -20,7 +20,7 @@
 #include <ogc/texconv.h>
 #include <ogc/machine/processor.h>
 
-#include "snes9xgx.h"
+#include "snes9xtx.h"
 #include "menu.h"
 #include "filter.h"
 #include "filelist.h"
@@ -51,7 +51,7 @@ int CheckVideo = 0; // for forcing video reset
 
 /*** GX ***/
 #define TEX_WIDTH 512
-#define TEX_HEIGHT 512
+#define TEX_HEIGHT 478
 #define TEXTUREMEM_SIZE 	TEX_WIDTH*(TEX_HEIGHT+8)*2
 static unsigned char texturemem[TEXTUREMEM_SIZE] ATTRIBUTE_ALIGN (32);
 
@@ -88,7 +88,7 @@ camera;
      This structure controls the size of the image on the screen.
 	 Think of the output as a -80 x 80 by -60 x 60 graph.
 ***/
-s16 square[] ATTRIBUTE_ALIGN (32) =
+static s16 square[] ATTRIBUTE_ALIGN (32) =
 {
   /*
    * X,   Y,  Z
@@ -100,13 +100,11 @@ s16 square[] ATTRIBUTE_ALIGN (32) =
 	-HASPECT, -VASPECT, 0	// 3
 };
 
-
 static camera cam = {
 	{0.0F, 0.0F, 0.0F},
 	{0.0F, 0.5F, 0.0F},
 	{0.0F, 0.0F, -0.5F}
 };
-
 
 /***
 *** Custom Video modes (used to emulate original console video modes)
@@ -115,7 +113,7 @@ static camera cam = {
 /** Original SNES PAL Resolutions: **/
 
 /* 239 lines progressive (PAL 50Hz) */
-static GXRModeObj TV_239p =
+static GXRModeObj TV50hz_239p =
 {
 	VI_TVMODE_PAL_DS,       // viDisplayMode
 	512,             // fbWidth
@@ -150,7 +148,7 @@ static GXRModeObj TV_239p =
 };
 
 /* 478 lines interlaced (PAL 50Hz, Deflicker) */
-static GXRModeObj TV_478i =
+static GXRModeObj TV50hz_478i =
 {
 	VI_TVMODE_PAL_INT,      // viDisplayMode
 	512,             // fbWidth
@@ -176,7 +174,7 @@ static GXRModeObj TV_478i =
 	{
 		8,         // line n-1
 		8,         // line n-1
-		10,         // line n
+    	10,         // line n
 		12,         // line n
 		10,         // line n
 		8,         // line n+1
@@ -187,14 +185,14 @@ static GXRModeObj TV_478i =
 /** Original SNES NTSC Resolutions: **/
 
 /* 224 lines progressive (NTSC or PAL 60Hz) */
-static GXRModeObj TV_224p =
+static GXRModeObj TV60hz_224p =
 {
 	VI_TVMODE_EURGB60_DS,      // viDisplayMode
 	512,             // fbWidth
 	224,             // efbHeight
 	224,             // xfbHeight
-	(VI_MAX_WIDTH_NTSC - 644)/2,	// viXOrigin
-	(VI_MAX_HEIGHT_NTSC/2 - 448/2)/2,	// viYOrigin
+	(VI_MAX_WIDTH_NTSC - 644)/2,        // viXOrigin
+	(VI_MAX_HEIGHT_NTSC/2 - 448/2)/2,       // viYOrigin
 	644,             // viWidth
 	448,             // viHeight
 	VI_XFBMODE_SF,   // xFBmode
@@ -222,7 +220,7 @@ static GXRModeObj TV_224p =
 };
 
 /* 448 lines interlaced (NTSC or PAL 60Hz, Deflicker) */
-static GXRModeObj TV_448i =
+static GXRModeObj TV60hz_448i =
 {
 	VI_TVMODE_EURGB60_INT,     // viDisplayMode
 	512,             // fbWidth
@@ -235,7 +233,6 @@ static GXRModeObj TV_448i =
 	VI_XFBMODE_DF,   // xFBmode
 	GX_FALSE,         // field_rendering
 	GX_FALSE,        // aa
-
 
 	// sample points arranged in increasing Y order
 	{
@@ -261,8 +258,8 @@ static GXRModeObj TV_Custom;
 
 /* TV Modes table */
 static GXRModeObj *tvmodes[4] = {
-	&TV_239p, &TV_478i,			/* Snes PAL video modes */
-	&TV_224p, &TV_448i,			/* Snes NTSC video modes */
+	&TV60hz_224p, &TV60hz_448i,			/* Snes NTSC video modes */
+	&TV50hz_239p, &TV50hz_478i			/* Snes PAL video modes */
 };
 
 /****************************************************************************
@@ -430,11 +427,11 @@ static GXRModeObj * FindVideoMode()
 
 			// Original Video modes (forced to PAL 50Hz)
 			// set video signal mode
-			TV_224p.viTVMode = VI_TVMODE_PAL_DS;
-			TV_448i.viTVMode = VI_TVMODE_PAL_INT;
+			TV60hz_224p.viTVMode = VI_TVMODE_PAL_DS;
+			TV60hz_448i.viTVMode = VI_TVMODE_PAL_INT;
 			// set VI position
-			TV_224p.viYOrigin = (VI_MAX_HEIGHT_PAL/2 - 448/2)/2;
-			TV_448i.viYOrigin = (VI_MAX_HEIGHT_PAL - 448)/2;
+			TV60hz_224p.viYOrigin = (VI_MAX_HEIGHT_PAL/2 - 448/2)/2;
+			TV60hz_448i.viYOrigin = (VI_MAX_HEIGHT_PAL - 448)/2;
 			break;
 
 		case VI_NTSC:
@@ -443,15 +440,15 @@ static GXRModeObj * FindVideoMode()
 
 			// Original Video modes (forced to NTSC 60hz)
 			// set video signal mode
-			TV_239p.viTVMode = VI_TVMODE_NTSC_DS;
-			TV_478i.viTVMode = VI_TVMODE_NTSC_INT;
-			TV_224p.viTVMode = VI_TVMODE_NTSC_DS;
-			TV_448i.viTVMode = VI_TVMODE_NTSC_INT;
+			TV50hz_239p.viTVMode = VI_TVMODE_NTSC_DS;
+			TV50hz_478i.viTVMode = VI_TVMODE_NTSC_INT;
+			TV60hz_224p.viTVMode = VI_TVMODE_NTSC_DS;
+			TV60hz_448i.viTVMode = VI_TVMODE_NTSC_INT;
 			// set VI position
-			TV_239p.viYOrigin = (VI_MAX_HEIGHT_NTSC/2 - 478/2)/2;
-			TV_478i.viYOrigin = (VI_MAX_HEIGHT_NTSC - 478)/2;
-			TV_224p.viYOrigin = (VI_MAX_HEIGHT_NTSC/2 - 448/2)/2;
-			TV_448i.viYOrigin = (VI_MAX_HEIGHT_NTSC - 448)/2;
+			TV50hz_239p.viYOrigin = (VI_MAX_HEIGHT_NTSC/2 - 478/2)/2;
+			TV50hz_478i.viYOrigin = (VI_MAX_HEIGHT_NTSC - 478)/2;
+			TV60hz_224p.viYOrigin = (VI_MAX_HEIGHT_NTSC/2 - 448/2)/2;
+			TV60hz_448i.viYOrigin = (VI_MAX_HEIGHT_NTSC - 448)/2;
 			break;
 
 		default:
@@ -460,15 +457,15 @@ static GXRModeObj * FindVideoMode()
 
 			// Original Video modes (forced to PAL 60hz)
 			// set video signal mode
-			TV_239p.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_NON_INTERLACE);
-			TV_478i.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_INTERLACE);
-			TV_224p.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_NON_INTERLACE);
-			TV_448i.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_INTERLACE);
+			TV50hz_239p.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_NON_INTERLACE);
+			TV50hz_478i.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_INTERLACE);
+			TV60hz_224p.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_NON_INTERLACE);
+			TV60hz_448i.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_INTERLACE);
 			// set VI position
-			TV_239p.viYOrigin = (VI_MAX_HEIGHT_NTSC/2 - 478/2)/2;
-			TV_478i.viYOrigin = (VI_MAX_HEIGHT_NTSC - 478)/2;
-			TV_224p.viYOrigin = (VI_MAX_HEIGHT_NTSC/2 - 448/2)/2;
-			TV_448i.viYOrigin = (VI_MAX_HEIGHT_NTSC - 448)/2;
+			TV50hz_239p.viYOrigin = (VI_MAX_HEIGHT_NTSC/2 - 478/2)/2;
+			TV50hz_478i.viYOrigin = (VI_MAX_HEIGHT_NTSC - 478)/2;
+			TV60hz_224p.viYOrigin = (VI_MAX_HEIGHT_NTSC/2 - 448/2)/2;
+			TV60hz_448i.viYOrigin = (VI_MAX_HEIGHT_NTSC - 448)/2;
 			break;
 	}
 
@@ -538,7 +535,6 @@ static void SetupVideoMode(GXRModeObj * mode)
  * This function MUST be called at startup.
  * - also sets up menu video mode
  ***************************************************************************/
-
 void
 InitGCVideo ()
 {
@@ -554,17 +550,14 @@ InitGCVideo ()
 
 	GXRModeObj *rmode = FindVideoMode();
 
-#ifdef HW_RVL
-if (CONF_GetAspectRatio() == CONF_ASPECT_16_9 && (*(u32*)(0xCD8005A0) >> 16) == 0xCAFE) // Wii U
-{
-	write32(0xd8006a0, 0x30000004), mask32(0xd8006a8, 0, 2);
-}
-#endif
+    #ifdef HW_RVL
+    if (CONF_GetAspectRatio() == CONF_ASPECT_16_9 && (*(u32*)(0xCD8005A0) >> 16) == 0xCAFE) // Wii U
+    {
+	    write32(0xd8006a0, 0x30000004), mask32(0xd8006a8, 0, 2);
+    }
+    #endif
 
 	SetupVideoMode(rmode);
-#ifdef HW_RVL
-	InitLUTs();	// init LUTs for hq2x
-#endif
 	LWP_CreateThread (&vbthread, vbgetback, NULL, vbstack, TSTACK, 68);
 	
 	// Initialize GX
@@ -606,7 +599,7 @@ ResetVideo_Emu ()
 	Mtx44 p;
 	int i = -1;
 
-	// original render mode or hq2x
+	// original render mode or filtering
 	if (GCSettings.render == 0)
 	{
 		for (int j=0; j<4; j++)
@@ -623,7 +616,7 @@ ResetVideo_Emu ()
 	{
 		rmode = tvmodes[i];
 
-		// hack to fix video output for hq2x (only when actually filtering; h<=239, w<=256)
+		// hack to fix video output for filters (only when actually filtering; h<=239, w<=256)
 		if (GCSettings.FilterMethod != FILTER_NONE && vheight <= 239 && vwidth <= 256)
 		{
 			memcpy(&TV_Custom, tvmodes[i], sizeof(TV_Custom));
@@ -747,7 +740,7 @@ update_video (int width, int height)
 
 	whichfb ^= 1;
 
-	if (oldvheight != vheight || oldvwidth != vwidth)	// if rendered width/height changes, update scaling
+	if (oldvheight != vheight || oldvwidth != vwidth)	 // if rendered width/height changes, update scaling
 		CheckVideo = 1;
 
 	if (CheckVideo)	// if we get back from the menu, and have rendered at least 1 frame
@@ -809,7 +802,7 @@ update_video (int width, int height)
 		// initialize the texture obj we are going to use
 		GX_InitTexObj (&texobj, texturemem, vwidth*fscale, vheight*fscale, GX_TF_RGB565, GX_CLAMP, GX_CLAMP, GX_FALSE);
 
-	    if (GCSettings.render == 0 || GCSettings.render == 2)
+	    if (GCSettings.render == 0 || GCSettings.render == 1)
 			GX_InitTexObjLOD(&texobj,GX_NEAR,GX_NEAR_MIP_NEAR,2.5,9.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_1); // original/unfiltered video mode: force texture filtering OFF
 
 		GX_LoadTexObj (&texobj, GX_TEXMAP0);	// load texture object so its ready to use
@@ -820,7 +813,7 @@ update_video (int width, int height)
 	}
 #ifdef HW_RVL
 	// convert image to texture
-	if (GCSettings.FilterMethod != FILTER_NONE && vheight <= 239 && vwidth <= 256)	// don't do filtering on game textures > 256 x 239
+	if (GCSettings.FilterMethod != FILTER_NONE && vheight <= 239 && vwidth <= 256) // don't do filtering on game textures > 256 x 239
 	{
 		FilterMethod ((uint8*) GFX.Screen, EXT_PITCH, (uint8*) filtermem, vwidth*fscale*2, vwidth, vheight);
 		MakeTexture565((char *) filtermem, (char *) texturemem, vwidth*fscale, vheight*fscale);
@@ -843,7 +836,7 @@ update_video (int width, int height)
 		if(GCSettings.render == 0) // we can't take a screenshot in Original mode
 		{
 			oldRenderMode = 0;
-			GCSettings.render = 2; // switch to unfiltered mode
+			GCSettings.render = 1; // switch to unfiltered mode
 			CheckVideo = 1; // request the switch
 		}
 		else
@@ -1086,4 +1079,3 @@ void Menu_DrawRectangle(f32 x, f32 y, f32 width, f32 height, GXColor color, u8 f
 	}
 	GX_End();
 }
-
