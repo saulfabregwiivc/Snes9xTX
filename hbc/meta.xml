@@ -2,8 +2,8 @@
 <app version="1">
   <name>Snes9x TX</name>
   <coder>Tanooki</coder>
-  <version>1.0.8</version>
-  <release_date>20210901</release_date>
+  <version>1.0.9</version>
+  <release_date>20220517</release_date>
   <short_description>Super Nintendo Emulator</short_description>
   <long_description>Snes9x TX is a fork of Snes9x GX on Wii.</long_description>
   <ahb_access />

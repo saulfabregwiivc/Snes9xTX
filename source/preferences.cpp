@@ -1,7 +1,7 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
- * Tantric 2008-2021
+ * Tantric 2008-2022
  *
  * preferences.cpp
  *
@@ -16,7 +16,7 @@
 #include <ogcsys.h>
 #include <mxml.h>
 
-#include "snes9xgx.h"
+#include "snes9xtx.h"
 #include "menu.h"
 #include "fileop.h"
 #include "filebrowser.h"
@@ -140,8 +140,9 @@ preparePrefsData ()
 	createXMLSetting("zoomVert", "Vertical Zoom Level", FtoStr(GCSettings.zoomVert));
 	createXMLSetting("render", "Video Filtering", toStr(GCSettings.render));
 	createXMLSetting("widescreen", "Aspect Ratio Correction", toStr(GCSettings.widescreen));
-	createXMLSetting("crosshair", "Crosshair", toStr(GCSettings.crosshair));
 	createXMLSetting("FilterMethod", "Filter Method", toStr(GCSettings.FilterMethod));
+	createXMLSetting("ShowFrameRate", "Show Framerate", toStr(GCSettings.ShowFrameRate));
+	createXMLSetting("crosshair", "Crosshair", toStr(GCSettings.crosshair));
 	createXMLSetting("xshift", "Horizontal Video Shift", toStr(GCSettings.xshift));
 	createXMLSetting("yshift", "Vertical Video Shift", toStr(GCSettings.yshift));
 	createXMLSetting("sfxOverclock", "SuperFX Overclock", toStr(GCSettings.sfxOverclock));
@@ -164,6 +165,8 @@ preparePrefsData ()
 	createXMLSection("Controller", "Controller Settings");
 
 	createXMLSetting("Controller", "Controller", toStr(GCSettings.Controller));
+	createXMLSetting("TurboMode", "Turbo Mode", toStr(GCSettings.TurboMode));
+	createXMLSetting("TurboModeButton", "Turbo Mode Button", toStr(GCSettings.TurboModeButton));
 
 	createXMLController(btnmap[CTRL_PAD][CTRLR_GCPAD], "btnmap_pad_gcpad", "SNES Pad - GameCube Controller");
 #ifdef HW_RVL
@@ -197,7 +200,6 @@ preparePrefsData ()
  *
  * Load XML elements into variables for an individual variable
  ***************************************************************************/
-
 static void loadXMLSetting(char * var, const char * name, int maxsize)
 {
 	item = mxmlFindElement(xml, xml, "setting", "name", name, MXML_DESCEND);
@@ -234,7 +236,6 @@ static void loadXMLSetting(float * var, const char * name)
  *
  * Load XML elements into variables for a controller mapping
  ***************************************************************************/
-
 static void loadXMLController(u32 controller[], const char * name)
 {
 	item = mxmlFindElement(xml, xml, "controller", "name", name, MXML_DESCEND);
@@ -260,7 +261,6 @@ static void loadXMLController(u32 controller[], const char * name)
  *
  * Decodes preferences - parses XML and loads preferences into the variables
  ***************************************************************************/
-
 static bool
 decodePrefsData ()
 {
@@ -319,8 +319,9 @@ decodePrefsData ()
 			loadXMLSetting(&GCSettings.zoomVert, "zoomVert");
 			loadXMLSetting(&GCSettings.render, "render");
 			loadXMLSetting(&GCSettings.widescreen, "widescreen");
-			loadXMLSetting(&GCSettings.crosshair, "crosshair");
 			loadXMLSetting(&GCSettings.FilterMethod, "FilterMethod");
+			loadXMLSetting(&GCSettings.ShowFrameRate, "ShowFrameRate");
+			loadXMLSetting(&GCSettings.crosshair, "crosshair");
 			loadXMLSetting(&GCSettings.xshift, "xshift");
 			loadXMLSetting(&GCSettings.yshift, "yshift");
 			
@@ -344,6 +345,8 @@ decodePrefsData ()
 			// Controller Settings
 
 			loadXMLSetting(&GCSettings.Controller, "Controller");
+			loadXMLSetting(&GCSettings.TurboMode, "TurboMode");
+			loadXMLSetting(&GCSettings.TurboModeButton, "TurboModeButton");
 
 			loadXMLController(btnmap[CTRL_PAD][CTRLR_GCPAD], "btnmap_pad_gcpad");
 			loadXMLController(btnmap[CTRL_PAD][CTRLR_WIIMOTE], "btnmap_pad_wiimote");
@@ -418,14 +421,18 @@ DefaultSettings ()
 	sprintf (GCSettings.ScreenshotsFolder, "%s/screenshots", APPFOLDER); // Path to screenshot files
 	sprintf (GCSettings.CoverFolder, "%s/covers", APPFOLDER); // Path to cover files
 	sprintf (GCSettings.ArtworkFolder, "%s/artwork", APPFOLDER); // Path to artwork files
-	GCSettings.AutoLoad = 1;
-	GCSettings.AutoSave = 1;
+	GCSettings.AutoLoad = 1; // Auto Load RAM
+	GCSettings.AutoSave = 1; // Auto Save RAM
 
-	GCSettings.Controller = CTRL_PAD2;
+	GCSettings.Controller = CTRL_PAD2; // SNES Pad, Four Score, SNES Mouse, Super Scope, Justifier
+	GCSettings.TurboMode = 1; // turbo mode enabled
+	GCSettings.TurboModeButton = 0; // right analog stick
 
 	GCSettings.videomode = 0; // automatic video mode detection
-	GCSettings.render = 2; // Unfiltered
-	GCSettings.FilterMethod = FILTER_NONE;	// Off
+	GCSettings.render = 1; // unfiltered rendering
+	GCSettings.FilterMethod = FILTER_NONE; // no filtering
+	GCSettings.ShowFrameRate = 0; // show framerate disabled
+	GCSettings.crosshair = 1; // show crosshair enabled
 
 	GCSettings.widescreen = 0;
 
@@ -438,7 +445,6 @@ DefaultSettings ()
 	GCSettings.zoomVert = 1.0; // vertical zoom level
 	GCSettings.xshift = 0; // horizontal video shift
 	GCSettings.yshift = 0; // vertical video shift
-	GCSettings.crosshair = 1;
 
 	GCSettings.WiimoteOrientation = 0;
 	GCSettings.ExitAction = 0;
@@ -495,7 +501,6 @@ DefaultSettings ()
 	Settings.MaxSpriteTilesPerLine = 34;
 	Settings.SkipFrames = AUTO_FRAMERATE;
 	Settings.TurboSkipFrames = 19;
-	Settings.DisplayFrameRate = false;
 	Settings.AutoDisplayMessages = false;
 	Settings.InitialInfoStringTimeout = 200; // # frames to display messages for
 	Settings.DisplayTime = false;
@@ -675,36 +680,36 @@ bool LoadPrefs()
 		FixInvalidSettings();
 	}
 	
-	// rename snes9x to snes9xgx
+	// rename snes9x to snes9xtx
 	if(GCSettings.LoadMethod == DEVICE_SD)
 	{
 		if(ChangeInterface(DEVICE_SD, NOTSILENT) && opendir("sd:/snes9x"))
-			rename("sd:/snes9x", "sd:/snes9xgx");
+			rename("sd:/snes9x", "sd:/snes9xtx");
 	}
 	else if(GCSettings.LoadMethod == DEVICE_USB)
 	{
 		if(ChangeInterface(DEVICE_USB, NOTSILENT) && opendir("usb:/snes9x"))
-			rename("usb:/snes9x", "usb:/snes9xgx");
+			rename("usb:/snes9x", "usb:/snes9xtx");
 	}
 
 	// update folder locations
 	if(strcmp(GCSettings.LoadFolder, "snes9x/roms") == 0)
-		sprintf(GCSettings.LoadFolder, "snes9xgx/roms");
+		sprintf(GCSettings.LoadFolder, "snes9xtx/roms");
 	
 	if(strcmp(GCSettings.SaveFolder, "snes9x/saves") == 0)
-		sprintf(GCSettings.SaveFolder, "snes9xgx/saves");
+		sprintf(GCSettings.SaveFolder, "snes9xtx/saves");
 	
 	if(strcmp(GCSettings.CheatFolder, "snes9x/cheats") == 0)
-		sprintf(GCSettings.CheatFolder, "snes9xgx/cheats");
+		sprintf(GCSettings.CheatFolder, "snes9xtx/cheats");
 		
 	if(strcmp(GCSettings.ScreenshotsFolder, "snes9x/screenshots") == 0)
-		sprintf(GCSettings.ScreenshotsFolder, "snes9xgx/screenshots");
+		sprintf(GCSettings.ScreenshotsFolder, "snes9xtx/screenshots");
 
 	if(strcmp(GCSettings.CoverFolder, "snes9x/covers") == 0)
-		sprintf(GCSettings.CoverFolder, "snes9xgx/covers");
+		sprintf(GCSettings.CoverFolder, "snes9xtx/covers");
 	
 	if(strcmp(GCSettings.ArtworkFolder, "snes9x/artwork") == 0)
-		sprintf(GCSettings.ArtworkFolder, "snes9xgx/artwork");
+		sprintf(GCSettings.ArtworkFolder, "snes9xtx/artwork");
 	
 	// attempt to create directories if they don't exist
 	if(GCSettings.LoadMethod == DEVICE_SD || GCSettings.LoadMethod == DEVICE_USB) {

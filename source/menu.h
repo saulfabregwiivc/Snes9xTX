@@ -1,7 +1,7 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
- * Tantric 2008-2021
+ * Tantric 2008-2022
  *
  * menu.h
  *
@@ -41,6 +41,7 @@ enum
 	MENU_GAMESETTINGS,
 	MENU_GAMESETTINGS_MAPPINGS,
 	MENU_GAMESETTINGS_MAPPINGS_CTRL,
+	MENU_GAMESETTINGS_MAPPINGS_TURBOMODE,
 	MENU_GAMESETTINGS_MAPPINGS_MAP,
 	MENU_GAMESETTINGS_VIDEO,
 	MENU_GAMESETTINGS_AUDIO,

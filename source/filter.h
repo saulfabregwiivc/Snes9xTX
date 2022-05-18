@@ -1,12 +1,13 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
  * Michniewski 2008
  *
  * filter.h
  *
- * Filters Header File
+ * Video filtering
  ****************************************************************************/
+
 #ifndef _FILTER_H_
 #define _FILTER_H_
 
@@ -23,7 +24,8 @@
 enum RenderFilter{
 	FILTER_NONE = 0,
 
-	FILTER_SCANLINES,
+	FILTER_TVMODE,
+	FILTER_SCALE2X,
 
 	NUM_FILTERS
 };
@@ -45,7 +47,6 @@ extern unsigned char * filtermem;
 void SelectFilterMethod ();
 const char* GetFilterName (RenderFilter filterID);
 int GetFilterScale(RenderFilter filterID);
-void InitLUTs();
 
 #endif
 

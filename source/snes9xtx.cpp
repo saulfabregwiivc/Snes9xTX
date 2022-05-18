@@ -1,12 +1,13 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
  * softdev July 2006
  * crunchy2 May 2007-July 2007
  * Michniewski 2008
- * Tantric 2008-2021
+ * Tantric 2008-2022
+ * Tanooki 2019-2022
  *
- * snes9xgx.cpp
+ * snes9xtx.cpp
  *
  * This file controls overall program flow. Most things start and end here!
  ***************************************************************************/
@@ -30,7 +31,7 @@
 	#include "vmalloc.h"
 #endif
 
-#include "snes9xgx.h"
+#include "snes9xtx.h"
 #include "video.h"
 #include "audio.h"
 #include "menu.h"
@@ -74,7 +75,6 @@ extern uint32 prevRenderedFrameCount;
 /****************************************************************************
  * Shutdown / Reboot / Exit
  ***************************************************************************/
-
 void ExitCleanup()
 {
 	ShutdownAudio();
@@ -179,7 +179,6 @@ void ResetCB(u32 irq, void *ctx)
  * ipl_set_config
  * lowlevel Qoob Modchip disable
  ***************************************************************************/
-
 void ipl_set_config(unsigned char c)
 {
 	volatile unsigned long* exi = (volatile unsigned long*)0xCC006800;
@@ -204,7 +203,6 @@ void ipl_set_config(unsigned char c)
  * setFrameTimerMethod()
  * change frametimer method depending on whether ROM is NTSC or PAL
  ***************************************************************************/
-
 void setFrameTimerMethod()
 {
 	/*
@@ -299,7 +297,6 @@ bool SaneIOS(u32 ios)
 /****************************************************************************
  * USB Gecko Debugging
  ***************************************************************************/
-
 static bool gecko = false;
 static mutex_t gecko_mutex = 0;
 
@@ -474,26 +471,6 @@ int main(int argc, char *argv[])
 		autoboot = GCSettings.AutoloadGame;
 	}
 
-	switch (GCSettings.sfxOverclock)
-	{
-		case 0: Settings.SuperFXSpeedPerLine = 5823405; break;
-		case 1: Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6; break;
-		case 2: Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6; break;
-	}
-
-	if (GCSettings.sfxOverclock > 0)
-	{
-		S9xResetSuperFX();
-		S9xReset();
-	}
-
-	switch (GCSettings.Interpolation)
-	{
-		case 0: Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN; break;
-		case 1: Settings.InterpolationMethod = DSP_INTERPOLATION_LINEAR; break;
-		case 2: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
-	}
-
 	while (1) // main loop
 	{
 		if(!autoboot) {
@@ -512,12 +489,35 @@ int main(int argc, char *argv[])
 #ifdef HW_RVL
 		SelectFilterMethod();
 #endif
+		switch (GCSettings.sfxOverclock)
+		{
+			case 0: Settings.SuperFXSpeedPerLine = 5823405; break;
+			case 1: Settings.SuperFXSpeedPerLine = 0.417 * 20.5e6; break;
+			case 2: Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6; break;
+			case 3: Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6; break;
+		}
+
+		if (GCSettings.sfxOverclock > 0)
+			S9xResetSuperFX();
+		else
+			S9xReset();
+
+		switch (GCSettings.Interpolation)
+		{
+			case 0: Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN; break;
+			case 1: Settings.InterpolationMethod = DSP_INTERPOLATION_LINEAR; break;
+			case 2: Settings.InterpolationMethod = DSP_INTERPOLATION_CUBIC; break;
+			case 3: Settings.InterpolationMethod = DSP_INTERPOLATION_SINC; break;
+			case 4: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
+		}
+
 		autoboot = false;		
 		ConfigRequested = 0;
 		ScreenshotRequested = 0;
 		SwitchAudioMode(0);
 
-		Settings.AutoDisplayMessages = (Settings.DisplayFrameRate || Settings.DisplayTime ? true : false);
+		Settings.DisplayFrameRate = (GCSettings.ShowFrameRate == 1);
+		Settings.AutoDisplayMessages = (Settings.DisplayFrameRate ? true : false);
 		Settings.MultiPlayer5Master = (GCSettings.Controller == CTRL_PAD4 ? true : false);
 		Settings.SuperScopeMaster = (GCSettings.Controller == CTRL_SCOPE ? true : false);
 		Settings.MouseMaster = (GCSettings.Controller == CTRL_MOUSE ? true : false);

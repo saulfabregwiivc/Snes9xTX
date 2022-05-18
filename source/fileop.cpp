@@ -1,7 +1,7 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/Gamecube Port
+ * Snes9x Nintendo Wii/GameCube Port
  *
- * Tantric 2008-2021
+ * Tantric 2008-2022
  *
  * fileop.cpp
  *
@@ -25,7 +25,7 @@
 #include <ogc/dvd.h>
 #include <iso9660.h>
 
-#include "snes9xgx.h"
+#include "snes9xtx.h"
 #include "fileop.h"
 #include "gcunzip.h"
 #include "menu.h"
@@ -216,7 +216,6 @@ void UnmountAllFAT()
  * Attempts to mount the device specified
  * Sets libfat to use the device by default
  ***************************************************************************/
-
 static bool MountFAT(int device, int silent)
 {
 	bool mounted = false;
@@ -450,7 +449,7 @@ void CreateAppPath(char * origpath)
 	int pos = 0;
 
 	// replace fat:/ with sd:/
-	if(strncmp(path, "fat:/", 5) == 0)
+	if(strncmp(path, "fat:/", 5) == 0 || strncmp(path, "sd1:/", 5) == 0)
 	{
 		pos++;
 		path[1] = 's';
