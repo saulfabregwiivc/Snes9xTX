@@ -1,7 +1,7 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/GameCube Port
+ * Snes9x Nintendo Wii/Gamecube Port
  *
- * Tantric 2008-2022
+ * Tantric 2008-2021
  *
  * filebrowser.cpp
  *
@@ -21,7 +21,7 @@
 #endif
 
 #include "snes9x/port.h"
-#include "snes9xtx.h"
+#include "snes9xgx.h"
 #include "filebrowser.h"
 #include "menu.h"
 #include "video.h"

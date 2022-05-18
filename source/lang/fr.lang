@@ -46,6 +46,9 @@ msgstr "Illustrations"
 msgid "Artwork Folder"
 msgstr "Dossier des illustrations"
 
+msgid "Maintain Aspect Ratio"
+msgstr "Conserver les proportions"
+
 msgid "Attempting to determine load device..."
 msgstr "Tentative de détection du périphérique d'entrée..."
 
@@ -61,9 +64,6 @@ msgstr "Chargement auto"
 msgid "Auto Save"
 msgstr "Sauvegarde auto"
 
-msgid "Automatic"
-msgstr "Automatique"
-
 msgid "Automatic (Recommended)"
 msgstr "Automatique (recommandé)"
 
@@ -72,6 +72,9 @@ msgstr "B (rapide)"
 
 msgid "Back"
 msgstr "Retour"
+
+msgid "Both"
+msgstr "Les deux"
 
 msgid "Brazilian Portuguese"
 msgstr "Portugais brésilien"
@@ -124,11 +127,11 @@ msgstr "Dossier des jaquettes"
 msgid "Credits"
 msgstr "Crédits"
 
+msgid "Cropping"
+msgstr "Recadrage"
+
 msgid "Crosshair"
 msgstr "Réticule de visée"
-
-msgid "Cubic"
-msgstr "Cubique"
 
 msgid "Cursor"
 msgstr "Curseur"
@@ -154,6 +157,12 @@ msgstr "Effacer cette sauvegarde ? Les fichiers supprimés ne peuvent pas être 
 msgid "Directory name is too long!"
 msgstr "Le nom du répertoire est trop long !"
 
+msgid "Disabled"
+msgstr "Désactivé"
+
+msgid "DISABLED"
+msgstr "DÉSACTIVÉ"
+
 msgid "under the terms of the GNU General Public License (GPL) Version 2."
 msgstr "sous les termes de la licence publique générale GNU (GPL) version 2."
 
@@ -171,6 +180,12 @@ msgstr "Néerlandais"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Fichier ZIP vide ou invalide !"
+
+msgid "Enabled"
+msgstr "Activé"
+
+msgid "ENABLED"
+msgstr "ACTIVÉ"
 
 msgid "English"
 msgstr "Anglais"
@@ -208,11 +223,14 @@ msgstr "Sortir"
 msgid "Exit Action"
 msgstr "Sortie de l'émulateur"
 
+msgid "FDS BIOS file is invalid!"
+msgstr "Le fichier BIOS du FDS (Famicom Disk System) est invalide !"
+
+msgid "FDS BIOS file not found!"
+msgstr "Le fichier BIOS du FDS (Famicom Disk System) est introuvable !"
+
 msgid "Filtered"
 msgstr "Filtré"
-
-msgid "Filtering"
-msgstr "Filtrage"
 
 msgid "Fire"
 msgstr "Tirer"
@@ -225,6 +243,9 @@ msgstr "Le fichier de police est introuvable !"
 
 msgid "French"
 msgstr "Français"
+
+msgid "Game Genie ROM not found!"
+msgstr "La ROM du Game Genie est introuvable !"
 
 msgid "Game Settings"
 msgstr "Configuration"
@@ -241,17 +262,32 @@ msgstr "Configuration - Triches"
 msgid "Game Settings - Video"
 msgstr "Configuration - Vidéo"
 
+msgid "Region"
+msgstr "Région"
+
+msgid "Game Genie DISABLED"
+msgstr "Game Genie désactivé"
+
+msgid "Game Genie ENABLED"
+msgstr "Game Genie activé"
+
 msgid "GameCube Controller"
 msgstr "Manette GameCube"
 
-msgid "Gaussian (SNES Hardware)"
-msgstr "Gaussienne (matériel SNES)"
+msgid "Gaussian (Accurate)"
+msgstr "Gaussienne (précise)"
 
 msgid "German"
 msgstr "Allemand"
 
 msgid "Go Back"
 msgstr "Retour"
+
+msgid "Insert Coin"
+msgstr "Insérer une pièce"
+
+msgid "Insert Coin / Switch Disk"
+msgstr "Insér. une pièce/Chang. disqtte"
 
 msgid "Invalid file size!"
 msgstr "Taille du fichier invalide !"
@@ -271,8 +307,14 @@ msgstr "Italien"
 msgid "Japanese"
 msgstr "Japonais"
 
+msgid "Justifier"
+msgstr "Konami Justifier"
+
 msgid "Justifier - GameCube Controller"
-msgstr "Justifier - Manette GameCube"
+msgstr "Konami Justifier - Manette GameCube"
+
+msgid "Justifier - Wiimote"
+msgstr "Konami Justifier - Wiimote"
 
 msgid "Korean"
 msgstr "Coréen"
@@ -322,6 +364,9 @@ msgstr "Chargement du patch en cours..."
 msgid "Loading..."
 msgstr "Chargement en cours..."
 
+msgid "Logo design"
+msgstr "Création du logo"
+
 msgid "Main Menu"
 msgstr "Menu principal"
 
@@ -345,6 +390,18 @@ msgstr "Volume de la musique"
 
 msgid "Mute"
 msgstr "Muet"
+
+msgid "NES Controller"
+msgstr "Manette NES"
+
+msgid "NES Controllers (2)"
+msgstr "Manettes NES (2)"
+
+msgid "NES Controllers (4)"
+msgstr "Manettes NES (4)"
+
+msgid "NES Zapper"
+msgstr "Nintendo Zapper"
 
 msgid "New"
 msgstr "Nouvelle"
@@ -478,9 +535,6 @@ msgstr "DROITE"
 msgid "Right Button"
 msgstr "Clic droit"
 
-msgid "Right Stick (Default)"
-msgstr "Joystick droit (par défaut)"
-
 msgid "Save"
 msgstr "Sauver"
 
@@ -529,6 +583,9 @@ msgstr "Sauvegarde en cours..."
 msgid "Scaling"
 msgstr "Format"
 
+msgid "Scanlines"
+msgstr "Ligne de balayage"
+
 msgid "Screen Position"
 msgstr "Position de l'écran"
 
@@ -543,6 +600,9 @@ msgstr "Captures d'écran"
 
 msgid "Screenshots Folder"
 msgstr "Dossier des captures"
+
+msgid "Seek error!"
+msgstr "Erreur de positionnement !"
 
 msgid "Settings"
 msgstr "Paramètres"
@@ -559,14 +619,14 @@ msgstr "Carte SD"
 msgid "SD card not found!"
 msgstr "Carte SD introuvable !"
 
-msgid "SD in SP2"
-msgstr "SD dans SP2"
-
 msgid "Shift"
 msgstr "Maj"
 
 msgid "Show Framerate"
 msgstr "Afficher les FPS"
+
+msgid "Show Local Time"
+msgstr "Afficher l'horloge"
 
 msgid "Chinese (Simplified)"
 msgstr "Chinois (simplifié)"
@@ -613,6 +673,9 @@ msgstr "Volume des effets sonores"
 msgid "Spanish"
 msgstr "Espagnol"
 
+msgid "Sprite Limit"
+msgstr "Limite de sprites"
+
 msgid "SRAM file not found"
 msgstr "Pas de sauvegarde SRAM trouvée"
 
@@ -625,9 +688,6 @@ msgstr "Sauv. d'état (auto)"
 msgid "State file not found"
 msgstr "Pas de sauvegarde d'état trouvée"
 
-msgid "SuperFX Overclock"
-msgstr "Overclock SuperFX"
-
 msgid "Super Scope"
 msgstr "Nintendo Scope"
 
@@ -636,6 +696,9 @@ msgstr "Nintendo Scope - Manette GameCube"
 
 msgid "Super Scope - Wiimote"
 msgstr "Nintendo Scope - Wiimote"
+
+msgid "Swap Duty Cycles"
+msgstr "Échanger les cycles"
 
 msgid "The current IOS has been altered (fake-signed). Functionality and/or stability may be adversely affected."
 msgstr "L'IOS utilisé est altéré (fausse signature). Les fonctionnalités et/ou la stabilité peuvent en être affectées."
@@ -646,17 +709,8 @@ msgstr "L'IOS utilisé n'est pas supporté. Les fonctionnalités et/ou la stabil
 msgid "This software is open source and may be copied, distributed, or modified"
 msgstr "Ce logiciel est open source et peut être copié, distribué ou modifié"
 
-msgid "Turbo Mode"
-msgstr "Mode turbo"
-
-msgid "Turbo Mode Button"
-msgstr "Bouton mode turbo"
-
 msgid "Turkish"
 msgstr "Turc"
-
-msgid "TV Mode"
-msgstr "Mode TV"
 
 msgid "Unable to locate a load device!"
 msgstr "Périphérique d'entrée introuvable !"
@@ -664,7 +718,7 @@ msgstr "Périphérique d'entrée introuvable !"
 msgid "Unable to locate a save device!"
 msgstr "Périphérique de sauvegarde introuvable !"
 
-msgid "Unable to open state!"
+msgid "Unable to open snapshot!"
 msgstr "Impossible d'ouvrir la sauvegarde d'état !"
 
 msgid "Unfiltered"
@@ -706,8 +760,11 @@ msgstr "Mode vidéo"
 msgid "Wiimote Orientation"
 msgstr "Orientation de la Wiimote"
 
-msgid "Wii U Pro Controller"
-msgstr "Manette Wii U Pro"
-
 msgid "Yes"
 msgstr "Oui"
+
+msgid "Zapper"
+msgstr "Nintendo Zapper"
+
+msgid "Zapper Crosshair"
+msgstr "Réticule du Zapper"

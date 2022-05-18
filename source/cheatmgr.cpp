@@ -1,7 +1,7 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/GameCube Port
+ * Snes9x Nintendo Wii/Gamecube Port
  *
- * Tantric 2008-2022
+ * Tantric 2008-2021
  *
  * cheatmgr.cpp
  *
@@ -12,7 +12,7 @@
 #include "snes9x/port.h"
 #include "snes9x/cheats.h"
 
-#include "snes9xtx.h"
+#include "snes9xgx.h"
 #include "fileop.h"
 #include "filebrowser.h"
 
@@ -26,6 +26,7 @@ extern SCheatData Cheat;
  * Loads cheat file from save buffer
  * Custom version of S9xLoadCheatFile()
  ***************************************************************************/
+
 static bool LoadCheatFile (int length)
 {
 	uint8 data [28];

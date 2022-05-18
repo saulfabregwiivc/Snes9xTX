@@ -1,9 +1,9 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/GameCube Port
+ * Snes9x Nintendo Wii/Gamecube Port
  *
  * softdev July 2006
  * Michniewski 2008
- * Tantric 2008-2022
+ * Tantric 2008-2021
  *
  * video.h
  *

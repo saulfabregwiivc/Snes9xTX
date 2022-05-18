@@ -191,7 +191,7 @@ void S9xStartScreenRefresh (void)
 		memset(GFX.SubZBuffer, 0, GFX.ScreenSize);
 	}
 
-	if (++IPPU.FrameCount == (uint32)Memory.ROMFramesPerSecond)
+	if (++IPPU.FrameCount % Memory.ROMFramesPerSecond == 0)
 	{
 		IPPU.DisplayedRenderedFrameCount = IPPU.RenderedFramesCount;
 		IPPU.RenderedFramesCount = 0;
@@ -1843,7 +1843,7 @@ static void S9xDisplayStringType (const char *string, int linesFromBottom, int p
 static void DisplayTime (void)
 {
 	char string[10];
-
+	
 	time_t rawtime;
 	struct tm *timeinfo;
 
@@ -2049,7 +2049,7 @@ void S9xDisplayMessages (uint16 *screen, int ppl, int width, int height, int sca
 {
 	if (Settings.DisplayTime)
 		DisplayTime();
-
+		
 	if (Settings.DisplayFrameRate)
 		DisplayFrameRate();
 

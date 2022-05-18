@@ -1,9 +1,9 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/GameCube Port
+ * Snes9x Nintendo Wii/Gamecube Port
  *
  * softdev July 2006
  * Michniewski 2008
- * Tantric 2008-2022
+ * Tantric 2008-2021
  *
  * gcunzip.cpp
  *
@@ -17,7 +17,7 @@
 #include <zlib.h>
 #include <sys/stat.h>
 
-#include "snes9xtx.h"
+#include "snes9xgx.h"
 #include "fileop.h"
 #include "filebrowser.h"
 #include "menu.h"
@@ -97,6 +97,7 @@ IsZipFile (char *buffer)
 /*****************************************************************************
 * UnZipBuffer
 ******************************************************************************/
+
 size_t
 UnZipBuffer (unsigned char *outbuffer, size_t buffersize)
 {
@@ -204,6 +205,7 @@ done:
 * Returns the filename of the first file in the zipped archive
 * The idea here is to do the least amount of work required
 ***************************************************************************/
+
 char *
 GetFirstZipFilename ()
 {
@@ -235,6 +237,7 @@ GetFirstZipFilename ()
 /****************************************************************************
 * 7z functions
 ***************************************************************************/
+
 typedef struct _SzFileInStream
 {
    ISzInStream InStream;
@@ -350,6 +353,7 @@ static SZ_RESULT SzFileSeekImp(void *object, CFileSize pos)
 *
 * Closes a 7z file
 ***************************************************************************/
+
 void SzClose()
 {
 	if(SzDb.Database.NumFiles > 0)
@@ -362,6 +366,7 @@ void SzClose()
 * Opens a 7z file, and parses it
 * It parses the entire 7z for full browsing capability
 ***************************************************************************/
+
 int SzParse(char * filepath)
 {
 	if(!filepath)
@@ -486,6 +491,7 @@ int SzParse(char * filepath)
 * Extracts the given file # into the buffer specified
 * Must parse the 7z BEFORE running this function
 ***************************************************************************/
+
 size_t SzExtractFile(int i, unsigned char *buffer)
 {
 	// prepare some variables

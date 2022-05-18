@@ -1,8 +1,8 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/GameCube Port
+ * Snes9x Nintendo Wii/Gamecube Port
  *
  * michniewski August 2008
- * Tantric 2008-2022
+ * Tantric 2008-2021
  *
  * button_mapping.c
  *
@@ -27,7 +27,7 @@
  ***************************************************************************/
 
 CtrlrMap ctrlr_def[6] = {
-// GameCube controller btn def
+// Gamecube controller btn def
 {
 	CTRLR_GCPAD,
 	13,
@@ -93,7 +93,7 @@ CtrlrMap ctrlr_def[6] = {
 		{0, ""}
 	}
 },
-// Classic controller btn def
+// Classic btn def
 {
 	CTRLR_CLASSIC,
 	15,
@@ -115,7 +115,7 @@ CtrlrMap ctrlr_def[6] = {
 		{WPAD_CLASSIC_BUTTON_ZR, "ZR"}
 	}
 },
-// Wii U Pro controller btn def
+// Wii U Pro controller
 {
 	CTRLR_WUPC,
 	15,

@@ -42,7 +42,7 @@
 #include <asndlib.h>
 #include <wiiuse/wpad.h>
 
-#include "snes9xtx.h"
+#include "snes9xgx.h"
 #include "video.h"
 #include "filelist.h"
 #include "fileop.h"

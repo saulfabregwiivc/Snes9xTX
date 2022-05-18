@@ -1,7 +1,7 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/GameCube Port
+ * Snes9x Nintendo Wii/Gamecube Port
  *
- * Tantric 2008-2022
+ * Tantric 2008-2021
  *
  * menu.cpp
  *
@@ -21,7 +21,7 @@
 #endif
 
 #include "snes9x/port.h"
-#include "snes9xtx.h"
+#include "snes9xgx.h"
 #include "video.h"
 #include "filebrowser.h"
 #include "gcunzip.h"
@@ -313,6 +313,7 @@ WindowPrompt(const char *title, const char *msg, const char *btn1Label, const ch
  *
  * Primary thread to allow GUI to respond to state changes, and draws GUI
  ***************************************************************************/
+
 static void *
 UpdateGUI (void *arg)
 {
@@ -829,13 +830,13 @@ static void WindowCredits(void * ptr)
 	txt[i]->SetPosition(350,y); i++; y+=24;
 	txt[i] = new GuiText("Additional improvements");
 	txt[i]->SetPosition(60,y); i++;
-	txt[i] = new GuiText("Tanooki, others");
+	txt[i] = new GuiText("Tanooki, Zopenko, others");
 	txt[i]->SetPosition(350,y); i++; y+=24;
 	txt[i] = new GuiText("Menu artwork");
 	txt[i]->SetPosition(60,y); i++;
 	txt[i] = new GuiText("Tanooki, the3seashells");
 	txt[i]->SetPosition(350,y); i++; y+=24;
-	txt[i] = new GuiText("Logo");
+	txt[i] = new GuiText("Logo design");
 	txt[i]->SetPosition(60,y); i++;
 	txt[i] = new GuiText("Tanooki");
 	txt[i]->SetPosition(350,y); i++; y+=48;
@@ -887,7 +888,7 @@ static void WindowCredits(void * ptr)
 
 	GuiText::SetPresets(12, (GXColor){0, 0, 0, 255}, 0, FTGX_JUSTIFY_CENTER | FTGX_ALIGN_TOP, ALIGN_CENTRE, ALIGN_BOTTOM);
 
-	txt[i] = new GuiText("Snes9x - Copyright (c) Snes9x Team 1996 - 2022");
+	txt[i] = new GuiText("Snes9x - Copyright (c) Snes9x Team 1996 - 2021");
 	txt[i]->SetPosition(0,-48); i++;
 	txt[i] = new GuiText("This software is open source and may be copied, distributed, or modified");
 	txt[i]->SetPosition(0,-36); i++;
@@ -1681,7 +1682,7 @@ static int MenuGame()
 					ExitApp();
 				}
 				else {
-					gameScreenImg = new GuiImage(screenwidth, screenheight, (GXColor){205, 205, 205, 255});
+					gameScreenImg = new GuiImage(screenwidth, screenheight, (GXColor){192, 192, 192, 255});
 					gameScreenImg->ColorStripe(10);
 					mainWindow->Insert(gameScreenImg, 0);
 					ResumeGui();
@@ -2402,7 +2403,6 @@ static int MenuSettingsMappings()
 	GuiImageData iconSuperscope(icon_settings_superscope_png);
 	GuiImageData iconJustifier(icon_settings_justifier_png);
 	GuiImageData iconMouse(icon_settings_mouse_png);
-	GuiImageData iconTurbo(icon_settings_turbo_png);
 
 	GuiText snesBtnTxt("SNES Controller", 22, (GXColor){0, 0, 0, 255});
 	snesBtnTxt.SetWrap(true, btnLargeOutline.GetWidth()-40);
@@ -2447,7 +2447,7 @@ static int MenuSettingsMappings()
 	GuiImage mouseBtnIcon(&iconMouse);
 	GuiButton mouseBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
 	mouseBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
-	mouseBtn.SetPosition(-200, 250);
+	mouseBtn.SetPosition(-125, 250);
 	mouseBtn.SetLabel(&mouseBtnTxt);
 	mouseBtn.SetImage(&mouseBtnImg);
 	mouseBtn.SetImageOver(&mouseBtnImgOver);
@@ -2464,7 +2464,7 @@ static int MenuSettingsMappings()
 	GuiImage justifierBtnIcon(&iconJustifier);
 	GuiButton justifierBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
 	justifierBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
-	justifierBtn.SetPosition(0, 250);
+	justifierBtn.SetPosition(125, 250);
 	justifierBtn.SetLabel(&justifierBtnTxt);
 	justifierBtn.SetImage(&justifierBtnImg);
 	justifierBtn.SetImageOver(&justifierBtnImgOver);
@@ -2474,23 +2474,6 @@ static int MenuSettingsMappings()
 	justifierBtn.SetTrigger(trigA);
 	justifierBtn.SetTrigger(trig2);
 	justifierBtn.SetEffectGrow();
-
-	GuiText turboBtnTxt("Turbo Mode", 22, (GXColor){0, 0, 0, 255});
-	GuiImage turboBtnImg(&btnLargeOutline);
-	GuiImage turboBtnImgOver(&btnLargeOutlineOver);
-	GuiImage turboBtnIcon(&iconTurbo);
-	GuiButton turboBtn(btnLargeOutline.GetWidth(), btnLargeOutline.GetHeight());
-	turboBtn.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
-	turboBtn.SetPosition(200, 250);
-	turboBtn.SetLabel(&turboBtnTxt);
-	turboBtn.SetImage(&turboBtnImg);
-	turboBtn.SetImageOver(&turboBtnImgOver);
-	turboBtn.SetIcon(&turboBtnIcon);
-	turboBtn.SetSoundOver(&btnSoundOver);
-	turboBtn.SetSoundClick(&btnSoundClick);
-	turboBtn.SetTrigger(trigA);
-	turboBtn.SetTrigger(trig2);
-	turboBtn.SetEffectGrow();
 
 	GuiText backBtnTxt("Go Back", 22, (GXColor){0, 0, 0, 255});
 	GuiImage backBtnImg(&btnOutline);
@@ -2514,7 +2497,6 @@ static int MenuSettingsMappings()
 	w.Append(&superscopeBtn);
 	w.Append(&mouseBtn);
 	w.Append(&justifierBtn);
-	w.Append(&turboBtn);
 
 	w.Append(&backBtn);
 
@@ -2545,10 +2527,6 @@ static int MenuSettingsMappings()
 		{
 			menu = MENU_GAMESETTINGS_MAPPINGS_CTRL;
 			mapMenuCtrlSNES = CTRL_JUST;
-		}
-		else if(turboBtn.GetState() == STATE_CLICKED)
-		{
-			menu = MENU_GAMESETTINGS_MAPPINGS_TURBOMODE;
 		}
 		else if(backBtn.GetState() == STATE_CLICKED)
 		{
@@ -2791,6 +2769,7 @@ static int MenuSettingsMappingsController()
 /****************************************************************************
  * ButtonMappingWindow
  ***************************************************************************/
+
 static u32
 ButtonMappingWindow()
 {
@@ -3113,6 +3092,7 @@ static int MenuSettingsMappingsMap()
 /****************************************************************************
  * MenuSettingsVideo
  ***************************************************************************/
+
 static void ScreenZoomWindowUpdate(void * ptr, float h, float v)
 {
 	GuiButton * b = (GuiButton *)ptr;
@@ -3379,138 +3359,6 @@ static void ScreenPositionWindow()
 	delete(settingText);
 }
 
-static int MenuSettingsTurboMode()
-{
-	int menu = MENU_NONE;
-	int ret;
-	int i = 0;
-	bool firstRun = true;
-	OptionList options;
-
-	sprintf(options.name[i++], "Turbo Mode");
-	sprintf(options.name[i++], "Turbo Mode Button");
-
-	options.length = i;
-
-	for(i=0; i < options.length; i++)
-		options.value[i][0] = 0;
-
-	GuiText titleTxt("Game Settings - Button Mappings", 26, (GXColor){255, 255, 255, 255});
-	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-	titleTxt.SetPosition(50,30);
-
-	GuiText subtitleTxt("Turbo Mode", 20, (GXColor){255, 255, 255, 255});
-	subtitleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-	subtitleTxt.SetPosition(50,60);
-
-	GuiSound btnSoundOver(button_over_pcm, button_over_pcm_size, SOUND_PCM);
-	GuiSound btnSoundClick(button_click_pcm, button_click_pcm_size, SOUND_PCM);
-	GuiImageData btnOutline(button_png);
-	GuiImageData btnOutlineOver(button_over_png);
-
-	GuiText backBtnTxt("Go Back", 22, (GXColor){0, 0, 0, 255});
-	GuiImage backBtnImg(&btnOutline);
-	GuiImage backBtnImgOver(&btnOutlineOver);
-	GuiButton backBtn(btnOutline.GetWidth(), btnOutline.GetHeight());
-	backBtn.SetAlignment(ALIGN_LEFT, ALIGN_BOTTOM);
-	backBtn.SetPosition(50, -35);
-	backBtn.SetLabel(&backBtnTxt);
-	backBtn.SetImage(&backBtnImg);
-	backBtn.SetImageOver(&backBtnImgOver);
-	backBtn.SetSoundOver(&btnSoundOver);
-	backBtn.SetSoundClick(&btnSoundClick);
-	backBtn.SetTrigger(trigA);
-	backBtn.SetTrigger(trig2);
-	backBtn.SetEffectGrow();
-
-	GuiOptionBrowser optionBrowser(552, 248, &options);
-	optionBrowser.SetPosition(0, 108);
-	optionBrowser.SetCol2Position(200);
-	optionBrowser.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
-
-	HaltGui();
-	GuiWindow w(screenwidth, screenheight);
-	w.Append(&backBtn);
-	mainWindow->Append(&optionBrowser);
-	mainWindow->Append(&w);
-	mainWindow->Append(&titleTxt);
-	w.Append(&subtitleTxt);
-	ResumeGui();
-
-	while(menu == MENU_NONE)
-	{
-		usleep(THREAD_SLEEP);
-
-		ret = optionBrowser.GetClickedOption();
-
-		switch (ret)
-		{
-			case 0:
-				GCSettings.TurboMode ^= 1;
-				break;
-
-			case 1:
-				GCSettings.TurboModeButton++;
-				if (GCSettings.TurboModeButton > 14)
-					GCSettings.TurboModeButton = 0;
-				break;
-		}
-
-		if(ret >= 0 || firstRun)
-		{
-			firstRun = false;
-			sprintf (options.value[0], "%s", GCSettings.TurboMode == 1 ? "On" : "Off");
-
-			switch(GCSettings.TurboModeButton)
-			{
-				case 0:
-					sprintf (options.value[1], "Right Stick (Default)"); break;
-				case 1:
-					sprintf (options.value[1], "A"); break;
-				case 2:
-					sprintf (options.value[1], "B"); break;
-				case 3:
-					sprintf (options.value[1], "X"); break;
-				case 4:
-					sprintf (options.value[1], "Y"); break;
-				case 5:
-					sprintf (options.value[1], "L"); break;
-				case 6:
-					sprintf (options.value[1], "R"); break;
-				case 7:
-					sprintf (options.value[1], "ZL"); break;
-				case 8:
-					sprintf (options.value[1], "ZR"); break;
-				case 9:
-					sprintf (options.value[1], "Z"); break;
-				case 10:
-					sprintf (options.value[1], "C"); break;
-				case 11:
-					sprintf (options.value[1], "1"); break;
-				case 12:
-					sprintf (options.value[1], "2"); break;
-				case 13:
-					sprintf (options.value[1], "PLUS"); break;
-				case 14:
-					sprintf (options.value[1], "MINUS"); break;
-			}
-
-			optionBrowser.TriggerUpdate();
-		}
-
-		if(backBtn.GetState() == STATE_CLICKED)
-		{
-			menu = MENU_GAMESETTINGS_MAPPINGS;
-		}
-	}
-	HaltGui();
-	mainWindow->Remove(&optionBrowser);
-	mainWindow->Remove(&w);
-	mainWindow->Remove(&titleTxt);
-	mainWindow->Remove(&subtitleTxt);
-	return menu;
-}
-
 static int MenuSettingsVideo()
 {
 	int menu = MENU_NONE;
@@ -3520,18 +3368,19 @@ static int MenuSettingsVideo()
 	OptionList options;
 
 	sprintf(options.name[i++], "Rendering");
-	sprintf(options.name[i++], "Video Mode");
 	sprintf(options.name[i++], "Scaling");
 	sprintf(options.name[i++], "Screen Zoom");
 	sprintf(options.name[i++], "Screen Position");
-	sprintf(options.name[i++], "Filtering");
-	sprintf(options.name[i++], "Show Framerate");
+	sprintf(options.name[i++], "Scanlines");
 	sprintf(options.name[i++], "Crosshair");
+	sprintf(options.name[i++], "Show Framerate");
+	sprintf(options.name[i++], "Show Local Time");
 	sprintf(options.name[i++], "SuperFX Overclock");
+	sprintf(options.name[i++], "Video Mode");
 	options.length = i;
-
+	
 #ifdef HW_DOL
-	options.name[5][0] = 0; // disable filtering on GameCube
+	options.name[2][0] = 0; // disable hq2x on GameCube
 #endif
 
 	for(i=0; i < options.length; i++)
@@ -3589,53 +3438,54 @@ static int MenuSettingsVideo()
 				break;
 
 			case 1:
-				GCSettings.videomode++;
-				if(GCSettings.videomode > 4)
-					GCSettings.videomode = 0;
-				break;
-
-			case 2:
 				GCSettings.widescreen ^= 1;
 				break;
 
-			case 3:
+			case 2:
 				ScreenZoomWindow();
 				break;
 
-			case 4:
+			case 3:
 				ScreenPositionWindow();
 				break;
 
-			case 5:
+			case 4:
 				GCSettings.FilterMethod++;
 				if (GCSettings.FilterMethod >= NUM_FILTERS)
 					GCSettings.FilterMethod = 0;
 				break;
 
+			case 5:
+				GCSettings.crosshair ^= 1;
+				break;
+
 			case 6:
-				GCSettings.ShowFrameRate++;
-				if(GCSettings.ShowFrameRate > 1)
-					GCSettings.ShowFrameRate = 0;
+				Settings.DisplayFrameRate ^= 1;
 				break;
 
 			case 7:
-				GCSettings.crosshair ^= 1;
+				Settings.DisplayTime ^= 1;
 				break;
 
 			case 8:
 				GCSettings.sfxOverclock++;
-				if (GCSettings.sfxOverclock > 3) {
+				if (GCSettings.sfxOverclock > 2) {
 					GCSettings.sfxOverclock = 0;
 				}
 				switch(GCSettings.sfxOverclock)
 				{
 					case 0: Settings.SuperFXSpeedPerLine = 5823405; break;
-					case 1: Settings.SuperFXSpeedPerLine = 0.417 * 20.5e6; break;
-					case 2: Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6; break;
-					case 3: Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6; break;
+					case 1: Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6; break;
+					case 2: Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6; break;
 				}
 				S9xResetSuperFX();
 				S9xReset();
+				break;
+				
+			case 9:
+				GCSettings.videomode++;
+				if(GCSettings.videomode > 4)
+					GCSettings.videomode = 0;
 				break;
 		}
 
@@ -3643,50 +3493,52 @@ static int MenuSettingsVideo()
 		{
 			firstRun = false;
 
+			// don't allow original render mode if progressive video mode detected
+			if (GCSettings.render==0 && progressive)
+				GCSettings.render++;
+
 			if (GCSettings.render == 0)
 				sprintf (options.value[0], "Original");
 			else if (GCSettings.render == 1)
-				sprintf (options.value[0], "Unfiltered");
-			else if (GCSettings.render == 2)
 				sprintf (options.value[0], "Filtered");
-
-			switch(GCSettings.videomode)
-			{
-				case 0:
-					sprintf (options.value[1], "Automatic (Recommended)"); break;
-				case 1:
-					sprintf (options.value[1], "NTSC (480i)"); break;
-				case 2:
-					sprintf (options.value[1], "Progressive (480p)"); break;
-				case 3:
-					sprintf (options.value[1], "PAL (50Hz)"); break;
-				case 4:
-					sprintf (options.value[1], "PAL (60Hz)"); break;
-			}
-
+			else if (GCSettings.render == 2)
+				sprintf (options.value[0], "Unfiltered");
 			if(GCSettings.widescreen)
-				sprintf (options.value[2], "16:9 Correction");
+				sprintf (options.value[1], "16:9 Correction");
 			else
-				sprintf (options.value[2], "Default");
+				sprintf (options.value[1], "Default");
 
-			sprintf (options.value[3], "%.2f%%, %.2f%%", GCSettings.zoomHor*100, GCSettings.zoomVert*100);
-			sprintf (options.value[4], "%d, %d", GCSettings.xshift, GCSettings.yshift);
+			sprintf (options.value[2], "%.2f%%, %.2f%%", GCSettings.zoomHor*100, GCSettings.zoomVert*100);
+			sprintf (options.value[3], "%d, %d", GCSettings.xshift, GCSettings.yshift);
 #ifdef HW_RVL
-			sprintf (options.value[5], "%s", GetFilterName((RenderFilter)GCSettings.FilterMethod));
+			sprintf (options.value[4], "%s", GetFilterName((RenderFilter)GCSettings.FilterMethod));
 #endif
-			sprintf (options.value[6], "%s", GCSettings.ShowFrameRate == 1 ? "On" : "Off");
-			sprintf (options.value[7], "%s", GCSettings.crosshair == 1 ? "On" : "Off");
+			sprintf (options.value[5], "%s", GCSettings.crosshair == 1 ? "On" : "Off");
+			sprintf (options.value[6], "%s", Settings.DisplayFrameRate ? "On" : "Off");
+			sprintf (options.value[7], "%s", Settings.DisplayTime ? "On" : "Off");
 
 			switch(GCSettings.sfxOverclock)
 			{
 				case 0:
 					sprintf (options.value[8], "Default"); break;
 				case 1:
-					sprintf (options.value[8], "20 MHz"); break;
-				case 2:
 					sprintf (options.value[8], "40 MHz"); break;
-				case 3:
+				case 2:
 					sprintf (options.value[8], "60 MHz"); break;
+			}
+
+			switch(GCSettings.videomode)
+			{
+				case 0:
+					sprintf (options.value[9], "Automatic (Recommended)"); break;
+				case 1:
+					sprintf (options.value[9], "NTSC (480i)"); break;
+				case 2:
+					sprintf (options.value[9], "Progressive (480p)"); break;
+				case 3:
+					sprintf (options.value[9], "PAL (50Hz)"); break;
+				case 4:
+					sprintf (options.value[9], "PAL (60Hz)"); break;
 			}
 			optionBrowser.TriggerUpdate();
 		}
@@ -3713,22 +3565,17 @@ static int MenuSettingsAudio()
 	int i = 0;
 	bool firstRun = true;
 	OptionList options;
-
 	sprintf(options.name[i++], "Interpolation");
 	options.length = i;
-
 	for(i=0; i < options.length; i++)
 		options.value[i][0] = 0;
-
 	GuiText titleTxt("Game Settings - Audio", 26, (GXColor){255, 255, 255, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
-
 	GuiSound btnSoundOver(button_over_pcm, button_over_pcm_size, SOUND_PCM);
 	GuiSound btnSoundClick(button_click_pcm, button_click_pcm_size, SOUND_PCM);
 	GuiImageData btnOutline(button_png);
 	GuiImageData btnOutlineOver(button_over_png);
-
 	GuiText backBtnTxt("Go Back", 22, (GXColor){0, 0, 0, 255});
 	GuiImage backBtnImg(&btnOutline);
 	GuiImage backBtnImgOver(&btnOutlineOver);
@@ -3743,12 +3590,10 @@ static int MenuSettingsAudio()
 	backBtn.SetTrigger(trigA);
 	backBtn.SetTrigger(trig2);
 	backBtn.SetEffectGrow();
-
 	GuiOptionBrowser optionBrowser(552, 248, &options);
 	optionBrowser.SetPosition(0, 108);
 	optionBrowser.SetCol2Position(200);
 	optionBrowser.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
-
 	HaltGui();
 	GuiWindow w(screenwidth, screenheight);
 	w.Append(&backBtn);
@@ -3760,48 +3605,40 @@ static int MenuSettingsAudio()
 	while(menu == MENU_NONE)
 	{
 		usleep(THREAD_SLEEP);
-
 		ret = optionBrowser.GetClickedOption();
 		
 		switch (ret)
 		{
-			case 0:
+		case 0:
 				GCSettings.Interpolation++;
-				if (GCSettings.Interpolation > 4) {
+				if (GCSettings.Interpolation > 2) {
 					GCSettings.Interpolation = 0;
 				}
 				switch(GCSettings.Interpolation)
 				{
 					case 0: Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN; break;
 					case 1: Settings.InterpolationMethod = DSP_INTERPOLATION_LINEAR; break;
-					case 2: Settings.InterpolationMethod = DSP_INTERPOLATION_CUBIC; break;
-					case 3: Settings.InterpolationMethod = DSP_INTERPOLATION_SINC; break;
-					case 4: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
+					case 2: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
 				}
 				break;
 				S9xReset();
 		}
 		
-		if(ret >= 0 || firstRun)
+	if(ret >= 0 || firstRun)
 		{
 			firstRun = false;
 			
 			switch(GCSettings.Interpolation)
 			{
 				case 0:
-					sprintf (options.value[0], "Gaussian (SNES Hardware)"); break;
+					sprintf (options.value[0], "Gaussian (Accurate)"); break;
 				case 1:
 					sprintf (options.value[0], "Linear"); break;
 				case 2:
-					sprintf (options.value[0], "Cubic"); break;
-				case 3:
-					sprintf (options.value[0], "Sinc"); break;
-				case 4:
 					sprintf (options.value[0], "None"); break;
 			}
 			optionBrowser.TriggerUpdate();
 		}
-
 		if(backBtn.GetState() == STATE_CLICKED)
 		{
 			menu = MENU_GAMESETTINGS;
@@ -3956,6 +3793,7 @@ static int MenuSettings()
 /****************************************************************************
  * MenuSettingsFile
  ***************************************************************************/
+
 static int MenuSettingsFile()
 {
 	int menu = MENU_NONE;
@@ -4162,6 +4000,7 @@ static int MenuSettingsFile()
 /****************************************************************************
  * MenuSettingsMenu
  ***************************************************************************/
+
 static int MenuSettingsMenu()
 {
 	int menu = MENU_NONE;
@@ -4352,6 +4191,7 @@ static int MenuSettingsMenu()
 /****************************************************************************
  * MainMenu
  ***************************************************************************/
+
 void
 MainMenu (int menu)
 {
@@ -4387,7 +4227,7 @@ MainMenu (int menu)
 	}
 	else
 	{
-		gameScreenImg = new GuiImage(screenwidth, screenheight, (GXColor){205, 205, 205, 255});
+		gameScreenImg = new GuiImage(screenwidth, screenheight, (GXColor){192, 192, 192, 255});
 		gameScreenImg->ColorStripe(10);
 	}
 
@@ -4487,9 +4327,6 @@ MainMenu (int menu)
 				break;
 			case MENU_GAMESETTINGS_MAPPINGS_CTRL:
 				currentMenu = MenuSettingsMappingsController();
-				break;
-			case MENU_GAMESETTINGS_MAPPINGS_TURBOMODE:
-				currentMenu = MenuSettingsTurboMode();
 				break;
 			case MENU_GAMESETTINGS_MAPPINGS_MAP:
 				currentMenu = MenuSettingsMappingsMap();

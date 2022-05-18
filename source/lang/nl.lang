@@ -25,11 +25,14 @@ msgstr "7z uitpakken mislukt: bestand gebruikt niet ondersteunde compressie inst
 msgid "A (Rapid)"
 msgstr "A (Snel)"
 
-msgid "Additional improvements"
+msgid "Additional coding"
 msgstr "Overige programmering"
 
 msgid "Aim Offscreen"
 msgstr "Richt buiten het scherm"
+
+msgid "An update is available!"
+msgstr "Een update is beschikbaar!"
 
 msgid "Are you sure that you want to reset this game? Any unsaved progress will be lost."
 msgstr "Weet je zeker dat je het spel wilt herstarten? Niet opgeslagen gegevens zullen verloren gaan."
@@ -40,11 +43,17 @@ msgstr "Weet je zeker dat je de controller instellingen wilt wissen?"
 msgid "Are you sure that you want to reset your settings?"
 msgstr "Weet je zeker dat je de instellingen wilt wissen?"
 
+msgid "Maintain Aspect Ratio"
+msgstr "Behoud Beeldverhouding"
+
 msgid "Attempting to determine load device..."
 msgstr "Poging om het laadapparaat te bepalen..."
 
 msgid "Attempting to determine save device..."
 msgstr "Poging om het opslagapparaat te bepalen..."
+
+msgid "Auto"
+msgstr "Auto"
 
 msgid "Auto Detect"
 msgstr "Automatisch Detecteren"
@@ -64,6 +73,9 @@ msgstr "B (Snel)"
 msgid "Back"
 msgstr "Terug"
 
+msgid "Both"
+msgstr "Beide"
+
 msgid "Button Mapping"
 msgstr "Controller Instelling"
 
@@ -75,6 +87,9 @@ msgstr "Annuleren"
 
 msgid "Caps"
 msgstr "Hoofdletters"
+
+msgid "Cheats"
+msgstr "Cheats"
 
 msgid "Cheats file not found!"
 msgstr "Cheats bestand niet gevonden!"
@@ -91,14 +106,38 @@ msgstr "Traditionele Controller"
 msgid "Close"
 msgstr "Sluiten"
 
+msgid "Coding"
+msgstr "Programmering"
+
 msgid "Coding & menu design"
 msgstr "Programmering & menu ontwerp"
+
+msgid "Compressed GBA files are not supported!"
+msgstr "Gecomprimeerde GBA bestanden worden niet ondersteund!"
+
+msgid "Connecting to network share..."
+msgstr "Verbinden met gedeelde map..."
+
+msgid "Controller"
+msgstr "Controller"
 
 msgid "Cover View"
 msgstr "Omslag Weergave"
 
 msgid "Covers Folder"
 msgstr "Omslagmap"
+
+msgid "Credits"
+msgstr "Credits"
+
+msgid "Cropping"
+msgstr "Bijsnijden"
+
+msgid "Crosshair"
+msgstr "Crosshair"
+
+msgid "Cursor"
+msgstr "Cursor"
 
 msgid "Data DVD"
 msgstr "DVD-ROM"
@@ -109,6 +148,15 @@ msgstr "Standaard"
 msgid "Directory name is too long!"
 msgstr "Mapnaam is te lang!"
 
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+msgid "DISABLED"
+msgstr "UITGESCHAKELD"
+
+msgid "distributed, or modified under the terms of the"
+msgstr "uitgegeven, of bewerkt onder regels van de"
+
 msgid "Don't Save"
 msgstr "Niet Opslaan"
 
@@ -118,11 +166,20 @@ msgstr "Omlaag"
 msgid "DOWN"
 msgstr "OMLAAG"
 
+msgid "Downloading..."
+msgstr "Bezig met downloaden..."
+
 msgid "Dutch"
 msgstr "Nederlands"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Leeg of beschadigd ZIP bestand!"
+
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+msgid "ENABLED"
+msgstr "INGESCHAKELD"
 
 msgid "English"
 msgstr "Engels"
@@ -160,6 +217,15 @@ msgstr "Afsluiten"
 msgid "Exit Action"
 msgstr "Actie afsluiten"
 
+msgid "Failed to connect to network share."
+msgstr "Verbinden met de gedeelde map is mislukt."
+
+msgid "FDS BIOS file is invalid!"
+msgstr "FDS BIOS bestand is verkeerd!"
+
+msgid "FDS BIOS file not found!"
+msgstr "FDS BIOS bestand kan niet gevonden worden!"
+
 msgid "Filtered"
 msgstr "Gefilterd"
 
@@ -171,6 +237,12 @@ msgstr "Vuren"
 
 msgid "French"
 msgstr "Frans"
+
+msgid "GBA Screen Zoom"
+msgstr "GBA Scherm Zoomen"
+
+msgid "Game Genie ROM not found!"
+msgstr "Game Genie ROM niet gevonden!"
 
 msgid "Game Settings"
 msgstr "Spelinstellingen"
@@ -184,8 +256,23 @@ msgstr "Spelinstellingen - Cheats"
 msgid "Game Settings - Video"
 msgstr "Spelinstellingen - Video"
 
+msgid "Game Timing"
+msgstr "Spel Timen"
+
+msgid "Game Genie DISABLED"
+msgstr "Game Genie UITGESCHAKELD"
+
+msgid "Game Genie ENABLED"
+msgstr "Game Genie INGESCHAKELD"
+
+msgid "GameCube Controller"
+msgstr "GameCube Controller"
+
 msgid "German"
 msgstr "Duits"
+
+msgid "GNU General Public License (GPL) Version 2."
+msgstr "GNU General Public License (GPL) Versie 2."
 
 msgid "Go Back"
 msgstr "Ga Terug"
@@ -196,11 +283,29 @@ msgstr "Horizontaal"
 msgid "Information"
 msgstr "Informatie"
 
+msgid "Initializing network..."
+msgstr "Netwerk Initialiseren..."
+
+msgid "Insert Coin"
+msgstr "Munt inwerpen"
+
+msgid "Insert Coin / Switch Disk"
+msgstr "Munt inwerpen / Disk wisselen"
+
 msgid "Invalid file size!"
 msgstr "Verkeerde bestandsgrootte!"
 
 msgid "Invalid game file!"
 msgstr "Verkeerd spelbestand!"
+
+msgid "Invalid network settings - Check settings.xml."
+msgstr "Verkeerde netwerk instellingen - Controleer settings.xml."
+
+msgid "Invalid network settings - Share IP is blank."
+msgstr "Verkeerde netwerk instellingen - Gedeeld ip adres is niet opgegeven."
+
+msgid "Invalid network settings - Share name is blank."
+msgstr "Verkeerde netwerk instellingen - Gedeelde map is niet opgegeven."
 
 msgid "Invalid save file"
 msgstr "Ongeldig opslagbestand"
@@ -213,6 +318,15 @@ msgstr "Italiaans"
 
 msgid "Japanese"
 msgstr "Japans"
+
+msgid "Justifier"
+msgstr "Konami Justifier"
+
+msgid "Justifier - GameCube Controller"
+msgstr "Konami Justifier - GameCube Controller"
+
+msgid "Justifier - Wiimote"
+msgstr "Konami Justifier - Wiimote"
 
 msgid "Korean"
 msgstr "Koreaans"
@@ -269,7 +383,16 @@ msgid "Match Wii Controls"
 msgstr "Gelijk aan Wii besturing"
 
 msgid "Maximum filepath length reached!"
-msgstr "Maximale bestandspad lengte berijkt!"
+msgid "Maximale bestandspad lengte berijkt!"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Menu artwork"
+msgstr "Menu artwork"
+
+msgid "Menu sound"
+msgstr "Menu geluid"
 
 msgid "Music Volume"
 msgstr "Muziek volume"
@@ -279,6 +402,24 @@ msgstr "MIN"
 
 msgid "Mute"
 msgstr "Stil"
+
+msgid "NES Controller"
+msgstr "NES Controller"
+
+msgid "NES Controllers (2)"
+msgstr "NES COntrollers (2)"
+
+msgid "NES Controllers (4)"
+msgstr "NES Controllers (4)"
+
+msgid "NES Zapper"
+msgstr "Nintendo Zapper"
+
+msgid "Network"
+msgstr "Netwerk"
+
+msgid "Network Share"
+msgstr "Gedeelde map"
 
 msgid "New"
 msgstr "Nieuw"
@@ -307,8 +448,26 @@ msgstr "Geen opgeslagen spellen gevonden."
 msgid "None"
 msgstr "Geen"
 
+msgid "NTSC (480i)"
+msgstr "NTSC (480i)"
+
+msgid "Nunchuk"
+msgstr "Nunchuk"
+
 msgid "Off"
 msgstr "Uit"
+
+msgid "Official Site: https://github.com/dborth/fceugx"
+msgstr "Officiële Website: https://github.com/dborth/fceugx"
+
+msgid "Official Site: https://github.com/dborth/snes9xgx"
+msgstr "Officiële Website: https://github.com/dborth/snes9xgx"
+
+msgid "Official Site: https://github.com/dborth/vbagx"
+msgstr "Officiële Website: https://github.com/dborth/vbagx"
+
+msgid "OK"
+msgstr "OK"
 
 msgid "On"
 msgstr "Aan"
@@ -321,6 +480,30 @@ msgstr "Te weinig geheugen!"
 
 msgid "Out of memory: too many files!"
 msgstr "Te weinig geheugen: te veel bestanden!"
+
+msgid "P1"
+msgstr "P1"
+
+msgid "P2"
+msgstr "P2"
+
+msgid "P3"
+msgstr "P3"
+
+msgid "P4"
+msgstr "P4"
+
+msgid "PAL (50Hz)"
+msgstr "PAL (50Hz)"
+
+msgid "PAL (60Hz)"
+msgstr "PAL (60Hz)"
+
+msgid "Palette saved"
+msgstr "Kleurenpalet opgeslagen"
+
+msgid "Partial Stretch"
+msgstr "Gedeeltelijk Uitgerekt"
 
 msgid "Pause"
 msgstr "Pauze"
@@ -376,6 +559,9 @@ msgstr "Herstart"
 msgid "Rendering"
 msgstr "Renderen"
 
+msgid "Reset"
+msgstr "Reset"
+
 msgid "Reset Game"
 msgstr "Herstart Spel"
 
@@ -406,8 +592,8 @@ msgstr "RECHTS"
 msgid "Right Button"
 msgstr "Knop Rechts"
 
-msgid "Right Stick (Default)"
-msgstr "Rechts Joystick (Standaard)"
+msgid "Rumble"
+msgstr "Tril"
 
 msgid "Save"
 msgstr "Opslaan"
@@ -463,11 +649,17 @@ msgstr "Zoomen"
 msgid "Select"
 msgstr "Selecteer"
 
+msgid "Seek error!"
+msgstr "Zoek fout!"
+
 msgid "Settings"
 msgstr "Instellingen"
 
 msgid "Settings - Menu"
 msgstr "Instellingen - Menu"
+
+msgid "Settings - Network"
+msgstr "Instellingen - Netwerk"
 
 msgid "Settings - Saving & Loading"
 msgstr "Instellingen - Laden & Opslaan"
@@ -478,8 +670,50 @@ msgstr "SD Kaart"
 msgid "SD card not found!"
 msgstr "Geen SD kaart gevonden!"
 
-msgid "Chinese (Simplified)"
+msgid "Shift"
+msgstr "Shift"
+
+msgid "Simp_chinese"
 msgstr "Vereenvoudigd Chinees"
+
+msgid "SMB Share IP"
+msgstr "IP SMB Share"
+
+msgid "SMB Share Name"
+msgstr "SMB Share Naam"
+
+msgid "SMB Share Password"
+msgstr "SMB Share Wachtwoord"
+
+msgid "SMB Share Username"
+msgstr "SMB Share Gebruiker"
+
+msgid "Snapshot"
+msgstr "Snapshot"
+
+msgid "Snapshot (Auto)"
+msgstr "Snapshot (Auto)"
+
+msgid "SNES Controller"
+msgstr "SNES Controller"
+
+msgid "SNES Controllers (2)"
+msgstr "SNES Controllers (2)"
+
+msgid "SNES Controllers (4)"
+msgstr "SNES Controllers (4)"
+
+msgid "SNES Controller - Classic Controller"
+msgstr "SNES Controller - Classic Controller"
+
+msgid "SNES Controller - GameCube Controller"
+msgstr "SNES Controller - GameCube Controller"
+
+msgid "SNES Controller - Nunchuk + Wiimote"
+msgstr "SNES Controller - Nunchuk + Wiimote"
+
+msgid "SNES Controller - Wiimote"
+msgstr "SNES Controller - Wiimote"
 
 msgid "SNES Mouse"
 msgstr "SNES Muis"
@@ -490,11 +724,17 @@ msgstr "SNES Muis - GameCube Controller"
 msgid "SNES Mouse - Wiimote"
 msgstr "SNES Muis - Wiimote"
 
+msgid "Snes9x - Copyright (c) Snes9x Team 1996 - 2021"
+msgstr "Snes9x - Copyright (c) Snes9x Team 1996 - 2021"
+
 msgid "Sound Effects Volume"
 msgstr "Volume Geluidseffecten"
 
 msgid "Spanish"
 msgstr "Spaans"
+
+msgid "Sprite Limit"
+msgstr "Sprite Limiet"
 
 msgid "SRAM file not found"
 msgstr "SRAM bestand niet gevonden"
@@ -508,20 +748,26 @@ msgstr "Status (Auto)"
 msgid "State file not found"
 msgstr "Status bestand niet gevonden"
 
-msgid "Super Scope"
-msgstr "Nintendo Scope"
+msgid "Stretch to Fit"
+msgstr "Uitrekken tot passend"
 
-msgid "Super Scope - GameCube Controller"
-msgstr "Nintendo Scope - GameCube Controller"
+msgid "Superscope"
+msgstr "Superscope"
 
-msgid "Super Scope - Wiimote"
-msgstr "Nintendo Scope - Wiimote"
+msgid "Superscope - GameCube Controller"
+msgstr "Superscope - GameCube Controller"
 
-msgid "Turbo Mode"
-msgstr "Turbo Modus"
+msgid "Superscope - Wiimote"
+msgstr "Superscope - Wiimote"
 
-msgid "Turbo Mode Button"
-msgstr "Turbo Modus-Knop"
+msgid "This software is open source and may be copied,"
+msgstr "Deze software is Open Source en mag gekopieerd worden,"
+
+msgid "Trad_chinese"
+msgstr "Traditioneel Chinees"
+
+msgid "Unable to initialize network!"
+msgstr "Kan netwerk niet initialiseren!"
 
 msgid "Unable to locate a load device!"
 msgstr "Kan laadapparaat niet vinden!"
@@ -529,8 +775,8 @@ msgstr "Kan laadapparaat niet vinden!"
 msgid "Unable to locate a save device!"
 msgstr "Kan opslagapparaat niet vinden!"
 
-msgid "Unable to open state!"
-msgstr "Kan status niet openen!"
+msgid "Unable to open snapshot!"
+msgstr "Kan snapshot niet openen!"
 
 msgid "Unfiltered"
 msgstr "Ongefiltered"
@@ -553,6 +799,21 @@ msgstr "OMHOOG"
 msgid "Up One Level"
 msgstr "Eén Omhoog"
 
+msgid "Update Available"
+msgstr "Update beschikbaar"
+
+msgid "Update failed!"
+msgstr "Update mislukt!"
+
+msgid "Update later"
+msgstr "Later updaten"
+
+msgid "Update now"
+msgstr "Nu updaten"
+
+msgid "Update successful!"
+msgstr "Update succesvol!"
+
 msgid "USB drive not found!"
 msgstr "USB disk niet gevonden!"
 
@@ -562,5 +823,17 @@ msgstr "USB Mass Storage"
 msgid "Vertical"
 msgstr "Vertikaal"
 
+msgid "Video"
+msgstr "Video"
+
 msgid "Video Mode"
 msgstr "Video Modus"
+
+msgid "VM8: Unknown page type!"
+msgstr "VM8: Onbekende pagina type!"
+
+msgid "VM16: Unknown page type!"
+msgstr "VM16: Onbekende pagina type!"
+
+msgid "VM32: Unknown page type!"
+msgstr "VM32: Onbekende pagina type!"

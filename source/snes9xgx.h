@@ -1,19 +1,18 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/GameCube Port
+ * Snes9x Nintendo Wii/Gamecube Port
  *
  * softdev July 2006
  * crunchy2 May 2007-July 2007
  * Michniewski 2008
- * Tantric 2008-2022
- * Tanooki 2019-2022
+ * Tantric 2008-2021
  *
- * snes9xtx.h
+ * snes9xgx.h
  *
  * This file controls overall program flow. Most things start and end here!
  ***************************************************************************/
 
-#ifndef _SNES9XTX_H_
-#define _SNES9XTX_H_
+#ifndef _SNES9XGX_H_
+#define _SNES9XGX_H_
 
 #include "utils/FreeTypeGX.h"
 #include "snes9x.h"
@@ -21,7 +20,7 @@
 #include "filelist.h"
 
 #define APPNAME 			"Snes9x TX"
-#define APPVERSION 			"1.0.9"
+#define APPVERSION 			"1.0.8"
 #define APPFOLDER 			"snes9xtx"
 #define PREF_FILE_NAME		"settings.xml"
 
@@ -64,24 +63,6 @@ const char ctrlName[6][24] =
 { "SNES Controller", "SNES Mouse", "Super Scope", "Justifier", "SNES Controllers (2)", "SNES Controllers (4)" };
 
 enum {
-	TURBO_BUTTON_RSTICK = 0,
-	TURBO_BUTTON_A,
-	TURBO_BUTTON_B,
-	TURBO_BUTTON_X,
-	TURBO_BUTTON_Y,
-	TURBO_BUTTON_L,
-	TURBO_BUTTON_R,
-	TURBO_BUTTON_ZL,
-	TURBO_BUTTON_ZR,
-	TURBO_BUTTON_Z,
-	TURBO_BUTTON_C,
-	TURBO_BUTTON_1,
-	TURBO_BUTTON_2,
-	TURBO_BUTTON_PLUS,
-	TURBO_BUTTON_MINUS
-};
-
-enum {
 	LANG_JAPANESE = 0,
 	LANG_ENGLISH,
 	LANG_GERMAN,
@@ -116,13 +97,10 @@ struct SGCSettings{
 	float	zoomHor; // horizontal zoom amount
 	float	zoomVert; // vertical zoom amount
 	int		videomode; // 0 - Automatic, 1 - NTSC (480i), 2 - Progressive (480p), 3 - PAL (50Hz), 4 - PAL (60Hz)
-	int		render;		// 0 - Original, 1 - Unfiltered, 2 - Filtered
+	int		render;		// 0 - Original, 1 - Filtered, 2 - Unfiltered
 	int		FilterMethod; // convert to RenderFilter
 	int		Controller;
-	int		ShowFrameRate;
 	int		crosshair;
-	int		TurboMode;
-	int		TurboModeButton;
 	int		widescreen;	// 0 - 4:3 aspect, 1 - 16:9 aspect
 	int		xshift;	// video output shift
 	int		yshift;

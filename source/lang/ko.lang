@@ -23,7 +23,16 @@ msgid "7z decompression failed: File uses unsupported compression settings."
 msgstr "7z 압축 해제 실패: 파일이 지원되지 않는 압축 설정을 사용합니다."
 
 msgid "Additional improvements"
-msgstr "추가 개선"
+msgstr ""
+
+msgid "AM"
+msgstr "오전"
+
+msgid "Append Auto to .SAV Files"
+msgstr ".SAVE 파일에 자동 추가"
+
+msgid "Apr"
+msgstr "4월"
 
 msgid "Are you sure that you want to reset this game? Any unsaved progress will be lost."
 msgstr "이 게임을 재설정 하겠습니까? 저장되지 않는 진행은 손실됩니다."
@@ -46,6 +55,9 @@ msgstr "불러온 장치 확인 시도 중..."
 msgid "Attempting to determine save device..."
 msgstr "저장 장치 확인 시도 중..."
 
+msgid "Aug"
+msgstr "8월"
+
 msgid "Auto"
 msgstr "자동"
 
@@ -63,6 +75,9 @@ msgstr "자동 (추천)"
 
 msgid "Back"
 msgstr "뒤로"
+
+msgid "Both"
+msgstr "둘 다"
 
 msgid "Brazilian Portuguese"
 msgstr "브라질 포루투갈어"
@@ -94,6 +109,9 @@ msgstr "치트 폴더"
 msgid "Chinese (Simplified)"
 msgstr "중국어 (간체)"
 
+msgid "Chinese (Traditional)"
+msgstr "중국어 (전통적인)"
+
 msgid "Choose Game"
 msgstr "게임 선택"
 
@@ -102,6 +120,9 @@ msgstr "클래식 컨트롤러"
 
 msgid "Close"
 msgstr "닫기"
+
+msgid "Connecting to network share..."
+msgstr "네트워크 공유 연결 중..."
 
 msgid "Controller"
 msgstr "컨트롤러"
@@ -118,6 +139,9 @@ msgstr "크레딧"
 msgid "Data DVD"
 msgstr "데이터 DVD"
 
+msgid "Dec"
+msgstr "12월"
+
 msgid "Default"
 msgstr "기본값"
 
@@ -125,16 +149,19 @@ msgid "Delete"
 msgstr "삭제하기"
 
 msgid "Delete File"
-msgstr "파일 삭제"
+msgstr ""
 
 msgid "Delete Saves"
-msgstr "저장 삭제"
+msgstr ""
 
 msgid "Delete this save file? Deleted files can not be restored."
 msgstr "이 저장 파일을 삭제 하겠습니까? 삭제 파일은 복원할 수 없습니다."
 
 msgid "Directory name is too long!"
 msgstr "폴더명이 너무 깁니다!"
+
+msgid "Disabled"
+msgstr "사용 불가"
 
 msgid "Don't Save"
 msgstr "세이브를 할 수 없습니다"
@@ -148,6 +175,9 @@ msgstr "아래쪽"
 msgid "Dutch"
 msgstr "네덜란드어"
 
+msgid "Enabled"
+msgstr "사용 가능"
+
 msgid "English"
 msgstr "영어"
 
@@ -159,6 +189,9 @@ msgstr "오류 - 잘못된 ZIP 파일입니다!"
 
 msgid "Error creating file!"
 msgstr "파일 생성 오류!"
+
+msgid "Error loading font!"
+msgstr ""
 
 msgid "Error loading game!"
 msgstr "게임 불러오기 오류!"
@@ -184,11 +217,29 @@ msgstr "종료"
 msgid "Exit Action"
 msgstr "종료 작업"
 
+msgid "Failed to connect to network share."
+msgstr "네트워크 공유 접속에 실패하였습니다."
+
+msgid "Feb"
+msgstr "2월"
+
+msgid "Filtered (Sharp)"
+msgstr "필터 (날카로움)"
+
+msgid "Filtered (Soft)"
+msgstr "필터 (부드러움)"
+
+msgid "Font file is too large!"
+msgstr ""
+
 msgid "Font file not found!"
 msgstr "폰트 파일을 찾을 수 없습니다!"
 
 msgid "French"
 msgstr "프랑스어"
+
+msgid "Fri"
+msgstr "금"
 
 msgid "Game Settings"
 msgstr "게임 설정"
@@ -217,11 +268,35 @@ msgstr "수평"
 msgid "Information"
 msgstr "정보"
 
+msgid "Initializing network..."
+msgstr "네트워크 초기화 중..."
+
+msgid "Invalid network settings - Check settings.xml."
+msgstr "잘못된 네트워크 설정 - settings.xml 확인"
+
+msgid "Invalid network settings - Share IP is blank."
+msgstr "잘못된 네트워크 설정 - 공유 IP가 비었습니다."
+
+msgid "Invalid network settings - Share name is blank."
+msgstr "잘못된 네트워크 설정 - 공유명이 비었습니다."
+
+msgid "IOS: "
+msgstr ""
+
 msgid "Italian"
 msgstr "이탈리아어"
 
+msgid "Jan"
+msgstr "1월"
+
 msgid "Japanese"
 msgstr "일본어"
+
+msgid "Jul"
+msgstr "7월"
+
+msgid "Jun"
+msgstr "6월"
 
 msgid "Korean"
 msgstr "한국어"
@@ -256,14 +331,17 @@ msgstr "DVD 불러오기 중..."
 msgid "Loading..."
 msgstr "불러오기 중..."
 
-msgid "Logo"
-msgstr "로고"
-
 msgid "Main Menu"
 msgstr "메인 메뉴"
 
+msgid "Mar"
+msgstr "3월"
+
 msgid "Maximum filepath length reached!"
 msgstr "최대 파일경로 길이입니다!"
+
+msgid "May"
+msgstr "5월"
 
 msgid "Menu"
 msgstr "메뉴"
@@ -271,14 +349,26 @@ msgstr "메뉴"
 msgid "Menu artwork"
 msgstr "이미지 메뉴"
 
+msgid "Menu sound"
+msgstr "사운드 메뉴"
+
 msgid "MINUS"
 msgstr "마이너스"
+
+msgid "Mon"
+msgstr "월"
 
 msgid "Music Volume"
 msgstr "음악 볼륨"
 
 msgid "Mute"
 msgstr "무음"
+
+msgid "Network"
+msgstr "네트워크"
+
+msgid "Network Share"
+msgstr "네트워크 공유"
 
 msgid "New"
 msgstr "새로 만들기"
@@ -292,11 +382,26 @@ msgstr "삽입된 디스크가 없습니다!"
 msgid "No game saves found."
 msgstr "게임 저장을 찾을 수 없습니다."
 
+msgid "Nov"
+msgstr "11월"
+
+msgid "NTSC (480i)"
+msgstr ""
+
 msgid "Nunchuk"
 msgstr "눈챠크"
 
+msgid "Nunchuk + Wiimote"
+msgstr ""
+
+msgid "Oct"
+msgstr "10월"
+
 msgid "Off"
 msgstr "끔"
+
+msgid "Official Site: https://github.com/dborth/snes9xgx"
+msgstr "공식 사이트: https://github.com/dborth/snes9xgx"
 
 msgid "OK"
 msgstr "확인"
@@ -310,14 +415,20 @@ msgstr "오리지널"
 msgid "Out of memory: too many files!"
 msgstr "메모리 부족: 너무 많은 파일!"
 
-msgid "Pause"
-msgstr "일시 중지"
+msgid "PAL (50Hz)"
+msgstr ""
+
+msgid "PAL (60Hz)"
+msgstr ""
 
 msgid "Please Wait"
 msgstr "잠시만 기다려주세요"
 
 msgid "PLUS"
 msgstr "플러스"
+
+msgid "PM"
+msgstr "오후"
 
 msgid "Portuguese"
 msgstr "포르투갈어"
@@ -337,14 +448,14 @@ msgstr "지금 클래식 컨트롤러의 아무 버튼이나 누릅니다. 홈 �
 msgid "Press any button on the GameCube Controller now. Press the C-Stick in any direction to clear the existing mapping."
 msgstr "지금 클래식 컨트롤러의 아무 버튼이나 누릅니다. C-스틱을 눌러 기존 매핑을 정리합니다."
 
+msgid "Press any button on the Wii U Pro Controller now. Press Home to clear the existing mapping."
+msgstr ""
+
 msgid "Press any button on the Wiimote now. Press Home to clear the existing mapping."
 msgstr "지금 위모트의 아무 버튼이나 누릅니다. 홈 버튼을 눌러 기존 매핑을 정리합니다."
 
 msgid "Press any button on the Wiimote or Nunchuk now. Press Home to clear the existing mapping."
 msgstr "지금 위모트 또는 눈챠크의 아무 버튼이나 누릅니다. 홈 버튼을 눌러 기존 매핑을 정리합니다."
-
-msgid "Press any button on the Wii U Pro Controller now. Press Home to clear the existing mapping."
-msgstr "지금 Wii U 프로 컨트롤러에서 아무 버튼이나 누릅니다. 기존 매핑을 지우려면 홈을 누릅니다."
 
 msgid "Preview Image"
 msgstr "이미지 미리보기"
@@ -353,7 +464,7 @@ msgid "Preview Screenshot"
 msgstr "스크린샷 미리보기"
 
 msgid "Quit Game"
-msgstr "게임 종료"
+msgstr ""
 
 msgid "Quit this game? Any unsaved progress will be lost."
 msgstr "이 게임을 종료하겠습니까? 저장되지 않는 진행은 손실됩니다."
@@ -391,8 +502,11 @@ msgstr "오른쪽"
 msgid "RIGHT"
 msgstr "오른쪽"
 
-msgid "Right Stick (Default)"
-msgstr "오른쪽 스틱(기본값)"
+msgid "Rumble"
+msgstr "진동"
+
+msgid "Sat"
+msgstr "토"
 
 msgid "Save"
 msgstr "저장하기"
@@ -431,7 +545,7 @@ msgid "Screen Position"
 msgstr "화면 위치"
 
 msgid "Screen Zoom"
-msgstr "화면 확대/축소"
+msgstr "화면 확대"
 
 msgid "Screenshot"
 msgstr "스크린샷"
@@ -445,6 +559,12 @@ msgstr "스크린샷 폴더"
 msgid "SD Card"
 msgstr "SD 카드"
 
+msgid "SD Gecko Slot A"
+msgstr ""
+
+msgid "SD Gecko Slot B"
+msgstr ""
+
 msgid "SD card not found!"
 msgstr "SD 카드를 찾을 수 없습니다!"
 
@@ -454,17 +574,35 @@ msgstr "SD 에 SP2"
 msgid "Select"
 msgstr "선택"
 
+msgid "Sep"
+msgstr "9월"
+
 msgid "Settings"
 msgstr "설정"
 
 msgid "Settings - Menu"
 msgstr "설정 - 메뉴"
 
+msgid "Settings - Network"
+msgstr "설정 - 네트워크"
+
 msgid "Settings - Saving & Loading"
 msgstr "설정 - 저장하기 & 불러오기"
 
 msgid "Shift"
 msgstr "시프트"
+
+msgid "SMB Share IP"
+msgstr "SMB 공유 IP"
+
+msgid "SMB Share Name"
+msgstr "SMB 공유명"
+
+msgid "SMB Share Password"
+msgstr "SMB 공유 비밀번호"
+
+msgid "SMB Share Username"
+msgstr "SMB 공유 사용자명"
 
 msgid "Sound Effects Volume"
 msgstr "사운드 효과 볼륨"
@@ -481,20 +619,26 @@ msgstr "시작"
 msgid "State"
 msgstr "상태"
 
+msgid "Sun"
+msgstr "일"
+
 msgid "The current IOS has been altered (fake-signed). Functionality and/or stability may be adversely affected."
 msgstr "현재 IOS는 (가짜 서명) 변경되었습니다. 기능 및 안정성에 부정적인 영향을 줄 수 있습니다"
 
 msgid "The current IOS is unsupported. Functionality and/or stability may be adversely affected."
 msgstr "현재 IOS는 지원하지 않습니다. 기능 및 안정성에 부정적인 영향을 줄 수 있습니다."
 
-msgid "Turbo Mode"
-msgstr "터보 모드"
+msgid "Thu"
+msgstr "목"
 
-msgid "Turbo Mode Button"
-msgstr "터보 모드 버튼"
+msgid "Tue"
+msgstr "화"
 
 msgid "Turkish"
 msgstr "터키어"
+
+msgid "Unable to initialize network!"
+msgstr "네트워크 초기화 할 수 없습니다!"
 
 msgid "Unable to locate a load device!"
 msgstr "불러온 장치를 찾을 수 없습니다!"
@@ -507,12 +651,6 @@ msgstr "필터링되지 않음"
 
 msgid "Unrecognized DVD format."
 msgstr "인식할 수 없는 DVD 형식입니다."
-
-msgid "Unrecognized file extension!"
-msgstr "인식할 수 없는 파일 확장자입니다!"
-
-msgid "Unzipping..."
-msgstr "압축을 푸는 중..."
 
 msgid "Up"
 msgstr "위쪽"
@@ -538,6 +676,9 @@ msgstr "비디오"
 msgid "Video Mode"
 msgstr "비디오 모드"
 
+msgid "Wed"
+msgstr "수"
+
 msgid "Wii U Pro Controller"
 msgstr "위 U 프로 컨트롤러"
 
@@ -549,6 +690,12 @@ msgstr "위모트 방향"
 
 msgid "Yes"
 msgstr "예"
+
+msgid "40 MHz"
+msgstr ""
+
+msgid "60 MHz"
+msgstr ""
 
 msgid "Aim Offscreen"
 msgstr "조준 숨기기"
@@ -575,10 +722,19 @@ msgid "Fire"
 msgstr "발사"
 
 msgid "Game Settings - Audio"
-msgstr "게임 설정 - 오디오"
+msgstr "게임 설정 - Audio"
 
-msgid "Gaussian (SNES Hardware)"
-msgstr "가우스 (SNES 하드웨어)"
+msgid "Gaussian (Accurate)"
+msgstr "가우스 (정확한)"
+
+msgid "hq2x"
+msgstr "고품질2배율"
+
+msgid "hq2x Bold"
+msgstr "고품질2배율 선명함"
+
+msgid "hq2x Soft"
+msgstr "고품질2배율 부드러움"
 
 msgid "Interpolation"
 msgstr "보간법"
@@ -610,8 +766,14 @@ msgstr "저장 실패!"
 msgid "Save SRAM and State?"
 msgstr "SRAM과 상태를 저장하겠습니까?"
 
+msgid "Scanlines"
+msgstr "스캔라인"
+
 msgid "Show Framerate"
 msgstr "프레임속도 보기"
+
+msgid "Show Local Time"
+msgstr ""
 
 msgid "SNES Controller"
 msgstr "SNES 컨트롤러"
@@ -625,8 +787,11 @@ msgstr "SNES 컨트롤러 (4)"
 msgid "SNES Mouse"
 msgstr "SNES 마우스"
 
-msgid "Snes9x - Copyright (c) Snes9x Team 1996 - 2022"
-msgstr "Snes9x - 제작 (c) Snes9x 팀 1996-2022"
+msgid "Snes9x - Copyright (c) Snes9x Team 1996 - 2021"
+msgstr "Snes9x - 제작 (c) Snes9x 팀 1996-2021"
+
+msgid "SRAM"
+msgstr ""
 
 msgid "SRAM file not found"
 msgstr "SRAM 파일을 찾을 수 없습니다."
@@ -634,17 +799,11 @@ msgstr "SRAM 파일을 찾을 수 없습니다."
 msgid "Super Scope"
 msgstr "슈퍼 스코프"
 
-msgid "Super Scope - GameCube Controller"
-msgstr "슈퍼 스코프 - 게임큐브 컨트롤러"
-
-msgid "Super Scope - Wiimote"
-msgstr "슈퍼 스코프 - 위모트"
-
 msgid "SuperFX Overclock"
 msgstr "슈퍼FX 오버클럭"
 
-msgid "This software is open source and may be copied, distributed, or modified"
-msgstr "이 소프트웨어는 오픈 소스고 복사, 배포 또는 수정 될 수 있습니다."
+msgid "This software is open source and may be copied, distributed, or modified "
+msgstr "이 소프트웨어는 오픈 소스고 복사할 수 있습니다. distributed, or modified "
 
 msgid "Turbo Off"
 msgstr "연사 끔"
@@ -656,7 +815,7 @@ msgid "Unable to open state!"
 msgstr "상태를 열 수 없습니다!"
 
 msgid "under the terms of the GNU General Public License (GPL) Version 2."
-msgstr "GNU 일반 공중 사용 허가서(GPL) 버전 2의 조건에 의거합니다."
+msgstr "under the terms of the GNU 일반 공중 사용허가 (GPL) 버전 2."
 
 msgid "Unknown file type!"
 msgstr "알 수 없는 파일 유형!"

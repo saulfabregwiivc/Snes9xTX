@@ -1,9 +1,9 @@
 /****************************************************************************
- * Snes9x Nintendo Wii/GameCube Port
+ * Snes9x Nintendo Wii/Gamecube Port
  *
  * crunchy2 April 2007-July 2007
  * Michniewski 2008
- * Tantric 2008-2022
+ * Tantric 2008-2021
  *
  * sram.cpp
  *
@@ -15,7 +15,7 @@
 #include <string.h>
 #include <ogcsys.h>
 
-#include "snes9xtx.h"
+#include "snes9xgx.h"
 #include "menu.h"
 #include "fileop.h"
 #include "filebrowser.h"
