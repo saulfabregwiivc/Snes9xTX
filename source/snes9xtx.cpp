@@ -498,9 +498,10 @@ int main(int argc, char *argv[])
 		}
 
 		if (GCSettings.sfxOverclock > 0)
+		{
 			S9xResetSuperFX();
-		else
 			S9xReset();
+		}
 
 		switch (GCSettings.Interpolation)
 		{
