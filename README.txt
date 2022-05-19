@@ -7,6 +7,11 @@ Snes9x TX is a fork of Snes9x GX: https://github.com/dborth/snes9xgx
 Update History
 --------------
 
+---Snes9x TX 1.0.9b---
+---May 19 2022---
+
+- Fixed SuperFX overclock issues (thanks InfiniteBlueGX)
+
 ---Snes9x TX 1.0.9---
 ---May 17 2022---
 

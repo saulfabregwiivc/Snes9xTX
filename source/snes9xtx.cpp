@@ -60,6 +60,7 @@ int ExitRequested = 0;
 bool isWiiVC = false;
 char appPath[1024] = { 0 };
 static int currentMode;
+bool firstRun = true;
 
 extern "C" {
 #ifdef USE_VM
@@ -489,28 +490,33 @@ int main(int argc, char *argv[])
 #ifdef HW_RVL
 		SelectFilterMethod();
 #endif
-		switch (GCSettings.sfxOverclock)
+		if (firstRun)
 		{
-			case 0: Settings.SuperFXSpeedPerLine = 5823405; break;
-			case 1: Settings.SuperFXSpeedPerLine = 0.417 * 20.5e6; break;
-			case 2: Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6; break;
-			case 3: Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6; break;
-		}
+			firstRun = false;
+			switch (GCSettings.sfxOverclock)
+			{
+				case 0: Settings.SuperFXSpeedPerLine = 5823405; break;
+				case 1: Settings.SuperFXSpeedPerLine = 0.417 * 20.5e6; break;
+				case 2: Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6; break;
+				case 3: Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6; break;
+			}
 
-		if (GCSettings.sfxOverclock > 0)
+			if (GCSettings.sfxOverclock > 0)
+			{
 			S9xResetSuperFX();
-		else
 			S9xReset();
+			}
 
-		switch (GCSettings.Interpolation)
-		{
+			switch (GCSettings.Interpolation)
+			{
 			case 0: Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN; break;
 			case 1: Settings.InterpolationMethod = DSP_INTERPOLATION_LINEAR; break;
 			case 2: Settings.InterpolationMethod = DSP_INTERPOLATION_CUBIC; break;
 			case 3: Settings.InterpolationMethod = DSP_INTERPOLATION_SINC; break;
 			case 4: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
+			}
 		}
-
+		
 		autoboot = false;		
 		ConfigRequested = 0;
 		ScreenshotRequested = 0;
