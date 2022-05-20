@@ -7,6 +7,13 @@ Snes9x TX is a fork of Snes9x GX: https://github.com/dborth/snes9xgx
 Update History
 --------------
 
+---Snes9x TX 1.0.9c---
+---May 20 2022---
+
+- Added option to turn it on/off stereo inversion in audio settings
+  enabled by default to fix Wii inverted L/R audio channels
+- Updated all language files
+
 ---Snes9x TX 1.0.9b---
 ---May 19 2022---
 

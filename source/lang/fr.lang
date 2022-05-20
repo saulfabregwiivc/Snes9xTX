@@ -625,6 +625,9 @@ msgstr "Sauv. d'état (auto)"
 msgid "State file not found"
 msgstr "Pas de sauvegarde d'état trouvée"
 
+msgid "Stereo Inversion"
+msgstr "Inversion stéréo"
+
 msgid "SuperFX Overclock"
 msgstr "Overclock SuperFX"
 

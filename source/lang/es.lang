@@ -472,6 +472,9 @@ msgstr "Español"
 msgid "State"
 msgstr "Estado"
 
+msgid "Stereo Inversion"
+msgstr "Inversión Estéreo"
+
 msgid "The current IOS has been altered (fake-signed). Functionality and/or stability may be adversely affected."
 msgstr "El IOS actual ha sido alterado (falso firmado). La funcionalidad y/o la estabilidad pueden verse afectadas negativamente."
 

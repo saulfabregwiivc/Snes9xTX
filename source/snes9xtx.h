@@ -21,7 +21,7 @@
 #include "filelist.h"
 
 #define APPNAME 			"Snes9x TX"
-#define APPVERSION 			"1.0.9"
+#define APPVERSION 			"1.0.9c"
 #define APPFOLDER 			"snes9xtx"
 #define PREF_FILE_NAME		"settings.xml"
 
@@ -119,7 +119,7 @@ struct SGCSettings{
 	int		render;		// 0 - Original, 1 - Unfiltered, 2 - Filtered
 	int		FilterMethod; // convert to RenderFilter
 	int		Controller;
-	int		ShowFrameRate;
+	int		ShowFPS;
 	int		crosshair;
 	int		TurboMode;
 	int		TurboModeButton;
@@ -134,7 +134,8 @@ struct SGCSettings{
 	int		PreviewImage;
 
 	int		sfxOverclock;
-	
+
+	int		ReverseStereo;
 	int		Interpolation;
 };
 

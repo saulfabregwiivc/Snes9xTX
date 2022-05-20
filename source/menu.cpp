@@ -964,7 +964,7 @@ static int MenuGameSelection()
 	bool res;
 	int i;
 
-	GuiText titleTxt("Choose Game", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Choose Game", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -1344,7 +1344,7 @@ static int MenuGame()
 {
 	int menu = MENU_NONE;
 	
-	GuiText titleTxt((char *)Memory.ROMFilename, 22, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt((char *)Memory.ROMFilename, 22, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,40);
 
@@ -1504,7 +1504,7 @@ static int MenuGame()
 	{
 		sprintf(txt, "P%d", i+1);
 
-		batteryTxt[i] = new GuiText(txt, 20, (GXColor){255, 255, 255, 255});
+		batteryTxt[i] = new GuiText(txt, 20, (GXColor){66, 66, 66, 255});
 		batteryTxt[i]->SetAlignment(ALIGN_LEFT, ALIGN_MIDDLE);
 		batteryImg[i] = new GuiImage(&battery);
 		batteryImg[i]->SetAlignment(ALIGN_LEFT, ALIGN_MIDDLE);
@@ -1681,7 +1681,7 @@ static int MenuGame()
 					ExitApp();
 				}
 				else {
-					gameScreenImg = new GuiImage(screenwidth, screenheight, (GXColor){205, 205, 205, 255});
+					gameScreenImg = new GuiImage(screenwidth, screenheight, (GXColor){145, 139, 145, 255});
 					gameScreenImg->ColorStripe(10);
 					mainWindow->Insert(gameScreenImg, 0);
 					ResumeGui();
@@ -1788,7 +1788,7 @@ static int MenuGameSaves(int action)
 	if(!ChangeInterface(device, NOTSILENT))
 		return MENU_GAME;
 
-	GuiText titleTxt(NULL, 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt(NULL, 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -2059,7 +2059,7 @@ static int MenuGameSettings()
 	int menu = MENU_NONE;
 	char filepath[1024];
 
-	GuiText titleTxt("Game Settings", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Game Settings", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -2320,7 +2320,7 @@ static int MenuGameCheats()
 
 	options.length = i;
 
-	GuiText titleTxt("Game Settings - Cheats", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Game Settings - Cheats", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -2388,7 +2388,7 @@ static int MenuSettingsMappings()
 {
 	int menu = MENU_NONE;
 
-	GuiText titleTxt("Game Settings - Button Mappings", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Game Settings - Button Mappings", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -2567,12 +2567,12 @@ static int MenuSettingsMappingsController()
 	char menuSubtitle[100];
 
 	sprintf(menuTitle, "Game Settings - Button Mappings");
-	GuiText titleTxt(menuTitle, 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt(menuTitle, 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,30);
 
 	sprintf(menuSubtitle, "%s", ctrlName[mapMenuCtrlSNES]);
-	GuiText subtitleTxt(menuSubtitle, 20, (GXColor){255, 255, 255, 255});
+	GuiText subtitleTxt(menuSubtitle, 20, (GXColor){66, 66, 66, 255});
 	subtitleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	subtitleTxt.SetPosition(50,60);
 
@@ -2805,7 +2805,7 @@ ButtonMappingWindow()
 	GuiImageData dialogBox(dialogue_box_png);
 	GuiImage dialogBoxImg(&dialogBox);
 
-	GuiText titleTxt("Button Mapping", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Button Mapping", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
 	titleTxt.SetPosition(0,14);
 
@@ -2939,12 +2939,12 @@ static int MenuSettingsMappingsMap()
 	char menuSubtitle[100];
 	sprintf(menuTitle, "Game Settings - Button Mappings");
 
-	GuiText titleTxt(menuTitle, 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt(menuTitle, 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,30);
 
 	sprintf(menuSubtitle, "%s - %s", gettext(ctrlName[mapMenuCtrlSNES]), gettext(ctrlrName[mapMenuCtrl]));
-	GuiText subtitleTxt(menuSubtitle, 20, (GXColor){255, 255, 255, 255});
+	GuiText subtitleTxt(menuSubtitle, 20, (GXColor){66, 66, 66, 255});
 	subtitleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	subtitleTxt.SetPosition(50,60);
 
@@ -3395,11 +3395,11 @@ static int MenuSettingsTurboMode()
 	for(i=0; i < options.length; i++)
 		options.value[i][0] = 0;
 
-	GuiText titleTxt("Game Settings - Button Mappings", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Game Settings - Button Mappings", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,30);
 
-	GuiText subtitleTxt("Turbo Mode", 20, (GXColor){255, 255, 255, 255});
+	GuiText subtitleTxt("Turbo Mode", 20, (GXColor){66, 66, 66, 255});
 	subtitleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	subtitleTxt.SetPosition(50,60);
 
@@ -3537,7 +3537,7 @@ static int MenuSettingsVideo()
 	for(i=0; i < options.length; i++)
 		options.value[i][0] = 0;
 
-	GuiText titleTxt("Game Settings - Video", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Game Settings - Video", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -3613,9 +3613,9 @@ static int MenuSettingsVideo()
 				break;
 
 			case 6:
-				GCSettings.ShowFrameRate++;
-				if(GCSettings.ShowFrameRate > 1)
-					GCSettings.ShowFrameRate = 0;
+				GCSettings.ShowFPS++;
+				if(GCSettings.ShowFPS > 1)
+					GCSettings.ShowFPS = 0;
 				break;
 
 			case 7:
@@ -3674,7 +3674,7 @@ static int MenuSettingsVideo()
 #ifdef HW_RVL
 			sprintf (options.value[5], "%s", GetFilterName((RenderFilter)GCSettings.FilterMethod));
 #endif
-			sprintf (options.value[6], "%s", GCSettings.ShowFrameRate == 1 ? "On" : "Off");
+			sprintf (options.value[6], "%s", GCSettings.ShowFPS == 1 ? "On" : "Off");
 			sprintf (options.value[7], "%s", GCSettings.crosshair == 1 ? "On" : "Off");
 
 			switch(GCSettings.sfxOverclock)
@@ -3714,13 +3714,14 @@ static int MenuSettingsAudio()
 	bool firstRun = true;
 	OptionList options;
 
+	sprintf(options.name[i++], "Stereo Inversion");
 	sprintf(options.name[i++], "Interpolation");
 	options.length = i;
 
 	for(i=0; i < options.length; i++)
 		options.value[i][0] = 0;
 
-	GuiText titleTxt("Game Settings - Audio", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Game Settings - Audio", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -3756,16 +3757,20 @@ static int MenuSettingsAudio()
 	mainWindow->Append(&w);
 	mainWindow->Append(&titleTxt);
 	ResumeGui();
-	
+
 	while(menu == MENU_NONE)
 	{
 		usleep(THREAD_SLEEP);
 
 		ret = optionBrowser.GetClickedOption();
-		
+
 		switch (ret)
 		{
 			case 0:
+				GCSettings.ReverseStereo ^= 1;
+				break;
+
+			case 1:
 				GCSettings.Interpolation++;
 				if (GCSettings.Interpolation > 4) {
 					GCSettings.Interpolation = 0;
@@ -3781,23 +3786,25 @@ static int MenuSettingsAudio()
 				break;
 				S9xReset();
 		}
-		
+
 		if(ret >= 0 || firstRun)
 		{
 			firstRun = false;
-			
+
+			sprintf (options.value[0], "%s", GCSettings.ReverseStereo == 1 ? "On" : "Off");
+
 			switch(GCSettings.Interpolation)
 			{
 				case 0:
-					sprintf (options.value[0], "Gaussian (SNES Hardware)"); break;
+					sprintf (options.value[1], "Gaussian (SNES Hardware)"); break;
 				case 1:
-					sprintf (options.value[0], "Linear"); break;
+					sprintf (options.value[1], "Linear"); break;
 				case 2:
-					sprintf (options.value[0], "Cubic"); break;
+					sprintf (options.value[1], "Cubic"); break;
 				case 3:
-					sprintf (options.value[0], "Sinc"); break;
+					sprintf (options.value[1], "Sinc"); break;
 				case 4:
-					sprintf (options.value[0], "None"); break;
+					sprintf (options.value[1], "None"); break;
 			}
 			optionBrowser.TriggerUpdate();
 		}
@@ -3821,7 +3828,7 @@ static int MenuSettings()
 {
 	int menu = MENU_NONE;
 
-	GuiText titleTxt("Settings", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Settings", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -3978,7 +3985,7 @@ static int MenuSettingsFile()
 	for(i=0; i < options.length; i++)
 		options.value[i][0] = 0;
 
-	GuiText titleTxt("Settings - Saving & Loading", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Settings - Saving & Loading", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -4182,7 +4189,7 @@ static int MenuSettingsMenu()
 	for(i=0; i < options.length; i++)
 		options.value[i][0] = 0;
 
-	GuiText titleTxt("Settings - Menu", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt("Settings - Menu", 26, (GXColor){66, 66, 66, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
 	titleTxt.SetPosition(50,50);
 
@@ -4387,7 +4394,7 @@ MainMenu (int menu)
 	}
 	else
 	{
-		gameScreenImg = new GuiImage(screenwidth, screenheight, (GXColor){205, 205, 205, 255});
+		gameScreenImg = new GuiImage(screenwidth, screenheight, (GXColor){145, 139, 145, 255});
 		gameScreenImg->ColorStripe(10);
 	}
 
@@ -4404,9 +4411,9 @@ MainMenu (int menu)
 	GuiImage logoImg(&logo);
 	GuiImageData logoOver(logo_over_png);
 	GuiImage logoImgOver(&logoOver);
-	GuiText logoTxt(APPVERSION, 18, (GXColor){255, 255, 255, 255});
+	GuiText logoTxt(APPVERSION, 18, (GXColor){66, 66, 66, 255});
 	logoTxt.SetAlignment(ALIGN_RIGHT, ALIGN_TOP);
-	logoTxt.SetPosition(-7, 6);
+	logoTxt.SetPosition(-2, 5);
 	btnLogo = new GuiButton(logoImg.GetWidth(), logoImg.GetHeight());
 	btnLogo->SetAlignment(ALIGN_RIGHT, ALIGN_TOP);
 	btnLogo->SetPosition(-50, 24);

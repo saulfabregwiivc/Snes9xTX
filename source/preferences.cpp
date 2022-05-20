@@ -141,7 +141,7 @@ preparePrefsData ()
 	createXMLSetting("render", "Video Filtering", toStr(GCSettings.render));
 	createXMLSetting("widescreen", "Aspect Ratio Correction", toStr(GCSettings.widescreen));
 	createXMLSetting("FilterMethod", "Filter Method", toStr(GCSettings.FilterMethod));
-	createXMLSetting("ShowFrameRate", "Show Framerate", toStr(GCSettings.ShowFrameRate));
+	createXMLSetting("ShowFPS", "Show Framerate", toStr(GCSettings.ShowFPS));
 	createXMLSetting("crosshair", "Crosshair", toStr(GCSettings.crosshair));
 	createXMLSetting("xshift", "Horizontal Video Shift", toStr(GCSettings.xshift));
 	createXMLSetting("yshift", "Vertical Video Shift", toStr(GCSettings.yshift));
@@ -149,6 +149,7 @@ preparePrefsData ()
 
 	createXMLSection("Audio", "Audio Settings");
 
+	createXMLSetting("ReverseStereo", "Stereo Inversion", toStr(GCSettings.ReverseStereo));
 	createXMLSetting("Interpolation", "Interpolation", toStr(GCSettings.Interpolation));
 
 	createXMLSection("Menu", "Menu Settings");
@@ -276,7 +277,7 @@ decodePrefsData ()
 		{
 			const char * version = mxmlElementGetAttr(item, "version");
 
-			if(version && strlen(version) == 5)
+			if(version && strlen(version) == 6)
 			{
 				// this code assumes version in format X.X.X
 				// XX.X.X, X.XX.X, or X.X.XX will NOT work
@@ -320,13 +321,14 @@ decodePrefsData ()
 			loadXMLSetting(&GCSettings.render, "render");
 			loadXMLSetting(&GCSettings.widescreen, "widescreen");
 			loadXMLSetting(&GCSettings.FilterMethod, "FilterMethod");
-			loadXMLSetting(&GCSettings.ShowFrameRate, "ShowFrameRate");
+			loadXMLSetting(&GCSettings.ShowFPS, "ShowFPS");
 			loadXMLSetting(&GCSettings.crosshair, "crosshair");
 			loadXMLSetting(&GCSettings.xshift, "xshift");
 			loadXMLSetting(&GCSettings.yshift, "yshift");
-			
+
 			// Audio Settings
-			
+
+			loadXMLSetting(&GCSettings.ReverseStereo, "ReverseStereo");
 			loadXMLSetting(&GCSettings.Interpolation, "Interpolation");
 
 			// Emulation Settings
@@ -428,10 +430,12 @@ DefaultSettings ()
 	GCSettings.TurboMode = 1; // turbo mode enabled
 	GCSettings.TurboModeButton = 0; // right analog stick
 
+	GCSettings.ReverseStereo = 1; // enabled to fix inverted L/R audio channels
+
 	GCSettings.videomode = 0; // automatic video mode detection
 	GCSettings.render = 1; // unfiltered rendering
 	GCSettings.FilterMethod = FILTER_NONE; // no filtering
-	GCSettings.ShowFrameRate = 0; // show framerate disabled
+	GCSettings.ShowFPS = 0; // show framerate disabled
 	GCSettings.crosshair = 1; // show crosshair enabled
 
 	GCSettings.widescreen = 0;
@@ -485,7 +489,6 @@ DefaultSettings ()
 	Settings.SoundSync = true;
 	Settings.SixteenBitSound = true;
 	Settings.Stereo = true;
-	Settings.ReverseStereo = true;
 	Settings.SoundPlaybackRate = 48000;
 	Settings.SoundInputRate = 31920;
 	Settings.DynamicRateControl = true;

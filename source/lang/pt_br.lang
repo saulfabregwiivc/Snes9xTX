@@ -601,6 +601,9 @@ msgstr "Arquivo SRAM não foi encontrado"
 msgid "State file not found"
 msgstr "Arquivo de State não foi encontrado"
 
+msgid "Stereo Inversion"
+msgstr "Inversão Estéreo"
+
 msgid "SuperFX Overclock"
 msgstr "Overclock SuperFX"
 

@@ -516,13 +516,14 @@ int main(int argc, char *argv[])
 			case 4: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
 			}
 		}
-		
+
 		autoboot = false;		
 		ConfigRequested = 0;
 		ScreenshotRequested = 0;
 		SwitchAudioMode(0);
 
-		Settings.DisplayFrameRate = (GCSettings.ShowFrameRate == 1);
+		Settings.ReverseStereo = (GCSettings.ReverseStereo == 1);
+		Settings.DisplayFrameRate = (GCSettings.ShowFPS == 1);
 		Settings.AutoDisplayMessages = (Settings.DisplayFrameRate ? true : false);
 		Settings.MultiPlayer5Master = (GCSettings.Controller == CTRL_PAD4 ? true : false);
 		Settings.SuperScopeMaster = (GCSettings.Controller == CTRL_SCOPE ? true : false);

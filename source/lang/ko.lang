@@ -481,6 +481,9 @@ msgstr "시작"
 msgid "State"
 msgstr "상태"
 
+msgid "Stereo Inversion"
+msgstr "스테레오 반전"
+
 msgid "The current IOS has been altered (fake-signed). Functionality and/or stability may be adversely affected."
 msgstr "현재 IOS는 (가짜 서명) 변경되었습니다. 기능 및 안정성에 부정적인 영향을 줄 수 있습니다"
 

@@ -589,6 +589,9 @@ msgstr "状态"
 msgid "State file not found"
 msgstr "未找到状态文件"
 
+msgid "Stereo Inversion"
+msgstr "立体声反转"
+
 msgid "SuperFX Overclock"
 msgstr "SuperFX超频"
 

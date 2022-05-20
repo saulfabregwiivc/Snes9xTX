@@ -538,6 +538,9 @@ msgstr "Status (Auto)"
 msgid "State file not found"
 msgstr "Statusdatei nicht gefunden"
 
+msgid "Stereo Inversion"
+msgstr "Stereo-Invertierung"
+
 msgid "Stretch to Fit"
 msgstr "Strecken zum Einpassen"
 

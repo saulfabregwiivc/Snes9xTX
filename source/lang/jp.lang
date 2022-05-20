@@ -622,6 +622,9 @@ msgstr "状態(自動)"
 msgid "State file not found"
 msgstr "状態ファイルが見つかりません"
 
+msgid "Stereo Inversion"
+msgstr "ステレオ反転"
+
 msgid "Super Scope"
 msgstr "ｽｰﾊﾟｰｽｺｰﾌﾟ"
 
