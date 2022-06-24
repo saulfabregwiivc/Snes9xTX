@@ -103,8 +103,8 @@ msgstr "传统控制器"
 msgid "Close"
 msgstr "关闭"
 
-msgid "Coding & menu design"
-msgstr "编码 & 菜单设计"
+msgid "Coding"
+msgstr "编码"
 
 msgid "Controller"
 msgstr "控制器"
@@ -219,6 +219,12 @@ msgstr "德语"
 
 msgid "Go Back"
 msgstr "返回"
+
+msgid "Hide SRAM Saving"
+msgstr "隐藏SRAM保存"
+
+msgid "Hi Resolution"
+msgstr "高分辨率"
 
 msgid "Horizontal"
 msgstr "水平方向"
@@ -535,7 +541,7 @@ msgstr "SD卡"
 msgid "SD card not found!"
 msgstr "未找到SD卡"
 
-msgid "Show Framerate"
+msgid "Show Frame Rate"
 msgstr "显示帧率"
 
 msgid "SNES Controller"
@@ -576,6 +582,9 @@ msgstr "效果音的音量"
 
 msgid "Spanish"
 msgstr "西班牙语"
+
+msgid "Sprite Limit"
+msgstr "画面限制"
 
 msgid "SRAM file not found"
 msgstr "未找到SRAM文件"
@@ -667,9 +676,6 @@ msgstr "Wii右手柄方向"
 msgid "Yes"
 msgstr "是"
 
-msgid "Logo"
-msgstr "图形标识"
-
 msgid "Turbo On"
 msgstr "开启连发"
 
@@ -687,9 +693,6 @@ msgstr "当前IOS不被支持， 软件功能或稳定性可能会受到影响"
 
 msgid "Turkish"
 msgstr "土耳其语"
-
-msgid "Snes9x GX GameCube"
-msgstr "Snes9x GX GameCube版"
 
 msgid "libogc / devkitPPC"
 msgstr "libogc / devkitPPC开发源码"

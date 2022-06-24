@@ -88,8 +88,8 @@ msgstr "Comandament clàssic"
 msgid "Close"
 msgstr "Tancar"
 
-msgid "Coding & menu design"
-msgstr "Programació & disseny menú"
+msgid "Coding"
+msgstr "Programació"
 
 msgid "Controles"
 msgstr "Controls"
@@ -117,6 +117,9 @@ msgstr "Dades DVD"
 
 msgid "Default"
 msgstr "Per defecte"
+
+msgid "Delete"
+msgstr "Suprimeix"
 
 msgid "Directory name is too long!"
 msgstr "Nom de directori massa larg!"
@@ -202,11 +205,20 @@ msgstr "Alemany"
 msgid "Go Back"
 msgstr "Tornar"
 
+msgid "Hide SRAM Saving"
+msgstr "Amaga desar SRAM"
+
+msgid "Hi Resolution"
+msgstr "Alta resolució"
+
 msgid "Horizontal"
 msgstr "Horitzontal"
 
 msgid "Information"
 msgstr "Informació"
+
+msgid "Interpolation"
+msgstr "Interpolació"
 
 msgid "Invalid file size!"
 msgstr "Format fitxer invàlid!"
@@ -403,8 +415,11 @@ msgstr "Reiniciar"
 msgid "Rendering"
 msgstr "Renderitzat"
 
-msgid "Reset Game"
+msgid "Reset"
 msgstr "Reiniciar"
+
+msgid "Reset Game"
+msgstr "Reiniciar Joc"
 
 msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "Reiniciar joc? Es perdrà qualsevol progrés no desat."
@@ -505,6 +520,9 @@ msgstr "No trobo targeta SD!"
 msgid "Shift"
 msgstr "Maj."
 
+msgid "Show Frame Rate"
+msgstr "Mostra FPS"
+
 msgid "Chinese (Simplified)"
 msgstr "Xinès simpl."
 
@@ -549,6 +567,9 @@ msgstr "Volum d'efectes sonors"
 
 msgid "Spanish"
 msgstr "Castellà"
+
+msgid "Sprite Limit"
+msgstr "Límit sprites"
 
 msgid "SRAM file not found"
 msgstr "No trobo fitxer SRAM"

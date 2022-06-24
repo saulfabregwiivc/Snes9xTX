@@ -106,8 +106,8 @@ msgstr "Escolher Jogo "
 msgid "Close"
 msgstr "Fechar"
 
-msgid "Coding & menu design"
-msgstr "Programação & design do menu "
+msgid "Coding"
+msgstr "Programação"
 
 msgid "Controller"
 msgstr "Controle"
@@ -238,6 +238,12 @@ msgstr "Alemão"
 msgid "Go Back"
 msgstr "Voltar"
 
+msgid "Hide SRAM Saving"
+msgstr "Ocultar Salvar SRAM"
+
+msgid "Hi Resolution"
+msgstr "Alta Resolução"
+
 msgid "Information"
 msgstr "Informação"
 
@@ -309,9 +315,6 @@ msgstr "Carregando Patch..."
 
 msgid "Loading..."
 msgstr "Carregando..."
-
-msgid "Logo"
-msgstr "Logotipo"
 
 msgid "Main Menu"
 msgstr "Menu Principal"
@@ -550,7 +553,7 @@ msgstr "Configurações - Salvar & Carregar"
 msgid "Shift"
 msgstr "Maius."
 
-msgid "Show Framerate"
+msgid "Show Frame Rate"
 msgstr "Mostrar FPS"
 
 msgid "Snapshot"
@@ -594,6 +597,9 @@ msgstr "Volume dos Efeitos Sonoros"
 
 msgid "Spanish"
 msgstr "Espanhol"
+
+msgid "Sprite Limit"
+msgstr "Limite de Sprites"
 
 msgid "SRAM file not found"
 msgstr "Arquivo SRAM não foi encontrado"

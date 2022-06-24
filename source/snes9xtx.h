@@ -5,6 +5,7 @@
  * crunchy2 May 2007-July 2007
  * Michniewski 2008
  * Tantric 2008-2022
+ * 
  * Tanooki 2019-2022
  *
  * snes9xtx.h
@@ -21,7 +22,7 @@
 #include "filelist.h"
 
 #define APPNAME 			"Snes9x TX"
-#define APPVERSION 			"1.0.9c"
+#define APPVERSION 			"1.1.0"
 #define APPFOLDER 			"snes9xtx"
 #define PREF_FILE_NAME		"settings.xml"
 
@@ -111,6 +112,7 @@ struct SGCSettings{
 	char	ScreenshotsFolder[MAXPATHLEN]; // Path to screenshots files
 	char	CoverFolder[MAXPATHLEN]; 	// Path to cover files
 	char	ArtworkFolder[MAXPATHLEN]; 	// Path to artwork files
+	int		HideSRAMSaving;
 	int		AutoloadGame;
 
 	float	zoomHor; // horizontal zoom amount
@@ -119,7 +121,9 @@ struct SGCSettings{
 	int		render;		// 0 - Original, 1 - Unfiltered, 2 - Filtered
 	int		FilterMethod; // convert to RenderFilter
 	int		Controller;
-	int		ShowFPS;
+	int		HiResolution;
+	int		SpriteLimit;
+	int		ShowFrameRate;
 	int		crosshair;
 	int		TurboMode;
 	int		TurboModeButton;

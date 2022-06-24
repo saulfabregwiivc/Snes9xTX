@@ -82,6 +82,9 @@ msgstr "Cheats bestand niet gevonden!"
 msgid "Cheats Folder"
 msgstr "Cheats Map"
 
+msgid "Chinese (Simplified)"
+msgstr "Vereenvoudigd Chinees"
+
 msgid "Choose Game"
 msgstr "Kies Spel"
 
@@ -91,8 +94,8 @@ msgstr "Traditionele Controller"
 msgid "Close"
 msgstr "Sluiten"
 
-msgid "Coding & menu design"
-msgstr "Programmering & menu ontwerp"
+msgid "Coding"
+msgstr "Programmering"
 
 msgid "Cover View"
 msgstr "Omslag Weergave"
@@ -105,6 +108,9 @@ msgstr "DVD-ROM"
 
 msgid "Default"
 msgstr "Standaard"
+
+msgid "Delete"
+msgstr "Verwijderen"
 
 msgid "Directory name is too long!"
 msgstr "Mapnaam is te lang!"
@@ -190,11 +196,20 @@ msgstr "Duits"
 msgid "Go Back"
 msgstr "Ga Terug"
 
+msgid "Hide SRAM Saving"
+msgstr "Verberg SRAM-sparen"
+
+msgid "Hi Resolution"
+msgstr "Hoge Resolutie"
+
 msgid "Horizontal"
 msgstr "Horizontaal"
 
 msgid "Information"
 msgstr "Informatie"
+
+msgid "Interpolation"
+msgstr "Interpolatie"
 
 msgid "Invalid file size!"
 msgstr "Verkeerde bestandsgrootte!"
@@ -376,6 +391,9 @@ msgstr "Herstart"
 msgid "Rendering"
 msgstr "Renderen"
 
+msgid "Reset"
+msgstr "Herstart"
+
 msgid "Reset Game"
 msgstr "Herstart Spel"
 
@@ -478,8 +496,8 @@ msgstr "SD Kaart"
 msgid "SD card not found!"
 msgstr "Geen SD kaart gevonden!"
 
-msgid "Chinese (Simplified)"
-msgstr "Vereenvoudigd Chinees"
+msgid "Show Frame Rate"
+msgstr "Toon Framerate"
 
 msgid "SNES Mouse"
 msgstr "SNES Muis"
@@ -495,6 +513,9 @@ msgstr "Volume Geluidseffecten"
 
 msgid "Spanish"
 msgstr "Spaans"
+
+msgid "Sprite Limit"
+msgstr "Sprite Limiet"
 
 msgid "SRAM file not found"
 msgstr "SRAM bestand niet gevonden"

@@ -217,6 +217,12 @@ msgstr "Alemán"
 msgid "Go Back"
 msgstr "Volver"
 
+msgid "Hide SRAM Saving"
+msgstr "Ocultar SRAM Guardar"
+
+msgid "Hi Resolution"
+msgstr "Alta Resolución"
+
 msgid "Information"
 msgstr "Información"
 
@@ -532,8 +538,8 @@ msgstr "Sí"
 msgid "Aim Offscreen"
 msgstr "Apuntar Fuera de Pantalla"
 
-msgid "Coding & menu design"
-msgstr "Programación y diseño de menú"
+msgid "Coding"
+msgstr "Programación"
 
 msgid "Crosshair"
 msgstr "Cursor"
@@ -583,10 +589,7 @@ msgstr "¡Error al guardar!"
 msgid "Save SRAM and State?"
 msgstr "¿Guardar SRAM y partida?"
 
-msgid "TV Mode"
-msgstr "Modo TV"
-
-msgid "Show Framerate"
+msgid "Show Frame Rate"
 msgstr "Mostrar FPS"
 
 msgid "SNES Controller"
@@ -604,6 +607,9 @@ msgstr "Mouse de SNES"
 msgid "Snes9x - Copyright (c) Snes9x Team 1996 - 2022"
 msgstr "Snes9x - Derechos de autor (c) Snes9x Team 1996 - 2022"
 
+msgid "Sprite Limit"
+msgstr "Límite de Sprites"
+
 msgid "SRAM file not found"
 msgstr "Archivo SRAM no encontrado."
 
@@ -618,6 +624,9 @@ msgstr "Turbo Desactivado"
 
 msgid "Turbo On"
 msgstr "Turbo Activado"
+
+msgid "TV Mode"
+msgstr "Modo TV"
 
 msgid "Unable to open state!"
 msgstr "¡No se puede abrir la partida guardada!"

@@ -91,6 +91,9 @@ msgstr "改造コードが見つかりません"
 msgid "Cheats Folder"
 msgstr "改造コードフォルダ"
 
+msgid "Chinese (Simplified)"
+msgstr "簡体字中国語"
+
 msgid "Choose Game"
 msgstr "ゲームを選択してください"
 
@@ -100,8 +103,8 @@ msgstr "クラコン"
 msgid "Close"
 msgstr "とじる"
 
-msgid "Coding & menu design"
-msgstr "設計とメニューのデザイン"
+msgid "Coding"
+msgstr "プログラミング"
 
 msgid "Controles"
 msgstr "操作"
@@ -228,6 +231,12 @@ msgstr "ドイツ語"
 
 msgid "Go Back"
 msgstr "戻る"
+
+msgid "Hide SRAM Saving"
+msgstr "SRAMセーブを隠す"
+
+msgid "Hi Resolution"
+msgstr "高解像度"
 
 msgid "Horizontal"
 msgstr "横方向"
@@ -559,8 +568,8 @@ msgstr "SD"
 msgid "SD card not found!"
 msgstr "SDが見つかりません"
 
-msgid "Chinese (Simplified)"
-msgstr "簡体字中国語"
+msgid "Show Frame Rate"
+msgstr "表示フレーム率"
 
 msgid "Snapshot"
 msgstr "中断データ"
@@ -606,6 +615,9 @@ msgstr "効果音の音量"
 
 msgid "Spanish"
 msgstr "スペイン語"
+
+msgid "Sprite Limit"
+msgstr "スプライト制限"
 
 msgid "SRAM file not found"
 msgstr "SRAMファイルが見つかりません"
@@ -693,9 +705,6 @@ msgstr "Wiiリモコンの向き"
 
 msgid "Yes"
 msgstr "はい"
-
-msgid "Logo"
-msgstr "ロゴ"
 
 msgid "Turbo On"
 msgstr "連打オン"

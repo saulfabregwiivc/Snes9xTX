@@ -85,6 +85,9 @@ msgstr "File Cheat non trovato!"
 msgid "Cheats Folder"
 msgstr "Cartella Cheat"
 
+msgid "Chinese (Simplified)"
+msgstr "Cinese Semplificato"
+
 msgid "Choose Game"
 msgstr "Scelta Gioco"
 
@@ -94,8 +97,8 @@ msgstr "Controller Tradizionale"
 msgid "Close"
 msgstr "Chiudi"
 
-msgid "Coding & menu design"
-msgstr "Programmazione e design del menù"
+msgid "Coding"
+msgstr "Programmazione"
 
 msgid "Controles"
 msgstr "Controlli"
@@ -211,11 +214,20 @@ msgstr "Tedesco"
 msgid "Go Back"
 msgstr "Torna Indietro"
 
+msgid "Hide SRAM Saving"
+msgstr "Nascondi Salvataggio SRAM"
+
+msgid "Hi Resolution"
+msgstr "Alta Risoluzione"
+
 msgid "Horizontal"
 msgstr "Orizzontale"
 
 msgid "Information"
 msgstr "Informazione"
+
+msgid "Interpolation"
+msgstr "Interpolazione"
 
 msgid "Invalid file size!"
 msgstr "Dimensione del file non valida!"
@@ -400,8 +412,11 @@ msgstr "TASTO R"
 msgid "RAM saving is not available for FDS games!"
 msgstr "Il salvataggio della RAM non è disponibile per i giochi FDS!"
 
-msgid "Reset Game"
+msgid "Reset"
 msgstr "Resetta"
+
+msgid "Reset Game"
+msgstr "Resetta Gioco"
 
 msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "Resettare il gioco? Tutti i progressi saranno perduti."
@@ -502,8 +517,8 @@ msgstr "Scheda SD"
 msgid "SD card not found!"
 msgstr "Scheda SD non trovata!"
 
-msgid "Chinese (Simplified)"
-msgstr "Cinese Semplificato"
+msgid "Show Frame Rate"
+msgstr "Mostra FPS"
 
 msgid "SNES Controllers (2)"
 msgstr "SNES Controller (4)"
@@ -519,6 +534,9 @@ msgstr "Volume Effetti Sonori"
 
 msgid "Spanish"
 msgstr "Spagnolo"
+
+msgid "Sprite Limit"
+msgstr "Limite Sprite"
 
 msgid "SRAM file not found"
 msgstr "File SRAM non trovato"

@@ -106,8 +106,8 @@ msgstr "Manette Classique"
 msgid "Close"
 msgstr "Fermer"
 
-msgid "Coding & menu design"
-msgstr "Programmation & design du menu"
+msgid "Coding"
+msgstr "Programmation"
 
 msgid "Controller"
 msgstr "Contrôleur"
@@ -252,6 +252,12 @@ msgstr "Allemand"
 
 msgid "Go Back"
 msgstr "Retour"
+
+msgid "Hide SRAM Saving"
+msgstr "Masquer sauvegarder SRAM"
+
+msgid "Hi Resolution"
+msgstr "Haute résolution"
 
 msgid "Invalid file size!"
 msgstr "Taille du fichier invalide !"
@@ -565,7 +571,7 @@ msgstr "SD dans SP2"
 msgid "Shift"
 msgstr "Maj"
 
-msgid "Show Framerate"
+msgid "Show Frame Rate"
 msgstr "Afficher les FPS"
 
 msgid "Chinese (Simplified)"
@@ -612,6 +618,9 @@ msgstr "Volume des effets sonores"
 
 msgid "Spanish"
 msgstr "Espagnol"
+
+msgid "Sprite Limit"
+msgstr "Limite de sprites"
 
 msgid "SRAM file not found"
 msgstr "Pas de sauvegarde SRAM trouvée"

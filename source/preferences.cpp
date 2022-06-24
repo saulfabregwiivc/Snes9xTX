@@ -141,7 +141,9 @@ preparePrefsData ()
 	createXMLSetting("render", "Video Filtering", toStr(GCSettings.render));
 	createXMLSetting("widescreen", "Aspect Ratio Correction", toStr(GCSettings.widescreen));
 	createXMLSetting("FilterMethod", "Filter Method", toStr(GCSettings.FilterMethod));
-	createXMLSetting("ShowFPS", "Show Framerate", toStr(GCSettings.ShowFPS));
+	createXMLSetting("HiResolution", "Hi Resolution", toStr(GCSettings.HiResolution));
+	createXMLSetting("SpriteLimit", "Sprite Limit", toStr(GCSettings.SpriteLimit));
+	createXMLSetting("ShowFrameRate", "Show Frame Rate", toStr(GCSettings.ShowFrameRate));
 	createXMLSetting("crosshair", "Crosshair", toStr(GCSettings.crosshair));
 	createXMLSetting("xshift", "Horizontal Video Shift", toStr(GCSettings.xshift));
 	createXMLSetting("yshift", "Vertical Video Shift", toStr(GCSettings.yshift));
@@ -162,7 +164,8 @@ preparePrefsData ()
 	createXMLSetting("SFXVolume", "Sound Effects Volume", toStr(GCSettings.SFXVolume));
 	createXMLSetting("language", "Language", toStr(GCSettings.language));
 	createXMLSetting("PreviewImage", "Preview Image", toStr(GCSettings.PreviewImage));
-	
+	createXMLSetting("HideSRAMSaving", "Hide SRAM Saving", toStr(GCSettings.HideSRAMSaving));	
+
 	createXMLSection("Controller", "Controller Settings");
 
 	createXMLSetting("Controller", "Controller", toStr(GCSettings.Controller));
@@ -277,7 +280,7 @@ decodePrefsData ()
 		{
 			const char * version = mxmlElementGetAttr(item, "version");
 
-			if(version && strlen(version) == 6)
+			if(version && strlen(version) == 5)
 			{
 				// this code assumes version in format X.X.X
 				// XX.X.X, X.XX.X, or X.X.XX will NOT work
@@ -321,7 +324,9 @@ decodePrefsData ()
 			loadXMLSetting(&GCSettings.render, "render");
 			loadXMLSetting(&GCSettings.widescreen, "widescreen");
 			loadXMLSetting(&GCSettings.FilterMethod, "FilterMethod");
-			loadXMLSetting(&GCSettings.ShowFPS, "ShowFPS");
+			loadXMLSetting(&GCSettings.HiResolution, "HiResolution");
+			loadXMLSetting(&GCSettings.SpriteLimit, "SpriteLimit");
+			loadXMLSetting(&GCSettings.ShowFrameRate, "ShowFrameRate");
 			loadXMLSetting(&GCSettings.crosshair, "crosshair");
 			loadXMLSetting(&GCSettings.xshift, "xshift");
 			loadXMLSetting(&GCSettings.yshift, "yshift");
@@ -343,6 +348,7 @@ decodePrefsData ()
 			loadXMLSetting(&GCSettings.SFXVolume, "SFXVolume");
 			loadXMLSetting(&GCSettings.language, "language");
 			loadXMLSetting(&GCSettings.PreviewImage, "PreviewImage");
+			loadXMLSetting(&GCSettings.HideSRAMSaving, "HideSRAMSaving");
 
 			// Controller Settings
 
@@ -423,20 +429,17 @@ DefaultSettings ()
 	sprintf (GCSettings.ScreenshotsFolder, "%s/screenshots", APPFOLDER); // Path to screenshot files
 	sprintf (GCSettings.CoverFolder, "%s/covers", APPFOLDER); // Path to cover files
 	sprintf (GCSettings.ArtworkFolder, "%s/artwork", APPFOLDER); // Path to artwork files
-	GCSettings.AutoLoad = 1; // Auto Load RAM
-	GCSettings.AutoSave = 1; // Auto Save RAM
+	GCSettings.AutoLoad = 1; // Auto Load SRAM
+	GCSettings.AutoSave = 1; // Auto Save SRAM
 
 	GCSettings.Controller = CTRL_PAD2; // SNES Pad, Four Score, SNES Mouse, Super Scope, Justifier
-	GCSettings.TurboMode = 1; // turbo mode enabled
-	GCSettings.TurboModeButton = 0; // right analog stick
-
-	GCSettings.ReverseStereo = 1; // enabled to fix inverted L/R audio channels
+	GCSettings.TurboMode = 1; // Enabled by default
+	GCSettings.TurboModeButton = 0; // Default is Right Analog Stick (0)
 
 	GCSettings.videomode = 0; // automatic video mode detection
-	GCSettings.render = 1; // unfiltered rendering
+	GCSettings.render = 1; // Unfiltered
 	GCSettings.FilterMethod = FILTER_NONE; // no filtering
-	GCSettings.ShowFPS = 0; // show framerate disabled
-	GCSettings.crosshair = 1; // show crosshair enabled
+	GCSettings.crosshair = 1; // Enabled by default
 
 	GCSettings.widescreen = 0;
 
@@ -456,6 +459,7 @@ DefaultSettings ()
 	GCSettings.MusicVolume = 100;
 	GCSettings.SFXVolume = 40;
 	GCSettings.PreviewImage = 0;
+	GCSettings.HideSRAMSaving = 0;
 
 #ifdef HW_RVL
 	GCSettings.language = CONF_GetLanguage();
@@ -473,9 +477,9 @@ DefaultSettings ()
 
 	// General
 
-	Settings.MouseMaster = true;
-	Settings.SuperScopeMaster = true;
-	Settings.JustifierMaster = true;
+	Settings.MouseMaster = false;
+	Settings.SuperScopeMaster = false;
+	Settings.JustifierMaster = false;
 	Settings.MultiPlayer5Master = false;
 	Settings.DontSaveOopsSnapshot = true;
 	Settings.ApplyCheats = true;
@@ -493,20 +497,22 @@ DefaultSettings ()
 	Settings.SoundInputRate = 31920;
 	Settings.DynamicRateControl = true;
 	Settings.SeparateEchoBuffer = false;
-	
+	GCSettings.ReverseStereo = 1; // Enabled by default to fix inverted L/R audio channels
+
 	// Interpolation Method
 	GCSettings.Interpolation = 0;
 	Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN;
 
 	// Graphics
 	Settings.Transparency = true;
-	Settings.SupportHiRes = true;
-	Settings.MaxSpriteTilesPerLine = 34;
 	Settings.SkipFrames = AUTO_FRAMERATE;
 	Settings.TurboSkipFrames = 19;
 	Settings.AutoDisplayMessages = false;
 	Settings.InitialInfoStringTimeout = 200; // # frames to display messages for
 	Settings.DisplayTime = false;
+	GCSettings.ShowFrameRate = 0; // Disabled by default
+	GCSettings.HiResolution = 1; // Enabled by default
+	GCSettings.SpriteLimit = 1; // Enabled by default
 
 	// Frame timings in 50hz and 60hz cpu mode
 	Settings.FrameTimePAL = 20000;

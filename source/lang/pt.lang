@@ -91,6 +91,9 @@ msgstr "Ficheiro de truques não encontrado!"
 msgid "Cheats Folder"
 msgstr "Pasta de Truques"
 
+msgid "Chinese (Simplified)"
+msgstr "Chinês Simp."
+
 msgid "Choose Game"
 msgstr "Escolher Jogo"
 
@@ -100,8 +103,8 @@ msgstr "Comando Clássico"
 msgid "Close"
 msgstr "Fechar"
 
-msgid "Coding & menu design"
-msgstr "Programação & desenho do menu"
+msgid "Coding"
+msgstr "Programação"
 
 msgid "Controles"
 msgstr "Controlos"
@@ -220,8 +223,17 @@ msgstr "Alemão"
 msgid "Go Back"
 msgstr "Voltar"
 
+msgid "Hide SRAM Saving"
+msgstr "Ocultar gravar SRAM"
+
+msgid "Hi Resolution"
+msgstr "Alta Resolução"
+
 msgid "Information"
 msgstr "Informação"
+
+msgid "Interpolation"
+msgstr "Interpolação"
 
 msgid "Invalid file size!"
 msgstr "Tamanho de ficheiro inválido!"
@@ -291,9 +303,6 @@ msgstr "A Carregar patch..."
 
 msgid "Loading..."
 msgstr "A carregar..."
-
-msgid "Logo"
-msgstr "Logotipo"
 
 msgid "Main Menu"
 msgstr "Menu Principal"
@@ -532,8 +541,8 @@ msgstr "Cartão SD"
 msgid "SD card not found!"
 msgstr "Cartão SD não encontrado!"
 
-msgid "Chinese (Simplified)"
-msgstr "Chinês Simp."
+msgid "Show Frame Rate"
+msgstr "Mostrar FPS"
 
 msgid "SNES Controller"
 msgstr "Comando SNES"
@@ -573,6 +582,9 @@ msgstr "Volume de Efeitos Sonoros"
 
 msgid "Spanish"
 msgstr "Espanhol"
+
+msgid "Sprite Limit"
+msgstr "Limite de Sprites"
 
 msgid "SRAM file not found"
 msgstr "Ficheiro SRAM não encontrado"

@@ -82,14 +82,17 @@ msgstr "Cheatdatei nicht gefunden!"
 msgid "Cheats Folder"
 msgstr "Ordner f. Cheats"
 
+msgid "Chinese (Simplified)"
+msgstr "Vereinfachtes Chinesisch"
+
 msgid "Choose Game"
 msgstr "Spiel auswählen"
 
 msgid "Close"
 msgstr "Schließen"
 
-msgid "Coding & menu design"
-msgstr "Programmierung & Menüdesign"
+msgid "Coding"
+msgstr "Programmierung"
 
 msgid "Cover View"
 msgstr "Cover anzeigen"
@@ -198,6 +201,12 @@ msgstr "Deutsch"
 
 msgid "Go Back"
 msgstr "Zurück"
+
+msgid "Hide SRAM Saving"
+msgstr "Ausblenden speichern SRAM"
+
+msgid "Hi Resolution"
+msgstr "Hohe Auflösung"
 
 msgid "Insert Coin"
 msgstr "Münze einwerfen"
@@ -496,8 +505,8 @@ msgstr "Einstellungen - Speichern & Laden"
 msgid "SD card not found!"
 msgstr "SD Card nicht gefunden!"
 
-msgid "Chinese (Simplified)"
-msgstr "Vereinfachtes Chinesisch"
+msgid "Show Frame Rate"
+msgstr "Zeige Bildfrequenz"
 
 msgid "Snapshot"
 msgstr "Schnappschuss"

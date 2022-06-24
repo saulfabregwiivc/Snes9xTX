@@ -211,6 +211,12 @@ msgstr "독일어"
 msgid "Go Back"
 msgstr "뒤로 가기"
 
+msgid "Hide SRAM Saving"
+msgstr "숨기기 저장 SRAM"
+
+msgid "Hi Resolution"
+msgstr "높은 해상도"
+
 msgid "Horizontal"
 msgstr "수평"
 
@@ -255,9 +261,6 @@ msgstr "DVD 불러오기 중..."
 
 msgid "Loading..."
 msgstr "불러오기 중..."
-
-msgid "Logo"
-msgstr "로고"
 
 msgid "Main Menu"
 msgstr "메인 메뉴"
@@ -559,8 +562,8 @@ msgstr "조준 숨기기"
 msgid "Audio"
 msgstr "오디오"
 
-msgid "Coding & menu design"
-msgstr "코딩 & 메뉴 디자인"
+msgid "Coding"
+msgstr "코딩"
 
 msgid "Crosshair"
 msgstr "십자 버튼"
@@ -613,7 +616,7 @@ msgstr "저장 실패!"
 msgid "Save SRAM and State?"
 msgstr "SRAM과 상태를 저장하겠습니까?"
 
-msgid "Show Framerate"
+msgid "Show Frame Rate"
 msgstr "프레임속도 보기"
 
 msgid "SNES Controller"
@@ -630,6 +633,9 @@ msgstr "SNES 마우스"
 
 msgid "Snes9x - Copyright (c) Snes9x Team 1996 - 2022"
 msgstr "Snes9x - 제작 (c) Snes9x 팀 1996-2022"
+
+msgid "Sprite Limit"
+msgstr "스프라이트 제한"
 
 msgid "SRAM file not found"
 msgstr "SRAM 파일을 찾을 수 없습니다."

@@ -7,6 +7,19 @@ Snes9x TX is a fork of Snes9x GX: https://github.com/dborth/snes9xgx
 Update History
 --------------
 
+---Snes9x TX 1.1.0---
+---June 23 2022---
+
+- Updated to the latest Snes9x GX 4.5.3
+- Disabled peripheral devices by default if not selected in controller settings
+- Added new options to turn it on/off sprite limit and hi resolution in video settings
+  disable hi resolution to keep video filtering active with games using this mode
+- Added credits button in main menu settings (thanks InfiniteBlue!)
+- Updated credits
+- Updated all language files
+- Updated UI PNG images
+- Compiled with latest devkitPPC and libfat with UStealth Mod (thanks SaulFabre!)
+
 ---Snes9x TX 1.0.9c---
 ---May 20 2022---
 
@@ -17,17 +30,17 @@ Update History
 ---Snes9x TX 1.0.9b---
 ---May 19 2022---
 
-- Fixed SuperFX overclock issues (thanks InfiniteBlueGX)
+- Fixed SuperFX overclock issues (thanks InfiniteBlue!)
 
 ---Snes9x TX 1.0.9---
 ---May 17 2022---
 
 - Updated to the latest Snes9x GX (git 2e0df05)
-- Restored turbo mode and added button remapping feature and submenu (thanks InfiniteBlueGX)
+- Restored turbo mode and added button remapping feature and submenu (thanks InfiniteBlue!)
 - Added Cubic and Sinc sound interpolation methods
-- Added option to overclock the SuperFX to 20 Mhz (thanks niuus)
+- Added option to overclock the SuperFX to 20 Mhz (thanks niuus!)
 - Fixed not saving SuperFX overclock option in settings
-- Added saving show framerate option in settings
+- Added saving show frame rate option in settings
 - Removed show local time option
 - Removed all hq2x video filter code (keep the necessary for TV Mode and Scale2x filters)
 - Added Scale2x video filter (takes less resources than hq2x filters)
@@ -95,7 +108,7 @@ Update History
 - Updated to the latest Snes9x GX (git cd66ff8)
 - Updated UI PNG images
 - Added support for .bs files (new extension of last update to No-Intro Satellaview roms)
-- Disabled BS-X bios when loading Satellaview games (thanks fledge68)
+- Disabled BS-X bios when loading Satellaview games (thanks fledge68!)
 
 ---Snes9x TX 1.0.3---
 ---June 5 2020---

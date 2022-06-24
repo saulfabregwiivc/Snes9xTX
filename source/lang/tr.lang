@@ -26,7 +26,7 @@ msgid "A (Rapid)"
 msgstr "A (Seri)"
 
 msgid "Additional improvements"
-msgstr "İlave kod"
+msgstr "Ek kod"
 
 msgid "Aim Offscreen"
 msgstr "Ekran Dışına Hedefleme"
@@ -91,6 +91,9 @@ msgstr "Hile dosyası bulunamadı!"
 msgid "Cheats Folder"
 msgstr "Hile Dizini"
 
+msgid "Chinese (Simplified)"
+msgstr "Basitleştirilmiş Çince"
+
 msgid "Choose Game"
 msgstr "Oyun Seç"
 
@@ -100,8 +103,8 @@ msgstr "Klasik Oyun Kumandası"
 msgid "Close"
 msgstr "Kapat"
 
-msgid "Coding & menu design"
-msgstr "Kod & Menü Tasarımı"
+msgid "Coding"
+msgstr "Kod"
 
 msgid "Controles"
 msgstr "Oyun Kumandaları"
@@ -129,6 +132,9 @@ msgstr "Veri DVD'si"
 
 msgid "Default"
 msgstr "Varsayılan"
+
+msgid "Delete"
+msgstr "Silmek"
 
 msgid "Directory name is too long!"
 msgstr "Dizin adı çok uzun!"
@@ -217,11 +223,20 @@ msgstr "Almanca"
 msgid "Go Back"
 msgstr "Geri Dön"
 
+msgid "Hide SRAM Saving"
+msgstr "SRAM kayıt gizle"
+
+msgid "Hi Resolution"
+msgstr "Yüksek Çözünürlük"
+
 msgid "Horizontal"
 msgstr "Yatay"
 
 msgid "Information"
 msgstr "Bilgi"
+
+msgid "Interpolation"
+msgstr "İnterpolasyon"
 
 msgid "Invalid file size!"
 msgstr "Geçersiz dosya boyutu!"
@@ -520,8 +535,8 @@ msgstr "SD Kartı"
 msgid "SD card not found!"
 msgstr "SD kartı bulunamadı!"
 
-msgid "Chinese (Simplified)"
-msgstr "Basitleştirilmiş Çince"
+msgid "Show Frame Rate"
+msgstr "FPS'yi Göster"
 
 msgid "Snapshot"
 msgstr "Enstantane"
@@ -567,6 +582,9 @@ msgstr "Efekt Sesleri"
 
 msgid "Spanish"
 msgstr "İspanyolca"
+
+msgid "Sprite Limit"
+msgstr "Sprite Sınırı"
 
 msgid "SRAM file not found"
 msgstr "SRAM dosyası bulunamadı"
