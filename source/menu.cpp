@@ -4159,7 +4159,7 @@ static int MenuSettings()
 		}
 		else if(satellaviewBtn.GetState() == STATE_CLICKED)
 		{	
-			satellaviewBtn.ResetState();
+			satellaviewBtn.SetState(STATE_SELECTED);
 
 			GCSettings.Satellaview ^= 1;
 			if (GCSettings.Satellaview) sprintf(satellaviewTxt, "ON");
