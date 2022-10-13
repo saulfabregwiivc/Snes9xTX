@@ -2,7 +2,10 @@
 msgstr "&"
 
 msgid "16:9 Correction"
-msgstr "16:9 校正"
+msgstr "16:9校正"
+
+msgid "240p Output"
+msgstr "240p输出"
 
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "7z解压缩失败： 压缩包内有很多文件"
@@ -73,6 +76,9 @@ msgstr "B (连发)"
 msgid "Back"
 msgstr "返回"
 
+msgid "Bilinear Filtering"
+msgstr "双线性过滤"
+
 msgid "Button Mapping"
 msgstr "按键映射"
 
@@ -115,20 +121,17 @@ msgstr "封面预览"
 msgid "Covers Folder"
 msgstr "封面目录"
 
+msgid "CPU Overclocking"
+msgstr "CPU超频"
+
 msgid "Credits"
 msgstr "作者信息"
-
-msgid "Crosshair"
-msgstr "十字准线"
 
 msgid "Cursor"
 msgstr "光标"
 
 msgid "Data DVD"
 msgstr "数据DVD"
-
-msgid "Default"
-msgstr "预设"
 
 msgid "Directory name is too long!"
 msgstr "目录名过长！"
@@ -147,6 +150,9 @@ msgstr "荷兰语"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "空或不正确的ZIP文件"
+
+msgid "Emulation Hacks"
+msgstr "仿真器黑客"
 
 msgid "English"
 msgstr "英语"
@@ -184,9 +190,6 @@ msgstr "退出"
 msgid "Exit Action"
 msgstr "离开后执行"
 
-msgid "Filtered"
-msgstr "已过滤"
-
 msgid "Filtering"
 msgstr "滤镜"
 
@@ -208,11 +211,17 @@ msgstr "游戏设定 - 按键映射"
 msgid "Game Settings - Cheats"
 msgstr "游戏设定 - 金手指"
 
+msgid "Game Settings - Emulation Hacks"
+msgstr "游戏设定 - 仿真器黑客"
+
 msgid "Game Settings - Video"
 msgstr "游戏设定 - 视频"
 
 msgid "GameCube Controller"
 msgstr "GameCube 控制器"
+
+msgid "Gaussian (Default)"
+msgstr "高斯（预设）"
 
 msgid "German"
 msgstr "德语"
@@ -223,17 +232,14 @@ msgstr "返回"
 msgid "Hide SRAM Saving"
 msgstr "隐藏SRAM保存"
 
-msgid "Hi Resolution"
-msgstr "高分辨率"
+msgid "Hi-Res Mode"
+msgstr "高分辨率模式"
 
 msgid "Horizontal"
 msgstr "水平方向"
 
 msgid "Information"
 msgstr "信息"
-
-msgid "Interpolation"
-msgstr "插值"
 
 msgid "Invalid file size!"
 msgstr "无效的文件大小！"
@@ -283,6 +289,9 @@ msgstr "左"
 msgid "Left Button"
 msgstr "左按键"
 
+msgid "Linear"
+msgstr "线性"
+
 msgid "Load"
 msgstr "读取"
 
@@ -307,6 +316,9 @@ msgstr "从Patch读取中..."
 msgid "Loading..."
 msgstr "读取中..."
 
+msgid "Low"
+msgstr "低"
+
 msgid "Main Menu"
 msgstr "主菜单"
 
@@ -316,8 +328,14 @@ msgstr "匹配GC控制器"
 msgid "Match Wii Controls"
 msgstr "匹配Wii控制器"
 
+msgid "Max"
+msgstr "最大"
+
 msgid "Maximum filepath length reached!"
 msgstr "文件长度达到最大"
+
+msgid "Medium"
+msgstr "中等的"
 
 msgid "Menu"
 msgstr "菜单"
@@ -336,9 +354,6 @@ msgstr "新的"
 
 msgid "No"
 msgstr "否"
-
-msgid "No data to save!"
-msgstr "不存在保存的数据"
 
 msgid "No disc inserted!"
 msgstr "没有插入光盘！"
@@ -361,14 +376,17 @@ msgstr "Wii左手柄"
 msgid "Off"
 msgstr "关闭"
 
+msgid "OFF"
+msgstr "关闭"
+
 msgid "OK"
 msgstr "确定"
 
 msgid "On"
 msgstr "开启"
 
-msgid "Original"
-msgstr "原始"
+msgid "ON"
+msgstr "开启"
 
 msgid "Out of memory!"
 msgstr "内存不足！"
@@ -430,14 +448,8 @@ msgstr "退出游戏吗？ 未保存的进度将丢失"
 msgid "R TRIG"
 msgstr "R扳机"
 
-msgid "RAM saving is not available for FDS games!"
-msgstr "任天堂磁盘驱动器游戏， 不能以RAM保存！"
-
 msgid "Reboot"
 msgstr "重新启动"
-
-msgid "Rendering"
-msgstr "描绘"
 
 msgid "Reset"
 msgstr "重置"
@@ -514,9 +526,6 @@ msgstr "保存中..."
 msgid "Saving..."
 msgstr "保存中..."
 
-msgid "Scaling"
-msgstr "缩放"
-
 msgid "Screen Position"
 msgstr "画面位置"
 
@@ -540,6 +549,9 @@ msgstr "SD卡"
 
 msgid "SD card not found!"
 msgstr "未找到SD卡"
+
+msgid "Show Crosshair"
+msgstr "显示十字准星"
 
 msgid "Show Frame Rate"
 msgstr "显示帧率"
@@ -580,6 +592,9 @@ msgstr "Snes9x - 版权(c) Snes9x开发小组1996-2022"
 msgid "Sound Effects Volume"
 msgstr "效果音的音量"
 
+msgid "Sound Interpolation"
+msgstr "声音插值"
+
 msgid "Spanish"
 msgstr "西班牙语"
 
@@ -598,10 +613,7 @@ msgstr "状态"
 msgid "State file not found"
 msgstr "未找到状态文件"
 
-msgid "Stereo Inversion"
-msgstr "立体声反转"
-
-msgid "SuperFX Overclock"
+msgid "SuperFX Overclocking"
 msgstr "SuperFX超频"
 
 msgid "Super Scope"
@@ -622,6 +634,9 @@ msgstr "涡轮模式"
 msgid "Turbo Mode Button"
 msgstr "涡轮模式按钮"
 
+msgid "TV Mode"
+msgstr "电视模式"
+
 msgid "Unable to locate a load device!"
 msgstr "无法定位读取的设备！"
 
@@ -630,9 +645,6 @@ msgstr "无法定位保存的设备！"
 
 msgid "Unable to open state!"
 msgstr "无法打开状态！"
-
-msgid "Unfiltered"
-msgstr "没有过滤"
 
 msgid "Unknown file type!"
 msgstr "无法识别的文件类型！"

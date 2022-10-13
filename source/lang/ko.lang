@@ -4,6 +4,9 @@ msgstr ""
 msgid "16:9 Correction"
 msgstr "16:9 수정"
 
+msgid "240p Output"
+msgstr "240p 출력"
+
 msgid "7z decompression failed: Archive contains too many files."
 msgstr "7z 압축 해제 실패: 압축 파일에 너무 많은 파일이 포함되었습니다."
 
@@ -64,6 +67,9 @@ msgstr "자동 (추천)"
 msgid "Back"
 msgstr "뒤로"
 
+msgid "Bilinear Filtering"
+msgstr "쌍선형 필터링"
+
 msgid "Brazilian Portuguese"
 msgstr "브라질 포루투갈어"
 
@@ -112,14 +118,14 @@ msgstr "커버"
 msgid "Covers Folder"
 msgstr "커버 폴더"
 
+msgid "CPU Overclocking"
+msgstr "CPU 오버클럭"
+
 msgid "Credits"
 msgstr "크레딧"
 
 msgid "Data DVD"
 msgstr "데이터 DVD"
-
-msgid "Default"
-msgstr "기본값"
 
 msgid "Delete"
 msgstr "삭제하기"
@@ -147,6 +153,9 @@ msgstr "아래쪽"
 
 msgid "Dutch"
 msgstr "네덜란드어"
+
+msgid "Emulation Hacks"
+msgstr "에뮬레이션 해킹"
 
 msgid "English"
 msgstr "영어"
@@ -193,11 +202,17 @@ msgstr "프랑스어"
 msgid "Game Settings"
 msgstr "게임 설정"
 
+msgid "Game Settings - Audio"
+msgstr "게임 설정 - 오디오"
+
 msgid "Game Settings - Button Mappings"
 msgstr "게임 설정 - 버튼 맵핑"
 
 msgid "Game Settings - Cheats"
 msgstr "게임 설정 - 치트"
+
+msgid "Game Settings - Emulation Hacks"
+msgstr "게임 설정 - 에뮬레이션 해킹"
 
 msgid "Game Settings - Video"
 msgstr "게임 설정 - 비디오"
@@ -214,8 +229,8 @@ msgstr "뒤로 가기"
 msgid "Hide SRAM Saving"
 msgstr "숨기기 저장 SRAM"
 
-msgid "Hi Resolution"
-msgstr "높은 해상도"
+msgid "Hi-Res Mode"
+msgstr "고해상도 모드"
 
 msgid "Horizontal"
 msgstr "수평"
@@ -262,11 +277,20 @@ msgstr "DVD 불러오기 중..."
 msgid "Loading..."
 msgstr "불러오기 중..."
 
+msgid "Low"
+msgstr "낮은"
+
 msgid "Main Menu"
 msgstr "메인 메뉴"
 
+msgid "Max"
+msgstr "최대"
+
 msgid "Maximum filepath length reached!"
 msgstr "최대 파일경로 길이입니다!"
+
+msgid "Medium"
+msgstr "중간"
 
 msgid "Menu"
 msgstr "메뉴"
@@ -306,9 +330,6 @@ msgstr "확인"
 
 msgid "On"
 msgstr "켬"
-
-msgid "Original"
-msgstr "오리지널"
 
 msgid "Out of memory: too many files!"
 msgstr "메모리 부족: 너무 많은 파일!"
@@ -363,9 +384,6 @@ msgstr "이 게임을 종료하겠습니까? 저장되지 않는 진행은 손�
 
 msgid "Reboot"
 msgstr "재부팅"
-
-msgid "Rendering"
-msgstr "렌더링"
 
 msgid "Reset"
 msgstr "리셋"
@@ -427,9 +445,6 @@ msgstr "환경 설정 저장 중..."
 msgid "Saving..."
 msgstr "저장 중..."
 
-msgid "Scaling"
-msgstr "스케일"
-
 msgid "Screen Position"
 msgstr "화면 위치"
 
@@ -472,6 +487,9 @@ msgstr "시프트"
 msgid "Sound Effects Volume"
 msgstr "사운드 효과 볼륨"
 
+msgid "Sound Interpolation"
+msgstr "사운드 보간"
+
 msgid "Spanish"
 msgstr "스페인어"
 
@@ -483,9 +501,6 @@ msgstr "시작"
 
 msgid "State"
 msgstr "상태"
-
-msgid "Stereo Inversion"
-msgstr "스테레오 반전"
 
 msgid "The current IOS has been altered (fake-signed). Functionality and/or stability may be adversely affected."
 msgstr "현재 IOS는 (가짜 서명) 변경되었습니다. 기능 및 안정성에 부정적인 영향을 줄 수 있습니다"
@@ -502,14 +517,14 @@ msgstr "터보 모드 버튼"
 msgid "Turkish"
 msgstr "터키어"
 
+msgid "TV Mode"
+msgstr "TV 모드"
+
 msgid "Unable to locate a load device!"
 msgstr "불러온 장치를 찾을 수 없습니다!"
 
 msgid "Unable to locate a save device!"
 msgstr "저장 장치를 찾을 수 없습니다!"
-
-msgid "Unfiltered"
-msgstr "필터링되지 않음"
 
 msgid "Unrecognized DVD format."
 msgstr "인식할 수 없는 DVD 형식입니다."
@@ -565,14 +580,8 @@ msgstr "오디오"
 msgid "Coding"
 msgstr "코딩"
 
-msgid "Crosshair"
-msgstr "십자 버튼"
-
 msgid "Cursor"
 msgstr "커서"
-
-msgid "Filtered"
-msgstr "필터"
 
 msgid "Filtering"
 msgstr "필터링"
@@ -580,14 +589,8 @@ msgstr "필터링"
 msgid "Fire"
 msgstr "발사"
 
-msgid "Game Settings - Audio"
-msgstr "게임 설정 - 오디오"
-
-msgid "Gaussian (SNES Hardware)"
-msgstr "가우스 (SNES 하드웨어)"
-
-msgid "Interpolation"
-msgstr "보간법"
+msgid "Gaussian (Default)"
+msgstr "가우스 (기본값)"
 
 msgid "Justifier"
 msgstr "광선총"
@@ -604,17 +607,29 @@ msgstr "저장된 SRAM 데이터가 없습니다!"
 msgid "None"
 msgstr "없음"
 
+msgid "OFF"
+msgstr "끔"
+
+msgid "ON"
+msgstr "켬"
+
 msgid "Progressive (480p)"
 msgstr "프로그레시브 (480p)"
 
 msgid "Right Button"
 msgstr "오른쪽 버튼"
 
+msgid "Satellaview"
+msgstr "사테라뷰"
+
 msgid "Save failed!"
 msgstr "저장 실패!"
 
 msgid "Save SRAM and State?"
 msgstr "SRAM과 상태를 저장하겠습니까?"
+
+msgid "Show Crosshair"
+msgstr "십자선 보기"
 
 msgid "Show Frame Rate"
 msgstr "프레임속도 보기"
@@ -649,7 +664,7 @@ msgstr "슈퍼 스코프 - 게임큐브 컨트롤러"
 msgid "Super Scope - Wiimote"
 msgstr "슈퍼 스코프 - 위모트"
 
-msgid "SuperFX Overclock"
+msgid "SuperFX Overclocking"
 msgstr "슈퍼FX 오버클럭"
 
 msgid "This software is open source and may be copied, distributed, or modified"

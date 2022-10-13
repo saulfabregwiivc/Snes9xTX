@@ -2,7 +2,10 @@ msgid "&"
 msgstr ""
 
 msgid "16:9 Correction"
-msgstr "16:9"
+msgstr "16:9 Korrektur"
+
+msgid "240p Output"
+msgstr "240p Ausgabe"
 
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "7z Dekomprimierung fehlgeschlagen: Archiv enthält zu viele Dateien"
@@ -67,6 +70,9 @@ msgstr "B (Turbo)"
 msgid "Back"
 msgstr "Zurück"
 
+msgid "Bilinear Filtering"
+msgstr "Bilineare Filter"
+
 msgid "Button Mapping"
 msgstr "Tastenbelegung"
 
@@ -100,17 +106,14 @@ msgstr "Cover anzeigen"
 msgid "Covers Folder"
 msgstr "Ordner f. Cover"
 
-msgid "Crosshair"
-msgstr "Fadenkreuz"
+msgid "CPU Overclocking"
+msgstr "CPU Übertaktung"
 
 msgid "Cursor"
 msgstr "Eingabezeiger"
 
 msgid "Data DVD"
 msgstr "Daten DVD"
-
-msgid "Default"
-msgstr "Standard"
 
 msgid "Delete"
 msgstr "Löschen"
@@ -169,9 +172,6 @@ msgstr "Beenden"
 msgid "Exit Action"
 msgstr "Aktion beim Beenden"
 
-msgid "Filtered"
-msgstr "Gefiltert"
-
 msgid "Filtering"
 msgstr "Filter"
 
@@ -182,10 +182,10 @@ msgid "French"
 msgstr "Französich"
 
 msgid "Game Settings"
-msgstr "Spiel Einstellungen"
+msgstr "Spieleinstellungen"
 
 msgid "Game Settings - Audio"
-msgstr "Spiel Einstellungen - Audio"
+msgstr "Spieleinstellungen - Audio"
 
 msgid "Game Settings - Button Mappings"
 msgstr "Spieleinstellungen - Tastenbelegung"
@@ -193,8 +193,14 @@ msgstr "Spieleinstellungen - Tastenbelegung"
 msgid "Game Settings - Cheats"
 msgstr "Spieleinstellungen - Cheats"
 
+msgid "Game Settings - Emulation Hacks"
+msgstr "Spieleinstellungen - Emulation Hacks"
+
 msgid "Game Settings - Video"
 msgstr "Spieleinstellungen - Video"
+
+msgid "Gaussian (Default)"
+msgstr "Gauß (Standard)"
 
 msgid "German"
 msgstr "Deutsch"
@@ -205,14 +211,8 @@ msgstr "Zurück"
 msgid "Hide SRAM Saving"
 msgstr "Ausblenden speichern SRAM"
 
-msgid "Hi Resolution"
-msgstr "Hohe Auflösung"
-
-msgid "Insert Coin"
-msgstr "Münze einwerfen"
-
-msgid "Insert Coin / Switch Disk"
-msgstr "Münze einwerfen / Disc wechseln"
+msgid "Hi-Res Mode"
+msgstr "Hi-Res Modus"
 
 msgid "Invalid file size!"
 msgstr "Ungültige Dateigröße!"
@@ -277,6 +277,9 @@ msgstr "Lade Patch..."
 msgid "Loading..."
 msgstr "Lade..."
 
+msgid "Low"
+msgstr "Niedrig"
+
 msgid "Main Menu"
 msgstr "Hauptmenü"
 
@@ -304,17 +307,11 @@ msgstr "Stumm"
 msgid "New"
 msgstr "Neu"
 
-msgid "New Snapshot"
-msgstr "Neuer Schnappschuss"
-
 msgid "New SRAM"
 msgstr "Neuer SRAM"
 
 msgid "No"
 msgstr "Nein"
-
-msgid "No data to save!"
-msgstr "Keine Daten gespeichert!"
 
 msgid "No disc inserted!"
 msgstr "Keine Disc eingelegt!"
@@ -331,8 +328,14 @@ msgstr "Nichts"
 msgid "Off"
 msgstr "Aus"
 
+msgid "OFF"
+msgstr "AUS"
+
 msgid "On"
 msgstr "An"
+
+msgid "ON"
+msgstr "AN"
 
 msgid "Out of memory!"
 msgstr "Nicht genug Speicher!"
@@ -391,14 +394,8 @@ msgstr "Spiel beenden"
 msgid "Quit this game? Any unsaved progress will be lost."
 msgstr "Dieses Spiel beenden? Ungespeicherter Fortschritt geht verloren."
 
-msgid "RAM saving is not available for FDS games!"
-msgstr "RAM speichern ist für FDS Spiele nicht verfügbar!"
-
 msgid "Reboot"
 msgstr "Neustart"
-
-msgid "Rendering"
-msgstr "Darstellung"
 
 msgid "Reset"
 msgstr "Zurücksetzen"
@@ -457,14 +454,8 @@ msgstr "Ordner f. Spielstände"
 msgid "Save Game"
 msgstr "Spiel speichern"
 
-msgid "Save RAM and State?"
-msgstr "RAM und Status speichern?"
-
-msgid "Save Snapshot?"
-msgstr "Schnappschuss speichern?"
-
-msgid "Save SRAM and Snapshot?"
-msgstr "SRAM und Schnappschuss speichern?"
+msgid "Save SRAM and State?"
+msgstr "SRAM und Status speichern?"
 
 msgid "Save State?"
 msgstr "Status speichern?"
@@ -480,9 +471,6 @@ msgstr "Einstellungen werden gespeichert..."
 
 msgid "Saving..."
 msgstr "Speichern..."
-
-msgid "Scaling"
-msgstr "Auflösung"
 
 msgid "Screen Position"
 msgstr "Bildschirm Position"
@@ -505,14 +493,11 @@ msgstr "Einstellungen - Speichern & Laden"
 msgid "SD card not found!"
 msgstr "SD Card nicht gefunden!"
 
+msgid "Show Crosshair"
+msgstr "Zeige Fadenkreuz"
+
 msgid "Show Frame Rate"
 msgstr "Zeige Bildfrequenz"
-
-msgid "Snapshot"
-msgstr "Schnappschuss"
-
-msgid "Snapshot (Auto)"
-msgstr "Schnappschuss (Auto)"
 
 msgid "SNES Controller - Nunchuk + Wiimote"
 msgstr "SNES Controller - Nunchuk + Wii-FB"
@@ -547,8 +532,8 @@ msgstr "Status (Auto)"
 msgid "State file not found"
 msgstr "Statusdatei nicht gefunden"
 
-msgid "Stereo Inversion"
-msgstr "Stereo-Invertierung"
+msgid "SuperFX Overclocking"
+msgstr "SuperFX Übertaktung"
 
 msgid "Stretch to Fit"
 msgstr "Strecken zum Einpassen"
@@ -563,10 +548,13 @@ msgid "Super Scope - Wiimote"
 msgstr "Nintendo Scope - Wii-FB"
 
 msgid "Turbo Mode"
-msgstr "Turbo-Modus"
+msgstr "Turbomodus"
 
 msgid "Turbo Mode Button"
-msgstr "Turbo-Modus-Taste"
+msgstr "Taste Turbomodus"
+
+msgid "TV Mode"
+msgstr "TV Modus"
 
 msgid "Unable to locate a load device!"
 msgstr "Ladegerät konnte nicht gefunden werden!"
@@ -576,9 +564,6 @@ msgstr "Speichergerät konnte nicht gefunden werden!"
 
 msgid "Unable to open state!"
 msgstr "Status konnte nicht geöffnet werden!"
-
-msgid "Unfiltered"
-msgstr "Ungefiltert"
 
 msgid "Unknown file type!"
 msgstr "Unbekannter Dateityp!"

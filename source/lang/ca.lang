@@ -4,6 +4,9 @@ msgstr "&"
 msgid "16:9 Correction"
 msgstr "Correcció 16:9"
 
+msgid "240p Output"
+msgstr "Sortida de 240p"
+
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "Error descomprimint 7z: L'arxiu conté massa fitxers"
 
@@ -46,6 +49,9 @@ msgstr "Detectant dispositiu de càrrega..."
 msgid "Attempting to determine save device..."
 msgstr "Detectant el dispositiu d'enmagatzament"
 
+msgid "Audio"
+msgstr "Àudio"
+
 msgid "Auto Detect"
 msgstr "Auto detectar"
 
@@ -56,13 +62,16 @@ msgid "Auto Save"
 msgstr "Auto desar"
 
 msgid "Automatic (Recommended)"
-msgstr "Automàtic (Recomenat)"
+msgstr "Automàtic (recomenat)"
 
 msgid "B (Rapid)"
 msgstr "B (Ràpid)"
 
 msgid "Back"
 msgstr "Enrera"
+
+msgid "Bilinear Filtering"
+msgstr "Filtrar bilineal"
 
 msgid "Button Mappings"
 msgstr "Redefinir botons"
@@ -106,17 +115,11 @@ msgstr "Carpeta covers"
 msgid "Credits"
 msgstr "Crèdits"
 
-msgid "Crosshair"
-msgstr "Punter"
-
 msgid "Cursor"
 msgstr "Cursor"
 
 msgid "Data DVD"
 msgstr "Dades DVD"
-
-msgid "Default"
-msgstr "Per defecte"
 
 msgid "Delete"
 msgstr "Suprimeix"
@@ -138,6 +141,9 @@ msgstr "Holandès"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Fitxer zip buit o invàlid!"
+
+msgid "Emulation Hacks"
+msgstr "Hacks d'emulació"
 
 msgid "English"
 msgstr "Anglès"
@@ -172,9 +178,6 @@ msgstr "Surt"
 msgid "Exit Action"
 msgstr "Mode sortida"
 
-msgid "Filtered"
-msgstr "Filtrat"
-
 msgid "Filtering"
 msgstr "Filtrar"
 
@@ -187,17 +190,26 @@ msgstr "Francès"
 msgid "Game Settings"
 msgstr "Configuració"
 
+msgid "Game Settings - Audio"
+msgstr "Configuració - Àudio"
+
 msgid "Game Settings - Button Mappings"
 msgstr "Configuració - Redefinir botons"
 
 msgid "Game Settings - Cheats"
 msgstr "Configuració - Cheats"
 
+msgid "Game Settings - Emulation Hacks"
+msgstr "Configuració - Hacks d'emulació"
+
 msgid "Game Settings - Video"
 msgstr "Configuració - Vídeo"
 
 msgid "GameCube Controller"
 msgstr "Comandament Gamecube"
+
+msgid "Gaussian (Default)"
+msgstr "Gaussià (per defecte)"
 
 msgid "German"
 msgstr "Alemany"
@@ -208,17 +220,14 @@ msgstr "Tornar"
 msgid "Hide SRAM Saving"
 msgstr "Amaga desar SRAM"
 
-msgid "Hi Resolution"
-msgstr "Alta resolució"
+msgid "Hi-Res Mode"
+msgstr "Mode alta-res"
 
 msgid "Horizontal"
 msgstr "Horitzontal"
 
 msgid "Information"
 msgstr "Informació"
-
-msgid "Interpolation"
-msgstr "Interpolació"
 
 msgid "Invalid file size!"
 msgstr "Format fitxer invàlid!"
@@ -262,6 +271,9 @@ msgstr "ESQUERRA"
 msgid "Left Button"
 msgstr "Botó esquerre"
 
+msgid "Linear"
+msgstr "Lineal"
+
 msgid "Load"
 msgstr "Carregar"
 
@@ -286,6 +298,9 @@ msgstr "Carregant patch..."
 msgid "Loading..."
 msgstr "Carregant..."
 
+msgid "Low"
+msgstr "Baix"
+
 msgid "Main Menu"
 msgstr "Inici"
 
@@ -295,8 +310,14 @@ msgstr "Coincidir controls GC"
 msgid "Match Wii Controls"
 msgstr "Coincidir controls Wii"
 
+msgid "Max"
+msgstr "Màx"
+
 msgid "Maximum filepath length reached!"
 msgstr "Llargada màxima de ruta!"
+
+msgid "Medium"
+msgstr "Mitjà"
 
 msgid "Menu"
 msgstr "Menú"
@@ -316,14 +337,8 @@ msgstr "Silenci"
 msgid "New"
 msgstr "Nou"
 
-msgid "New Snapshot"
-msgstr "Nova captura"
-
 msgid "New SRAM"
 msgstr "Nova SRAM"
-
-msgid "No data to save!"
-msgstr "cap dada per desar!"
 
 msgid "No disc inserted!"
 msgstr "No hi ha cap disc!"
@@ -406,14 +421,8 @@ msgstr "Treure joc? Qualsevol progrés no desat serà perdut."
 msgid "R TRIG"
 msgstr "R"
 
-msgid "RAM saving is not available for FDS games!"
-msgstr "Desar RAM és incompatible per als jocs FDS!"
-
 msgid "Reboot"
 msgstr "Reiniciar"
-
-msgid "Rendering"
-msgstr "Renderitzat"
 
 msgid "Reset"
 msgstr "Reiniciar"
@@ -449,7 +458,7 @@ msgid "Right Button"
 msgstr "Botó dret"
 
 msgid "Right Stick (Default)"
-msgstr "Joystick dret (Per defecte)"
+msgstr "Joystick dret (per defecte)"
 
 msgid "Save"
 msgstr "Desar"
@@ -469,14 +478,8 @@ msgstr "Carpeta de save"
 msgid "Save Game"
 msgstr "Desar Joc"
 
-msgid "Save RAM and State?"
-msgstr "Desar RAM i estat?"
-
-msgid "Save Snapshot?"
-msgstr "Desar imatge?"
-
-msgid "Save SRAM and Snapshot?"
-msgstr "Desar SRAM i imatge?"
+msgid "Save SRAM and State?"
+msgstr "Desar SRAM i estat?"
 
 msgid "Save State?"
 msgstr "Desar estat?"
@@ -492,9 +495,6 @@ msgstr "Desant preferències..."
 
 msgid "Saving..."
 msgstr "Desant..."
-
-msgid "Scaling"
-msgstr "Ajust"
 
 msgid "Screen Position"
 msgstr "Posició pantalla"
@@ -520,17 +520,14 @@ msgstr "No trobo targeta SD!"
 msgid "Shift"
 msgstr "Maj."
 
+msgid "Show Crosshair"
+msgstr "Mostra punter"
+
 msgid "Show Frame Rate"
 msgstr "Mostra FPS"
 
 msgid "Chinese (Simplified)"
 msgstr "Xinès simpl."
-
-msgid "Snapshot"
-msgstr "Imatge"
-
-msgid "Snapshot (Auto)"
-msgstr "Imatge (Auto)"
 
 msgid "SNES Controller"
 msgstr "Comandament SNES"
@@ -565,11 +562,14 @@ msgstr "Ratolí SNES - Wiimote"
 msgid "Sound Effects Volume"
 msgstr "Volum d'efectes sonors"
 
+msgid "Sound Interpolation"
+msgstr "Interpolació sonora"
+
 msgid "Spanish"
 msgstr "Castellà"
 
 msgid "Sprite Limit"
-msgstr "Límit sprites"
+msgstr "Límit de sprites"
 
 msgid "SRAM file not found"
 msgstr "No trobo fitxer SRAM"
@@ -582,9 +582,6 @@ msgstr "Estat (Auto)"
 
 msgid "State file not found"
 msgstr "No trobo fitxer d'estat"
-
-msgid "Stereo Inversion"
-msgstr "Estèreo invers"
 
 msgid "Super Scope - GameCube Controller"
 msgstr "Super Scope - Comandament GameCube"
@@ -603,9 +600,6 @@ msgstr "No trobo dispositiu per desar!"
 
 msgid "Unable to open state!"
 msgstr "Impossible obrir l'estat!"
-
-msgid "Unfiltered"
-msgstr "No filtrat"
 
 msgid "Unknown file type!"
 msgstr "Fitxer desconegut!"

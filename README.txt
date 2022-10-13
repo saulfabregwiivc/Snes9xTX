@@ -7,13 +7,34 @@ Snes9x TX is a fork of Snes9x GX: https://github.com/dborth/snes9xgx
 Update History
 --------------
 
+---Snes9x TX 1.1.2---
+---September 26 2022---
+
+- Added new setting button to turn on/off start satellaview bios with bs games in menu settings
+- Added option to turn on/off mute game sound in audio settings
+- Updated french language file
+
+---Snes9x TX 1.1.1---
+---September 4 2022---
+
+- Updated to the latest Snes9x (git 8685db4)
+- Updated to the latest Snes9x GX (git 88deb03)
+- Removed exit sound of UI (sometimes causes a small audio crackle when returning to game)
+- Removed option to turn it on/off stereo inversion
+- Removed filtered render and replaced render option by an option to turn on/off 240p output
+- Added option to turn on/off bilinear filtering in video settings (works with 240p output)
+- Added low/medium/max CPU overclocking option in emulation hacks settings
+- Added new emulation hacks settings button and moved screenshot button to main game menu
+- Updated all language files
+- Updated and changed position of some text and UI PNG images
+
 ---Snes9x TX 1.1.0---
 ---June 23 2022---
 
 - Updated to the latest Snes9x GX 4.5.3
 - Disabled peripheral devices by default if not selected in controller settings
-- Added new options to turn it on/off sprite limit and hi resolution in video settings
-  disable hi resolution to keep video filtering active with games using this mode
+- Added new options to turn it on/off sprite limit and hi-res mode in video settings
+  disable hi-res mode to keep video filtering active with games using this mode
 - Added credits button in main menu settings (thanks InfiniteBlue!)
 - Updated credits
 - Updated all language files

@@ -4,6 +4,7 @@
  * softdev July 2006
  * Michniewski 2008
  * Tantric 2008-2022
+ * Tanooki 2019-2022
  *
  * video.h
  *

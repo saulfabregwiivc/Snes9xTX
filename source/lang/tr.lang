@@ -4,6 +4,9 @@ msgstr "&"
 msgid "16:9 Correction"
 msgstr "16:9 Düzeltmesi"
 
+msgid "240p Output"
+msgstr "240p Çıkış"
+
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "7z dosya çıkarma başarısız: Arşiv çok fazla dosya içeriyor"
 
@@ -46,6 +49,9 @@ msgstr "Yükleme aygıtı belirlenmeye çalışılıyor..."
 msgid "Attempting to determine save device..."
 msgstr "Kayıt aygıtı belirlenmeye çalışılıyor..."
 
+msgid "Audio"
+msgstr "Ses"
+
 msgid "Auto"
 msgstr "Otomatik"
 
@@ -69,6 +75,9 @@ msgstr "B (Seri)"
 
 msgid "Back"
 msgstr "Sil"
+
+msgid "Bilinear Filtering"
+msgstr "Bilineer Filtreleme"
 
 msgid "Button Mapping"
 msgstr "Buton Ayarı"
@@ -118,20 +127,17 @@ msgstr "Kapak"
 msgid "Covers Folder"
 msgstr "Kapak Dizini"
 
+msgid "CPU Overclocking"
+msgstr "CPU Hız Aşırtma"
+
 msgid "Credits"
 msgstr "Hakkında"
-
-msgid "Crosshair"
-msgstr "Artı İmleci"
 
 msgid "Cursor"
 msgstr "İmleç"
 
 msgid "Data DVD"
 msgstr "Veri DVD'si"
-
-msgid "Default"
-msgstr "Varsayılan"
 
 msgid "Delete"
 msgstr "Silmek"
@@ -153,6 +159,9 @@ msgstr "Flemenkçe"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Boş veya geçersiz ZIP dosyası!"
+
+msgid "Emulation Hacks"
+msgstr "Emülasyon Hacks"
 
 msgid "English"
 msgstr "İngilizce"
@@ -190,9 +199,6 @@ msgstr "Çıkış"
 msgid "Exit Action"
 msgstr "Çıkış Eylemi"
 
-msgid "Filtered"
-msgstr "Filtre Var"
-
 msgid "Filtering"
 msgstr "Filtreleme"
 
@@ -205,17 +211,26 @@ msgstr "Fransızca"
 msgid "Game Settings"
 msgstr "Oyun Ayarları"
 
+msgid "Game Settings - Audio"
+msgstr "Oyun Ayarları - Ses"
+
 msgid "Game Settings - Button Mappings"
 msgstr "Oyun Ayarları - Buton Ayarları"
 
 msgid "Game Settings - Cheats"
 msgstr "Oyun Ayarları - Hileler"
 
+msgid "Game Settings - Emulation Hacks"
+msgstr "Oyun Ayarları - Emülasyon Hacks"
+
 msgid "Game Settings - Video"
 msgstr "Oyun Ayarları - Ekran"
 
 msgid "GameCube Controller"
 msgstr "GameCube Oyun Kumandası"
+
+msgid "Gaussian (Default)"
+msgstr "Gauss (Varsayılan)"
 
 msgid "German"
 msgstr "Almanca"
@@ -226,17 +241,14 @@ msgstr "Geri Dön"
 msgid "Hide SRAM Saving"
 msgstr "SRAM kayıt gizle"
 
-msgid "Hi Resolution"
-msgstr "Yüksek Çözünürlük"
+msgid "Hi-Res Mode"
+msgstr "Hi-Res Modu"
 
 msgid "Horizontal"
 msgstr "Yatay"
 
 msgid "Information"
 msgstr "Bilgi"
-
-msgid "Interpolation"
-msgstr "İnterpolasyon"
 
 msgid "Invalid file size!"
 msgstr "Geçersiz dosya boyutu!"
@@ -283,6 +295,9 @@ msgstr "SOL"
 msgid "Left Button"
 msgstr "Sol Buton"
 
+msgid "Linear"
+msgstr "Doğrusal"
+
 msgid "Load"
 msgstr "Yükle"
 
@@ -307,6 +322,9 @@ msgstr "Yama dosyası yükleniyor..."
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
+msgid "Low"
+msgstr "Düşük"
+
 msgid "Main Menu"
 msgstr "Ana Menü"
 
@@ -318,6 +336,9 @@ msgstr "Wii Kumandalarına Eşleştir"
 
 msgid "Maximum filepath length reached!"
 msgstr "Maksimum dizin yolu uzunluğuna ulaşıldı!"
+
+msgid "Medium"
+msgstr "Orta"
 
 msgid "Menu"
 msgstr "Menü"
@@ -337,17 +358,11 @@ msgstr "Sessiz"
 msgid "New"
 msgstr "Yeni"
 
-msgid "New Snapshot"
-msgstr "Yeni Enstantane"
-
 msgid "New SRAM"
 msgstr "Yeni SRAM"
 
 msgid "No"
 msgstr "Hayır"
-
-msgid "No data to save!"
-msgstr "Kaydedilecek veri yok!"
 
 msgid "No disc inserted!"
 msgstr "Disk takılmamış!"
@@ -364,14 +379,17 @@ msgstr "Yok"
 msgid "Off"
 msgstr "Kapalı"
 
+msgid "OFF"
+msgstr "Kapalı"
+
 msgid "OK"
 msgstr "Tamam"
 
 msgid "On"
 msgstr "Açık"
 
-msgid "Original"
-msgstr "Orijinal"
+msgid "ON"
+msgstr "Açık"
 
 msgid "Out of memory!"
 msgstr "Bellek yetersiz!"
@@ -426,9 +444,6 @@ msgstr "Oyundan çıkılsın mı? Kaydedilmemiş tüm veriler kaybolacak."
 
 msgid "R TRIG"
 msgstr "R Mandalı"
-
-msgid "RAM saving is not available for FDS games!"
-msgstr "RAM kaydetme FDS oyunları için mevcut değil!"
 
 msgid "Reboot"
 msgstr "Yeniden Başlat"
@@ -487,14 +502,8 @@ msgstr "Kayıt Dizini"
 msgid "Save Game"
 msgstr "Oyunu Kaydet"
 
-msgid "Save RAM and State?"
-msgstr "RAM ve Durum Kaydedilsin mi?"
-
-msgid "Save Snapshot?"
-msgstr "Enstantane Kaydedilsin mi?"
-
-msgid "Save SRAM and Snapshot?"
-msgstr "SRAM ve Enstantane Kaydedilsin mi?"
+msgid "Save SRAM and State?"
+msgstr "SRAM ve Durum Kaydedilsin mi?"
 
 msgid "Save State?"
 msgstr "Durum kaydedilsin mi?"
@@ -510,9 +519,6 @@ msgstr "Ayarlar kaydediliyor..."
 
 msgid "Saving..."
 msgstr "Kaydediliyor..."
-
-msgid "Scaling"
-msgstr "Ölçekleme"
 
 msgid "Screen Position"
 msgstr "Ekran Konumu"
@@ -535,14 +541,11 @@ msgstr "SD Kartı"
 msgid "SD card not found!"
 msgstr "SD kartı bulunamadı!"
 
+msgid "Show Crosshair"
+msgstr "Artı İmleci Göster"
+
 msgid "Show Frame Rate"
 msgstr "FPS'yi Göster"
-
-msgid "Snapshot"
-msgstr "Enstantane"
-
-msgid "Snapshot (Auto)"
-msgstr "Enstantane (Otomatik)"
 
 msgid "SNES Controller"
 msgstr "SNES Oyun Kumandası"
@@ -580,6 +583,9 @@ msgstr "Snes9x - Telif Hakkı (c) Snes9x Team 1996-2022"
 msgid "Sound Effects Volume"
 msgstr "Efekt Sesleri"
 
+msgid "Sound Interpolation"
+msgstr "Ses Interpolasyonu"
+
 msgid "Spanish"
 msgstr "İspanyolca"
 
@@ -598,8 +604,8 @@ msgstr "Durum (Otomatik)"
 msgid "State file not found"
 msgstr "Durum dosyası bulunamadı"
 
-msgid "Stereo Inversion"
-msgstr "Stereo İnversiyon"
+msgid "SuperFX Overclocking"
+msgstr "SuperFX Hız Aşırtma"
 
 msgid "Super Scope"
 msgstr "Nintendo Scope"
@@ -616,6 +622,9 @@ msgstr "Turbo Modu"
 msgid "Turbo Mode Button"
 msgstr "Buton Turbo Modu"
 
+msgid "TV Mode"
+msgstr "TV Modu"
+
 msgid "Unable to locate a load device!"
 msgstr "Yükleme aygıtı bulunamıyor!"
 
@@ -624,9 +633,6 @@ msgstr "Kayıt aygıtı bulunamıyor!"
 
 msgid "Unable to open state!"
 msgstr "Durum açılamıyor!"
-
-msgid "Unfiltered"
-msgstr "Filtre Yok"
 
 msgid "Unknown file type!"
 msgstr "Tanınmayan dosya türü!"

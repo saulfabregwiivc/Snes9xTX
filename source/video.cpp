@@ -5,6 +5,7 @@
  * crunchy2 May 2007
  * Michniewski 2008
  * Tantric 2008-2022
+ * Tanooki 2019-2022
  *
  * video.cpp
  *
@@ -106,12 +107,7 @@ static camera cam = {
 	{0.0F, 0.0F, -0.5F}
 };
 
-/***
-*** Custom Video modes (used to emulate original console video modes)
-***/
-
-/** Original SNES PAL Resolutions: **/
-
+/*** custom Video modes (used to emulate original console video modes) ***/
 /* 239 lines progressive (PAL 50Hz) */
 static GXRModeObj TV50hz_239p =
 {
@@ -181,8 +177,6 @@ static GXRModeObj TV50hz_478i =
 		8          // line n+1
 	}
 };
-
-/** Original SNES NTSC Resolutions: **/
 
 /* 224 lines progressive (NTSC or PAL 60Hz) */
 static GXRModeObj TV60hz_224p =
@@ -258,8 +252,8 @@ static GXRModeObj TV_Custom;
 
 /* TV Modes table */
 static GXRModeObj *tvmodes[4] = {
-	&TV60hz_224p, &TV60hz_448i,			/* Snes NTSC video modes */
-	&TV50hz_239p, &TV50hz_478i			/* Snes PAL video modes */
+	&TV60hz_224p, &TV60hz_448i,			/* 60hz video modes */
+	&TV50hz_239p, &TV50hz_478i			/* 50hz video modes */
 };
 
 /****************************************************************************
@@ -383,7 +377,7 @@ void StopGX()
  * FindVideoMode
  *
  * Finds the optimal video mode, or uses the user-specified one
- * Also configures original video modes
+ * Also configures rendering modes
  ***************************************************************************/
 static GXRModeObj * FindVideoMode()
 {
@@ -418,14 +412,13 @@ static GXRModeObj * FindVideoMode()
 			break;
 	}
 
-	// configure original modes
+	// configure rendering modes
 	switch (mode->viTVMode >> 2)
 	{
 		case VI_PAL:
 			// 576 lines (PAL 50Hz)
 			vmode_60hz = false;
 
-			// Original Video modes (forced to PAL 50Hz)
 			// set video signal mode
 			TV60hz_224p.viTVMode = VI_TVMODE_PAL_DS;
 			TV60hz_448i.viTVMode = VI_TVMODE_PAL_INT;
@@ -438,7 +431,6 @@ static GXRModeObj * FindVideoMode()
 			// 480 lines (NTSC 60Hz)
 			vmode_60hz = true;
 
-			// Original Video modes (forced to NTSC 60hz)
 			// set video signal mode
 			TV50hz_239p.viTVMode = VI_TVMODE_NTSC_DS;
 			TV50hz_478i.viTVMode = VI_TVMODE_NTSC_INT;
@@ -455,7 +447,6 @@ static GXRModeObj * FindVideoMode()
 			// 480 lines (PAL 60Hz)
 			vmode_60hz = true;
 
-			// Original Video modes (forced to PAL 60hz)
 			// set video signal mode
 			TV50hz_239p.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_NON_INTERLACE);
 			TV50hz_478i.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_INTERLACE);
@@ -599,8 +590,8 @@ ResetVideo_Emu ()
 	Mtx44 p;
 	int i = -1;
 
-	// original render mode or filtering
-	if (GCSettings.render == 0)
+	// 240p output or filtering
+	if (GCSettings.render == 1)
 	{
 		for (int j=0; j<4; j++)
 		{
@@ -612,7 +603,7 @@ ResetVideo_Emu ()
 		}
 	}
 
-	if(i >= 0) // we found a matching original mode
+	if(i >= 0)
 	{
 		rmode = tvmodes[i];
 
@@ -757,7 +748,7 @@ update_video (int width, int height)
 		memset(filtermem, 0, FILTERMEM_SIZE);
 #endif
 		/** Update scaling **/
-		if (GCSettings.render == 0)	// original render mode
+		if (GCSettings.render == 1)	// 240p render mode
 		{
 			if (GCSettings.FilterMethod != FILTER_NONE && vheight <= 239 && vwidth <= 256)
 			{	// filters; normal operation
@@ -771,7 +762,7 @@ update_video (int width, int height)
 				yscale = vheight / 2;
 			}
 		}
-		else // unfiltered and filtered mode
+		else // default rendering mode
 		{
 			xscale = 256;
 
@@ -783,7 +774,7 @@ update_video (int width, int height)
 
 		if (GCSettings.widescreen)
 		{
-			if(GCSettings.render == 0)
+			if(GCSettings.render == 1)
 				xscale = (3*xscale)/4;
 			else
 				xscale = 256; // match the original console's width for "widescreen" to prevent flickering
@@ -802,8 +793,8 @@ update_video (int width, int height)
 		// initialize the texture obj we are going to use
 		GX_InitTexObj (&texobj, texturemem, vwidth*fscale, vheight*fscale, GX_TF_RGB565, GX_CLAMP, GX_CLAMP, GX_FALSE);
 
-	    if (GCSettings.render == 0 || GCSettings.render == 1)
-			GX_InitTexObjLOD(&texobj,GX_NEAR,GX_NEAR_MIP_NEAR,2.5,9.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_1); // original/unfiltered video mode: force texture filtering OFF
+		if (GCSettings.bilinear == 0)
+			GX_InitTexObjLOD(&texobj,GX_NEAR,GX_NEAR_MIP_NEAR,2.5,9.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_1); // bilinear filtering OFF
 
 		GX_LoadTexObj (&texobj, GX_TEXMAP0);	// load texture object so its ready to use
 
@@ -833,10 +824,10 @@ update_video (int width, int height)
 
 	if(ScreenshotRequested)
 	{
-		if(GCSettings.render == 0) // we can't take a screenshot in Original mode
+		if(GCSettings.render == 1) // we can't take a screenshot in 240p rendering mode
 		{
-			oldRenderMode = 0;
-			GCSettings.render = 1; // switch to unfiltered mode
+			oldRenderMode = 1;
+			GCSettings.render = 0; // switch to default rendering mode
 			CheckVideo = 1; // request the switch
 		}
 		else

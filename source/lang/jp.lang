@@ -4,6 +4,9 @@ msgstr "&"
 msgid "16:9 Correction"
 msgstr "16:9補正"
 
+msgid "240p Output"
+msgstr "240p出力"
+
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "書庫内のファイルが多すぎです"
 
@@ -73,6 +76,9 @@ msgstr "自動(おすすめ)"
 msgid "B (Rapid)"
 msgstr "B (連打)"
 
+msgid "Bilinear Filtering"
+msgstr "バイリニアフィルタ"
+
 msgid "Button Mapping"
 msgstr "ボタン設定"
 
@@ -124,17 +130,11 @@ msgstr "カバーフォルダ"
 msgid "Credits"
 msgstr "提供･協力"
 
-msgid "Crosshair"
-msgstr "十字ボタン"
-
 msgid "Cursor"
 msgstr "カーソル"
 
 msgid "Data DVD"
 msgstr "データDVD"
-
-msgid "Default"
-msgstr "初期値"
 
 msgid "Delete"
 msgstr "消す"
@@ -156,6 +156,9 @@ msgstr "ドイツ語"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "不正なZIPファイルです"
+
+msgid "Emulation Hacks"
+msgstr "ハック"
 
 msgid "English"
 msgstr "英語"
@@ -193,9 +196,6 @@ msgstr "終了"
 msgid "Exit Action"
 msgstr "終了動作"
 
-msgid "Filtered"
-msgstr "フィルターする"
-
 msgid "Filtering"
 msgstr "フィルタ"
 
@@ -217,14 +217,17 @@ msgstr "ゲーム設定 - ボタン設定"
 msgid "Game Settings - Cheats"
 msgstr "ゲーム設定 - 改造コード"
 
+msgid "Game Settings - Emulation Hacks"
+msgstr "ゲーム設定 - ハック"
+
 msgid "Game Settings - Video"
 msgstr "ゲーム設定 - 映像"
 
 msgid "GameCube Controller"
 msgstr "GCコントローラ"
 
-msgid "Gaussian (SNES Hardware)"
-msgstr "ガウシアン(SFCハードウェア)"
+msgid "Gaussian (Default)"
+msgstr "ガウシアン(初期値)"
 
 msgid "German"
 msgstr "ドイツ語"
@@ -235,17 +238,14 @@ msgstr "戻る"
 msgid "Hide SRAM Saving"
 msgstr "SRAMセーブを隠す"
 
-msgid "Hi Resolution"
-msgstr "高解像度"
+msgid "Hi-Res Mode"
+msgstr "ハイレゾモード"
 
 msgid "Horizontal"
 msgstr "横方向"
 
 msgid "Information"
 msgstr "情報"
-
-msgid "Interpolation"
-msgstr "内挿"
 
 msgid "Invalid file size!"
 msgstr "不正なサイズです"
@@ -322,6 +322,9 @@ msgstr "パッチを読み込み中…"
 msgid "Loading..."
 msgstr "読み込み中…"
 
+msgid "Low"
+msgstr "低"
+
 msgid "Main Menu"
 msgstr "メインメニュー"
 
@@ -331,8 +334,14 @@ msgstr "操作を最適化"
 msgid "Match Wii Controls"
 msgstr "操作を最適化"
 
+msgid "Max"
+msgstr "最大"
+
 msgid "Maximum filepath length reached!"
 msgstr "ファイルのパスの限界まで行きました"
+
+msgid "Medium"
+msgstr "中程度"
 
 msgid "Menu"
 msgstr "メニュー"
@@ -352,17 +361,11 @@ msgstr "消音"
 msgid "New"
 msgstr "新しい"
 
-msgid "New Snapshot"
-msgstr "新しい中断データ"
-
 msgid "New SRAM"
 msgstr "新しいSRAM"
 
 msgid "No"
 msgstr "いいえ"
-
-msgid "No data to save!"
-msgstr "セーブするデータがありません"
 
 msgid "No disc inserted!"
 msgstr "ディスクが挿入されていません"
@@ -385,11 +388,14 @@ msgstr "ヌンチャク"
 msgid "Off"
 msgstr "オフ"
 
+msgid "OFF"
+msgstr "オフ"
+
 msgid "On"
 msgstr "オン"
 
-msgid "Original"
-msgstr "オリジナル"
+msgid "ON"
+msgstr "オン"
 
 msgid "Out of memory!"
 msgstr "メモリが足りません"
@@ -451,14 +457,8 @@ msgstr "未保存のデータは失われます"
 msgid "R TRIG"
 msgstr "Rトリガー"
 
-msgid "RAM saving is not available for FDS games!"
-msgstr "ディスクシステムにはRAMセーブはありません"
-
 msgid "Reboot"
 msgstr "再起動"
-
-msgid "Rendering"
-msgstr "描画"
 
 msgid "Reset"
 msgstr "リセット"
@@ -496,6 +496,9 @@ msgstr "右ボタン"
 msgid "Right Stick (Default)"
 msgstr "右スティック（初期値）"
 
+msgid "Satellaview"
+msgstr "サテラビュー"
+
 msgid "Save"
 msgstr "セーブ"
 
@@ -514,14 +517,8 @@ msgstr "セーブフォルダ"
 msgid "Save Game"
 msgstr "セーブデータをセーブ"
 
-msgid "Save RAM and State?"
-msgstr "RAMと状態をセーブしますか?"
-
-msgid "Save Snapshot?"
-msgstr "中断データをセーブしますか?"
-
-msgid "Save SRAM and Snapshot?"
-msgstr "SRAMと中断データをセーブしますか?"
+msgid "Save SRAM and State?"
+msgstr "SRAMと状態をセーブしますか?"
 
 msgid "Save State?"
 msgstr "状態をセーブしますか?"
@@ -537,9 +534,6 @@ msgstr "優先的にセーブ中…"
 
 msgid "Saving..."
 msgstr "セーブ中…"
-
-msgid "Scaling"
-msgstr "縮尺"
 
 msgid "Screenshots"
 msgstr "スクリーンショット"
@@ -568,14 +562,11 @@ msgstr "SD"
 msgid "SD card not found!"
 msgstr "SDが見つかりません"
 
+msgid "Show Crosshair"
+msgstr "十字線を表示"
+
 msgid "Show Frame Rate"
 msgstr "表示フレーム率"
-
-msgid "Snapshot"
-msgstr "中断データ"
-
-msgid "Snapshot (Auto)"
-msgstr "中断データ(自動)"
 
 msgid "SNES Controller"
 msgstr "コントローラ"
@@ -613,6 +604,9 @@ msgstr "Snes9x - 著作権(c) Snes9xチーム1996-2022"
 msgid "Sound Effects Volume"
 msgstr "効果音の音量"
 
+msgid "Sound Interpolation"
+msgstr "サウンド補間"
+
 msgid "Spanish"
 msgstr "スペイン語"
 
@@ -634,9 +628,6 @@ msgstr "状態(自動)"
 msgid "State file not found"
 msgstr "状態ファイルが見つかりません"
 
-msgid "Stereo Inversion"
-msgstr "ステレオ反転"
-
 msgid "Super Scope"
 msgstr "ｽｰﾊﾟｰｽｺｰﾌﾟ"
 
@@ -652,6 +643,9 @@ msgstr "ターボモード"
 msgid "Turbo Mode Button"
 msgstr "ターボモードボタン"
 
+msgid "TV Mode"
+msgstr "TVモード"
+
 msgid "Unable to locate a load device!"
 msgstr "デバイスを見つけられませんでした"
 
@@ -660,9 +654,6 @@ msgstr "デバイスを見つけられませんでした"
 
 msgid "Unable to open state!"
 msgstr "中断データを開けませんでした"
-
-msgid "Unfiltered"
-msgstr "フィルタ無し"
 
 msgid "Unknown file type!"
 msgstr "不明なファイル形式です"

@@ -4,6 +4,9 @@ msgstr "y"
 msgid "16:9 Correction"
 msgstr "Corrección 16:9"
 
+msgid "240p Output"
+msgstr "Salida de 240p"
+
 msgid "7z decompression failed: Archive contains too many files."
 msgstr "Descompresión 7z falló: El archivo contiene demasiados archivos."
 
@@ -67,6 +70,9 @@ msgstr "Automático (Recomendado)"
 msgid "Back"
 msgstr "Atrás"
 
+msgid "Bilinear Filtering"
+msgstr "Filtro Bilineal"
+
 msgid "Brazilian Portuguese"
 msgstr "Portugués Brasileño"
 
@@ -121,9 +127,6 @@ msgstr "Créditos"
 msgid "Data DVD"
 msgstr "DVD Datos"
 
-msgid "Default"
-msgstr "Por Defecto"
-
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -150,6 +153,9 @@ msgstr "ABAJO"
 
 msgid "Dutch"
 msgstr "Holandés"
+
+msgid "Emulation Hacks"
+msgstr "Hacks de Emulación"
 
 msgid "English"
 msgstr "Inglés"
@@ -199,11 +205,17 @@ msgstr "Francés"
 msgid "Game Settings"
 msgstr "Configuración"
 
+msgid "Game Settings - Audio"
+msgstr "Configuración - Audio"
+
 msgid "Game Settings - Button Mappings"
 msgstr "Configuración - Controles"
 
 msgid "Game Settings - Cheats"
 msgstr "Configuración - Trucos"
+
+msgid "Game Settings - Emulation Hacks"
+msgstr "Configuración - Hacks de Emulación"
 
 msgid "Game Settings - Video"
 msgstr "Configuración - Vídeo"
@@ -220,8 +232,8 @@ msgstr "Volver"
 msgid "Hide SRAM Saving"
 msgstr "Ocultar SRAM Guardar"
 
-msgid "Hi Resolution"
-msgstr "Alta Resolución"
+msgid "Hi-Res Mode"
+msgstr "Modo Alta-Res"
 
 msgid "Information"
 msgstr "Información"
@@ -265,11 +277,20 @@ msgstr "Cargando DVD..."
 msgid "Loading..."
 msgstr "Cargando..."
 
+msgid "Low"
+msgstr "Bajo"
+
 msgid "Main Menu"
 msgstr "Menú Principal"
 
+msgid "Max"
+msgstr "Máximo"
+
 msgid "Maximum filepath length reached!"
 msgstr "¡Longitud máxima de la ruta del archivo alcanzada!"
+
+msgid "Medium"
+msgstr "Medio"
 
 msgid "Menu"
 msgstr "Menú"
@@ -361,9 +382,6 @@ msgstr "¿Salir del juego? Se perderá cualquier progreso no guardado."
 msgid "Reboot"
 msgstr "Reiniciar"
 
-msgid "Rendering"
-msgstr "Renderizado"
-
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -424,9 +442,6 @@ msgstr "Guardando configuraciones..."
 msgid "Saving..."
 msgstr "Guardando..."
 
-msgid "Scaling"
-msgstr "Escalado"
-
 msgid "Screen Position"
 msgstr "Posición de Pantalla"
 
@@ -472,14 +487,14 @@ msgstr "Mayús"
 msgid "Sound Effects Volume"
 msgstr "Volumen de los Efectos"
 
+msgid "Sound Interpolation"
+msgstr "Interpolación de Sonido"
+
 msgid "Spanish"
 msgstr "Español"
 
 msgid "State"
 msgstr "Estado"
-
-msgid "Stereo Inversion"
-msgstr "Inversión Estéreo"
 
 msgid "The current IOS has been altered (fake-signed). Functionality and/or stability may be adversely affected."
 msgstr "El IOS actual ha sido alterado (falso firmado). La funcionalidad y/o la estabilidad pueden verse afectadas negativamente."
@@ -501,9 +516,6 @@ msgstr "¡No se puede localizar un dispositivo para carga!"
 
 msgid "Unable to locate a save device!"
 msgstr "¡No se puede encontrar un dispositivo para guardados!"
-
-msgid "Unfiltered"
-msgstr "Sin filtrado"
 
 msgid "Unrecognized DVD format."
 msgstr "Formato de DVD no reconocido."
@@ -541,29 +553,14 @@ msgstr "Apuntar Fuera de Pantalla"
 msgid "Coding"
 msgstr "Programación"
 
-msgid "Crosshair"
-msgstr "Cursor"
-
-msgid "Cursor"
-msgstr "Cursor"
-
-msgid "Filtered"
-msgstr "Filtrado"
-
 msgid "Filtering"
 msgstr "Filtro"
 
 msgid "Fire"
 msgstr "Disparar"
 
-msgid "Game Settings - Audio"
-msgstr "Configuración - Audio"
-
-msgid "Gaussian (SNES Hardware)"
-msgstr "Gausiana (Hardware de SNES)"
-
-msgid "Interpolation"
-msgstr "Interpolación"
+msgid "Gaussian (Default)"
+msgstr "Gausiana (Por Defecto)"
 
 msgid "Left Button"
 msgstr "Botón Izquierdo"
@@ -577,6 +574,12 @@ msgstr "¡No hay datos SRAM para guardar!"
 msgid "None"
 msgstr "Ninguno"
 
+msgid "OFF"
+msgstr "Desactivado"
+
+msgid "ON"
+msgstr "Activado"
+
 msgid "Progressive (480p)"
 msgstr "Progresivo (480p)"
 
@@ -588,6 +591,9 @@ msgstr "¡Error al guardar!"
 
 msgid "Save SRAM and State?"
 msgstr "¿Guardar SRAM y partida?"
+
+msgid "Show Crosshair"
+msgstr "Mostrar Cursor"
 
 msgid "Show Frame Rate"
 msgstr "Mostrar FPS"
@@ -612,9 +618,6 @@ msgstr "Límite de Sprites"
 
 msgid "SRAM file not found"
 msgstr "Archivo SRAM no encontrado."
-
-msgid "SuperFX Overclock"
-msgstr "Overclock SuperFX"
 
 msgid "This software is open source and may be copied, distributed, or modified"
 msgstr "Este software es de código abierto y puede ser copiado, distribuido, o modificado"

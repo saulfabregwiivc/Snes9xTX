@@ -51,7 +51,7 @@ GuiFileBrowser::GuiFileBrowser(int w, int h)
 	scrollbarImg = new GuiImage(scrollbar);
 	scrollbarImg->SetParent(this);
 	scrollbarImg->SetAlignment(ALIGN_RIGHT, ALIGN_TOP);
-	scrollbarImg->SetPosition(0, 30);
+	scrollbarImg->SetPosition(-10, 29);
 
 	arrowDown = new GuiImageData(scrollbar_arrowdown_png);
 	arrowDownImg = new GuiImage(arrowDown);
@@ -71,6 +71,7 @@ GuiFileBrowser::GuiFileBrowser(int w, int h)
 	arrowUpBtn->SetImage(arrowUpImg);
 	arrowUpBtn->SetImageOver(arrowUpOverImg);
 	arrowUpBtn->SetAlignment(ALIGN_RIGHT, ALIGN_TOP);
+	arrowUpBtn->SetPosition(-10, -1);
 	arrowUpBtn->SetSelectable(false);
 	arrowUpBtn->SetClickable(false);
 	arrowUpBtn->SetHoldable(true);
@@ -83,6 +84,7 @@ GuiFileBrowser::GuiFileBrowser(int w, int h)
 	arrowDownBtn->SetImage(arrowDownImg);
 	arrowDownBtn->SetImageOver(arrowDownOverImg);
 	arrowDownBtn->SetAlignment(ALIGN_RIGHT, ALIGN_BOTTOM);
+	arrowDownBtn->SetPosition(-10, -1);
 	arrowDownBtn->SetSelectable(false);
 	arrowDownBtn->SetClickable(false);
 	arrowDownBtn->SetHoldable(true);
@@ -112,7 +114,7 @@ GuiFileBrowser::GuiFileBrowser(int w, int h)
 		fileListBg[i] = new GuiImage(bgFileSelectionEntry);
 		fileListIcon[i] = NULL;
 
-		fileList[i] = new GuiButton(295, 26);
+		fileList[i] = new GuiButton(285, 26);
 		fileList[i]->SetParent(this);
 		fileList[i]->SetLabel(fileListText[i]);
 		fileList[i]->SetImageOver(fileListBg[i]);
@@ -425,13 +427,13 @@ void GuiFileBrowser::Update(GuiTrigger * t)
 	if(positionWiimote > 0)
 	{
 		position = positionWiimote; // follow wiimote cursor
-		scrollbarBoxBtn->SetPosition(0,position+36);
+		scrollbarBoxBtn->SetPosition(-10,position+36);
 	}
 	else if(listChanged || numEntries != browser.numEntries)
 	{
 		if(float((browser.pageIndex<<1))/(float(FILE_PAGESIZE)) < 1.0)
 		{
-			position = 0;
+			position = -1;
 		}
 		else if(browser.pageIndex+FILE_PAGESIZE >= browser.numEntries)
 		{
@@ -441,7 +443,7 @@ void GuiFileBrowser::Update(GuiTrigger * t)
 		{
 			position = 156 * (browser.pageIndex + FILE_PAGESIZE/2) / (float)browser.numEntries;
 		}
-		scrollbarBoxBtn->SetPosition(0,position+36);
+		scrollbarBoxBtn->SetPosition(-10,position+36);
 	}
 
 	listChanged = false;

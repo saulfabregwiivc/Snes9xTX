@@ -5,7 +5,6 @@
  * crunchy2 May 2007-July 2007
  * Michniewski 2008
  * Tantric 2008-2022
- *
  * Tanooki 2019-2022
  *
  * snes9xtx.cpp
@@ -490,6 +489,15 @@ int main(int argc, char *argv[])
 		if (firstRun)
 		{
 			firstRun = false;
+			switch (GCSettings.Interpolation)
+			{
+				case 0: Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN; break;
+				case 1: Settings.InterpolationMethod = DSP_INTERPOLATION_LINEAR; break;
+				case 2: Settings.InterpolationMethod = DSP_INTERPOLATION_CUBIC; break;
+				case 3: Settings.InterpolationMethod = DSP_INTERPOLATION_SINC; break;
+				case 4: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
+			}
+
 			switch (GCSettings.sfxOverclock)
 			{
 				case 0: Settings.SuperFXSpeedPerLine = 5823405; break;
@@ -503,26 +511,41 @@ int main(int argc, char *argv[])
 
 			GCSettings.sfxOverclock > 0 ? S9xResetSuperFX() : S9xReset();
 
-			switch (GCSettings.Interpolation)
+			switch (GCSettings.cpuOverclock)
 			{
-				case 0: Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN; break;
-				case 1: Settings.InterpolationMethod = DSP_INTERPOLATION_LINEAR; break;
-				case 2: Settings.InterpolationMethod = DSP_INTERPOLATION_CUBIC; break;
-				case 3: Settings.InterpolationMethod = DSP_INTERPOLATION_SINC; break;
-				case 4: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
+				case 0:
+					Settings.OneClockCycle = 6;
+					Settings.OneSlowClockCycle = 8;
+					Settings.TwoClockCycles = 12;
+					break;
+				case 1:
+					Settings.OneClockCycle = 6;
+					Settings.OneSlowClockCycle = 6;
+					Settings.TwoClockCycles = 12;
+					break;
+				case 2:
+					Settings.OneClockCycle = 4;
+					Settings.OneSlowClockCycle = 5;
+					Settings.TwoClockCycles = 6;
+					break;
+				case 3:
+					Settings.OneClockCycle = 3;
+					Settings.OneSlowClockCycle = 3;
+					Settings.TwoClockCycles = 3;
+					break;
 			}
 		}
 		
-		autoboot = false;		
+		autoboot = false;
 		ConfigRequested = 0;
 		ScreenshotRequested = 0;
 		SwitchAudioMode(0);
 
-		Settings.ReverseStereo = (GCSettings.ReverseStereo == 1);
-		Settings.SupportHiRes = (GCSettings.HiResolution == 1);
-		Settings.MaxSpriteTilesPerLine = (GCSettings.SpriteLimit ? 34 : 128);
+		Settings.Mute = (GCSettings.MuteAudio == 1);
+		Settings.SupportHiRes = (GCSettings.HiResMode == 1);
 		Settings.DisplayFrameRate = (GCSettings.ShowFrameRate == 1);
 		Settings.AutoDisplayMessages = (Settings.DisplayFrameRate ? true : false);
+		Settings.MaxSpriteTilesPerLine = (GCSettings.SpriteLimit ? 34 : 128);
 		Settings.MultiPlayer5Master = (GCSettings.Controller == CTRL_PAD4 ? true : false);
 		Settings.SuperScopeMaster = (GCSettings.Controller == CTRL_SCOPE ? true : false);
 		Settings.MouseMaster = (GCSettings.Controller == CTRL_MOUSE ? true : false);

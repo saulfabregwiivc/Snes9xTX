@@ -5,7 +5,6 @@
  * crunchy2 May 2007-July 2007
  * Michniewski 2008
  * Tantric 2008-2022
- * 
  * Tanooki 2019-2022
  *
  * snes9xtx.h
@@ -22,7 +21,7 @@
 #include "filelist.h"
 
 #define APPNAME 			"Snes9x TX"
-#define APPVERSION 			"1.1.0"
+#define APPVERSION 			"1.1.2"
 #define APPFOLDER 			"snes9xtx"
 #define PREF_FILE_NAME		"settings.xml"
 
@@ -115,32 +114,33 @@ struct SGCSettings{
 	int		HideSRAMSaving;
 	int		AutoloadGame;
 
-	float	zoomHor; // horizontal zoom amount
-	float	zoomVert; // vertical zoom amount
+	float	zoomHor; // Horizontal zoom amount
+	float	zoomVert; // Vertical zoom amount
 	int		videomode; // 0 - Automatic, 1 - NTSC (480i), 2 - Progressive (480p), 3 - PAL (50Hz), 4 - PAL (60Hz)
-	int		render;		// 0 - Original, 1 - Unfiltered, 2 - Filtered
-	int		FilterMethod; // convert to RenderFilter
+	int		render;		// 0 - Default, 1 - 240p Output
+	int		bilinear;    // Bilinear filter
+	int		FilterMethod; // Convert to render filter
 	int		Controller;
-	int		HiResolution;
-	int		SpriteLimit;
-	int		ShowFrameRate;
-	int		crosshair;
 	int		TurboMode;
 	int		TurboModeButton;
-	int		widescreen;	// 0 - 4:3 aspect, 1 - 16:9 aspect
-	int		xshift;	// video output shift
+	int		HiResMode;
+	int		crosshair;
+	int		ShowFrameRate;
+	int		widescreen;
+	int		xshift;		  // Video output shift
 	int		yshift;
+	int		Interpolation;
+	int		MuteAudio;
+	int		sfxOverclock; // 0 - None, 1 - 20 MHz, 2 - 40 MHz, 3 - 60 MHz, 4 - 80 MHz, 5 - 100 MHz, 6 - 120 MHz
+	int		cpuOverclock; // 0 - None, 1 - Low, 2 - Medium, 3 - Max
+	int		SpriteLimit;
+	int		Satellaview;
 	int		WiimoteOrientation;
 	int		ExitAction;
 	int		MusicVolume;
 	int		SFXVolume;
 	int		language;
 	int		PreviewImage;
-
-	int		sfxOverclock;
-
-	int		ReverseStereo;
-	int		Interpolation;
 };
 
 void ExitApp();

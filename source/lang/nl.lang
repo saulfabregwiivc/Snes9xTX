@@ -2,7 +2,10 @@ msgid "&"
 msgstr "&"
 
 msgid "16:9 Correction"
-msgstr 16:9 Correctie"
+msgstr "16:9 Correctie"
+
+msgid "240p Output"
+msgstr "240p Uitgang"
 
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "7z uitpakken mislukt: te veel bestanden in het archief"
@@ -64,6 +67,9 @@ msgstr "B (Snel)"
 msgid "Back"
 msgstr "Terug"
 
+msgid "Bilinear Filtering"
+msgstr "Bilineaire Filteren"
+
 msgid "Button Mapping"
 msgstr "Controller Instelling"
 
@@ -103,11 +109,11 @@ msgstr "Omslag Weergave"
 msgid "Covers Folder"
 msgstr "Omslagmap"
 
+msgid "CPU Overclocking"
+msgstr "CPU Overklokken"
+
 msgid "Data DVD"
 msgstr "DVD-ROM"
-
-msgid "Default"
-msgstr "Standaard"
 
 msgid "Delete"
 msgstr "Verwijderen"
@@ -129,6 +135,9 @@ msgstr "Nederlands"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Leeg of beschadigd ZIP bestand!"
+
+msgid "Emulation Hacks"
+msgstr "Emulatie Hacks"
 
 msgid "English"
 msgstr "Engels"
@@ -166,9 +175,6 @@ msgstr "Afsluiten"
 msgid "Exit Action"
 msgstr "Actie afsluiten"
 
-msgid "Filtered"
-msgstr "Gefilterd"
-
 msgid "Filtering"
 msgstr "Filteren"
 
@@ -181,14 +187,23 @@ msgstr "Frans"
 msgid "Game Settings"
 msgstr "Spelinstellingen"
 
+msgid "Game Settings - Audio"
+msgstr "Spelinstellingen - Audio"
+
 msgid "Game Settings - Button Mappings"
 msgstr "Spelinstellingen - Controller Configuratie"
 
 msgid "Game Settings - Cheats"
 msgstr "Spelinstellingen - Cheats"
 
+msgid "Game Settings - Emulation Hacks"
+msgstr "Spelinstellingen - Emulatie Hacks"
+
 msgid "Game Settings - Video"
 msgstr "Spelinstellingen - Video"
+
+msgid "Gaussian (Default)"
+msgstr "Gaussiaans (Standaard)"
 
 msgid "German"
 msgstr "Duits"
@@ -199,17 +214,14 @@ msgstr "Ga Terug"
 msgid "Hide SRAM Saving"
 msgstr "Verberg SRAM-sparen"
 
-msgid "Hi Resolution"
-msgstr "Hoge Resolutie"
+msgid "Hi-Res Mode"
+msgstr "Hi-Res Modus"
 
 msgid "Horizontal"
 msgstr "Horizontaal"
 
 msgid "Information"
 msgstr "Informatie"
-
-msgid "Interpolation"
-msgstr "Interpolatie"
 
 msgid "Invalid file size!"
 msgstr "Verkeerde bestandsgrootte!"
@@ -250,6 +262,9 @@ msgstr "LINKS"
 msgid "Left Button"
 msgstr "Knop Links"
 
+msgid "Linear"
+msgstr "Lineair"
+
 msgid "Load"
 msgstr "Openen"
 
@@ -273,6 +288,9 @@ msgstr "Bezig met patch laden..."
 
 msgid "Loading..."
 msgstr "Bezig met laden..."
+
+msgid "Low"
+msgstr "Laag"
 
 msgid "Main Menu"
 msgstr "Hoofdmenu"
@@ -298,17 +316,11 @@ msgstr "Stil"
 msgid "New"
 msgstr "Nieuw"
 
-msgid "New Snapshot"
-msgstr "Nieuw Snapshot"
-
 msgid "New SRAM"
 msgstr "Nieuw SRAM"
 
 msgid "No"
 msgstr "Nee"
-
-msgid "No data to save!"
-msgstr "Geen data om op te slaan!"
 
 msgid "No disc inserted!"
 msgstr "Geen schijf ingevoerd!"
@@ -325,11 +337,14 @@ msgstr "Geen"
 msgid "Off"
 msgstr "Uit"
 
+msgid "OFF"
+msgstr "UIT"
+
 msgid "On"
 msgstr "Aan"
 
-msgid "Original"
-msgstr "Origineel"
+msgid "ON"
+msgstr "AAN"
 
 msgid "Out of memory!"
 msgstr "Te weinig geheugen!"
@@ -382,14 +397,8 @@ msgstr "Spel stoppen? Niet opgeslagen gegevens zullen verloren gaan."
 msgid "R TRIG"
 msgstr "R"
 
-msgid "RAM saving is not available for FDS games!"
-msgstr "RAM opslaan is niet beschikbaar voor FDS spellen!"
-
 msgid "Reboot"
 msgstr "Herstart"
-
-msgid "Rendering"
-msgstr "Renderen"
 
 msgid "Reset"
 msgstr "Herstart"
@@ -445,14 +454,8 @@ msgstr "Opslaan Map"
 msgid "Save Game"
 msgstr "Spel Opslaan"
 
-msgid "Save RAM and State?"
+msgid "Save SRAM and State?"
 msgstr "Geheugen en status opslaan?"
-
-msgid "Save Snapshot?"
-msgstr "Snapshot Opslaan?"
-
-msgid "Save SRAM and Snapshot?"
-msgstr "SRAM en Snapshot opslaan?"
 
 msgid "Save State?"
 msgstr "Status Opslaan?"
@@ -468,9 +471,6 @@ msgstr "Instellingen opslaan..."
 
 msgid "Saving..."
 msgstr "Bezig met opslaan..."
-
-msgid "Scaling"
-msgstr "Schaal"
 
 msgid "Screen Position"
 msgstr "Schermpositie"
@@ -496,6 +496,9 @@ msgstr "SD Kaart"
 msgid "SD card not found!"
 msgstr "Geen SD kaart gevonden!"
 
+msgid "Show Crosshair"
+msgstr "Toon Dradenkruis"
+
 msgid "Show Frame Rate"
 msgstr "Toon Framerate"
 
@@ -510,6 +513,9 @@ msgstr "SNES Muis - Wiimote"
 
 msgid "Sound Effects Volume"
 msgstr "Volume Geluidseffecten"
+
+msgid "Sound Interpolation"
+msgstr "Geluidsinterpolatie"
 
 msgid "Spanish"
 msgstr "Spaans"
@@ -529,8 +535,8 @@ msgstr "Status (Auto)"
 msgid "State file not found"
 msgstr "Status bestand niet gevonden"
 
-msgid "Stereo Inversion"
-msgstr "Stereo-inversie"
+msgid "SuperFX Overclocking"
+msgstr "SuperFX Overklokken"
 
 msgid "Super Scope"
 msgstr "Nintendo Scope"
@@ -545,7 +551,10 @@ msgid "Turbo Mode"
 msgstr "Turbo Modus"
 
 msgid "Turbo Mode Button"
-msgstr "Turbo Modus-Knop"
+msgstr "Turbo Modus Knop"
+
+msgid "TV Mode"
+msgstr "TV Modus"
 
 msgid "Unable to locate a load device!"
 msgstr "Kan laadapparaat niet vinden!"
@@ -555,9 +564,6 @@ msgstr "Kan opslagapparaat niet vinden!"
 
 msgid "Unable to open state!"
 msgstr "Kan status niet openen!"
-
-msgid "Unfiltered"
-msgstr "Ongefiltered"
 
 msgid "Unknown file type!"
 msgstr "Onbekend bestandstype!"

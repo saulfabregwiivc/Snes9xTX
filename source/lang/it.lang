@@ -4,6 +4,9 @@ msgstr "&"
 msgid "16:9 Correction"
 msgstr "Correzione 16:9"
 
+msgid "240p Output"
+msgstr "Uscita 240p"
+
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "7z decompressione fallita: L'archivio contiene troppi file"
 
@@ -67,6 +70,9 @@ msgstr "Automatico (Raccomandato)"
 msgid "B (Rapid)"
 msgstr "B (Rapido)"
 
+msgid "Bilinear Filtering"
+msgstr "Filtrando Bilineare"
+
 msgid "Button Mapping"
 msgstr "Mappatura Pulsanti"
 
@@ -112,17 +118,11 @@ msgstr "Cartella Cover"
 msgid "Credits"
 msgstr "Crediti"
 
-msgid "Crosshair"
-msgstr "Mirino"
-
 msgid "Cursor"
 msgstr "Cursore"
 
 msgid "Data DVD"
 msgstr "DVD Dati"
-
-msgid "Default"
-msgstr "Predefinita"
 
 msgid "Delete"
 msgstr "Eliminare"
@@ -144,6 +144,9 @@ msgstr "Olandese"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "File ZIP vuoto o non valido!"
+
+msgid "Emulation Hacks"
+msgstr "Hack di Emulazione"
 
 msgid "English"
 msgstr "Inglese"
@@ -181,9 +184,6 @@ msgstr "Esci"
 msgid "Exit Action"
 msgstr "Uscita"
 
-msgid "Filtered"
-msgstr "Filtrato"
-
 msgid "Filtering"
 msgstr "Filtrando"
 
@@ -205,8 +205,14 @@ msgstr "Impostazioni di Gioco - Mappature pulsanti"
 msgid "Game Settings - Cheats"
 msgstr "Impostazioni di Gioco - Cheat"
 
+msgid "Game Settings - Emulation Hacks"
+msgstr "Impostazioni di Gioco - Hack di Emulazione"
+
 msgid "Game Settings - Video"
 msgstr "Impostazioni di Gioco - Video"
+
+msgid "Gaussian (Default)"
+msgstr "Gaussiana (Predefinita)"
 
 msgid "German"
 msgstr "Tedesco"
@@ -217,17 +223,14 @@ msgstr "Torna Indietro"
 msgid "Hide SRAM Saving"
 msgstr "Nascondi Salvataggio SRAM"
 
-msgid "Hi Resolution"
-msgstr "Alta Risoluzione"
+msgid "Hi-Res Mode"
+msgstr "Modalità Alta-Ris"
 
 msgid "Horizontal"
 msgstr "Orizzontale"
 
 msgid "Information"
 msgstr "Informazione"
-
-msgid "Interpolation"
-msgstr "Interpolazione"
 
 msgid "Invalid file size!"
 msgstr "Dimensione del file non valida!"
@@ -277,6 +280,9 @@ msgstr "SINISTRA"
 msgid "Left Button"
 msgstr "Pulsante Sinistro"
 
+msgid "Linear"
+msgstr "Lineare"
+
 msgid "Load"
 msgstr "Carica"
 
@@ -301,6 +307,9 @@ msgstr "Caricando patch..."
 msgid "Loading..."
 msgstr "Caricando..."
 
+msgid "Low"
+msgstr "Basso"
+
 msgid "Main Menu"
 msgstr "Menù Principale"
 
@@ -309,6 +318,9 @@ msgstr "Identico Controlli GC"
 
 msgid "Match Wii Controls"
 msgstr "Identico Controlli Wii"
+
+msgid "Medium"
+msgstr "Medio"
 
 msgid "Menu"
 msgstr "Menù"
@@ -328,14 +340,8 @@ msgstr "Muto"
 msgid "New"
 msgstr "Nuovo"
 
-msgid "New Snapshot"
-msgstr "Nuovo Snapshot"
-
 msgid "New SRAM"
 msgstr "Nuova SRAM"
-
-msgid "No data to save!"
-msgstr "Nessun dato da salvare!"
 
 msgid "No disc inserted!"
 msgstr "Disco non inserito!"
@@ -348,9 +354,6 @@ msgstr "Nessun salvataggio trovato."
 
 msgid "None"
 msgstr "Nessuno"
-
-msgid "Original"
-msgstr "Originale"
 
 msgid "Out of memory!"
 msgstr "Memoria esaurita!"
@@ -409,9 +412,6 @@ msgstr "Terminare il gioco? Tutti i progressi saranno perduti."
 msgid "R TRIG"
 msgstr "TASTO R"
 
-msgid "RAM saving is not available for FDS games!"
-msgstr "Il salvataggio della RAM non è disponibile per i giochi FDS!"
-
 msgid "Reset"
 msgstr "Resetta"
 
@@ -469,14 +469,8 @@ msgstr "Cartella Salvataggio"
 msgid "Save Game"
 msgstr "Salvataggio"
 
-msgid "Save RAM and State?"
-msgstr "Salvare RAM e STATO?"
-
-msgid "Save Snapshot?"
-msgstr "Salvare Snapshot?"
-
-msgid "Save SRAM and Snapshot?"
-msgstr "Salvare SRAM e Snapshot?"
+msgid "Save SRAM and State?"
+msgstr "Salvare SRAM e STATO?"
 
 msgid "Save successful"
 msgstr "Salvato con successo"
@@ -489,9 +483,6 @@ msgstr "Salvando le preferenze..."
 
 msgid "Saving..."
 msgstr "Salvando..."
-
-msgid "Scaling"
-msgstr "Scalettatura"
 
 msgid "Screen Position"
 msgstr "Posizione Schermo"
@@ -517,6 +508,9 @@ msgstr "Scheda SD"
 msgid "SD card not found!"
 msgstr "Scheda SD non trovata!"
 
+msgid "Show Crosshair"
+msgstr "Mostra Mirino"
+
 msgid "Show Frame Rate"
 msgstr "Mostra FPS"
 
@@ -532,11 +526,14 @@ msgstr "SNES Controller - Controller Tradizionale"
 msgid "Sound Effects Volume"
 msgstr "Volume Effetti Sonori"
 
+msgid "Sound Interpolation"
+msgstr "Interpolazione Sonora"
+
 msgid "Spanish"
 msgstr "Spagnolo"
 
 msgid "Sprite Limit"
-msgstr "Limite Sprite"
+msgstr "Limite di Sprite"
 
 msgid "SRAM file not found"
 msgstr "File SRAM non trovato"
@@ -549,9 +546,6 @@ msgstr "Stato (Auto)"
 
 msgid "State file not found"
 msgstr "File di stato non trovato"
-
-msgid "Stereo Inversion"
-msgstr "Inversione Stereo"
 
 msgid "Super Scope"
 msgstr "Nintendo Scope"
@@ -568,6 +562,9 @@ msgstr "Modalità Turbo"
 msgid "Turbo Mode Button"
 msgstr "Pulsante Turbo"
 
+msgid "TV Mode"
+msgstr "Modalità TV"
+
 msgid "Unable to locate a load device!"
 msgstr "Impossibile localizzare una periferica di caricamento!"
 
@@ -576,9 +573,6 @@ msgstr "Impossibile localizzare una periferica di salvataggio!"
 
 msgid "Unable to open state!"
 msgstr "Impossibile aprire lo stato!"
-
-msgid "Unfiltered"
-msgstr "Non filtrato!"
 
 msgid "Unknown file type!"
 msgstr "Tipo di file sconosciuto!"

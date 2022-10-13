@@ -4,6 +4,9 @@ msgstr "&"
 msgid "16:9 Correction"
 msgstr "Correção 16:9"
 
+msgid "240p Output"
+msgstr "Saída 240p"
+
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "Falha na descompressão 7z: Arquivo contém arquivos demais"
 
@@ -73,6 +76,9 @@ msgstr "B (Rápido)"
 msgid "Back"
 msgstr "Voltar"
 
+msgid "Bilinear Filtering"
+msgstr "Filtragem Bilinear"
+
 msgid "Brazilian Portuguese"
 msgstr "Português do Brasil"
 
@@ -124,14 +130,8 @@ msgstr "Pasta de Capas"
 msgid "Credits"
 msgstr "Créditos"
 
-msgid "Crosshair"
-msgstr "Mira"
-
 msgid "Data DVD"
 msgstr "DVD de Dados"
-
-msgid "Default"
-msgstr "Padrão"
 
 msgid "Delete"
 msgstr "Deletar"
@@ -162,6 +162,9 @@ msgstr "Holandês"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Arquivo ZIP vazio ou inválido!"
+
+msgid "Emulation Hacks"
+msgstr "Emulação Hacks"
 
 msgid "English"
 msgstr "Inglês"
@@ -199,9 +202,6 @@ msgstr "Sair"
 msgid "Exit Action"
 msgstr "Ação ao Sair"
 
-msgid "Filtered"
-msgstr "Filtrado"
-
 msgid "Filtering"
 msgstr "Filtragem"
 
@@ -226,11 +226,17 @@ msgstr "Configurações - Mapeamento dos Botões"
 msgid "Game Settings - Cheats"
 msgstr "Configurações - Trapaças"
 
+msgid "Game Settings - Emulation Hacks"
+msgstr "Configurações - Emulação Hacks"
+
 msgid "Game Settings - Video"
 msgstr "Configurações - Vídeo"
 
 msgid "GameCube Controller"
 msgstr "Controle do GameCube"
+
+msgid "Gaussian (Default)"
+msgstr "Gaussiana (Padrão)"
 
 msgid "German"
 msgstr "Alemão"
@@ -241,14 +247,11 @@ msgstr "Voltar"
 msgid "Hide SRAM Saving"
 msgstr "Ocultar Salvar SRAM"
 
-msgid "Hi Resolution"
-msgstr "Alta Resolução"
+msgid "Hi-Res Mode"
+msgstr "Modo Alta-Res"
 
 msgid "Information"
 msgstr "Informação"
-
-msgid "Interpolation"
-msgstr "Interpolação"
 
 msgid "Invalid file size!"
 msgstr "Tamanho do arquivo é inválido!"
@@ -316,6 +319,9 @@ msgstr "Carregando Patch..."
 msgid "Loading..."
 msgstr "Carregando..."
 
+msgid "Low"
+msgstr "Baixo"
+
 msgid "Main Menu"
 msgstr "Menu Principal"
 
@@ -325,8 +331,14 @@ msgstr "Igualar aos Controles do GameCube"
 msgid "Match Wii Controls"
 msgstr "Igualar aos Controles do Wii"
 
+msgid "Max"
+msgstr "Máximo"
+
 msgid "Maximum filepath length reached!"
 msgstr "Tamanho máximo do caminho de arquivo alcançado!"
+
+msgid "Medium"
+msgstr "Médio"
 
 msgid "Menu artwork"
 msgstr "Ilustrações do Menu"
@@ -343,17 +355,11 @@ msgstr "Mudo"
 msgid "New"
 msgstr "Novo"
 
-msgid "New Snapshot"
-msgstr "Nova Snapshop"
-
 msgid "New SRAM"
 msgstr "Novo SRAM"
 
 msgid "No"
 msgstr "Não"
-
-msgid "No data to save!"
-msgstr "Sem dados para salvar!"
 
 msgid "No disc inserted!"
 msgstr "Sem disco inserido!"
@@ -424,14 +430,8 @@ msgstr "Quer mesmo sair desse jogo? Qualquer progresso não-salvo será perdido.
 msgid "R TRIG"
 msgstr "R"
 
-msgid "RAM saving is not available for FDS games!"
-msgstr "Salvar em RAM não está disponível para jogos FDS (Famicom Disk System)!"
-
 msgid "Reboot"
 msgstr "Reiniciar"
-
-msgid "Rendering"
-msgstr "Renderização"
 
 msgid "Reset"
 msgstr "Resetar"
@@ -490,14 +490,8 @@ msgstr "Pasta de Jogo salvo"
 msgid "Save Game"
 msgstr "Salvar o Jogo"
 
-msgid "Save RAM and State?"
-msgstr "Salvar em RAM e State? "
-
-msgid "Save Snapshot?"
-msgstr "Salvar Snapshot?"
-
-msgid "Save SRAM and Snapshot?"
-msgstr "Salvar em SRAM e Snapshot?"
+msgid "Save SRAM and State?"
+msgstr "Salvar em SRAM e State?"
 
 msgid "Save State?"
 msgstr "Salvar State?"
@@ -513,9 +507,6 @@ msgstr "Salvando as configurações..."
 
 msgid "Saving..."
 msgstr "Salvando..."
-
-msgid "Scaling"
-msgstr "Formato"
 
 msgid "Screen Position"
 msgstr "Posição da Tela"
@@ -553,14 +544,11 @@ msgstr "Configurações - Salvar & Carregar"
 msgid "Shift"
 msgstr "Maius."
 
+msgid "Show Crosshair"
+msgstr "Mostrar Mira"
+
 msgid "Show Frame Rate"
 msgstr "Mostrar FPS"
-
-msgid "Snapshot"
-msgstr "Posição Salva"
-
-msgid "Snapshot (auto)"
-msgstr "Posição Salva (auto)"
 
 msgid "SNES Controller"
 msgstr "Controle do Super Nintendo"
@@ -595,23 +583,20 @@ msgstr "Mouse do Super Nintendo - WiiMote"
 msgid "Sound Effects Volume"
 msgstr "Volume dos Efeitos Sonoros"
 
+msgid "Sound Interpolation"
+msgstr "Interpolação Sonora"
+
 msgid "Spanish"
 msgstr "Espanhol"
 
 msgid "Sprite Limit"
-msgstr "Limite de Sprites"
+msgstr "Limite de Sprite"
 
 msgid "SRAM file not found"
 msgstr "Arquivo SRAM não foi encontrado"
 
 msgid "State file not found"
 msgstr "Arquivo de State não foi encontrado"
-
-msgid "Stereo Inversion"
-msgstr "Inversão Estéreo"
-
-msgid "SuperFX Overclock"
-msgstr "Overclock SuperFX"
 
 msgid "Super Scope - GameCube Controller"
 msgstr "Super Scope - Controle do GameCube"
@@ -643,6 +628,9 @@ msgstr "Turbo Ativado"
 msgid "Turkish"
 msgstr "Turco"
 
+msgid "TV Mode"
+msgstr "Modo TV"
+
 msgid "Unable to locate a load device!"
 msgstr "Não foi possível localizar o dispositivo de carregamento!"
 
@@ -651,9 +639,6 @@ msgstr "Não foi possível localizar o dispositivo de jogo salvo!"
 
 msgid "Unable to open state!"
 msgstr "Não foi possível carregar a state!"
-
-msgid "Unfiltered"
-msgstr "Sem Filtro"
 
 msgid "Unknown file type!"
 msgstr "Tipo de arquivo desconhecido!"

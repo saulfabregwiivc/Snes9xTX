@@ -2,6 +2,7 @@
  * Snes9x Nintendo Wii/GameCube Port
  *
  * Michniewski 2008
+ * Tanooki 2019-2022
  *
  * filter.h
  *

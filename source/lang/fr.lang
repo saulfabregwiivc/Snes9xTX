@@ -4,6 +4,9 @@ msgstr "&"
 msgid "16:9 Correction"
 msgstr "Correction 16:9"
 
+msgid "240p Output"
+msgstr "Sortie 240p"
+
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "La décompression 7z a échoué : l'archive contient trop de fichiers"
 
@@ -23,13 +26,13 @@ msgid "7z decompression failed: File uses unsupported compression settings"
 msgstr "La décompression 7z a échoué : le fichier utilise des paramètres de compression non supportés"
 
 msgid "A (Rapid)"
-msgstr "A (rapide)"
+msgstr "A (Rapide)"
 
 msgid "Additional improvements"
 msgstr "Améliorations supplémentaires"
 
 msgid "Aim Offscreen"
-msgstr "Visée hors champ"
+msgstr "Visée Hors Champ"
 
 msgid "Are you sure that you want to reset this game? Any unsaved progress will be lost."
 msgstr "Êtes-vous sûr de vouloir redémarrer ce jeu ? Toute progression non sauvegardée sera perdue."
@@ -44,7 +47,7 @@ msgid "Artwork"
 msgstr "Illustrations"
 
 msgid "Artwork Folder"
-msgstr "Dossier des illustrations"
+msgstr "Dossier des Illustrations"
 
 msgid "Attempting to determine load device..."
 msgstr "Tentative de détection du périphérique d'entrée..."
@@ -53,34 +56,37 @@ msgid "Attempting to determine save device..."
 msgstr "Tentative de détection du périphérique de sauvegarde..."
 
 msgid "Auto Detect"
-msgstr "Détection auto"
+msgstr "Détection Auto"
 
 msgid "Auto Load"
-msgstr "Chargement auto"
+msgstr "Chargement Auto"
 
 msgid "Auto Save"
-msgstr "Sauvegarde auto"
+msgstr "Sauvegarde Auto"
 
 msgid "Automatic"
 msgstr "Automatique"
 
 msgid "Automatic (Recommended)"
-msgstr "Automatique (recommandé)"
+msgstr "Automatique (Recommandé)"
 
 msgid "B (Rapid)"
-msgstr "B (rapide)"
+msgstr "B (Rapide)"
 
 msgid "Back"
 msgstr "Retour"
 
+msgid "Bilinear Filtering"
+msgstr "Filtrage Bilinéaire"
+
 msgid "Brazilian Portuguese"
-msgstr "Portugais brésilien"
+msgstr "Portugais Brésilien"
 
 msgid "Button Mapping"
 msgstr "Contrôles"
 
 msgid "Button Mappings"
-msgstr "Redéfinir les touches"
+msgstr "Redéfinir les Touches"
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -95,10 +101,10 @@ msgid "Cheats file not found!"
 msgstr "Fichier de triches non trouvé !"
 
 msgid "Cheats Folder"
-msgstr "Dossier des triches"
+msgstr "Dossier des Triches"
 
 msgid "Choose Game"
-msgstr "Choisir un jeu"
+msgstr "Choisir un Jeu"
 
 msgid "Classic Controller"
 msgstr "Manette Classique"
@@ -119,13 +125,10 @@ msgid "Cover View"
 msgstr "Jaquette"
 
 msgid "Covers Folder"
-msgstr "Dossier des jaquettes"
+msgstr "Dossier des Jaquettes"
 
 msgid "Credits"
 msgstr "Crédits"
-
-msgid "Crosshair"
-msgstr "Réticule de visée"
 
 msgid "Cubic"
 msgstr "Cubique"
@@ -136,17 +139,14 @@ msgstr "Curseur"
 msgid "Data DVD"
 msgstr "Lecteur DVD"
 
-msgid "Default"
-msgstr "Par défaut"
-
 msgid "Delete"
 msgstr "Effacer"
 
 msgid "Delete File"
-msgstr "Effacer le fichier"
+msgstr "Effacer le Fichier"
 
 msgid "Delete Saves"
-msgstr "Effacer les sauvegardes"
+msgstr "Effacer les Sauvegardes"
 
 msgid "Delete this save file? Deleted files can not be restored."
 msgstr "Effacer cette sauvegarde ? Les fichiers supprimés ne peuvent pas être restaurés."
@@ -158,7 +158,7 @@ msgid "under the terms of the GNU General Public License (GPL) Version 2."
 msgstr "sous les termes de la licence publique générale GNU (GPL) version 2."
 
 msgid "Don't Save"
-msgstr "Ne pas sauver"
+msgstr "Ne pas Sauver"
 
 msgid "Down"
 msgstr "Bas"
@@ -171,6 +171,9 @@ msgstr "Néerlandais"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Fichier ZIP vide ou invalide !"
+
+msgid "Emulation Hacks"
+msgstr "Hacks d'Émulation"
 
 msgid "English"
 msgstr "Anglais"
@@ -206,10 +209,7 @@ msgid "Exit"
 msgstr "Sortir"
 
 msgid "Exit Action"
-msgstr "Sortie de l'émulateur"
-
-msgid "Filtered"
-msgstr "Filtré"
+msgstr "Sortie de l'Émulateur"
 
 msgid "Filtering"
 msgstr "Filtrage"
@@ -233,10 +233,13 @@ msgid "Game Settings - Audio"
 msgstr "Configuration - Audio"
 
 msgid "Game Settings - Button Mappings"
-msgstr "Configuration - Redéfinir les touches"
+msgstr "Configuration - Redéfinir les Touches"
 
 msgid "Game Settings - Cheats"
 msgstr "Configuration - Triches"
+
+msgid "Game Settings - Emulation Hacks"
+msgstr "Configuration - Hacks d'Émulation"
 
 msgid "Game Settings - Video"
 msgstr "Configuration - Vidéo"
@@ -244,8 +247,8 @@ msgstr "Configuration - Vidéo"
 msgid "GameCube Controller"
 msgstr "Manette GameCube"
 
-msgid "Gaussian (SNES Hardware)"
-msgstr "Gaussienne (matériel SNES)"
+msgid "Gaussian (Default)"
+msgstr "Gaussienne (Par Défaut)"
 
 msgid "German"
 msgstr "Allemand"
@@ -254,10 +257,10 @@ msgid "Go Back"
 msgstr "Retour"
 
 msgid "Hide SRAM Saving"
-msgstr "Masquer sauvegarder SRAM"
+msgstr "Masquer Sauvegarder SRAM"
 
-msgid "Hi Resolution"
-msgstr "Haute résolution"
+msgid "Hi-Res Mode"
+msgstr "Mode Haute-Rés"
 
 msgid "Invalid file size!"
 msgstr "Taille du fichier invalide !"
@@ -290,7 +293,7 @@ msgid "Language"
 msgstr "Langage"
 
 msgid "Languages Folder"
-msgstr "Dossier des langues"
+msgstr "Dossier des Langues"
 
 msgid "Left"
 msgstr "Gauche"
@@ -299,7 +302,7 @@ msgid "LEFT"
 msgstr "GAUCHE"
 
 msgid "Left Button"
-msgstr "Clic gauche"
+msgstr "Clic Gauche"
 
 msgid "Linear"
 msgstr "Linéaire"
@@ -308,13 +311,13 @@ msgid "Load"
 msgstr "Charger"
 
 msgid "Load Device"
-msgstr "Périphérique d'entrée"
+msgstr "Périphérique d'Entrée"
 
 msgid "Load Folder"
-msgstr "Dossier des jeux"
+msgstr "Dossier des Jeux"
 
 msgid "Load Game"
-msgstr "Charger une partie"
+msgstr "Charger une Partie"
 
 msgid "Loading"
 msgstr "Chargement"
@@ -328,17 +331,26 @@ msgstr "Chargement du patch en cours..."
 msgid "Loading..."
 msgstr "Chargement en cours..."
 
+msgid "Low"
+msgstr "Faible"
+
 msgid "Main Menu"
-msgstr "Menu principal"
+msgstr "Menu Principal"
 
 msgid "Match GC Controls"
-msgstr "Jouabilité GC identique"
+msgstr "Jouabilité GC Identique"
 
 msgid "Match Wii Controls"
-msgstr "Jouabilité Wii identique"
+msgstr "Jouabilité Wii Identique"
+
+msgid "Max"
+msgstr "Maximum"
 
 msgid "Maximum filepath length reached!"
 msgstr "La longueur maximale du chemin d'accés est atteinte !"
+
+msgid "Medium"
+msgstr "Moyen"
 
 msgid "Menu artwork"
 msgstr "Éléments graphiques du menu"
@@ -347,7 +359,7 @@ msgid "MINUS"
 msgstr "MOINS"
 
 msgid "Music Volume"
-msgstr "Volume de la musique"
+msgstr "Volume de la Musique"
 
 msgid "Mute"
 msgstr "Muet"
@@ -355,17 +367,11 @@ msgstr "Muet"
 msgid "New"
 msgstr "Nouvelle"
 
-msgid "New Snapshot"
-msgstr "Nouvelle sauvegarde d'état"
-
 msgid "New SRAM"
-msgstr "Nouvelle sauvegarde SRAM"
+msgstr "Nouvelle Sauvegarde SRAM"
 
 msgid "No"
 msgstr "Non"
-
-msgid "No data to save!"
-msgstr "Pas de données (RAM) à sauvegarder !"
 
 msgid "No disc inserted!"
 msgstr "Aucun disque inséré !"
@@ -398,7 +404,7 @@ msgid "P4"
 msgstr "J4"
 
 msgid "Please Wait"
-msgstr "Veuillez patienter"
+msgstr "Veuillez Patienter"
 
 msgid "Portuguese"
 msgstr "Portugais"
@@ -428,10 +434,10 @@ msgid "Progressive (480p)"
 msgstr "Progressif (480p)"
 
 msgid "Preview Image"
-msgstr "Aperçu de l'image"
+msgstr "Aperçu de l'Image"
 
 msgid "Preview Screenshot"
-msgstr "Capture d'écran"
+msgstr "Capture d'Écran"
 
 msgid "Quit Game"
 msgstr "Quitter le Jeu"
@@ -442,26 +448,20 @@ msgstr "Quitter ce jeu ? Toute progression non sauvegardée sera perdue."
 msgid "R TRIG"
 msgstr "R"
 
-msgid "RAM saving is not available for FDS games!"
-msgstr "La sauvegarde RAM n'est pas disponible pour les jeux FDS (Famicom Disk System) !"
-
 msgid "Reboot"
 msgstr "Redémarrer"
-
-msgid "Rendering"
-msgstr "Rendu"
 
 msgid "Reset"
 msgstr "Réinitialiser"
 
 msgid "Reset Game"
-msgstr "Réinitialiser le jeu"
+msgstr "Réinitialiser le Jeu"
 
 msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "Réinitialiser ce jeu ? Toute progression non sauvegardée sera perdue."
 
 msgid "Reset Mappings"
-msgstr "Réinit. les touches"
+msgstr "Réinit. les Touches"
 
 msgid "Reset Settings"
 msgstr "Réinitialiser"
@@ -473,7 +473,7 @@ msgid "Return to Loader"
 msgstr "Retourner au Loader"
 
 msgid "Return to Wii Menu"
-msgstr "Retourner au menu Wii"
+msgstr "Retourner au Menu Wii"
 
 msgid "Right"
 msgstr "Droite"
@@ -482,10 +482,10 @@ msgid "RIGHT"
 msgstr "DROITE"
 
 msgid "Right Button"
-msgstr "Clic droit"
+msgstr "Clic Droit"
 
 msgid "Right Stick (Default)"
-msgstr "Joystick droit (par défaut)"
+msgstr "Joystick Droit (Par Défaut)"
 
 msgid "Save"
 msgstr "Sauver"
@@ -494,7 +494,7 @@ msgid "Save a new Preview Screenshot? Current Screenshot image will be overwritt
 msgstr "Enregistrer une nouvelle capture d'écran ? La capture d'écran actuelle sera remplacée."
 
 msgid "Save Device"
-msgstr "Périph. de sauvegarde"
+msgstr "Périph. de Sauvegarde"
 
 msgid "Save failed!"
 msgstr "La sauvegarde a échoué !"
@@ -503,22 +503,16 @@ msgid "Save file not found"
 msgstr "Pas de fichier de sauvegarde trouvé"
 
 msgid "Save Folder"
-msgstr "Dossier des sauvegardes"
+msgstr "Dossier des Sauvegardes"
 
 msgid "Save Game"
-msgstr "Sauvegarder la partie"
+msgstr "Sauvegarder la Partie"
 
-msgid "Save RAM and State?"
-msgstr "Sauver la RAM et la position du jeu (sauvegarde d'état) ?"
-
-msgid "Save Snapshot?"
-msgstr "Sauver la position du jeu (sauvegarde d'état) ?"
-
-msgid "Save SRAM and Snapshot?"
-msgstr "Sauver la SRAM et la position du jeu (sauvegarde d'état) ?"
+msgid "Save SRAM and State?"
+msgstr "Sauver la SRAM et la Sauvegarde d'État ?"
 
 msgid "Save State?"
-msgstr "Sauver la position du jeu (sauvegarde d'état) ?"
+msgstr "Sauver la Sauvegarde d'État ?"
 
 msgid "Save successful"
 msgstr "Sauvegarde réussie"
@@ -532,23 +526,20 @@ msgstr "Sauvegarde des préférences en cours..."
 msgid "Saving..."
 msgstr "Sauvegarde en cours..."
 
-msgid "Scaling"
-msgstr "Format"
-
 msgid "Screen Position"
-msgstr "Position de l'écran"
+msgstr "Position de l'Écran"
 
 msgid "Screen Zoom"
-msgstr "Zoom de l'écran"
+msgstr "Zoom de l'Écran"
 
 msgid "Screenshot"
-msgstr "Capture d'écran"
+msgstr "Capture d'Écran"
 
 msgid "Screenshots"
-msgstr "Captures d'écran"
+msgstr "Captures d'Écran"
 
 msgid "Screenshots Folder"
-msgstr "Dossier des captures"
+msgstr "Dossier des Captures"
 
 msgid "Settings"
 msgstr "Paramètres"
@@ -557,7 +548,7 @@ msgid "Settings - Menu"
 msgstr "Paramètres - Menu"
 
 msgid "Settings - Saving & Loading"
-msgstr "Paramètres - Sauvegarde & chargement"
+msgstr "Paramètres - Sauvegarde & Chargement"
 
 msgid "SD Card"
 msgstr "Carte SD"
@@ -571,17 +562,14 @@ msgstr "SD dans SP2"
 msgid "Shift"
 msgstr "Maj"
 
+msgid "Show Crosshair"
+msgstr "Afficher le Viseur"
+
 msgid "Show Frame Rate"
 msgstr "Afficher les FPS"
 
 msgid "Chinese (Simplified)"
-msgstr "Chinois (simplifié)"
-
-msgid "Snapshot"
-msgstr "Sauvegarde d'état"
-
-msgid "Snapshot (auto)"
-msgstr "Sauv. d'état (auto)"
+msgstr "Chinois (Simplifié)"
 
 msgid "SNES Controller"
 msgstr "Manette SNES"
@@ -614,31 +602,28 @@ msgid "SNES Mouse - Wiimote"
 msgstr "Souris SNES - Wiimote"
 
 msgid "Sound Effects Volume"
-msgstr "Volume des effets sonores"
+msgstr "Volume des Effets Sonores"
+
+msgid "Sound Interpolation"
+msgstr "Interpolation Sonore"
 
 msgid "Spanish"
 msgstr "Espagnol"
 
 msgid "Sprite Limit"
-msgstr "Limite de sprites"
+msgstr "Limite de Sprites"
 
 msgid "SRAM file not found"
 msgstr "Pas de sauvegarde SRAM trouvée"
 
 msgid "State"
-msgstr "Sauvegarde d'état"
+msgstr "Sauvegarde d'État"
 
 msgid "State (Auto)"
-msgstr "Sauv. d'état (auto)"
+msgstr "Sauv. d'État (Auto)"
 
 msgid "State file not found"
 msgstr "Pas de sauvegarde d'état trouvée"
-
-msgid "Stereo Inversion"
-msgstr "Inversion stéréo"
-
-msgid "SuperFX Overclock"
-msgstr "Overclock SuperFX"
 
 msgid "Super Scope"
 msgstr "Nintendo Scope"
@@ -659,10 +644,10 @@ msgid "This software is open source and may be copied, distributed, or modified"
 msgstr "Ce logiciel est open source et peut être copié, distribué ou modifié"
 
 msgid "Turbo Mode"
-msgstr "Mode turbo"
+msgstr "Mode Turbo"
 
 msgid "Turbo Mode Button"
-msgstr "Bouton mode turbo"
+msgstr "Bouton du Mode Turbo"
 
 msgid "Turkish"
 msgstr "Turc"
@@ -678,9 +663,6 @@ msgstr "Périphérique de sauvegarde introuvable !"
 
 msgid "Unable to open state!"
 msgstr "Impossible d'ouvrir la sauvegarde d'état !"
-
-msgid "Unfiltered"
-msgstr "Non-filtré"
 
 msgid "Unknown file type!"
 msgstr "Type de fichier inconnu !"
@@ -701,19 +683,19 @@ msgid "UP"
 msgstr "HAUT"
 
 msgid "Up One Level"
-msgstr "Dossier parent"
+msgstr "Dossier Parent"
 
 msgid "USB drive not found!"
 msgstr "Aucun disque USB n'a été trouvé !"
 
 msgid "USB Mass Storage"
-msgstr "Périphérique de stockage USB"
+msgstr "Périphérique de Stockage USB"
 
 msgid "Video"
 msgstr "Vidéo"
 
 msgid "Video Mode"
-msgstr "Mode vidéo"
+msgstr "Mode Vidéo"
 
 msgid "Wiimote Orientation"
 msgstr "Orientation de la Wiimote"
