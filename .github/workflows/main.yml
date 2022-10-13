@@ -35,7 +35,7 @@ jobs:
         cp executables/snes9xtx-wii.dol dist/Snes9xTX/apps/snes9xtx/boot.dol
 
     - name: Upload Wii artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3.1.0
       if: ${{ matrix.image == 'Wii' }}
       with: 
         name: Snes9xTX
@@ -54,7 +54,7 @@ jobs:
         cp executables/snes9xtx-gc.dol dist/Snes9xTX-GameCube/
     
     - name: Upload GameCube artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3.1.0
       if: ${{ matrix.image == 'GameCube' }}
       with: 
         name: Snes9xTX-GameCube
