@@ -7,11 +7,41 @@ Snes9x TX is a fork of Snes9x GX: https://github.com/dborth/snes9xgx
 Update History
 --------------
 
+---Snes9x TX 1.1.3---
+---January 15 2023---
+
+- Updated to the latest Snes9x GX (git 3940616)
+- Disabled game info message when "show frame rate" option is enabled
+- Added option to turn on/off frame skipping in video settings (enabled by default)
+  frame skipping is highly recommended with some games using special chips (especially SuperFX)
+  Disable it for other games if you prefer optimal frame rate despite some potential slowdowns
+- Added option to force SNES region (experimental) and create emulation settings in main settings
+  When launching Snes9x TX just choose a region and then launch a game
+  For another game it will be necessary to launch any game in automatic region
+  then go back to emulation settings to choose the desired region or restart Snes9x TX
+  Another constraint is that you must load a save state with the same region
+  than the one with which it was made (otherwise the timing will not be correct)
+- Added separate PAL audio sample rate for original render (fix audio hiccups in 50Hz video mode)
+- Fixed the PAL games resolution (PAL 50Hz video mode is recommended for have a correct ratio)
+- Added progressive PAL video mode (576p)
+- Reorganized menu options
+- Renamed turbo mode option to "fast forward" (turbo mode name is reminiscent of auto fire)
+- Removed catalan and updated all other language files
+- Fixed sound effects volume setting and replace enter.ogg audio file
+- Updated UI PNG images
+- Added DualShock 3 (wired) support based on SickSaxis lib by xerpi (thanks niuus and JabuPL!)
+  How to use:
+  1. Start up Snes9x TX
+  2. Start a game with your Wiimote/GC Controller/etc
+  3. Press the PS button on your DualShock 3 and connect it to your Wii with a USB cable
+  4. It should connect, one led on the controller should light up
+  5. Done, you can play now on a DualShock 3 Controller
+
 ---Snes9x TX 1.1.2---
 ---September 26 2022---
 
-- Added new setting button to turn on/off start satellaview bios with bs games in menu settings
-- Added option to turn on/off mute game sound in audio settings
+- Added new setting button to turn on/off start Satellaview BIOS with BS games in menu settings
+- Added option to turn on/off game sound in audio settings
 - Updated french language file
 
 ---Snes9x TX 1.1.1---
@@ -34,7 +64,7 @@ Update History
 - Updated to the latest Snes9x GX 4.5.3
 - Disabled peripheral devices by default if not selected in controller settings
 - Added new options to turn it on/off sprite limit and hi-res mode in video settings
-  disable hi-res mode to keep video filtering active with games using this mode
+  Disable hi-res mode to keep video filtering active with games using this mode
 - Added credits button in main menu settings (thanks InfiniteBlue!)
 - Updated credits
 - Updated all language files
@@ -45,7 +75,7 @@ Update History
 ---May 20 2022---
 
 - Added option to turn it on/off stereo inversion in audio settings
-  enabled by default to fix Wii inverted L/R audio channels
+  Enabled by default to fix Wii inverted L/R audio channels
 - Updated all language files
 
 ---Snes9x TX 1.0.9b---
@@ -161,7 +191,7 @@ Update History
 - Added vWii Forwarder Channel for Wii U
 - Disabled Multitape by default
 - Added L+R+START trigger to go back to menu with Classic Controller
-  work with SNES Classic Mini controller
+  Work with SNES Classic Mini controller
 - Removed turbo mode on right joystick
 - Changed UI and Forwarder Channel colors
 - Based on the latest commit of Snes9x GX

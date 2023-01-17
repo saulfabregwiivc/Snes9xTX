@@ -5,7 +5,7 @@
  * crunchy2 May 2007-July 2007
  * Michniewski 2008
  * Tantric 2008-2022
- * Tanooki 2019-2022
+ * Tanooki 2019-2023
  *
  * snes9xtx.cpp
  *
@@ -541,14 +541,15 @@ int main(int argc, char *argv[])
 		ScreenshotRequested = 0;
 		SwitchAudioMode(0);
 
-		Settings.Mute = (GCSettings.MuteAudio == 1);
+		Settings.Mute = (GCSettings.MuteSound == 1);
 		Settings.SupportHiRes = (GCSettings.HiResMode == 1);
+		Settings.SkipFrames = (GCSettings.FrameSkip ? AUTO_FRAMERATE : 0);
 		Settings.DisplayFrameRate = (GCSettings.ShowFrameRate == 1);
 		Settings.AutoDisplayMessages = (Settings.DisplayFrameRate ? true : false);
-		Settings.MaxSpriteTilesPerLine = (GCSettings.SpriteLimit ? 34 : 128);
+		Settings.MaxSpriteTilesPerLine = (GCSettings.NoSpriteLimit ? 128 : 34);
 		Settings.MultiPlayer5Master = (GCSettings.Controller == CTRL_PAD4 ? true : false);
 		Settings.SuperScopeMaster = (GCSettings.Controller == CTRL_SCOPE ? true : false);
-		Settings.MouseMaster = (GCSettings.Controller == CTRL_MOUSE ? true : false);
+		Settings.MouseMaster = (GCSettings.Controller == CTRL_MOUSE || GCSettings.Controller == CTRL_MOUSE_PORT2 || GCSettings.Controller == CTRL_MOUSE_BOTH_PORTS);
 		Settings.JustifierMaster = (GCSettings.Controller == CTRL_JUST ? true : false);
 		SetControllers();
 

@@ -1,12 +1,6 @@
 msgid "&"
 msgstr "&"
 
-msgid "16:9 Correction"
-msgstr "Correcção 16:9"
-
-msgid "240p Output"
-msgstr "Saída 240p"
-
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "Extracção 7z falhou: o ficheiro 7z contém demasiados ficheiros"
 
@@ -43,6 +37,9 @@ msgstr "Quer mesmo repor os controlos mapeados?"
 msgid "Are you sure that you want to reset your settings?"
 msgstr "Quer mesmo repor as configurações?"
 
+msgid "Aspect Ratio"
+msgstr "Proporção do Ecrã"
+
 msgid "Attempting to determine load device..."
 msgstr "A determinar dispositivo de carregamento..."
 
@@ -67,9 +64,6 @@ msgstr "Auto gravar"
 msgid "Automatic"
 msgstr "Automático"
 
-msgid "Automatic (Recommended)"
-msgstr "Automático (Recomendado)"
-
 msgid "B (Rapid)"
 msgstr "B (Rápido)"
 
@@ -78,6 +72,9 @@ msgstr "Voltar"
 
 msgid "Bilinear Filtering"
 msgstr "Filtragem Bilinear"
+
+msgid "Button"
+msgstr "Botão"
 
 msgid "Button Mappings"
 msgstr "Mapear Botões"
@@ -130,6 +127,12 @@ msgstr "Créditos"
 msgid "Data DVD"
 msgstr "DVD de Dados"
 
+msgid "Default"
+msgstr "Padrão"
+
+msgid "Default (Gaussian)"
+msgstr "Padrão (Gaussiana)"
+
 msgid "Delete"
 msgstr "Deletar"
 
@@ -150,6 +153,9 @@ msgstr "Holandês"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Ficheiro ZIP vazio ou inválido"
+
+msgid "Emulation"
+msgstr "Emulação"
 
 msgid "Emulation Hacks"
 msgstr "Emulação Hacks"
@@ -190,8 +196,8 @@ msgstr "Sair"
 msgid "Exit Action"
 msgstr "Acção ao Sair"
 
-msgid "Filtering"
-msgstr "Filtragem"
+msgid "Fast Forward"
+msgstr "Avanço Rápido"
 
 msgid "Fire"
 msgstr "Fogo"
@@ -219,9 +225,6 @@ msgstr "Configurações - Vídeo"
 
 msgid "GameCube Controller"
 msgstr "Comando GameCube"
-
-msgid "Gaussian (Default)"
-msgstr "Gaussiana (Padrão)"
 
 msgid "German"
 msgstr "Alemão"
@@ -256,11 +259,11 @@ msgstr "Italiano"
 msgid "Japanese"
 msgstr "Japonês"
 
-msgid "Justifier - GameCube Controller"
-msgstr "Justifier - Comando GameCube"
+msgid "Konami Justifier - GameCube Controller"
+msgstr "Konami Justifier - Comando GameCube"
 
-msgid "Justifier - Wiimote"
-msgstr "Justifier - Wii Remote"
+msgid "Konami Justifier - Wiimote"
+msgstr "Konami Justifier - Wii Remote"
 
 msgid "Korean"
 msgstr "Coreano"
@@ -340,6 +343,9 @@ msgstr "Volume da Música"
 msgid "Mute"
 msgstr "Mudo"
 
+msgid "Mute Sound"
+msgstr "Som Mudo"
+
 msgid "New"
 msgstr "Novo"
 
@@ -358,20 +364,17 @@ msgstr "Não há dados de SRAM para gravar!"
 msgid "No game saves found."
 msgstr "Nenhum jogo gravado encontrado."
 
+msgid "No Sprite Limit"
+msgstr "Sem Limite de Sprite"
+
 msgid "None"
 msgstr "Nenhum"
 
 msgid "Off"
 msgstr "Desligado"
 
-msgid "OFF"
-msgstr "DESLIGADO"
-
 msgid "On"
 msgstr "Ligado"
-
-msgid "ON"
-msgstr "LIGADO"
 
 msgid "Out of memory!"
 msgstr "Memória insuficiente!"
@@ -406,7 +409,7 @@ msgstr "Português"
 msgid "Brazilian Portuguese"
 msgstr "Português (BR)"
 
-msgid "Power off Wii"
+msgid "Power Off Wii"
 msgstr "Desligar Wii"
 
 msgid "Preferences saved"
@@ -430,6 +433,9 @@ msgstr "Pressione um botão no Wii Remote ou no Nunchuk. Pressione HOME para eli
 msgid "Progressive (480p)"
 msgstr "Progressivo (480p)"
 
+msgid "Progressive (576p)"
+msgstr "Progressivo (576p)"
+
 msgid "Quit Game"
 msgstr "Sair do Jogo"
 
@@ -442,6 +448,12 @@ msgstr "R"
 msgid "Reboot"
 msgstr "Reiniciar"
 
+msgid "Region"
+msgstr "Região"
+
+msgid "Rendering"
+msgstr "Renderização"
+
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -452,7 +464,7 @@ msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "Reiniciar Jogo? Qualquer progresso não gravado será perdido."
 
 msgid "Reset Mappings"
-msgstr "Repor mapeamentos"
+msgstr "Reiniciar"
 
 msgid "Reset Settings"
 msgstr "Repor configurações"
@@ -475,8 +487,8 @@ msgstr "DIREITA"
 msgid "Right Button"
 msgstr "Botão direito"
 
-msgid "Right Stick (Default)"
-msgstr "Manípulo direito (Padrão)"
+msgid "Right Stick"
+msgstr "Manípulo Direito"
 
 msgid "Save"
 msgstr "Gravar"
@@ -526,6 +538,9 @@ msgstr "Seleccionar"
 msgid "Settings"
 msgstr "Configurações"
 
+msgid "Settings - Emulation"
+msgstr "Configurações - Emulação"
+
 msgid "Settings - Menu"
 msgstr "Configurações - Menu"
 
@@ -571,6 +586,12 @@ msgstr "Rato SNES"
 msgid "SNES Mouse - GameCube Controller"
 msgstr "Rato SNES - Comando GameCube"
 
+msgid "SNES Mouse (2)"
+msgstr "Rato SNES (2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "Rato SNES (Porto 2)"
+
 msgid "SNES Mouse - Wiimote"
 msgstr "Rato SNES - Wii Remote"
 
@@ -585,9 +606,6 @@ msgstr "Interpolação de Som"
 
 msgid "Spanish"
 msgstr "Espanhol"
-
-msgid "Sprite Limit"
-msgstr "Limite de Sprite"
 
 msgid "SRAM file not found"
 msgstr "Ficheiro SRAM não encontrado"
@@ -609,12 +627,6 @@ msgstr "Nintendo Scope - Comando GameCube"
 
 msgid "Super Scope - Wiimote"
 msgstr "Nintendo Scope - Wii Remote"
-
-msgid "Turbo Mode"
-msgstr "Modo Turbo"
-
-msgid "Turbo Mode Button"
-msgstr "Botão Modo Turbo"
 
 msgid "TV Mode"
 msgstr "Modo TV"
@@ -649,6 +661,9 @@ msgstr "Drive USB não encontrado!"
 msgid "USB Mass Storage"
 msgstr "Dispositivo USB"
 
+msgid "Video Filter"
+msgstr "Filtro de Vídeo"
+
 msgid "Video Mode"
 msgstr "Modo de Vídeo"
 
@@ -660,9 +675,6 @@ msgstr "Orientação do Wii Remote"
 
 msgid "Yes"
 msgstr "Sim"
-
-msgid "Catalan"
-msgstr "Catalão"
 
 msgid "The current IOS has been altered (fake-signed). Functionality and/or stability may be adversely affected."
 msgstr "O IOS actual foi alterado (fake-signed). A funcionalidade e/ou estabilidade podem ser adversamente afectadas."

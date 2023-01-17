@@ -1,12 +1,6 @@
 msgid "&"
 msgstr "&"
 
-msgid "16:9 Correction"
-msgstr "16:9補正"
-
-msgid "240p Output"
-msgstr "240p出力"
-
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "書庫内のファイルが多すぎです"
 
@@ -46,6 +40,12 @@ msgstr "設定を初期化しますか?"
 msgid "Artwork"
 msgstr "アートワーク"
 
+msgid "Artwork Folder"
+msgstr "アートワークフォルダ"
+
+msgid "Aspect Ratio"
+msgstr "アスペクト比"
+
 msgid "Attempting to determine load device..."
 msgstr "デバイスを試しています…"
 
@@ -70,14 +70,14 @@ msgstr "自動セーブ"
 msgid "Automatic"
 msgstr "自動"
 
-msgid "Automatic (Recommended)"
-msgstr "自動(おすすめ)"
-
 msgid "B (Rapid)"
 msgstr "B (連打)"
 
 msgid "Bilinear Filtering"
 msgstr "バイリニアフィルタ"
+
+msgid "Button"
+msgstr "ボタン"
 
 msgid "Button Mapping"
 msgstr "ボタン設定"
@@ -136,6 +136,12 @@ msgstr "カーソル"
 msgid "Data DVD"
 msgstr "データDVD"
 
+msgid "Default"
+msgstr "初期値"
+
+msgid "Default (Gaussian)"
+msgstr "初期値(ガウシアン)"
+
 msgid "Delete"
 msgstr "消す"
 
@@ -156,6 +162,9 @@ msgstr "ドイツ語"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "不正なZIPファイルです"
+
+msgid "Emulation"
+msgstr "エミュレータ"
 
 msgid "Emulation Hacks"
 msgstr "ハック"
@@ -196,11 +205,14 @@ msgstr "終了"
 msgid "Exit Action"
 msgstr "終了動作"
 
-msgid "Filtering"
-msgstr "フィルタ"
+msgid "Fast Forward"
+msgstr "早送り"
 
 msgid "Fire"
 msgstr "ファイア"
+
+msgid "Frame Skipping"
+msgstr "フレームスキップ"
 
 msgid "French"
 msgstr "フランス語"
@@ -225,9 +237,6 @@ msgstr "ゲーム設定 - 映像"
 
 msgid "GameCube Controller"
 msgstr "GCコントローラ"
-
-msgid "Gaussian (Default)"
-msgstr "ガウシアン(初期値)"
 
 msgid "German"
 msgstr "ドイツ語"
@@ -265,13 +274,13 @@ msgstr "イタリア語"
 msgid "Japanese"
 msgstr "日本語"
 
-msgid "Justifier"
+msgid "Konami Justifier"
 msgstr "MODEL510"
 
-msgid "Justifier - GameCube Controller"
+msgid "Konami Justifier - GameCube Controller"
 msgstr "MODEL510 - GCコントローラ"
 
-msgid "Justifier - Wiimote"
+msgid "Konami Justifier - Wiimote"
 msgstr "MODEL510 - Wiiリモコン"
 
 msgid "Korean"
@@ -358,6 +367,9 @@ msgstr "音楽の音量"
 msgid "Mute"
 msgstr "消音"
 
+msgid "Mute Sound"
+msgstr "ミュートサウンド"
+
 msgid "New"
 msgstr "新しい"
 
@@ -376,6 +388,9 @@ msgstr "セーブするSRAMデータがありません"
 msgid "No game saves found."
 msgstr "セーブデータが見つかりません"
 
+msgid "No Sprite Limit"
+msgstr "スプライト制限なし"
+
 msgid "None"
 msgstr "無し"
 
@@ -388,14 +403,17 @@ msgstr "ヌンチャク"
 msgid "Off"
 msgstr "オフ"
 
-msgid "OFF"
-msgstr "オフ"
-
 msgid "On"
 msgstr "オン"
 
-msgid "ON"
-msgstr "オン"
+msgid "Original (16:9)"
+msgstr "オリジナル(16:9)"
+
+msgid "Original (240p)"
+msgstr "オリジナル(240p)"
+
+msgid "Original (4:3)"
+msgstr "オリジナル(4:3)"
 
 msgid "Out of memory!"
 msgstr "メモリが足りません"
@@ -424,7 +442,7 @@ msgstr "ポルトガル語"
 msgid "Brazilian Portuguese"
 msgstr "ブラジルポルトガル語"
 
-msgid "Power off Wii"
+msgid "Power Off Wii"
 msgstr "Wiiの電源を切る"
 
 msgid "Preferences saved"
@@ -445,8 +463,17 @@ msgstr "ボタンを押してください(HOME=無し)"
 msgid "Press any button on the Wiimote or Nunchuk now. Press Home to clear the existing mapping."
 msgstr "ボタンを押してください(HOME=無し)"
 
+msgid "Preview Image"
+msgstr "プレビュー画像"
+
+msgid "Preview Screenshot"
+msgstr "プレビュー画面ショット"
+
 msgid "Progressive (480p)"
 msgstr "プログレッシブ(480p)"
+
+msgid "Progressive (576p)"
+msgstr "プログレッシブ(576p)"
 
 msgid "Quit Game"
 msgstr "ゲームを終了"
@@ -460,6 +487,12 @@ msgstr "Rトリガー"
 msgid "Reboot"
 msgstr "再起動"
 
+msgid "Region"
+msgstr "地域"
+
+msgid "Rendering"
+msgstr "描画"
+
 msgid "Reset"
 msgstr "リセット"
 
@@ -470,7 +503,7 @@ msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "未保存のデータは失われます"
 
 msgid "Reset Mappings"
-msgstr "ボタン設定を初期化"
+msgstr "リセット"
 
 msgid "Reset Settings"
 msgstr "設定を初期化"
@@ -493,11 +526,11 @@ msgstr "右"
 msgid "Right Button"
 msgstr "右ボタン"
 
-msgid "Right Stick (Default)"
-msgstr "右スティック（初期値）"
+msgid "Right Stick"
+msgstr "右スティック"
 
-msgid "Satellaview"
-msgstr "サテラビュー"
+msgid "Satellaview BIOS"
+msgstr "サテラビューBIOS"
 
 msgid "Save"
 msgstr "セーブ"
@@ -535,8 +568,14 @@ msgstr "優先的にセーブ中…"
 msgid "Saving..."
 msgstr "セーブ中…"
 
+msgid "Screenshot"
+msgstr "画面ショット"
+
 msgid "Screenshots"
-msgstr "スクリーンショット"
+msgstr "画面ショット"
+
+msgid "Screenshots Folder"
+msgstr "画面ショットフォルダ"
 
 msgid "Screen Position"
 msgstr "画面の位置"
@@ -549,6 +588,9 @@ msgstr "セレクト"
 
 msgid "Settings"
 msgstr "設定"
+
+msgid "Settings - Emulation"
+msgstr "設定 - エミュレータ"
 
 msgid "Settings - Menu"
 msgstr "設定 - メニュー"
@@ -592,6 +634,12 @@ msgstr "コントローラ - Wiiリモコン"
 msgid "SNES Mouse"
 msgstr "マウス"
 
+msgid "SNES Mouse (2)"
+msgstr "マウス(2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "マウス(ポート2)"
+
 msgid "SNES Mouse - GameCube Controller"
 msgstr "マウス - GCコン"
 
@@ -609,9 +657,6 @@ msgstr "サウンド補間"
 
 msgid "Spanish"
 msgstr "スペイン語"
-
-msgid "Sprite Limit"
-msgstr "スプライト制限"
 
 msgid "SRAM file not found"
 msgstr "SRAMファイルが見つかりません"
@@ -636,12 +681,6 @@ msgstr "スーパースコープ - GCコン"
 
 msgid "Super Scope - Wiimote"
 msgstr "スーパースコープ - Wiiリモコン"
-
-msgid "Turbo Mode"
-msgstr "ターボモード"
-
-msgid "Turbo Mode Button"
-msgstr "ターボモードボタン"
 
 msgid "TV Mode"
 msgstr "TVモード"
@@ -685,6 +724,9 @@ msgstr "縦方向"
 msgid "Video"
 msgstr "映像"
 
+msgid "Video Filter"
+msgstr "映像用フィルタ"
+
 msgid "Video Mode"
 msgstr "映像モード"
 
@@ -705,9 +747,6 @@ msgstr "連打オフ"
 
 msgid "Automatic"
 msgstr "自動"
-
-msgid "Catalan"
-msgstr "カタロニア語"
 
 msgid "The current IOS has been altered (fake-signed). Functionality and/or stability may be adversely affected."
 msgstr "このIOSでは不安定になる可能性があります"

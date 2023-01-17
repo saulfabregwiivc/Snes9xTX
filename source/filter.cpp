@@ -2,7 +2,7 @@
  * Snes9x Nintendo Wii/GameCube Port
  *
  * Michniewski 2008
- * Tanooki 2019-2022
+ * Tanooki 2019-2023
  *
  * Scale2x filter
  * (c) Copyright 2001         Andrea Mazzoleni (amadvance@gmail.com)
@@ -75,7 +75,7 @@ int GetFilterScale(RenderFilter filterID)
 
 void SelectFilterMethod ()
 {
-	FilterMethod = FilterToMethod((RenderFilter)GCSettings.FilterMethod);
+	FilterMethod = FilterToMethod((RenderFilter)GCSettings.VideoFilter);
 }
 
 template<int GuiScale>

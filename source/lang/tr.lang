@@ -1,12 +1,6 @@
 msgid "&"
 msgstr "&"
 
-msgid "16:9 Correction"
-msgstr "16:9 Düzeltmesi"
-
-msgid "240p Output"
-msgstr "240p Çıkış"
-
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "7z dosya çıkarma başarısız: Arşiv çok fazla dosya içeriyor"
 
@@ -43,6 +37,9 @@ msgstr "Buton ayarlarını sıfırlamak istediğinizden emin misiniz?"
 msgid "Are you sure that you want to reset your settings?"
 msgstr "Ayarları sıfırlamak istediğinizden emin misiniz?"
 
+msgid "Aspect Ratio"
+msgstr "En Boy Oranı"
+
 msgid "Attempting to determine load device..."
 msgstr "Yükleme aygıtı belirlenmeye çalışılıyor..."
 
@@ -67,9 +64,6 @@ msgstr "Otomatik Kayıt"
 msgid "Automatic"
 msgstr "Otomatik"
 
-msgid "Automatic (Recommended)"
-msgstr "Otomatik (Önerilen)"
-
 msgid "B (Rapid)"
 msgstr "B (Seri)"
 
@@ -78,6 +72,9 @@ msgstr "Sil"
 
 msgid "Bilinear Filtering"
 msgstr "Bilineer Filtreleme"
+
+msgid "Button"
+msgstr "Buton"
 
 msgid "Button Mapping"
 msgstr "Buton Ayarı"
@@ -139,6 +136,12 @@ msgstr "İmleç"
 msgid "Data DVD"
 msgstr "Veri DVD'si"
 
+msgid "Default"
+msgstr "Varsayılan"
+
+msgid "Default (Gaussian)"
+msgstr "Varsayılan (Gauss)"
+
 msgid "Delete"
 msgstr "Silmek"
 
@@ -160,8 +163,11 @@ msgstr "Flemenkçe"
 msgid "Empty or invalid ZIP file!"
 msgstr "Boş veya geçersiz ZIP dosyası!"
 
+msgid "Emulation"
+msgstr "Öykünme"
+
 msgid "Emulation Hacks"
-msgstr "Emülasyon Hacks"
+msgstr "Öykünme Hack"
 
 msgid "English"
 msgstr "İngilizce"
@@ -199,8 +205,8 @@ msgstr "Çıkış"
 msgid "Exit Action"
 msgstr "Çıkış Eylemi"
 
-msgid "Filtering"
-msgstr "Filtreleme"
+msgid "Fast Forward"
+msgstr "Ileri Sar"
 
 msgid "Fire"
 msgstr "Ateş"
@@ -221,16 +227,13 @@ msgid "Game Settings - Cheats"
 msgstr "Oyun Ayarları - Hileler"
 
 msgid "Game Settings - Emulation Hacks"
-msgstr "Oyun Ayarları - Emülasyon Hacks"
+msgstr "Oyun Ayarları - Öykünme Hacks"
 
 msgid "Game Settings - Video"
 msgstr "Oyun Ayarları - Ekran"
 
 msgid "GameCube Controller"
 msgstr "GameCube Oyun Kumandası"
-
-msgid "Gaussian (Default)"
-msgstr "Gauss (Varsayılan)"
 
 msgid "German"
 msgstr "Almanca"
@@ -268,11 +271,11 @@ msgstr "İtalyanca"
 msgid "Japanese"
 msgstr "Japonca"
 
-msgid "Justifier - GameCube Controller"
-msgstr "Justifier - GameCube Oyun Kumandası"
+msgid "Konami Justifier - GameCube Controller"
+msgstr "Konami Justifier - GameCube Oyun Kumandası"
 
-msgid "Justifier - Wiimote"
-msgstr "Justifier - Wii Kumanda"
+msgid "Konami Justifier - Wiimote"
+msgstr "Konami Justifier - Wii Kumanda"
 
 msgid "Korean"
 msgstr "Korece"
@@ -355,6 +358,9 @@ msgstr "Müzik Sesleri"
 msgid "Mute"
 msgstr "Sessiz"
 
+msgid "Mute Sound"
+msgstr "Ses Kapatma"
+
 msgid "New"
 msgstr "Yeni"
 
@@ -373,13 +379,13 @@ msgstr "Kaydedilecek SRAM verisi yok!"
 msgid "No game saves found."
 msgstr "Hiç bir oyun kaydı bulunamadı."
 
+msgid "No Sprite Limit"
+msgstr "Sprite Sınırı Yok"
+
 msgid "None"
 msgstr "Yok"
 
 msgid "Off"
-msgstr "Kapalı"
-
-msgid "OFF"
 msgstr "Kapalı"
 
 msgid "OK"
@@ -388,8 +394,14 @@ msgstr "Tamam"
 msgid "On"
 msgstr "Açık"
 
-msgid "ON"
-msgstr "Açık"
+msgid "Original (16:9)"
+msgstr "Orijinal (16:9)"
+
+msgid "Original (240p)"
+msgstr "Orijinal (240p)"
+
+msgid "Original (4:3)"
+msgstr "Orijinal (4:3)"
 
 msgid "Out of memory!"
 msgstr "Bellek yetersiz!"
@@ -412,8 +424,8 @@ msgstr "Portekizce"
 msgid "Brazilian Portuguese"
 msgstr "Brezilya Portekizcesi"
 
-msgid "Power off Wii"
-msgstr "Wii'yi kapat"
+msgid "Power Off Wii"
+msgstr "Wii'yi Kapat"
 
 msgid "Preferences saved"
 msgstr "Ayarlar kaydedildi"
@@ -436,6 +448,9 @@ msgstr "Şimdi Wii Uzaktan Kumandasında veya Nunchuk'ta herhangi bir butona bas
 msgid "Progressive (480p)"
 msgstr "Progresif (480p)"
 
+msgid "Progressive (576p)"
+msgstr "Progresif (576p)"
+
 msgid "Quit Game"
 msgstr "Oyundan Çık"
 
@@ -448,6 +463,9 @@ msgstr "R Mandalı"
 msgid "Reboot"
 msgstr "Yeniden Başlat"
 
+msgid "Region"
+msgstr "Bölgesi"
+
 msgid "Reset"
 msgstr "Tekrar Başlat"
 
@@ -458,7 +476,7 @@ msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "Oyun sıfırlansın mı? Kaydedilmemiş tüm veriler kaybolacak."
 
 msgid "Reset Mappings"
-msgstr "Buton Ayarlarını Sıfırla"
+msgstr "Sıfırla"
 
 msgid "Reset Settings"
 msgstr "Ayarları Sıfırla"
@@ -481,8 +499,8 @@ msgstr "SAĞ"
 msgid "Right Button"
 msgstr "Sağ Buton"
 
-msgid "Right Stick (Default)"
-msgstr "Sağ Çubuk (Varsayılan)"
+msgid "Right Stick"
+msgstr "Sağ Çubuk"
 
 msgid "Save"
 msgstr "Kaydet"
@@ -529,6 +547,9 @@ msgstr "Ekran Yakınlaştırması"
 msgid "Settings"
 msgstr "Ayarlar"
 
+msgid "Settings - Emulation"
+msgstr "Ayarlar - Öykünme"
+
 msgid "Settings - Menu"
 msgstr "Ayarlar - Menü"
 
@@ -571,6 +592,12 @@ msgstr "SNES Oyun Kumandası - Wii Kumanda"
 msgid "SNES Mouse"
 msgstr "SNES Faresi"
 
+msgid "SNES Mouse (2)"
+msgstr "SNES Faresi (2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "SNES Faresi (Port 2)"
+
 msgid "SNES Mouse - GameCube Controller"
 msgstr "SNES Faresi - GameCube Oyun Kumandası"
 
@@ -588,9 +615,6 @@ msgstr "Ses Interpolasyonu"
 
 msgid "Spanish"
 msgstr "İspanyolca"
-
-msgid "Sprite Limit"
-msgstr "Sprite Sınırı"
 
 msgid "SRAM file not found"
 msgstr "SRAM dosyası bulunamadı"
@@ -615,12 +639,6 @@ msgstr "Nintendo Scope - GameCube Oyun Kumandası"
 
 msgid "Super Scope - Wiimote"
 msgstr "Nintendo Scope - Wii Kumanda"
-
-msgid "Turbo Mode"
-msgstr "Turbo Modu"
-
-msgid "Turbo Mode Button"
-msgstr "Buton Turbo Modu"
 
 msgid "TV Mode"
 msgstr "TV Modu"
@@ -664,6 +682,9 @@ msgstr "Dikey"
 msgid "Video"
 msgstr "Ekran"
 
+msgid "Video Filter"
+msgstr "Ekran Filtresi"
+
 msgid "Video Mode"
 msgstr "Ekran Modu"
 
@@ -681,9 +702,6 @@ msgstr "Turbo Açık"
 
 msgid "Turbo Off"
 msgstr "Turbo Kapalı"
-
-msgid "Catalan"
-msgstr "Katalonca"
 
 msgid "The current IOS has been altered (fake-signed). Functionality and/or stability may be adversely affected."
 msgstr "Geçerli IOS değiştirilmiş (sahte-imzalı). Işlevsellik ve/veya stabilite olumsuz etkilenebilir."

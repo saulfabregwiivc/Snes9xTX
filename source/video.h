@@ -2,9 +2,10 @@
  * Snes9x Nintendo Wii/GameCube Port
  *
  * softdev July 2006
+ * crunchy2 May 2007
  * Michniewski 2008
  * Tantric 2008-2022
- * Tanooki 2019-2022
+ * Tanooki 2019-2023
  *
  * video.h
  *

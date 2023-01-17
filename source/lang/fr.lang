@@ -1,12 +1,6 @@
 msgid "&"
 msgstr "&"
 
-msgid "16:9 Correction"
-msgstr "Correction 16:9"
-
-msgid "240p Output"
-msgstr "Sortie 240p"
-
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "La décompression 7z a échoué : l'archive contient trop de fichiers"
 
@@ -49,6 +43,9 @@ msgstr "Illustrations"
 msgid "Artwork Folder"
 msgstr "Dossier des Illustrations"
 
+msgid "Aspect Ratio"
+msgstr "Ratio d'Aspect"
+
 msgid "Attempting to determine load device..."
 msgstr "Tentative de détection du périphérique d'entrée..."
 
@@ -67,9 +64,6 @@ msgstr "Sauvegarde Auto"
 msgid "Automatic"
 msgstr "Automatique"
 
-msgid "Automatic (Recommended)"
-msgstr "Automatique (Recommandé)"
-
 msgid "B (Rapid)"
 msgstr "B (Rapide)"
 
@@ -81,6 +75,9 @@ msgstr "Filtrage Bilinéaire"
 
 msgid "Brazilian Portuguese"
 msgstr "Portugais Brésilien"
+
+msgid "Button"
+msgstr "Touche"
 
 msgid "Button Mapping"
 msgstr "Contrôles"
@@ -139,6 +136,12 @@ msgstr "Curseur"
 msgid "Data DVD"
 msgstr "Lecteur DVD"
 
+msgid "Default"
+msgstr "Par Défaut"
+
+msgid "Default (Gaussian)"
+msgstr "Par Défaut (Gaussienne)"
+
 msgid "Delete"
 msgstr "Effacer"
 
@@ -171,6 +174,9 @@ msgstr "Néerlandais"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Fichier ZIP vide ou invalide !"
+
+msgid "Emulation"
+msgstr "Émulation"
 
 msgid "Emulation Hacks"
 msgstr "Hacks d'Émulation"
@@ -211,8 +217,8 @@ msgstr "Sortir"
 msgid "Exit Action"
 msgstr "Sortie de l'Émulateur"
 
-msgid "Filtering"
-msgstr "Filtrage"
+msgid "Fast Forward"
+msgstr "Avance Rapide"
 
 msgid "Fire"
 msgstr "Tirer"
@@ -222,6 +228,9 @@ msgstr "Le fichier de police est trop volumineux !"
 
 msgid "Font file not found!"
 msgstr "Le fichier de police est introuvable !"
+
+msgid "Frame Skipping"
+msgstr "Saut d'Image"
 
 msgid "French"
 msgstr "Français"
@@ -246,9 +255,6 @@ msgstr "Configuration - Vidéo"
 
 msgid "GameCube Controller"
 msgstr "Manette GameCube"
-
-msgid "Gaussian (Default)"
-msgstr "Gaussienne (Par Défaut)"
 
 msgid "German"
 msgstr "Allemand"
@@ -280,8 +286,8 @@ msgstr "Italien"
 msgid "Japanese"
 msgstr "Japonais"
 
-msgid "Justifier - GameCube Controller"
-msgstr "Justifier - Manette GameCube"
+msgid "Konami Justifier - GameCube Controller"
+msgstr "Konami Justifier - Manette GameCube"
 
 msgid "Korean"
 msgstr "Coréen"
@@ -364,6 +370,9 @@ msgstr "Volume de la Musique"
 msgid "Mute"
 msgstr "Muet"
 
+msgid "Mute Sound"
+msgstr "Couper le Son"
+
 msgid "New"
 msgstr "Nouvelle"
 
@@ -381,6 +390,9 @@ msgstr "Pas de données SRAM à sauvegarder !"
 
 msgid "No game saves found."
 msgstr "Aucune sauvegarde trouvée."
+
+msgid "No Sprite Limit"
+msgstr "Aucune Limite de Sprite"
 
 msgid "None"
 msgstr "Aucun"
@@ -409,7 +421,7 @@ msgstr "Veuillez Patienter"
 msgid "Portuguese"
 msgstr "Portugais"
 
-msgid "Power off Wii"
+msgid "Power Off Wii"
 msgstr "Éteindre la Wii"
 
 msgid "Preferences saved"
@@ -433,6 +445,9 @@ msgstr "Presser un bouton de la Wiimote ou du Nunchuk. Presser HOME pour effacer
 msgid "Progressive (480p)"
 msgstr "Progressif (480p)"
 
+msgid "Progressive (576p)"
+msgstr "Progressif (576p)"
+
 msgid "Preview Image"
 msgstr "Aperçu de l'Image"
 
@@ -451,6 +466,12 @@ msgstr "R"
 msgid "Reboot"
 msgstr "Redémarrer"
 
+msgid "Region"
+msgstr "Région"
+
+msgid "Rendering"
+msgstr "Rendu"
+
 msgid "Reset"
 msgstr "Réinitialiser"
 
@@ -461,7 +482,7 @@ msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "Réinitialiser ce jeu ? Toute progression non sauvegardée sera perdue."
 
 msgid "Reset Mappings"
-msgstr "Réinit. les Touches"
+msgstr "Réinitialiser"
 
 msgid "Reset Settings"
 msgstr "Réinitialiser"
@@ -484,8 +505,8 @@ msgstr "DROITE"
 msgid "Right Button"
 msgstr "Clic Droit"
 
-msgid "Right Stick (Default)"
-msgstr "Joystick Droit (Par Défaut)"
+msgid "Right Stick"
+msgstr "Joystick Droit"
 
 msgid "Save"
 msgstr "Sauver"
@@ -544,6 +565,9 @@ msgstr "Dossier des Captures"
 msgid "Settings"
 msgstr "Paramètres"
 
+msgid "Settings - Emulation"
+msgstr "Paramètres - Émulation"
+
 msgid "Settings - Menu"
 msgstr "Paramètres - Menu"
 
@@ -595,6 +619,12 @@ msgstr "Manette SNES - Wiimote"
 msgid "SNES Mouse"
 msgstr "Souris SNES"
 
+msgid "SNES Mouse (2)"
+msgstr "Souris SNES (2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "Souris SNES (Port 2)"
+
 msgid "SNES Mouse - GameCube Controller"
 msgstr "Souris SNES - Manette GameCube"
 
@@ -609,9 +639,6 @@ msgstr "Interpolation Sonore"
 
 msgid "Spanish"
 msgstr "Espagnol"
-
-msgid "Sprite Limit"
-msgstr "Limite de Sprites"
 
 msgid "SRAM file not found"
 msgstr "Pas de sauvegarde SRAM trouvée"
@@ -642,12 +669,6 @@ msgstr "L'IOS utilisé n'est pas supporté. Les fonctionnalités et/ou la stabil
 
 msgid "This software is open source and may be copied, distributed, or modified"
 msgstr "Ce logiciel est open source et peut être copié, distribué ou modifié"
-
-msgid "Turbo Mode"
-msgstr "Mode Turbo"
-
-msgid "Turbo Mode Button"
-msgstr "Bouton du Mode Turbo"
 
 msgid "Turkish"
 msgstr "Turc"
@@ -693,6 +714,9 @@ msgstr "Périphérique de Stockage USB"
 
 msgid "Video"
 msgstr "Vidéo"
+
+msgid "Video Filter"
+msgstr "Filtre Vidéo"
 
 msgid "Video Mode"
 msgstr "Mode Vidéo"

@@ -2,7 +2,7 @@
  * Snes9x Nintendo Wii/GameCube Port
  *
  * Tantric 2008-2022
- * Tanooki 2019-2022
+ * Tanooki 2019-2023
  *
  * preferences.cpp
  *
@@ -131,7 +131,6 @@ preparePrefsData ()
 	createXMLSetting("LastFileLoaded", "Last File Loaded", GCSettings.LastFileLoaded);
 	createXMLSetting("SaveFolder", "Save Folder", GCSettings.SaveFolder);
 	createXMLSetting("CheatFolder", "Cheats Folder", GCSettings.CheatFolder);
-	createXMLSetting("Satellaview", "Satellaview", toStr(GCSettings.Satellaview));
 	createXMLSetting("ScreenshotsFolder", "Screenshots Folder", GCSettings.ScreenshotsFolder);
 	createXMLSetting("CoverFolder", "Covers Folder", GCSettings.CoverFolder);
 	createXMLSetting("ArtworkFolder", "Artwork Folder", GCSettings.ArtworkFolder);
@@ -141,26 +140,31 @@ preparePrefsData ()
 	createXMLSetting("videomode", "Video Mode", toStr(GCSettings.videomode));
 	createXMLSetting("zoomHor", "Horizontal Zoom Level", FtoStr(GCSettings.zoomHor));
 	createXMLSetting("zoomVert", "Vertical Zoom Level", FtoStr(GCSettings.zoomVert));
-	createXMLSetting("render", "Video Rendering", toStr(GCSettings.render));
+	createXMLSetting("render", "Rendering", toStr(GCSettings.render));
 	createXMLSetting("bilinear", "Bilinear Filtering", toStr(GCSettings.bilinear));
-	createXMLSetting("widescreen", "Aspect Ratio Correction", toStr(GCSettings.widescreen));
-	createXMLSetting("FilterMethod", "Filter Method", toStr(GCSettings.FilterMethod));
+	createXMLSetting("aspect", "Aspect Ratio", toStr(GCSettings.aspect));
+	createXMLSetting("VideoFilter", "Video Filter", toStr(GCSettings.VideoFilter));
 	createXMLSetting("HiResMode", "Hi-Res Mode", toStr(GCSettings.HiResMode));
-	createXMLSetting("crosshair", "Show Crosshair", toStr(GCSettings.crosshair));
+	createXMLSetting("FrameSkip", "Frame Skipping", toStr(GCSettings.FrameSkip));
 	createXMLSetting("ShowFrameRate", "Show Frame Rate", toStr(GCSettings.ShowFrameRate));
+	createXMLSetting("crosshair", "Show Crosshair", toStr(GCSettings.crosshair));
 	createXMLSetting("xshift", "Horizontal Video Shift", toStr(GCSettings.xshift));
 	createXMLSetting("yshift", "Vertical Video Shift", toStr(GCSettings.yshift));
 
 	createXMLSection("Audio", "Audio Settings");
 
+	createXMLSetting("MuteSound", "Mute Sound", toStr(GCSettings.MuteSound));
 	createXMLSetting("Interpolation", "Sound Interpolation", toStr(GCSettings.Interpolation));
-	createXMLSetting("MuteAudio", "Mute", toStr(GCSettings.MuteAudio));
 
 	createXMLSection("Emulation Hacks", "Emulation Hacks Settings");
 
 	createXMLSetting("sfxOverclock", "SuperFX Overclocking", toStr(GCSettings.sfxOverclock));
 	createXMLSetting("cpuOverclock", "CPU Overclocking", toStr(GCSettings.cpuOverclock));
-	createXMLSetting("SpriteLimit", "Sprite Limit", toStr(GCSettings.SpriteLimit));
+	createXMLSetting("NoSpriteLimit", "No Sprite Limit", toStr(GCSettings.NoSpriteLimit));
+
+	createXMLSection("Emulation", "Emulation Settings");
+
+	createXMLSetting("Satellaview", "Satellaview BIOS", toStr(GCSettings.Satellaview));
 
 	createXMLSection("Menu", "Menu Settings");
 
@@ -177,8 +181,8 @@ preparePrefsData ()
 	createXMLSection("Controller", "Controller Settings");
 
 	createXMLSetting("Controller", "Controller", toStr(GCSettings.Controller));
-	createXMLSetting("TurboMode", "Turbo Mode", toStr(GCSettings.TurboMode));
-	createXMLSetting("TurboModeButton", "Turbo Mode Button", toStr(GCSettings.TurboModeButton));
+	createXMLSetting("FastForward", "Fast Forward", toStr(GCSettings.FastForward));
+	createXMLSetting("FastForwardButton", "Fast Forward Button", toStr(GCSettings.FastForwardButton));
 
 	createXMLController(btnmap[CTRL_PAD][CTRLR_GCPAD], "btnmap_pad_gcpad", "SNES Pad - GameCube Controller");
 #ifdef HW_RVL
@@ -320,7 +324,6 @@ decodePrefsData ()
 			loadXMLSetting(GCSettings.LastFileLoaded, "LastFileLoaded", sizeof(GCSettings.LastFileLoaded));
 			loadXMLSetting(GCSettings.SaveFolder, "SaveFolder", sizeof(GCSettings.SaveFolder));
 			loadXMLSetting(GCSettings.CheatFolder, "CheatFolder", sizeof(GCSettings.CheatFolder));
-			loadXMLSetting(&GCSettings.Satellaview, "Satellaview");
 			loadXMLSetting(GCSettings.ScreenshotsFolder, "ScreenshotsFolder", sizeof(GCSettings.ScreenshotsFolder));
 			loadXMLSetting(GCSettings.CoverFolder, "CoverFolder", sizeof(GCSettings.CoverFolder));
 			loadXMLSetting(GCSettings.ArtworkFolder, "ArtworkFolder", sizeof(GCSettings.ArtworkFolder));
@@ -332,24 +335,29 @@ decodePrefsData ()
 			loadXMLSetting(&GCSettings.zoomVert, "zoomVert");
 			loadXMLSetting(&GCSettings.render, "render");
 			loadXMLSetting(&GCSettings.bilinear, "bilinear");
-			loadXMLSetting(&GCSettings.widescreen, "widescreen");
-			loadXMLSetting(&GCSettings.FilterMethod, "FilterMethod");
+			loadXMLSetting(&GCSettings.aspect, "aspect");
+			loadXMLSetting(&GCSettings.VideoFilter, "VideoFilter");
 			loadXMLSetting(&GCSettings.HiResMode, "HiResMode");
-			loadXMLSetting(&GCSettings.crosshair, "crosshair");
+			loadXMLSetting(&GCSettings.FrameSkip, "FrameSkip");
 			loadXMLSetting(&GCSettings.ShowFrameRate, "ShowFrameRate");
+			loadXMLSetting(&GCSettings.crosshair, "crosshair");
 			loadXMLSetting(&GCSettings.xshift, "xshift");
 			loadXMLSetting(&GCSettings.yshift, "yshift");
 
 			// Audio Settings
 
+			loadXMLSetting(&GCSettings.MuteSound, "MuteSound");
 			loadXMLSetting(&GCSettings.Interpolation, "Interpolation");
-			loadXMLSetting(&GCSettings.MuteAudio, "MuteAudio");
 
 			// Emulation Hacks Settings
 
 			loadXMLSetting(&GCSettings.sfxOverclock, "sfxOverclock");
 			loadXMLSetting(&GCSettings.cpuOverclock, "cpuOverclock");
-			loadXMLSetting(&GCSettings.SpriteLimit, "SpriteLimit");
+			loadXMLSetting(&GCSettings.NoSpriteLimit, "NoSpriteLimit");
+
+			// Emulation Settings
+
+			loadXMLSetting(&GCSettings.Satellaview, "Satellaview");
 
 			// Menu Settings
 
@@ -364,8 +372,8 @@ decodePrefsData ()
 			// Controller Settings
 
 			loadXMLSetting(&GCSettings.Controller, "Controller");
-			loadXMLSetting(&GCSettings.TurboMode, "TurboMode");
-			loadXMLSetting(&GCSettings.TurboModeButton, "TurboModeButton");
+			loadXMLSetting(&GCSettings.FastForward, "FastForward");
+			loadXMLSetting(&GCSettings.FastForwardButton, "FastForwardButton");
 
 			loadXMLController(btnmap[CTRL_PAD][CTRLR_GCPAD], "btnmap_pad_gcpad");
 			loadXMLController(btnmap[CTRL_PAD][CTRLR_WIIMOTE], "btnmap_pad_wiimote");
@@ -407,14 +415,14 @@ void FixInvalidSettings()
 	if(!(GCSettings.yshift > -50 && GCSettings.yshift < 50))
 		GCSettings.yshift = 0;
 	if(!(GCSettings.MusicVolume >= 0 && GCSettings.MusicVolume <= 100))
-		GCSettings.MusicVolume = 20;
+		GCSettings.MusicVolume = 80;
 	if(!(GCSettings.SFXVolume >= 0 && GCSettings.SFXVolume <= 100))
-		GCSettings.SFXVolume = 40;
+		GCSettings.SFXVolume = 20;
 	if(GCSettings.language < 0 || GCSettings.language >= LANG_LENGTH)
 		GCSettings.language = LANG_ENGLISH;
-	if(GCSettings.Controller > CTRL_PAD4 || GCSettings.Controller < CTRL_MOUSE)
+	if(GCSettings.Controller > CTRL_PAD4 || GCSettings.Controller < CTRL_SCOPE)
 		GCSettings.Controller = CTRL_PAD2;
-	if(!(GCSettings.videomode >= 0 && GCSettings.videomode < 5))
+	if(!(GCSettings.videomode >= 0 && GCSettings.videomode < 6))
 		GCSettings.videomode = 0;
 	if(!(GCSettings.render >= 0 && GCSettings.render < 2))
 		GCSettings.render = 0;
@@ -432,21 +440,21 @@ DefaultSettings ()
 
 	ResetControls(); // Controller button mappings
 
-	GCSettings.Controller = CTRL_PAD2; // SNES Pad, Four Score, SNES Mouse, Super Scope, Justifier
-	GCSettings.TurboMode = 1; // Enabled by default
-	GCSettings.TurboModeButton = 0; // Default is right analog stick (0)
+	GCSettings.Controller = CTRL_PAD2; // SNES Controllers, Super Scope, Konami Justifier, SNES Mouse
+	GCSettings.FastForward = 1; // Enabled by default
+	GCSettings.FastForwardButton = 0; // Right analog stick
 
 	GCSettings.videomode = 0; // Automatic video mode detection
 	GCSettings.render = 0; // Default rendering mode
 	GCSettings.bilinear = 0; // Disabled by default
-	GCSettings.FilterMethod = FILTER_NONE; // No filtering by default
+	GCSettings.VideoFilter = FILTER_NONE; // No video filter
 	GCSettings.crosshair = 1; // Enabled by default
 
-	GCSettings.widescreen = 0;
+	GCSettings.aspect = 0;
 
 #ifdef HW_RVL
 	if (CONF_GetAspectRatio() == CONF_ASPECT_16_9)
-		GCSettings.widescreen = 1;
+		GCSettings.aspect = 1;
 #endif
 
 	GCSettings.zoomHor = 1.0; // Horizontal zoom level
@@ -454,11 +462,13 @@ DefaultSettings ()
 	GCSettings.xshift = 0; // Horizontal video shift
 	GCSettings.yshift = 0; // Vertical video shift
 
+	GCSettings.Satellaview = 1; // Enabled by default
+
 	GCSettings.WiimoteOrientation = 0;
 	GCSettings.ExitAction = 0;
 	GCSettings.AutoloadGame = 0;
-	GCSettings.MusicVolume = 100;
-	GCSettings.SFXVolume = 40;
+	GCSettings.MusicVolume = 80;
+	GCSettings.SFXVolume = 20;
 	GCSettings.PreviewImage = 0;
 	GCSettings.HideSRAMSaving = 0;
 
@@ -495,10 +505,8 @@ DefaultSettings ()
 	Settings.DontSaveOopsSnapshot = true;
 	Settings.ApplyCheats = true;
 
-	Settings.HDMATimingHack = 100;	
+	Settings.HDMATimingHack = 100;
 	Settings.IsPatched = 0;
-
-	GCSettings.Satellaview = 1; // Enabled by default
 
 	// Sound
 	Settings.SoundSync = true;
@@ -508,22 +516,23 @@ DefaultSettings ()
 	Settings.SoundPlaybackRate = 48000;
 	Settings.SoundInputRate = 31920;
 	Settings.DynamicRateControl = true;
-	GCSettings.MuteAudio = 0; // Disabled by default
 
+	GCSettings.MuteSound = 0; // Disabled by default
 	GCSettings.Interpolation = 0;
 	Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN;
 
 	// Graphics
 	Settings.Transparency = true;
-	Settings.SkipFrames = AUTO_FRAMERATE;
 	Settings.TurboSkipFrames = 19;
 	Settings.AutoDisplayMessages = false;
-	Settings.InitialInfoStringTimeout = 200; // # Frames to display messages for
+	Settings.InitialInfoStringTimeout = 0; // Display length of messages
 	Settings.DisplayTime = false;
-	GCSettings.ShowFrameRate = 0; // Disabled by default
-	GCSettings.HiResMode = 1; // Enabled by default
 
-	// Frame timings in 50hz and 60hz cpu mode
+	GCSettings.HiResMode = 1; // Enabled by default
+	GCSettings.FrameSkip = 1; // Enabled by default
+	GCSettings.ShowFrameRate = 0; // Disabled by default
+
+	// ROM timing
 	Settings.FrameTimePAL = 20000;
 	Settings.FrameTimeNTSC = 16667;
 
@@ -532,7 +541,7 @@ DefaultSettings ()
 	Settings.SeparateEchoBuffer = false;
 
 	GCSettings.sfxOverclock = 0;
-	/* Initialize SuperFX to normal speed by default */
+	/* Initialize SuperFX chip to normal speed by default */
 	Settings.SuperFXSpeedPerLine = 5823405;
 	Settings.SuperFXClockMultiplier = 100;
 
@@ -542,7 +551,7 @@ DefaultSettings ()
 	Settings.OneSlowClockCycle = 8;
 	Settings.TwoClockCycles = 12;
 
-	GCSettings.SpriteLimit = 1; // Enabled by default
+	GCSettings.NoSpriteLimit = 0; // Disabled by default
 }
 
 /****************************************************************************
@@ -668,6 +677,8 @@ bool LoadPrefs()
 	bool prefFound = false;
 	char filepath[5][MAXPATHLEN];
 	int numDevices;
+	bool sdMounted = false;
+	bool usbMounted = false;
 
 #ifdef HW_RVL
 	numDevices = 5;
@@ -708,13 +719,15 @@ bool LoadPrefs()
 	// rename snes9x to snes9xtx
 	if(GCSettings.LoadMethod == DEVICE_SD)
 	{
-		if(ChangeInterface(DEVICE_SD, NOTSILENT) && opendir("sd:/snes9x"))
+		sdMounted = ChangeInterface(DEVICE_SD, NOTSILENT);
+		if(sdMounted && opendir("sd:/snes9x"))
 			rename("sd:/snes9x", "sd:/snes9xtx");
 	}
 	else if(GCSettings.LoadMethod == DEVICE_USB)
 	{
-		if(ChangeInterface(DEVICE_USB, NOTSILENT) && opendir("usb:/snes9x"))
-			rename("usb:/snes9x", "usb:/snes9xtx");
+		usbMounted = ChangeInterface(DEVICE_USB, NOTSILENT);
+		if(usbMounted && opendir("usb:/snes9x"))
+			rename("usb:/snes9x", "usb:/snes9xtx");	
 	}
 
 	// update folder locations
@@ -737,7 +750,7 @@ bool LoadPrefs()
 		sprintf(GCSettings.ArtworkFolder, "snes9xtx/artwork");
 	
 	// attempt to create directories if they don't exist
-	if(GCSettings.LoadMethod == DEVICE_SD || GCSettings.LoadMethod == DEVICE_USB) {
+	if((GCSettings.LoadMethod == DEVICE_SD && sdMounted) || (GCSettings.LoadMethod == DEVICE_USB && usbMounted) ) {
 		char dirPath[MAXPATHLEN];
 		sprintf(dirPath, "%s%s", pathPrefix[GCSettings.LoadMethod], GCSettings.ScreenshotsFolder);
 		CreateDirectory(dirPath);
@@ -758,6 +771,5 @@ bool LoadPrefs()
 #ifdef HW_RVL
 	LoadBgMusic();
 #endif
-
 	return prefFound;
 }

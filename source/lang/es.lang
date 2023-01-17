@@ -1,12 +1,6 @@
 msgid "&"
 msgstr "y"
 
-msgid "16:9 Correction"
-msgstr "Corrección 16:9"
-
-msgid "240p Output"
-msgstr "Salida de 240p"
-
 msgid "7z decompression failed: Archive contains too many files."
 msgstr "Descompresión 7z falló: El archivo contiene demasiados archivos."
 
@@ -46,6 +40,9 @@ msgstr "Arte"
 msgid "Artwork Folder"
 msgstr "Carpeta de Artes"
 
+msgid "Aspect Ratio"
+msgstr "Relación de Aspecto"
+
 msgid "Attempting to determine load device..."
 msgstr "Intentando determinar el dispositivo para carga..."
 
@@ -64,8 +61,8 @@ msgstr "Carga automática"
 msgid "Auto Save"
 msgstr "Guardado automático"
 
-msgid "Automatic (Recommended)"
-msgstr "Automático (Recomendado)"
+msgid "Automatic"
+msgstr "Automático"
 
 msgid "Back"
 msgstr "Atrás"
@@ -75,6 +72,9 @@ msgstr "Filtro Bilineal"
 
 msgid "Brazilian Portuguese"
 msgstr "Portugués Brasileño"
+
+msgid "Button"
+msgstr "Botón"
 
 msgid "Button Mapping"
 msgstr "Asignación de botones"
@@ -87,9 +87,6 @@ msgstr "Cancelar"
 
 msgid "Caps"
 msgstr "BloMay"
-
-msgid "Catalan"
-msgstr "Catalán"
 
 msgid "Cheats"
 msgstr "Trucos"
@@ -127,6 +124,12 @@ msgstr "Créditos"
 msgid "Data DVD"
 msgstr "DVD Datos"
 
+msgid "Default"
+msgstr "Por Defecto"
+
+msgid "Default (Gaussian)"
+msgstr "Por Defecto (Gausiana)"
+
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -153,6 +156,9 @@ msgstr "ABAJO"
 
 msgid "Dutch"
 msgstr "Holandés"
+
+msgid "Emulation"
+msgstr "Emulación"
 
 msgid "Emulation Hacks"
 msgstr "Hacks de Emulación"
@@ -192,6 +198,9 @@ msgstr "Salir"
 
 msgid "Exit Action"
 msgstr "Acción al Salir"
+
+msgid "Fast Forward"
+msgstr "Avance Rápido"
 
 msgid "Font file is too large!"
 msgstr "¡El archivo de fuente es demasiado grande!"
@@ -307,6 +316,9 @@ msgstr "Volumen de la Música"
 msgid "Mute"
 msgstr "Silenciar"
 
+msgid "Mute Sound"
+msgstr "Silenciar el Sonido"
+
 msgid "New"
 msgstr "Nuevo"
 
@@ -318,6 +330,9 @@ msgstr "¡Disco no insertado!"
 
 msgid "No game saves found."
 msgstr "No hay partidas guardadas."
+
+msgid "No Sprite Limit"
+msgstr "Sin Límite de Sprite"
 
 msgid "Nunchuk + Wiimote"
 msgstr "Wiimote y Nunchuk"
@@ -343,7 +358,7 @@ msgstr "MÁS (+)"
 msgid "Portuguese"
 msgstr "Portugués"
 
-msgid "Power off Wii"
+msgid "Power Off Wii"
 msgstr "Apagar Wii"
 
 msgid "Preferences saved"
@@ -382,6 +397,12 @@ msgstr "¿Salir del juego? Se perderá cualquier progreso no guardado."
 msgid "Reboot"
 msgstr "Reiniciar"
 
+msgid "Region"
+msgstr "Región"
+
+msgid "Rendering"
+msgstr "Renderizado"
+
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -409,8 +430,8 @@ msgstr "Derecha"
 msgid "RIGHT"
 msgstr "DERECHA"
 
-msgid "Right Stick (Default)"
-msgstr "Joystick Derecha (Por Defecto)"
+msgid "Right Stick"
+msgstr "Joystick Derecha"
 
 msgid "Save"
 msgstr "Guardar"
@@ -475,6 +496,9 @@ msgstr "SD en SP2"
 msgid "Settings"
 msgstr "Configuración"
 
+msgid "Settings - Emulation"
+msgstr "Configuración - Emulación"
+
 msgid "Settings - Menu"
 msgstr "Configuración - Menú"
 
@@ -501,12 +525,6 @@ msgstr "El IOS actual ha sido alterado (falso firmado). La funcionalidad y/o la 
 
 msgid "The current IOS is unsupported. Functionality and/or stability may be adversely affected."
 msgstr "El IOS actual no es compatible. La funcionalidad y/o la estabilidad pueden verse afectadas negativamente."
-
-msgid "Turbo Mode"
-msgstr "Modo Turbo"
-
-msgid "Turbo Mode Button"
-msgstr "Botón de Modo Turbo"
 
 msgid "Turkish"
 msgstr "Turco"
@@ -535,6 +553,9 @@ msgstr "¡Unidad USB no encontrada!"
 msgid "USB Mass Storage"
 msgstr "Unidad USB"
 
+msgid "Video Filter"
+msgstr "Filtro de Vídeo"
+
 msgid "Video Mode"
 msgstr "Modo de Vídeo"
 
@@ -553,14 +574,8 @@ msgstr "Apuntar Fuera de Pantalla"
 msgid "Coding"
 msgstr "Programación"
 
-msgid "Filtering"
-msgstr "Filtro"
-
 msgid "Fire"
 msgstr "Disparar"
-
-msgid "Gaussian (Default)"
-msgstr "Gausiana (Por Defecto)"
 
 msgid "Left Button"
 msgstr "Botón Izquierdo"
@@ -582,6 +597,9 @@ msgstr "Activado"
 
 msgid "Progressive (480p)"
 msgstr "Progresivo (480p)"
+
+msgid "Progressive (576p)"
+msgstr "Progresivo (576p)"
 
 msgid "Right Button"
 msgstr "Botón Derecho"
@@ -608,13 +626,16 @@ msgid "SNES Controllers (4)"
 msgstr "Controles de SNES (4)"
 
 msgid "SNES Mouse"
-msgstr "Mouse de SNES"
+msgstr "Ratón de SNES"
+
+msgid "SNES Mouse (2)"
+msgstr "Ratón de SNES (2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "Ratón de SNES (Puerto 2)"
 
 msgid "Snes9x - Copyright (c) Snes9x Team 1996 - 2022"
 msgstr "Snes9x - Derechos de autor (c) Snes9x Team 1996 - 2022"
-
-msgid "Sprite Limit"
-msgstr "Límite de Sprites"
 
 msgid "SRAM file not found"
 msgstr "Archivo SRAM no encontrado."

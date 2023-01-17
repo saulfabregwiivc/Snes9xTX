@@ -1,12 +1,6 @@
 msgid "&"
 msgstr "&"
 
-msgid "16:9 Correction"
-msgstr "16:9 Correctie"
-
-msgid "240p Output"
-msgstr "240p Uitgang"
-
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "7z uitpakken mislukt: te veel bestanden in het archief"
 
@@ -43,6 +37,9 @@ msgstr "Weet je zeker dat je de controller instellingen wilt wissen?"
 msgid "Are you sure that you want to reset your settings?"
 msgstr "Weet je zeker dat je de instellingen wilt wissen?"
 
+msgid "Aspect Ratio"
+msgstr "Beeldverhouding"
+
 msgid "Attempting to determine load device..."
 msgstr "Poging om het laadapparaat te bepalen..."
 
@@ -58,8 +55,8 @@ msgstr "Automatisch Openen"
 msgid "Auto Save"
 msgstr "Automatisch Opslaan"
 
-msgid "Automatic (Recommended)"
-msgstr "Automatisch (Aanbevolen)"
+msgid "Automatic"
+msgstr "Automatisch"
 
 msgid "B (Rapid)"
 msgstr "B (Snel)"
@@ -69,6 +66,9 @@ msgstr "Terug"
 
 msgid "Bilinear Filtering"
 msgstr "Bilineaire Filteren"
+
+msgid "Button"
+msgstr "Knop"
 
 msgid "Button Mapping"
 msgstr "Controller Instelling"
@@ -115,6 +115,12 @@ msgstr "CPU Overklokken"
 msgid "Data DVD"
 msgstr "DVD-ROM"
 
+msgid "Default"
+msgstr "Standaard"
+
+msgid "Default (Gaussian)"
+msgstr "Standaard (Gaussiaans)"
+
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -135,6 +141,9 @@ msgstr "Nederlands"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Leeg of beschadigd ZIP bestand!"
+
+msgid "Emulation"
+msgstr "Emulatie"
 
 msgid "Emulation Hacks"
 msgstr "Emulatie Hacks"
@@ -175,8 +184,8 @@ msgstr "Afsluiten"
 msgid "Exit Action"
 msgstr "Actie afsluiten"
 
-msgid "Filtering"
-msgstr "Filteren"
+msgid "Fast Forward"
+msgstr "Snel Vooruit"
 
 msgid "Fire"
 msgstr "Vuren"
@@ -201,9 +210,6 @@ msgstr "Spelinstellingen - Emulatie Hacks"
 
 msgid "Game Settings - Video"
 msgstr "Spelinstellingen - Video"
-
-msgid "Gaussian (Default)"
-msgstr "Gaussiaans (Standaard)"
 
 msgid "German"
 msgstr "Duits"
@@ -313,6 +319,9 @@ msgstr "MIN"
 msgid "Mute"
 msgstr "Stil"
 
+msgid "Mute Sound"
+msgstr "Geluid Dempen"
+
 msgid "New"
 msgstr "Nieuw"
 
@@ -331,20 +340,26 @@ msgstr "Geen SRAM om op te slaan!"
 msgid "No game saves found."
 msgstr "Geen opgeslagen spellen gevonden."
 
+msgid "No Sprite Limit"
+msgstr "Geen Sprite Limiet"
+
 msgid "None"
 msgstr "Geen"
 
 msgid "Off"
 msgstr "Uit"
 
-msgid "OFF"
-msgstr "UIT"
-
 msgid "On"
 msgstr "Aan"
 
-msgid "ON"
-msgstr "AAN"
+msgid "Original (16:9)"
+msgstr "Origineel (16:9)"
+
+msgid "Original (240p)"
+msgstr "Origineel (240p)"
+
+msgid "Original (4:3)"
+msgstr "Origineel (4:3)"
 
 msgid "Out of memory!"
 msgstr "Te weinig geheugen!"
@@ -364,8 +379,8 @@ msgstr "PLUS"
 msgid "Portuguese"
 msgstr "Portugees"
 
-msgid "Power off Wii"
-msgstr "Wii uitschakelen"
+msgid "Power Off Wii"
+msgstr "Wii Uitschakelen"
 
 msgid "Preferences saved"
 msgstr "Instellingen opgeslagen"
@@ -388,6 +403,9 @@ msgstr "Druk op een knop op de Wiimote of Nunchuck. Druk op Home om de instellin
 msgid "Progressive (480p)"
 msgstr "Progressief (480p)"
 
+msgid "Progressive (576p)"
+msgstr "Progressief (576p)"
+
 msgid "Quit Game"
 msgstr "Spel Afsluiten"
 
@@ -399,6 +417,12 @@ msgstr "R"
 
 msgid "Reboot"
 msgstr "Herstart"
+
+msgid "Region"
+msgstr "Regio"
+
+msgid "Rendering"
+msgstr "Renderen"
 
 msgid "Reset"
 msgstr "Herstart"
@@ -433,8 +457,8 @@ msgstr "RECHTS"
 msgid "Right Button"
 msgstr "Knop Rechts"
 
-msgid "Right Stick (Default)"
-msgstr "Rechts Joystick (Standaard)"
+msgid "Right Stick"
+msgstr "Rechts Joystick"
 
 msgid "Save"
 msgstr "Opslaan"
@@ -484,6 +508,9 @@ msgstr "Selecteer"
 msgid "Settings"
 msgstr "Instellingen"
 
+msgid "Settings - Emulation"
+msgstr "Instellingen - Emulatie"
+
 msgid "Settings - Menu"
 msgstr "Instellingen - Menu"
 
@@ -505,6 +532,12 @@ msgstr "Toon Framerate"
 msgid "SNES Mouse"
 msgstr "SNES Muis"
 
+msgid "SNES Mouse (2)"
+msgstr "SNES Muis (2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "SNES Muis (Poort 2)"
+
 msgid "SNES Mouse - GameCube Controller"
 msgstr "SNES Muis - GameCube Controller"
 
@@ -519,9 +552,6 @@ msgstr "Geluidsinterpolatie"
 
 msgid "Spanish"
 msgstr "Spaans"
-
-msgid "Sprite Limit"
-msgstr "Sprite Limiet"
 
 msgid "SRAM file not found"
 msgstr "SRAM bestand niet gevonden"
@@ -546,12 +576,6 @@ msgstr "Nintendo Scope - GameCube Controller"
 
 msgid "Super Scope - Wiimote"
 msgstr "Nintendo Scope - Wiimote"
-
-msgid "Turbo Mode"
-msgstr "Turbo Modus"
-
-msgid "Turbo Mode Button"
-msgstr "Turbo Modus Knop"
 
 msgid "TV Mode"
 msgstr "TV Modus"

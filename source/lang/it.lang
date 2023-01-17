@@ -1,12 +1,6 @@
 msgid "&"
 msgstr "&"
 
-msgid "16:9 Correction"
-msgstr "Correzione 16:9"
-
-msgid "240p Output"
-msgstr "Uscita 240p"
-
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "7z decompressione fallita: L'archivio contiene troppi file"
 
@@ -46,6 +40,9 @@ msgstr "Sei sicuro di voler resettare le tue impostazioni?"
 msgid "Artwork Folder"
 msgstr "Cartella Artwork"
 
+msgid "Aspect Ratio"
+msgstr "Proporzioni"
+
 msgid "Attempting to determine load device..."
 msgstr "Cercando di determinare la periferica di caricamento..."
 
@@ -64,14 +61,17 @@ msgstr "Caricamento Automatico"
 msgid "Auto Save"
 msgstr "Salvataggio Automatico"
 
-msgid "Automatic (Recommended)"
-msgstr "Automatico (Raccomandato)"
+msgid "Automatic"
+msgstr "Automatico"
 
 msgid "B (Rapid)"
 msgstr "B (Rapido)"
 
 msgid "Bilinear Filtering"
 msgstr "Filtrando Bilineare"
+
+msgid "Button"
+msgstr "Pulsante"
 
 msgid "Button Mapping"
 msgstr "Mappatura Pulsanti"
@@ -124,6 +124,12 @@ msgstr "Cursore"
 msgid "Data DVD"
 msgstr "DVD Dati"
 
+msgid "Default"
+msgstr "Predefinita"
+
+msgid "Default (Gaussian)"
+msgstr "Predefinita (Gaussiana)"
+
 msgid "Delete"
 msgstr "Eliminare"
 
@@ -144,6 +150,9 @@ msgstr "Olandese"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "File ZIP vuoto o non valido!"
+
+msgid "Emulation"
+msgstr "Emulazione"
 
 msgid "Emulation Hacks"
 msgstr "Hack di Emulazione"
@@ -184,8 +193,8 @@ msgstr "Esci"
 msgid "Exit Action"
 msgstr "Uscita"
 
-msgid "Filtering"
-msgstr "Filtrando"
+msgid "Fast Forward"
+msgstr "Avanti Veloce"
 
 msgid "Fire"
 msgstr "Fuoco"
@@ -210,9 +219,6 @@ msgstr "Impostazioni di Gioco - Hack di Emulazione"
 
 msgid "Game Settings - Video"
 msgstr "Impostazioni di Gioco - Video"
-
-msgid "Gaussian (Default)"
-msgstr "Gaussiana (Predefinita)"
 
 msgid "German"
 msgstr "Tedesco"
@@ -249,15 +255,6 @@ msgstr "Italiano"
 
 msgid "Japanese"
 msgstr "Giapponese"
-
-msgid "Justifier"
-msgstr "Giustificato"
-
-msgid "Justifier - GameCube Controller"
-msgstr "Giustificato - GameCube Controller"
-
-msgid "Justifier - Wiimote"
-msgstr "Giustificato - Wiimote"
 
 msgid "Korean"
 msgstr "Coreano"
@@ -337,6 +334,9 @@ msgstr "Volume Musica"
 msgid "Mute"
 msgstr "Muto"
 
+msgid "Mute Sound"
+msgstr "Silenziamento del Suono"
+
 msgid "New"
 msgstr "Nuovo"
 
@@ -352,8 +352,20 @@ msgstr "Nessuna SRAM dove salvare!"
 msgid "No game saves found."
 msgstr "Nessun salvataggio trovato."
 
+msgid "No Sprite Limit"
+msgstr "Nessun Limite di Sprite"
+
 msgid "None"
 msgstr "Nessuno"
+
+msgid "Original (16:9)"
+msgstr "Originale (16:9)"
+
+msgid "Original (240p)"
+msgstr "Originale (240p)"
+
+msgid "Original (4:3)"
+msgstr "Originale (4:3)"
 
 msgid "Out of memory!"
 msgstr "Memoria esaurita!"
@@ -373,7 +385,7 @@ msgstr "PIU'"
 msgid "Portuguese"
 msgstr "Portoghese"
 
-msgid "Power off Wii"
+msgid "Power Off Wii"
 msgstr "Spegnimento Wii"
 
 msgid "Preferences saved"
@@ -397,6 +409,9 @@ msgstr "Premi un pulsante del Wiimote o del Nunchuk ora. Premi Home per pulire l
 msgid "Progressive (480p)"
 msgstr "Progressiva (480p)"
 
+msgid "Progressive (576p)"
+msgstr "Progressiva (576p)"
+
 msgid "Preview Image"
 msgstr "Immagine di Anteprima"
 
@@ -412,6 +427,9 @@ msgstr "Terminare il gioco? Tutti i progressi saranno perduti."
 msgid "R TRIG"
 msgstr "TASTO R"
 
+msgid "Region"
+msgstr "Regione"
+
 msgid "Reset"
 msgstr "Resetta"
 
@@ -422,7 +440,7 @@ msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "Resettare il gioco? Tutti i progressi saranno perduti."
 
 msgid "Reset Mappings"
-msgstr "Resetta Mappatura"
+msgstr "Resetta"
 
 msgid "Reset Settings"
 msgstr "Resetta Impostazioni"
@@ -445,8 +463,8 @@ msgstr "DESTRA"
 msgid "Right Button"
 msgstr "Pulsante Destro"
 
-msgid "Right Stick (Default)"
-msgstr "Levetta Destro (Predefinita)"
+msgid "Right Stick"
+msgstr "Levetta Destro"
 
 msgid "Save"
 msgstr "Salva"
@@ -496,6 +514,9 @@ msgstr "Cartella Screenshots"
 msgid "Settings"
 msgstr "Impostazioni"
 
+msgid "Settings - Emulation"
+msgstr "Impostazioni - Emulazione"
+
 msgid "Settings - Menu"
 msgstr "Impostazioni - Menu"
 
@@ -515,13 +536,22 @@ msgid "Show Frame Rate"
 msgstr "Mostra FPS"
 
 msgid "SNES Controllers (2)"
-msgstr "SNES Controller (4)"
+msgstr "SNES Controller (2)"
 
 msgid "SNES Controllers (4)"
 msgstr "SNES Controller (4)"
 
 msgid "SNES Controller - Classic Controller"
 msgstr "SNES Controller - Controller Tradizionale"
+
+msgid "SNES Mouse"
+msgstr "Mouse SNES"
+
+msgid "SNES Mouse (2)"
+msgstr "Mouse SNES (2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "Mouse SNES (Porta 2)"
 
 msgid "Sound Effects Volume"
 msgstr "Volume Effetti Sonori"
@@ -531,9 +561,6 @@ msgstr "Interpolazione Sonora"
 
 msgid "Spanish"
 msgstr "Spagnolo"
-
-msgid "Sprite Limit"
-msgstr "Limite di Sprite"
 
 msgid "SRAM file not found"
 msgstr "File SRAM non trovato"
@@ -555,12 +582,6 @@ msgstr "Nintendo Scope - GameCube Controller"
 
 msgid "Super Scope - Wiimote"
 msgstr "Nintendo Scope - Wiimote"
-
-msgid "Turbo Mode"
-msgstr "Modalità Turbo"
-
-msgid "Turbo Mode Button"
-msgstr "Pulsante Turbo"
 
 msgid "TV Mode"
 msgstr "Modalità TV"
@@ -600,6 +621,9 @@ msgstr "Memoria di Massa USB"
 
 msgid "Vertical"
 msgstr "Verticale"
+
+msgid "Video Filter"
+msgstr "Filtro Video"
 
 msgid "Video Mode"
 msgstr "Modalità Video"

@@ -29,7 +29,6 @@
 #include "ko_lang.h"
 #include "pt_lang.h"
 #include "pt_br_lang.h"
-#include "ca_lang.h"
 #include "tr_lang.h"
 
 // Sounds
@@ -49,7 +48,6 @@
 #include "icon_home_png.h"
 #include "icon_game_settings_png.h"
 #include "icon_game_cheats_png.h"
-#include "icon_game_satellaview_png.h"
 #include "icon_game_controllers_png.h"
 #include "icon_game_load_png.h"
 #include "icon_game_save_png.h"
@@ -66,10 +64,11 @@
 #include "icon_settings_superscope_png.h"
 #include "icon_settings_justifier_png.h"
 #include "icon_settings_mouse_png.h"
-#include "icon_settings_turbo_png.h"
+#include "icon_settings_fastforward_png.h"
 #include "icon_settings_file_png.h"
 #include "icon_settings_mappings_png.h"
 #include "icon_settings_menu_png.h"
+#include "icon_settings_emulation_png.h"
 #include "icon_settings_credits_png.h"
 #include "icon_settings_video_png.h"
 #include "icon_settings_audio_png.h"

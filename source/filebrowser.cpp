@@ -485,9 +485,10 @@ int WiiFileLoader()
 		if(GCSettings.Satellaview)
 			sprintf (filepath, "%s%s/BS-X.bin", pathPrefix[GCSettings.LoadMethod], APPFOLDER);
 		else
-			sprintf (filepath, "%s%s/", pathPrefix[GCSettings.LoadMethod], APPFOLDER);
+			sprintf (filepath, 0);
 
-		if(LoadFile ((char *)Memory.BIOSROM, filepath, 0, 0x100000, SILENT) == 0) {
+		if(LoadFile ((char *)Memory.BIOSROM, filepath, 0, 0x100000, SILENT) == 0)
+		{
 			bsxBiosLoadFailed = true;
 		}
 	}

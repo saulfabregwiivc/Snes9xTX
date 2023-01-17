@@ -5,7 +5,7 @@
  * crunchy2 May 2007
  * Michniewski 2008
  * Tantric 2008-2022
- * Tanooki 2019-2022
+ * Tanooki 2019-2023
  *
  * video.cpp
  *
@@ -377,7 +377,7 @@ void StopGX()
  * FindVideoMode
  *
  * Finds the optimal video mode, or uses the user-specified one
- * Also configures rendering modes
+ * Also configures original video modes
  ***************************************************************************/
 static GXRModeObj * FindVideoMode()
 {
@@ -392,10 +392,13 @@ static GXRModeObj * FindVideoMode()
 		case 2: // Progressive (480p)
 			mode = &TVNtsc480Prog;
 			break;
-		case 3: // PAL (50Hz)
+		case 3: // Progressive (576p)
+			mode = &TVPal576ProgScale;
+			break;
+		case 4: // PAL (50Hz)
 			mode = &TVPal576IntDfScale;
 			break;
-		case 4: // PAL (60Hz)
+		case 5: // PAL (60Hz)
 			mode = &TVEurgb60Hz480IntDf;
 			break;
 		default:
@@ -407,22 +410,29 @@ static GXRModeObj * FindVideoMode()
 			 * on the Wii, the user can do this themselves on their Wii Settings */
 			if(VIDEO_HaveComponentCable())
 				mode = &TVNtsc480Prog;
+			else
+				mode = &TVPal576ProgScale;
 			#endif
 
 			break;
 	}
 
-	// configure rendering modes
+	// configure original modes
 	switch (mode->viTVMode >> 2)
 	{
 		case VI_PAL:
 			// 576 lines (PAL 50Hz)
 			vmode_60hz = false;
 
+			// Original Video modes (forced to PAL 50Hz)
 			// set video signal mode
+			TV50hz_239p.viTVMode = VI_TVMODE_PAL_DS;
+			TV50hz_478i.viTVMode = VI_TVMODE_PAL_INT;
 			TV60hz_224p.viTVMode = VI_TVMODE_PAL_DS;
 			TV60hz_448i.viTVMode = VI_TVMODE_PAL_INT;
 			// set VI position
+			TV50hz_239p.viYOrigin = (VI_MAX_HEIGHT_PAL/2 - 478/2)/2;
+			TV50hz_478i.viYOrigin = (VI_MAX_HEIGHT_PAL - 478)/2;
 			TV60hz_224p.viYOrigin = (VI_MAX_HEIGHT_PAL/2 - 448/2)/2;
 			TV60hz_448i.viYOrigin = (VI_MAX_HEIGHT_PAL - 448)/2;
 			break;
@@ -431,6 +441,7 @@ static GXRModeObj * FindVideoMode()
 			// 480 lines (NTSC 60Hz)
 			vmode_60hz = true;
 
+			// Original Video modes (forced to NTSC 60hz)
 			// set video signal mode
 			TV50hz_239p.viTVMode = VI_TVMODE_NTSC_DS;
 			TV50hz_478i.viTVMode = VI_TVMODE_NTSC_INT;
@@ -447,6 +458,7 @@ static GXRModeObj * FindVideoMode()
 			// 480 lines (PAL 60Hz)
 			vmode_60hz = true;
 
+			// Original Video modes (forced to PAL 60hz)
 			// set video signal mode
 			TV50hz_239p.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_NON_INTERLACE);
 			TV50hz_478i.viTVMode = VI_TVMODE(mode->viTVMode >> 2, VI_INTERLACE);
@@ -461,7 +473,7 @@ static GXRModeObj * FindVideoMode()
 	}
 
 	// check for progressive scan
-	if (mode->viTVMode == VI_TVMODE_NTSC_PROG)
+	if (mode->viTVMode == VI_TVMODE_NTSC_PROG || VI_TVMODE_PAL_PROG)
 		progressive = true;
 	else
 		progressive = false;
@@ -590,7 +602,7 @@ ResetVideo_Emu ()
 	Mtx44 p;
 	int i = -1;
 
-	// 240p output or filtering
+	// original or video filter
 	if (GCSettings.render == 1)
 	{
 		for (int j=0; j<4; j++)
@@ -608,7 +620,7 @@ ResetVideo_Emu ()
 		rmode = tvmodes[i];
 
 		// hack to fix video output for filters (only when actually filtering; h<=239, w<=256)
-		if (GCSettings.FilterMethod != FILTER_NONE && vheight <= 239 && vwidth <= 256)
+		if (GCSettings.VideoFilter != FILTER_NONE && vheight <= 239 && vwidth <= 256)
 		{
 			memcpy(&TV_Custom, tvmodes[i], sizeof(TV_Custom));
 			rmode = &TV_Custom;
@@ -619,14 +631,18 @@ ResetVideo_Emu ()
 			rmode->xfbMode = VI_XFBMODE_DF;
 			rmode->viTVMode |= VI_INTERLACE;
 		}
-		Settings.SoundInputRate = 31894;
+
+		if (Settings.PAL == 1)
+			Settings.SoundInputRate = 32090;
+		else
+			Settings.SoundInputRate = 31894;
 		UpdatePlaybackRate();
 	}
 	else
 	{
 		rmode = FindVideoMode();
 		
-		if (GCSettings.widescreen)
+		if (GCSettings.aspect)
 			ResetFbWidth(640, rmode);
 		else
 			ResetFbWidth(512, rmode);
@@ -739,7 +755,7 @@ update_video (int width, int height)
 		int xscale, yscale;
 #ifdef HW_RVL
 		if(vwidth <= 256)
-			fscale = GetFilterScale((RenderFilter)GCSettings.FilterMethod);
+			fscale = GetFilterScale((RenderFilter)GCSettings.VideoFilter);
 		else
 			fscale = 1;
 #endif
@@ -748,9 +764,9 @@ update_video (int width, int height)
 		memset(filtermem, 0, FILTERMEM_SIZE);
 #endif
 		/** Update scaling **/
-		if (GCSettings.render == 1)	// 240p render mode
+		if (GCSettings.render == 1)	// original rendering mode
 		{
-			if (GCSettings.FilterMethod != FILTER_NONE && vheight <= 239 && vwidth <= 256)
+			if (GCSettings.VideoFilter != FILTER_NONE && vheight <= 239 && vwidth <= 256)
 			{	// filters; normal operation
 				xscale = vwidth;
 				yscale = vheight;
@@ -772,12 +788,12 @@ update_video (int width, int height)
 				yscale = 239;
 		}
 
-		if (GCSettings.widescreen)
+		if (GCSettings.aspect)
 		{
 			if(GCSettings.render == 1)
 				xscale = (3*xscale)/4;
 			else
-				xscale = 256; // match the original console's width for "widescreen" to prevent flickering
+				xscale = 256; // match the original console's width for 16:9 to prevent flickering
 		}
 
 		xscale *= GCSettings.zoomHor;
@@ -794,7 +810,7 @@ update_video (int width, int height)
 		GX_InitTexObj (&texobj, texturemem, vwidth*fscale, vheight*fscale, GX_TF_RGB565, GX_CLAMP, GX_CLAMP, GX_FALSE);
 
 		if (GCSettings.bilinear == 0)
-			GX_InitTexObjLOD(&texobj,GX_NEAR,GX_NEAR_MIP_NEAR,2.5,9.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_1); // bilinear filtering OFF
+			GX_InitTexObjLOD(&texobj,GX_NEAR,GX_NEAR_MIP_NEAR,2.5,9.0,0.0,GX_FALSE,GX_FALSE,GX_ANISO_1); // bilinear filtering
 
 		GX_LoadTexObj (&texobj, GX_TEXMAP0);	// load texture object so its ready to use
 
@@ -804,7 +820,7 @@ update_video (int width, int height)
 	}
 #ifdef HW_RVL
 	// convert image to texture
-	if (GCSettings.FilterMethod != FILTER_NONE && vheight <= 239 && vwidth <= 256) // don't do filtering on game textures > 256 x 239
+	if (GCSettings.VideoFilter != FILTER_NONE && vheight <= 239 && vwidth <= 256) // don't do filtering on game textures > 256 x 239
 	{
 		FilterMethod ((uint8*) GFX.Screen, EXT_PITCH, (uint8*) filtermem, vwidth*fscale*2, vwidth, vheight);
 		MakeTexture565((char *) filtermem, (char *) texturemem, vwidth*fscale, vheight*fscale);
@@ -824,7 +840,7 @@ update_video (int width, int height)
 
 	if(ScreenshotRequested)
 	{
-		if(GCSettings.render == 1) // we can't take a screenshot in 240p rendering mode
+		if(GCSettings.render == 1) // we can't take a screenshot in original rendering mode
 		{
 			oldRenderMode = 1;
 			GCSettings.render = 0; // switch to default rendering mode

@@ -1,12 +1,6 @@
 msgid "&"
 msgstr ""
 
-msgid "16:9 Correction"
-msgstr "16:9 Korrektur"
-
-msgid "240p Output"
-msgstr "240p Ausgabe"
-
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "7z Dekomprimierung fehlgeschlagen: Archiv enthält zu viele Dateien"
 
@@ -46,6 +40,9 @@ msgstr "Bist du sicher das du die Einstellungen zurücksetzten willst?"
 msgid "Artwork Folder"
 msgstr "Ordner f. Artwork"
 
+msgid "Aspect Ratio"
+msgstr "Seitenverhältnis"
+
 msgid "Attempting to determine load device..."
 msgstr "Versuche Ladegerät zu ermitteln..."
 
@@ -61,8 +58,8 @@ msgstr "Auto. laden"
 msgid "Auto Save"
 msgstr "Auto. speichern"
 
-msgid "Automatic (Recommended)"
-msgstr "Automatisch (Empfohlen)"
+msgid "Automatic"
+msgstr "Automatisch"
 
 msgid "B (Rapid)"
 msgstr "B (Turbo)"
@@ -72,6 +69,9 @@ msgstr "Zurück"
 
 msgid "Bilinear Filtering"
 msgstr "Bilineare Filter"
+
+msgid "Button"
+msgstr "Taste"
 
 msgid "Button Mapping"
 msgstr "Tastenbelegung"
@@ -114,6 +114,12 @@ msgstr "Eingabezeiger"
 
 msgid "Data DVD"
 msgstr "Daten DVD"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Default (Gaussian)"
+msgstr "Standard (Gauß)"
 
 msgid "Delete"
 msgstr "Löschen"
@@ -172,8 +178,8 @@ msgstr "Beenden"
 msgid "Exit Action"
 msgstr "Aktion beim Beenden"
 
-msgid "Filtering"
-msgstr "Filter"
+msgid "Fast Forward"
+msgstr "Schneller Vorlauf"
 
 msgid "Fire"
 msgstr "Schießen"
@@ -198,9 +204,6 @@ msgstr "Spieleinstellungen - Emulation Hacks"
 
 msgid "Game Settings - Video"
 msgstr "Spieleinstellungen - Video"
-
-msgid "Gaussian (Default)"
-msgstr "Gauß (Standard)"
 
 msgid "German"
 msgstr "Deutsch"
@@ -232,8 +235,8 @@ msgstr "Italienisch"
 msgid "Japanese"
 msgstr "Japanisch"
 
-msgid "Justifier - Wiimote"
-msgstr "Justifier - Wii-FB"
+msgid "Konami Justifier - Wiimote"
+msgstr "Konami Justifier - Wii-FB"
 
 msgid "Korean"
 msgstr "Koreanisch"
@@ -304,6 +307,9 @@ msgstr "Musik Lautstärke"
 msgid "Mute"
 msgstr "Stumm"
 
+msgid "Mute Sound"
+msgstr "Ton Stummschalten"
+
 msgid "New"
 msgstr "Neu"
 
@@ -322,20 +328,17 @@ msgstr "Keine SRAM Daten zum speichern!"
 msgid "No game saves found."
 msgstr "Kein Spielstand gefunden."
 
+msgid "No Sprite Limit"
+msgstr "Kein Sprite Limit"
+
 msgid "None"
 msgstr "Nichts"
 
 msgid "Off"
 msgstr "Aus"
 
-msgid "OFF"
-msgstr "AUS"
-
 msgid "On"
 msgstr "An"
-
-msgid "ON"
-msgstr "AN"
 
 msgid "Out of memory!"
 msgstr "Nicht genug Speicher!"
@@ -361,8 +364,8 @@ msgstr "Bitte Warten"
 msgid "Portuguese"
 msgstr "Portugiesisch"
 
-msgid "Power off Wii"
-msgstr "Wii ausschalten"
+msgid "Power Off Wii"
+msgstr "Wii Ausschalten"
 
 msgid "Preferences saved"
 msgstr "Einstellungen gespeichert"
@@ -397,6 +400,9 @@ msgstr "Dieses Spiel beenden? Ungespeicherter Fortschritt geht verloren."
 msgid "Reboot"
 msgstr "Neustart"
 
+msgid "Rendering"
+msgstr "Darstellung"
+
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -407,7 +413,7 @@ msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "Spiel zurücksetzen? Nicht gespeicherte Fortschritte gehen verloren."
 
 msgid "Reset Mappings"
-msgstr "Belegung zurücksetzen"
+msgstr "Zurücksetzen"
 
 msgid "Reset Settings"
 msgstr "Zurücksetzen"
@@ -430,8 +436,8 @@ msgstr "RECHTS"
 msgid "Right Button"
 msgstr "Rechte Taste"
 
-msgid "Right Stick (Default)"
-msgstr "Rechte Joystick (Standard)"
+msgid "Right Stick"
+msgstr "Rechte Joystick"
 
 msgid "Save"
 msgstr "Speichern"
@@ -484,6 +490,9 @@ msgstr "Ordner f. Screenshots"
 msgid "Settings"
 msgstr "Einstellungen"
 
+msgid "Settings - Emulation"
+msgstr "Einstellungen - Emulation"
+
 msgid "Settings - Menu"
 msgstr "Einstellungen - Menü"
 
@@ -507,6 +516,12 @@ msgstr "SNES Controller - Wii-FB"
 
 msgid "SNES Mouse"
 msgstr "SNES Maus"
+
+msgid "SNES Mouse (2)"
+msgstr "SNES Maus (2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "SNES Maus (Port 2)"
 
 msgid "SNES Mouse - GameCube Controller"
 msgstr "SNES Maus - GameCube Controller"
@@ -546,12 +561,6 @@ msgstr "Nintendo Scope - GameCube Controller"
 
 msgid "Super Scope - Wiimote"
 msgstr "Nintendo Scope - Wii-FB"
-
-msgid "Turbo Mode"
-msgstr "Turbomodus"
-
-msgid "Turbo Mode Button"
-msgstr "Taste Turbomodus"
 
 msgid "TV Mode"
 msgstr "TV Modus"
@@ -594,6 +603,9 @@ msgstr "Vertikal"
 
 msgid "Video"
 msgstr "Bild"
+
+msgid "Video Filter"
+msgstr "Videofilter"
 
 msgid "Video Mode"
 msgstr "Videomodus"

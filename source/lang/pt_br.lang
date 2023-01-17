@@ -1,12 +1,6 @@
 msgid "&"
 msgstr "&"
 
-msgid "16:9 Correction"
-msgstr "Correção 16:9"
-
-msgid "240p Output"
-msgstr "Saída 240p"
-
 msgid "7z decompression failed: Archive contains too many files"
 msgstr "Falha na descompressão 7z: Arquivo contém arquivos demais"
 
@@ -49,6 +43,9 @@ msgstr "Ilustrações"
 msgid "Artwork Folder"
 msgstr "Pasta de Ilustrações"
 
+msgid "Aspect Ratio"
+msgstr "Proporção da Tela"
+
 msgid "Attempting to determine load device..."
 msgstr "Determinando o dispositivo de carregamento..."
 
@@ -67,8 +64,8 @@ msgstr "Auto Carregar"
 msgid "Auto Save"
 msgstr "Auto Salvar"
 
-msgid "Automatic (Recommended)"
-msgstr "Automático (Recomendado)"
+msgid "Automatic"
+msgstr "Automático"
 
 msgid "B (Rapid)"
 msgstr "B (Rápido)"
@@ -81,6 +78,9 @@ msgstr "Filtragem Bilinear"
 
 msgid "Brazilian Portuguese"
 msgstr "Português do Brasil"
+
+msgid "Button"
+msgstr "Botão"
 
 msgid "Button Mapping"
 msgstr "Mapeamento de Botão"
@@ -133,6 +133,12 @@ msgstr "Créditos"
 msgid "Data DVD"
 msgstr "DVD de Dados"
 
+msgid "Default"
+msgstr "Padrão"
+
+msgid "Default (Gaussian)"
+msgstr "Padrão (Gaussiana)"
+
 msgid "Delete"
 msgstr "Deletar"
 
@@ -162,6 +168,9 @@ msgstr "Holandês"
 
 msgid "Empty or invalid ZIP file!"
 msgstr "Arquivo ZIP vazio ou inválido!"
+
+msgid "Emulation"
+msgstr "Emulação"
 
 msgid "Emulation Hacks"
 msgstr "Emulação Hacks"
@@ -202,8 +211,8 @@ msgstr "Sair"
 msgid "Exit Action"
 msgstr "Ação ao Sair"
 
-msgid "Filtering"
-msgstr "Filtragem"
+msgid "Fast Forward"
+msgstr "Avanço Rápido"
 
 msgid "Fire"
 msgstr "Atirar"
@@ -234,9 +243,6 @@ msgstr "Configurações - Vídeo"
 
 msgid "GameCube Controller"
 msgstr "Controle do GameCube"
-
-msgid "Gaussian (Default)"
-msgstr "Gaussiana (Padrão)"
 
 msgid "German"
 msgstr "Alemão"
@@ -271,8 +277,8 @@ msgstr "Italiano"
 msgid "Japanese"
 msgstr "Japônes"
 
-msgid "Justifier - GameCube Controller"
-msgstr "Justifier - Controle do GameCube"
+msgid "Konami Justifier - GameCube Controller"
+msgstr "Konami Justifier - Controle do GameCube"
 
 msgid "Korean"
 msgstr "Coreano"
@@ -352,6 +358,9 @@ msgstr "Volume da Música "
 msgid "Mute"
 msgstr "Mudo"
 
+msgid "Mute Sound"
+msgstr "Som Mudo"
+
 msgid "New"
 msgstr "Novo"
 
@@ -369,6 +378,9 @@ msgstr "Sem dados SRAM para salvar!"
 
 msgid "No game saves found."
 msgstr "Nenhum jogo salvo encontrado."
+
+msgid "No Sprite Limit"
+msgstr "Sem Limite de Sprite"
 
 msgid "None"
 msgstr "Nenhum"
@@ -388,7 +400,7 @@ msgstr "MAIS (+)"
 msgid "Portuguese"
 msgstr "Português"
 
-msgid "Power off Wii"
+msgid "Power Off Wii"
 msgstr "Desligar o Wii"
 
 msgid "Preferences saved"
@@ -415,6 +427,9 @@ msgstr "Pressione qualquer botão no WiiMote ou Nunchuck. Pressione Home para li
 msgid "Progressive (480p)"
 msgstr "Progressivo (480p)"
 
+msgid "Progressive (576p)"
+msgstr "Progressivo (576p)"
+
 msgid "Preview Image"
 msgstr "Imagem de Visualização"
 
@@ -433,6 +448,12 @@ msgstr "R"
 msgid "Reboot"
 msgstr "Reiniciar"
 
+msgid "Region"
+msgstr "Região"
+
+msgid "Rendering"
+msgstr "Renderização"
+
 msgid "Reset"
 msgstr "Resetar"
 
@@ -443,10 +464,10 @@ msgid "Reset this game? Any unsaved progress will be lost."
 msgstr "Quer mesmo reiniciar esse jogo? Qualquer progresso não-salvo será perdido."
 
 msgid "Reset Mappings"
-msgstr "Resetar o Mapeamento"
+msgstr "Resetar"
 
 msgid "Reset Settings"
-msgstr "Resetar as Configurações"
+msgstr "Resetar Configurações"
 
 msgid "Retry"
 msgstr "Tentar Novamente"
@@ -466,8 +487,8 @@ msgstr "DIREITA"
 msgid "Right Button"
 msgstr "Botão Direito"
 
-msgid "Right Stick (Default)"
-msgstr "Manípulo Direito (Padrão)"
+msgid "Right Stick"
+msgstr "Manípulo Direito"
 
 msgid "Save"
 msgstr "Salvar"
@@ -535,6 +556,9 @@ msgstr "SD no SP2"
 msgid "Settings"
 msgstr "Configurações"
 
+msgid "Settings - Emulation"
+msgstr "Configurações - Emulação"
+
 msgid "Settings - Menu"
 msgstr "Configurações - Menu"
 
@@ -551,34 +575,40 @@ msgid "Show Frame Rate"
 msgstr "Mostrar FPS"
 
 msgid "SNES Controller"
-msgstr "Controle do Super Nintendo"
+msgstr "Controle do SNES"
 
 msgid "SNES Controllers (2)"
-msgstr " Controle do Super Nintendo (2)"
+msgstr " Controle do SNES (2)"
 
 msgid "SNES Controllers (4)"
-msgstr " Controle do Super Nintendo (4)"
+msgstr " Controle do SNES (4)"
 
 msgid "SNES Controller - Classic Controller"
-msgstr "Controle do Super Nintendo - Classic Controller"
+msgstr "Controle do SNES - Classic Controller"
 
 msgid "SNES Controller - GameCube Controller"
-msgstr "Controle do Super Nintendo - Controle do GameCube"
+msgstr "Controle do SNES - Controle do GameCube"
 
 msgid "SNES Controller - Nunchuk + Wiimote"
-msgstr "Controle do Super Nintendo - Nunchuk + WiiMote"
+msgstr "Controle do SNES - Nunchuk + WiiMote"
 
 msgid "SNES Controller - Wiimote"
-msgstr "Controle do Super Nintendo - WiiMote"
+msgstr "Controle do SNES - WiiMote"
 
 msgid "SNES Mouse"
-msgstr "Mouse do Super Nintendo "
+msgstr "Mouse do SNES "
+
+msgid "SNES Mouse (2)"
+msgstr "Mouse do SNES (2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "Mouse do SNES (Porto 2)"
 
 msgid "SNES Mouse - GameCube Controller"
-msgstr "Mouse do Super Nintendo - Controle do GameCube"
+msgstr "Mouse do SNES - Controle do GameCube"
 
 msgid "SNES Mouse - Wiimote"
-msgstr "Mouse do Super Nintendo - WiiMote"
+msgstr "Mouse do SNES - WiiMote"
 
 msgid "Sound Effects Volume"
 msgstr "Volume dos Efeitos Sonoros"
@@ -588,9 +618,6 @@ msgstr "Interpolação Sonora"
 
 msgid "Spanish"
 msgstr "Espanhol"
-
-msgid "Sprite Limit"
-msgstr "Limite de Sprite"
 
 msgid "SRAM file not found"
 msgstr "Arquivo SRAM não foi encontrado"
@@ -612,12 +639,6 @@ msgstr "A IOS atual não é suportada. Funcionalidade e/ou estabilidade pode ser
 
 msgid "This software is open source and may be copied, distributed, or modified"
 msgstr "Esse programa é em código aberto e poderá ser copiado, distribuído ou modificado."
-
-msgid "Turbo Mode"
-msgstr "Modo Turbo"
-
-msgid "Turbo Mode Button"
-msgstr "Botão Modo Turbo"
 
 msgid "Turbo Off"
 msgstr "Turbo Desativado"
@@ -666,6 +687,9 @@ msgstr "Dispositivo USB não foi encontrado!"
 
 msgid "USB Mass Storage"
 msgstr "Dispositivo USB"
+
+msgid "Video Filter"
+msgstr "Filtro de Vídeo"
 
 msgid "Video Mode"
 msgstr "Modo de Vídeo"

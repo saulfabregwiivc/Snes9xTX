@@ -1,12 +1,6 @@
 msgid "&"
 msgstr ""
 
-msgid "16:9 Correction"
-msgstr "16:9 수정"
-
-msgid "240p Output"
-msgstr "240p 출력"
-
 msgid "7z decompression failed: Archive contains too many files."
 msgstr "7z 압축 해제 실패: 압축 파일에 너무 많은 파일이 포함되었습니다."
 
@@ -43,6 +37,9 @@ msgstr "삽화"
 msgid "Artwork Folder"
 msgstr "삽화 폴더"
 
+msgid "Aspect Ratio"
+msgstr "종횡비"
+
 msgid "Attempting to determine load device..."
 msgstr "불러온 장치 확인 시도 중..."
 
@@ -61,8 +58,8 @@ msgstr "자동 불러오기"
 msgid "Auto Save"
 msgstr "자동 저장하기"
 
-msgid "Automatic (Recommended)"
-msgstr "자동 (추천)"
+msgid "Automatic"
+msgstr "자동"
 
 msgid "Back"
 msgstr "뒤로"
@@ -72,6 +69,9 @@ msgstr "쌍선형 필터링"
 
 msgid "Brazilian Portuguese"
 msgstr "브라질 포루투갈어"
+
+msgid "Button"
+msgstr "버튼"
 
 msgid "Button Mapping"
 msgstr "버튼 맵핑"
@@ -84,9 +84,6 @@ msgstr "취소"
 
 msgid "Caps"
 msgstr "대문자"
-
-msgid "Catalan"
-msgstr "카탈루니아어"
 
 msgid "Cheats"
 msgstr "치트"
@@ -127,6 +124,12 @@ msgstr "크레딧"
 msgid "Data DVD"
 msgstr "데이터 DVD"
 
+msgid "Default"
+msgstr "기본값"
+
+msgid "Default (Gaussian)"
+msgstr "기본값 (가우스)"
+
 msgid "Delete"
 msgstr "삭제하기"
 
@@ -153,6 +156,9 @@ msgstr "아래쪽"
 
 msgid "Dutch"
 msgstr "네덜란드어"
+
+msgid "Emulation"
+msgstr "에뮬레이션"
 
 msgid "Emulation Hacks"
 msgstr "에뮬레이션 해킹"
@@ -193,8 +199,14 @@ msgstr "종료"
 msgid "Exit Action"
 msgstr "종료 작업"
 
+msgid "Fast Forward"
+msgstr "빨리 감기"
+
 msgid "Font file not found!"
 msgstr "폰트 파일을 찾을 수 없습니다!"
+
+msgid "Frame Skipping"
+msgstr "프레임 건너뛰기"
 
 msgid "French"
 msgstr "프랑스어"
@@ -307,6 +319,9 @@ msgstr "음악 볼륨"
 msgid "Mute"
 msgstr "무음"
 
+msgid "Mute Sound"
+msgstr "소리 음소거"
+
 msgid "New"
 msgstr "새로 만들기"
 
@@ -319,6 +334,9 @@ msgstr "삽입된 디스크가 없습니다!"
 msgid "No game saves found."
 msgstr "게임 저장을 찾을 수 없습니다."
 
+msgid "No Sprite Limit"
+msgstr "스프라이트 제한 없음"
+
 msgid "Nunchuk"
 msgstr "눈챠크"
 
@@ -330,6 +348,15 @@ msgstr "확인"
 
 msgid "On"
 msgstr "켬"
+
+msgid "Original (16:9)"
+msgstr "오리지널 (16:9)"
+
+msgid "Original (240p)"
+msgstr "오리지널 (240p)"
+
+msgid "Original (4:3)"
+msgstr "오리지널 (4:3)"
 
 msgid "Out of memory: too many files!"
 msgstr "메모리 부족: 너무 많은 파일!"
@@ -346,7 +373,7 @@ msgstr "플러스"
 msgid "Portuguese"
 msgstr "포르투갈어"
 
-msgid "Power off Wii"
+msgid "Power Off Wii"
 msgstr "Wii 끄기"
 
 msgid "Preferences saved"
@@ -385,6 +412,12 @@ msgstr "이 게임을 종료하겠습니까? 저장되지 않는 진행은 손�
 msgid "Reboot"
 msgstr "재부팅"
 
+msgid "Region"
+msgstr "지역"
+
+msgid "Rendering"
+msgstr "렌더링"
+
 msgid "Reset"
 msgstr "리셋"
 
@@ -412,8 +445,8 @@ msgstr "오른쪽"
 msgid "RIGHT"
 msgstr "오른쪽"
 
-msgid "Right Stick (Default)"
-msgstr "오른쪽 스틱(기본값)"
+msgid "Right Stick"
+msgstr "오른쪽 스틱"
 
 msgid "Save"
 msgstr "저장하기"
@@ -475,6 +508,9 @@ msgstr "선택"
 msgid "Settings"
 msgstr "설정"
 
+msgid "Settings - Emulation"
+msgstr "설정 - 에뮬레이션"
+
 msgid "Settings - Menu"
 msgstr "설정 - 메뉴"
 
@@ -507,12 +543,6 @@ msgstr "현재 IOS는 (가짜 서명) 변경되었습니다. 기능 및 안정�
 
 msgid "The current IOS is unsupported. Functionality and/or stability may be adversely affected."
 msgstr "현재 IOS는 지원하지 않습니다. 기능 및 안정성에 부정적인 영향을 줄 수 있습니다."
-
-msgid "Turbo Mode"
-msgstr "터보 모드"
-
-msgid "Turbo Mode Button"
-msgstr "터보 모드 버튼"
 
 msgid "Turkish"
 msgstr "터키어"
@@ -556,6 +586,9 @@ msgstr "수직"
 msgid "Video"
 msgstr "비디오"
 
+msgid "Video Filter"
+msgstr "비디오 필터"
+
 msgid "Video Mode"
 msgstr "비디오 모드"
 
@@ -583,16 +616,10 @@ msgstr "코딩"
 msgid "Cursor"
 msgstr "커서"
 
-msgid "Filtering"
-msgstr "필터링"
-
 msgid "Fire"
 msgstr "발사"
 
-msgid "Gaussian (Default)"
-msgstr "가우스 (기본값)"
-
-msgid "Justifier"
+msgid "Konami Justifier"
 msgstr "광선총"
 
 msgid "Left Button"
@@ -607,20 +634,17 @@ msgstr "저장된 SRAM 데이터가 없습니다!"
 msgid "None"
 msgstr "없음"
 
-msgid "OFF"
-msgstr "끔"
-
-msgid "ON"
-msgstr "켬"
-
 msgid "Progressive (480p)"
 msgstr "프로그레시브 (480p)"
+
+msgid "Progressive (576p)"
+msgstr "프로그레시브 (576p)"
 
 msgid "Right Button"
 msgstr "오른쪽 버튼"
 
-msgid "Satellaview"
-msgstr "사테라뷰"
+msgid "Satellaview BIOS"
+msgstr "Satellaview 바이오스"
 
 msgid "Save failed!"
 msgstr "저장 실패!"
@@ -646,11 +670,14 @@ msgstr "SNES 컨트롤러 (4)"
 msgid "SNES Mouse"
 msgstr "SNES 마우스"
 
+msgid "SNES Mouse (2)"
+msgstr "SNES 마우스 (2)"
+
+msgid "SNES Mouse (Port 2)"
+msgstr "SNES 마우스 (포트 2)"
+
 msgid "Snes9x - Copyright (c) Snes9x Team 1996 - 2022"
 msgstr "Snes9x - 제작 (c) Snes9x 팀 1996-2022"
-
-msgid "Sprite Limit"
-msgstr "스프라이트 제한"
 
 msgid "SRAM file not found"
 msgstr "SRAM 파일을 찾을 수 없습니다."

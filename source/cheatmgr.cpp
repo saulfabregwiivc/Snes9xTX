@@ -8,9 +8,9 @@
  * Cheat handling
  ***************************************************************************/
 
-
 #include "snes9x/port.h"
 #include "snes9x/cheats.h"
+#include "snes9x/bml.h"
 
 #include "snes9xtx.h"
 #include "fileop.h"
@@ -52,6 +52,7 @@ static bool LoadCheatFile (int length)
 	return true;
 }
 
+
 void ToggleCheat(uint32 num) {
 	if(Cheat.g[num].enabled) {
 		S9xDisableCheatGroup(num);
@@ -90,7 +91,25 @@ WiiSetupCheats()
 
 	// load cheat file if present
 	if(offset > 0)
-		LoadCheatFile (offset);
+	{
+		bml_node bml;
+		if (!bml.parse_file(filepath))
+		{
+			LoadCheatFile (offset);
+		}
+
+		bml_node *n = bml.find_subnode("cheat");
+		if (n)
+		{
+			S9xLoadCheatsFromBMLNode (&bml);
+		}
+
+		if (!n)
+		{
+			LoadCheatFile (offset);
+		}
+	}
+
 
 	FreeSaveBuffer ();
 }

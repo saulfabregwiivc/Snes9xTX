@@ -5,7 +5,7 @@
  * crunchy2 May 2007-July 2007
  * Michniewski 2008
  * Tantric 2008-2022
- * Tanooki 2019-2022
+ * Tanooki 2019-2023
  *
  * snes9xtx.h
  *
@@ -21,7 +21,7 @@
 #include "filelist.h"
 
 #define APPNAME 			"Snes9x TX"
-#define APPVERSION 			"1.1.2"
+#define APPVERSION 			"1.1.3"
 #define APPFOLDER 			"snes9xtx"
 #define PREF_FILE_NAME		"settings.xml"
 
@@ -52,33 +52,44 @@ enum {
 enum
 {
 	CTRL_PAD,
-	CTRL_MOUSE,
 	CTRL_SCOPE,
 	CTRL_JUST,
+	CTRL_MOUSE,
+	CTRL_MOUSE_PORT2,
+	CTRL_MOUSE_BOTH_PORTS,
 	CTRL_PAD2,
 	CTRL_PAD4,
 	CTRL_LENGTH
 };
 
-const char ctrlName[6][24] =
-{ "SNES Controller", "SNES Mouse", "Super Scope", "Justifier", "SNES Controllers (2)", "SNES Controllers (4)" };
+const char ctrlName[8][24] =
+{ 
+	"SNES Controller", 
+	"Super Scope", 
+	"Konami Justifier", 
+	"SNES Mouse", 
+	"SNES Mouse (Port 2)", 
+	"SNES Mouse (2)", 
+	"SNES Controllers (2)", 
+	"SNES Controllers (4)"
+};
 
 enum {
-	TURBO_BUTTON_RSTICK = 0,
-	TURBO_BUTTON_A,
-	TURBO_BUTTON_B,
-	TURBO_BUTTON_X,
-	TURBO_BUTTON_Y,
-	TURBO_BUTTON_L,
-	TURBO_BUTTON_R,
-	TURBO_BUTTON_ZL,
-	TURBO_BUTTON_ZR,
-	TURBO_BUTTON_Z,
-	TURBO_BUTTON_C,
-	TURBO_BUTTON_1,
-	TURBO_BUTTON_2,
-	TURBO_BUTTON_PLUS,
-	TURBO_BUTTON_MINUS
+	FASTFORWARD_BUTTON_RSTICK = 0,
+	FASTFORWARD_BUTTON_A,
+	FASTFORWARD_BUTTON_B,
+	FASTFORWARD_BUTTON_X,
+	FASTFORWARD_BUTTON_Y,
+	FASTFORWARD_BUTTON_L,
+	FASTFORWARD_BUTTON_R,
+	FASTFORWARD_BUTTON_ZL,
+	FASTFORWARD_BUTTON_ZR,
+	FASTFORWARD_BUTTON_Z,
+	FASTFORWARD_BUTTON_C,
+	FASTFORWARD_BUTTON_1,
+	FASTFORWARD_BUTTON_2,
+	FASTFORWARD_BUTTON_PLUS,
+	FASTFORWARD_BUTTON_MINUS
 };
 
 enum {
@@ -94,7 +105,6 @@ enum {
 	LANG_KOREAN,
 	LANG_PORTUGUESE,
 	LANG_BRAZILIAN_PORTUGUESE,
-	LANG_CATALAN,
 	LANG_TURKISH,
 	LANG_LENGTH
 };
@@ -116,25 +126,27 @@ struct SGCSettings{
 
 	float	zoomHor; // Horizontal zoom amount
 	float	zoomVert; // Vertical zoom amount
-	int		videomode; // 0 - Automatic, 1 - NTSC (480i), 2 - Progressive (480p), 3 - PAL (50Hz), 4 - PAL (60Hz)
-	int		render;		// 0 - Default, 1 - 240p Output
-	int		bilinear;    // Bilinear filter
-	int		FilterMethod; // Convert to render filter
+	int		videomode; // 0 - Automatic, 1 - NTSC (480i), 2 - Progressive (480p), 3 - Progressive (576p), 4 - PAL (50Hz), 5 - PAL (60Hz)
+	int		render;		// 0 - Default, 1 - Original (240p)
+	int		bilinear;    // Bilinear filtering
+	int		VideoFilter;
 	int		Controller;
-	int		TurboMode;
-	int		TurboModeButton;
+	int		FastForward;
+	int		FastForwardButton;
 	int		HiResMode;
-	int		crosshair;
+	int		FrameSkip;
 	int		ShowFrameRate;
-	int		widescreen;
-	int		xshift;		  // Video output shift
+	int		crosshair;
+	int		aspect;
+	int		xshift;		// Video output shift
 	int		yshift;
+	int		MuteSound;
 	int		Interpolation;
-	int		MuteAudio;
-	int		sfxOverclock; // 0 - None, 1 - 20 MHz, 2 - 40 MHz, 3 - 60 MHz, 4 - 80 MHz, 5 - 100 MHz, 6 - 120 MHz
-	int		cpuOverclock; // 0 - None, 1 - Low, 2 - Medium, 3 - Max
-	int		SpriteLimit;
+	int		sfxOverclock;
+	int		cpuOverclock;
+	int		NoSpriteLimit;
 	int		Satellaview;
+	int		Region;
 	int		WiimoteOrientation;
 	int		ExitAction;
 	int		MusicVolume;
