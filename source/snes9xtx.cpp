@@ -49,6 +49,7 @@
 #include "snes9x/snes9x.h"
 #include "snes9x/fxemu.h"
 #include "snes9x/memmap.h"
+#include "snes9x/autooc.h"
 #include "snes9x/apu/apu.h"
 #include "snes9x/controls.h"
 
@@ -94,12 +95,87 @@ void ExitCleanup()
 	void (*PSOReload) () = (void (*)()) 0x80001800;
 #endif
 
+/****************************************************************************
+ * ApplyEmulationSettings
+ *
+ * Sound interpolation, SuperFX and CPU overclock from GCSettings to the core
+ * (the other options are read each time the game starts again). The SuperFX
+ * speed takes effect at the next reset or game load.
+ ***************************************************************************/
+void ApplyEmulationSettings()
+{
+	switch (GCSettings.Interpolation)
+	{
+		case 0: Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN; break;
+		case 1: Settings.InterpolationMethod = DSP_INTERPOLATION_LINEAR; break;
+		case 2: Settings.InterpolationMethod = DSP_INTERPOLATION_CUBIC; break;
+		case 3: Settings.InterpolationMethod = DSP_INTERPOLATION_SINC; break;
+		case 4: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
+	}
+
+	switch (GCSettings.sfxOverclock)
+	{
+		case 0: Settings.SuperFXSpeedPerLine = 5823405; break;
+		case 1: Settings.SuperFXSpeedPerLine = 0.417 * 20.5e6; break;
+		case 2: Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6; break;
+		case 3: Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6; break;
+		case 4: Settings.SuperFXSpeedPerLine = 0.417 * 80.5e6; break;
+		case 5: Settings.SuperFXSpeedPerLine = 0.417 * 100.5e6; break;
+		case 6: Settings.SuperFXSpeedPerLine = 0.417 * 120.5e6; break;
+	}
+
+	ApplyCpuOverclock();
+}
+
+/****************************************************************************
+ * ApplyCpuOverclock
+ *
+ * CPU cycle timing of GCSettings.cpuOverclock. Auto picks the level while the
+ * game runs, starting from none.
+ ***************************************************************************/
+void ApplyCpuOverclock()
+{
+	if (GCSettings.cpuOverclock == CPU_OVERCLOCK_AUTO)
+	{
+		S9xAutoOCSetEnabled(TRUE);
+		return;
+	}
+
+	S9xAutoOCSetEnabled(FALSE);
+
+	switch (GCSettings.cpuOverclock)
+	{
+		case CPU_OVERCLOCK_NONE:
+			Settings.OneClockCycle = 6;
+			Settings.OneSlowClockCycle = 8;
+			Settings.TwoClockCycles = 12;
+			break;
+		case CPU_OVERCLOCK_LOW:
+			Settings.OneClockCycle = 6;
+			Settings.OneSlowClockCycle = 6;
+			Settings.TwoClockCycles = 12;
+			break;
+		case CPU_OVERCLOCK_MEDIUM:
+			Settings.OneClockCycle = 4;
+			Settings.OneSlowClockCycle = 5;
+			Settings.TwoClockCycles = 6;
+			break;
+		case CPU_OVERCLOCK_MAX:
+			Settings.OneClockCycle = 3;
+			Settings.OneSlowClockCycle = 3;
+			Settings.TwoClockCycles = 3;
+			break;
+	}
+}
+
 void ExitApp()
 {
 	SavePrefs(SILENT);
 
 	if (SNESROMSize > 0 && !ConfigRequested && GCSettings.AutoSave == 1)
 		SaveSRAMAuto(SILENT);
+
+	AutoCropSaveGame();
 
 	ExitCleanup();
 
@@ -198,6 +274,18 @@ void ipl_set_config(unsigned char c)
 	exi[0] &= 0x405;	//deselect IPL
 }
 #endif
+
+/****************************************************************************
+ * ApplyRegionSetting()
+ * Called before every ROM load: Memory.LoadROM() clears ForceNTSC/ForcePAL
+ * once it has used them, so the menu choice is applied again each time.
+ ***************************************************************************/
+void ApplyRegionSetting()
+{
+	Settings.ForceNTSC = (GCSettings.Region == REGION_NTSC || GCSettings.Region == REGION_NTSC_LIE_PAL);
+	Settings.ForcePAL = (GCSettings.Region == REGION_PAL);
+	Settings.NTSCLiePAL = (GCSettings.Region == REGION_NTSC_LIE_PAL);
+}
 
 /****************************************************************************
  * setFrameTimerMethod()
@@ -428,6 +516,7 @@ int main(int argc, char *argv[])
 	SetupPads();
 	InitDeviceThread();
 	MountAllFAT(); // Initialize libFAT for SD and USB
+	STARTUP_NOTE("main: storage mounted");
 	
 	#ifdef HW_RVL
 	// store path app was loaded from
@@ -471,6 +560,7 @@ int main(int argc, char *argv[])
 		autoboot = GCSettings.AutoloadGame;
 	}
 
+	STARTUP_NOTE("main: opening the menu");
 	while (1) // main loop
 	{
 		if(!autoboot) {
@@ -489,51 +579,8 @@ int main(int argc, char *argv[])
 		if (firstRun)
 		{
 			firstRun = false;
-			switch (GCSettings.Interpolation)
-			{
-				case 0: Settings.InterpolationMethod = DSP_INTERPOLATION_GAUSSIAN; break;
-				case 1: Settings.InterpolationMethod = DSP_INTERPOLATION_LINEAR; break;
-				case 2: Settings.InterpolationMethod = DSP_INTERPOLATION_CUBIC; break;
-				case 3: Settings.InterpolationMethod = DSP_INTERPOLATION_SINC; break;
-				case 4: Settings.InterpolationMethod = DSP_INTERPOLATION_NONE; break;
-			}
-
-			switch (GCSettings.sfxOverclock)
-			{
-				case 0: Settings.SuperFXSpeedPerLine = 5823405; break;
-				case 1: Settings.SuperFXSpeedPerLine = 0.417 * 20.5e6; break;
-				case 2: Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6; break;
-				case 3: Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6; break;
-				case 4: Settings.SuperFXSpeedPerLine = 0.417 * 80.5e6; break;
-				case 5: Settings.SuperFXSpeedPerLine = 0.417 * 100.5e6; break;
-				case 6: Settings.SuperFXSpeedPerLine = 0.417 * 120.5e6; break;
-			}
-
+			ApplyEmulationSettings();
 			GCSettings.sfxOverclock > 0 ? S9xResetSuperFX() : S9xReset();
-
-			switch (GCSettings.cpuOverclock)
-			{
-				case 0:
-					Settings.OneClockCycle = 6;
-					Settings.OneSlowClockCycle = 8;
-					Settings.TwoClockCycles = 12;
-					break;
-				case 1:
-					Settings.OneClockCycle = 6;
-					Settings.OneSlowClockCycle = 6;
-					Settings.TwoClockCycles = 12;
-					break;
-				case 2:
-					Settings.OneClockCycle = 4;
-					Settings.OneSlowClockCycle = 5;
-					Settings.TwoClockCycles = 6;
-					break;
-				case 3:
-					Settings.OneClockCycle = 3;
-					Settings.OneSlowClockCycle = 3;
-					Settings.TwoClockCycles = 3;
-					break;
-			}
 		}
 		
 		autoboot = false;
@@ -557,6 +604,8 @@ int main(int argc, char *argv[])
 		// since we're starting emulation again
 		HaltDeviceThread();
 
+		BezelPrepare(); // the bezel of the game (480i/480p), before the audio starts
+
 		AudioStart();
 
 		FrameTimer = 0;
@@ -568,16 +617,21 @@ int main(int argc, char *argv[])
 		while(1) // emulation loop
 		{
 			S9xMainLoop();
+			if (AutoOC.enabled)
+				S9xAutoOCEndFrame();
 			ReportButtons();
 
 			if (ResetRequested)
 			{
 				S9xSoftReset(); // reset game
+				AutoCropReset();
+				S9xAutoOCReset();
 				ResetRequested = 0;
 			}
 			if (ConfigRequested)
 			{
 				ConfigRequested = 0;
+				AutoCropSaveGame(); // layouts learned while playing
 				ResetVideo_Menu();
 				break;
 			}

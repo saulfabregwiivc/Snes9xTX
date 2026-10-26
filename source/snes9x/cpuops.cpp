@@ -22,6 +22,7 @@
 #define AddCycles(n)	{ CPU.Cycles += (n); while (CPU.Cycles >= CPU.NextEvent) S9xDoHEventProcessing(); }
 #endif
 
+#include "autooc.h"
 #include "cpuaddr.h"
 #include "cpuops.h"
 #include "cpumacro.h"
@@ -3318,6 +3319,8 @@ static void OpCB (void)
 	Registers.PCw--;
 	AddCycles(TWO_CYCLES);
 #else
+	if (AutoOC.enabled && !CPU.WaitingForInterrupt)
+		S9xAutoOCWaitBegin();
 	CPU.WaitingForInterrupt = TRUE;
 
 	Registers.PCw--;

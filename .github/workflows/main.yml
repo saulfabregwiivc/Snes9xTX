@@ -1,26 +1,57 @@
 name: Snes9x TX Build
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   build:
     name: Build Snes9x TX
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         image: ["Wii", "GameCube"]
-    container: devkitpro/devkitppc:latest
+    # same devkitPPC as the official Snes9x TX 1.1.3 release (January 2023)
+    container: devkitpro/devkitppc:20230110
  
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
       with:
         submodules: true
 
     - name: Build Wii
       if: ${{ matrix.image == 'Wii' }}
+      shell: bash
       run: |
-        make -f Makefile.wii -j2
+        set -o pipefail
+        if ! make -k -f Makefile.wii -j2 2>&1 | tee build.log; then
+          msg=$(grep -E -B1 "error:|Error [0-9]|undefined reference|cannot find|No such file|not found" build.log | grep -v "^--$" | awk '!seen[$0]++' | head -n 150 | sed -e 's/%/%25/g' -e 's/\r//g' | awk '{printf "%s%%0A", $0}')
+          echo "::error title=Wii build failed::$msg"
+          exit 1
+        fi
     
+    # Static data must stay well inside MEM1
+    - name: Memory use
+      if: ${{ matrix.image == 'Wii' }}
+      shell: bash
+      run: |
+        elf=executables/snes9xtx-wii.elf
+        nm=/opt/devkitpro/devkitPPC/bin/powerpc-eabi-nm
+        end=$($nm "$elf" | awk '($3 == "_end" || $3 == "__bss_end") && !e { e = $1 } END { print e }')
+        sizes=$(/opt/devkitpro/devkitPPC/bin/powerpc-eabi-size "$elf" | awk 'END { print }')
+        echo "::notice title=Memory use::end of static data 0x$end (MEM1 ends at 0x81800000); size: $sizes"
+
+    # Exception screens show code addresses. List them (SRR0 and the stack
+    # dump) in crash-addresses.txt and this step names the functions.
+    - name: Resolve crash addresses
+      if: ${{ matrix.image == 'Wii' && hashFiles('crash-addresses.txt') != '' }}
+      shell: bash
+      run: bash .github/resolve-crash.sh executables/snes9xtx-wii.elf crash-addresses.txt
+
     - name: Copy Wii artifact
       if: ${{ matrix.image == 'Wii' }}
       run: | 
@@ -28,14 +59,17 @@ jobs:
         mkdir -p dist/Snes9xTX/snes9xtx/roms
         mkdir dist/Snes9xTX/snes9xtx/cheats
         mkdir dist/Snes9xTX/snes9xtx/saves
+        mkdir dist/Snes9xTX/snes9xtx/bezels
         touch dist/Snes9xTX/snes9xtx/roms/romsdir
         touch dist/Snes9xTX/snes9xtx/cheats/cheatsdir
         touch dist/Snes9xTX/snes9xtx/saves/savesdir
+        touch dist/Snes9xTX/snes9xtx/bezels/bezelsdir
         cp hbc/* dist/Snes9xTX/apps/snes9xtx/
+        cp LICENSE dist/Snes9xTX/apps/snes9xtx/
         cp executables/snes9xtx-wii.dol dist/Snes9xTX/apps/snes9xtx/boot.dol
 
     - name: Upload Wii artifacts
-      uses: actions/upload-artifact@v3.1.0
+      uses: actions/upload-artifact@v4
       if: ${{ matrix.image == 'Wii' }}
       with: 
         name: Snes9xTX
@@ -44,19 +78,55 @@ jobs:
     
     - name: Build GameCube
       if: ${{ matrix.image == 'GameCube' }}
+      shell: bash
       run: |
-        make -f Makefile.gc -j2
+        set -o pipefail
+        if ! make -k -f Makefile.gc -j2 2>&1 | tee build.log; then
+          msg=$(grep -E -B1 "error:|Error [0-9]|undefined reference|cannot find|No such file|not found" build.log | grep -v "^--$" | awk '!seen[$0]++' | head -n 150 | sed -e 's/%/%25/g' -e 's/\r//g' | awk '{printf "%s%%0A", $0}')
+          echo "::error title=GameCube build failed::$msg"
+          exit 1
+        fi
         
     - name: Copy GameCube artifact
       if: ${{ matrix.image == 'GameCube' }}
       run: | 
         mkdir -p dist/Snes9xTX-GameCube
-        cp executables/snes9xtx-gc.dol dist/Snes9xTX-GameCube/
+        cp executables/snes9xtx-gc.dol LICENSE dist/Snes9xTX-GameCube/
     
     - name: Upload GameCube artifact
-      uses: actions/upload-artifact@v3.1.0
+      uses: actions/upload-artifact@v4
       if: ${{ matrix.image == 'GameCube' }}
       with: 
         name: Snes9xTX-GameCube
         path: |
          dist/Snes9xTX-GameCube/
+
+  # Publishing a release on GitHub (for example tag v1.1.3-usb.2) builds it and
+  # attaches both builds as .zip files. If the release text is empty, it is
+  # filled from .github/RELEASE_NOTES.md.
+  release:
+    name: Attach the files to the release
+    needs: build
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/download-artifact@v4
+      with:
+        path: artifacts
+
+    - name: Zip and publish
+      env:
+        GH_TOKEN: ${{ github.token }}
+        GH_REPO: ${{ github.repository }}
+        TAG: ${{ github.event.release.tag_name }}
+      run: |
+        (cd artifacts/Snes9xTX && zip -r -X "$GITHUB_WORKSPACE/Snes9xTX-Wii.zip" .)
+        (cd artifacts/Snes9xTX-GameCube && zip -r -X "$GITHUB_WORKSPACE/Snes9xTX-GameCube.zip" .)
+        if [ -z "$(gh release view "$TAG" --json body --jq .body)" ]; then
+          gh release edit "$TAG" --notes-file .github/RELEASE_NOTES.md
+        fi
+        gh release upload "$TAG" Snes9xTX-Wii.zip Snes9xTX-GameCube.zip --clobber

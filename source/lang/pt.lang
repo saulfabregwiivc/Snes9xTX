@@ -684,3 +684,81 @@ msgstr "O IOS actual não é suportado. A funcionalidade e/ou estabilidade podem
 
 msgid "Turkish"
 msgstr "Turco"
+
+msgid "Fit (keep proportions)"
+msgstr "Fit (manter proporções)"
+
+msgid "Stretch (fill frame)"
+msgstr "Stretch (preencher o quadro)"
+
+msgid "Add Code"
+msgstr "Adicionar Código"
+
+msgid "Delete Code"
+msgstr "Apagar Código"
+
+msgid "Cheats - Choose a code to delete"
+msgstr "Truques - Escolha o código a apagar"
+
+msgid "No codes yet."
+msgstr "Ainda não há códigos."
+
+msgid "Could not save the cheat file!"
+msgstr "Não foi possível guardar o ficheiro de truques!"
+
+msgid "Too many codes! Delete one first."
+msgstr "Demasiados códigos! Apague um primeiro."
+
+msgid "Invalid code"
+msgstr "Código inválido"
+
+msgid "not a valid code. A Game Genie code has 8 letters and numbers."
+msgstr "não é um código válido. Um código de Game Genie tem 8 letras e números."
+
+msgid "not a valid code. An Action Replay code has 8 letters and numbers."
+msgstr "não é um código válido. Um código de Action Replay tem 8 letras e números."
+
+msgid "Game Genie or Action Replay?"
+msgstr "Game Genie ou Action Replay?"
+
+msgid "Auto Crop Scaling"
+msgstr "Escala do Auto Crop"
+
+msgid "Integer (no blended lines)"
+msgstr "Inteira (sem linhas misturadas)"
+
+msgid "Smooth (fill the frame)"
+msgstr "Suave (preenche o quadro)"
+
+msgid "Rename Code"
+msgstr "Mudar Nome do Código"
+
+msgid "Cheats - Choose a code to rename"
+msgstr "Truques - Escolha o código a que mudar o nome"
+
+msgid "Game Genie code"
+msgstr "Código de Game Genie"
+
+msgid "Action Replay code"
+msgstr "Código de Action Replay"
+
+msgid "Name of the code (optional)"
+msgstr "Nome do código (opcional)"
+
+msgid "New name of the code"
+msgstr "Novo nome do código"
+
+msgid "Per-Game: On"
+msgstr "Por Jogo: Sim"
+
+msgid "Per-Game: Off"
+msgstr "Por Jogo: Não"
+
+msgid "Per-Game Settings"
+msgstr "Definições por Jogo"
+
+msgid "From now on, the video, audio and emulation settings you change are kept for this game only."
+msgstr "A partir de agora, as definições de vídeo, som e emulação que mudar valem só para este jogo."
+
+msgid "Use the global settings for this game again?"
+msgstr "Voltar a usar as definições gerais neste jogo?"

@@ -23,6 +23,7 @@ GuiOptionBrowser::GuiOptionBrowser(int w, int h, OptionList * l)
 	listChanged = true; // trigger an initial list update
 	selectedItem = 0;
 	focus = 0; // allow focus
+	leaveDown = false;
 
 	trigA = new GuiTrigger;
 	trigA->SetSimpleTrigger(-1, WPAD_BUTTON_A | WPAD_CLASSIC_BUTTON_A, PAD_BUTTON_A, WIIDRC_BUTTON_A);
@@ -244,6 +245,13 @@ void GuiOptionBrowser::TriggerUpdate()
 	listChanged = true;
 }
 
+bool GuiOptionBrowser::LeaveDownRequested()
+{
+	bool r = leaveDown;
+	leaveDown = false;
+	return r;
+}
+
 void GuiOptionBrowser::ResetText()
 {
 	int next = listOffset;
@@ -344,6 +352,10 @@ void GuiOptionBrowser::Update(GuiTrigger * t)
 				optionBtn[selectedItem+1]->SetState(STATE_SELECTED, t->chan);
 				++selectedItem;
 			}
+		}
+		else if(t->Down())
+		{
+			leaveDown = true; // last line
 		}
 		arrowDownBtn->ResetState();
 	}

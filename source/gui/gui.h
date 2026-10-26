@@ -517,6 +517,9 @@ class GuiWindow : public GuiElement
 		//!This is intended for the primary GuiWindow only
 		//!\param e GuiElement that should have focus
 		void ChangeFocus(GuiElement * e);
+		//!True once after Up was pressed with nothing above the selected
+		//!element (the menu can then move the focus to the element above)
+		bool LeaveUpRequested();
 		//!Changes window focus to the next focusable window or element
 		//!If no element is in focus, changes focus to the first available element
 		//!If B or 1 button is pressed, changes focus to the next available element
@@ -540,6 +543,7 @@ class GuiWindow : public GuiElement
 		//!\param t Pointer to a GuiTrigger, containing the current input data from PAD/WPAD
 		void Update(GuiTrigger * t);
 	protected:
+		bool leaveUp;
 		std::vector<GuiElement*> _elements; //!< Contains all elements within the GuiWindow
 };
 
@@ -841,8 +845,13 @@ class GuiKeyboard : public GuiWindow
 		GuiKeyboard(char * t, u32 m);
 		~GuiKeyboard();
 		void Update(GuiTrigger * t);
+		//! Called after every change of the text, to keep it in a format
+		//! (for example inserting separators); NULL for none.
+		void SetTextFilter(void (*f)(char * text, int size));
 		char kbtextstr[256];
 	protected:
+		void TextChanged();
+		void (*textFilter)(char * text, int size);
 		u32 kbtextmaxlen;
 		int shift;
 		int caps;
@@ -903,8 +912,12 @@ class GuiOptionBrowser : public GuiElement
 		void TriggerUpdate();
 		void ResetText();
 		void Update(GuiTrigger * t);
+		//! True once after Down was pressed on the last line (the menu can
+		//! then move the focus to the buttons below the list)
+		bool LeaveDownRequested();
 		GuiText * optionVal[PAGESIZE];
 	protected:
+		bool leaveDown;
 		int optionIndex[PAGESIZE];
 		GuiButton * optionBtn[PAGESIZE];
 		GuiText * optionTxt[PAGESIZE];

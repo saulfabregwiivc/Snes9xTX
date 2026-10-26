@@ -891,11 +891,24 @@ size_t LoadFont(char * filepath)
 	return loadSize;
 }
 
+// Menu music is not built in: Snes9x TX plays bg_music.ogg from the app folder
+// (apps/snes9xtx). The data folder (sd:/snes9xtx or usb:/snes9xtx) is also
+// checked, since both places are called "the snes9xtx folder".
 void LoadBgMusic()
 {
+	if(bg_music)
+		return; // already loaded
+
 	char filepath[MAXPATHLEN];
-	sprintf(filepath, "%s/bg_music.ogg", appPath);
-	FILE *file = fopen (filepath, "rb");
+	const char *places[3] = { appPath, "sd:/snes9xtx", "usb:/snes9xtx" };
+	FILE *file = NULL;
+
+	for(int i = 0; i < 3 && !file; i++) {
+		if(places[i][0] == 0)
+			continue;
+		snprintf(filepath, sizeof(filepath), "%s/bg_music.ogg", places[i]);
+		file = fopen (filepath, "rb");
+	}
 	if(!file) {
 		return;
 	}
@@ -904,18 +917,24 @@ void LoadBgMusic()
 	size_t ogg_size = ftello(file);
 
 	if(ogg_size == 0) {
+		fclose(file);
 		return;
 	}
 
 	u8 * ogg_data = (u8 *)mem2_malloc(ogg_size);
 
 	if(!ogg_data) {
+		fclose(file);
 		return;
 	}
 
 	fseeko(file, 0, SEEK_SET);
-	fread (ogg_data, 1, ogg_size, file);
+	size_t read = fread (ogg_data, 1, ogg_size, file);
 	fclose(file);
+	if(read != ogg_size) {
+		mem2_free(ogg_data);
+		return;
+	}
 	bg_music = ogg_data;
 	bg_music_size = ogg_size;
 }

@@ -24,6 +24,7 @@
 #include "filebrowser.h"
 #include "input.h"
 #include "button_mapping.h"
+#include "gamesettings.h"
 
 #include "snes9x/apu/apu.h"
 
@@ -88,7 +89,9 @@ static const char * XMLSaveCallback(mxml_node_t *node, int where)
 {
 	const char *name;
 
-	name = node->value.element.name;
+	name = mxmlGetElement(node);
+	if (name == NULL)
+		return (NULL);
 
 	if(where == MXML_WS_BEFORE_CLOSE)
 	{
@@ -148,6 +151,9 @@ preparePrefsData ()
 	createXMLSetting("FrameSkip", "Frame Skipping", toStr(GCSettings.FrameSkip));
 	createXMLSetting("ShowFrameRate", "Show Frame Rate", toStr(GCSettings.ShowFrameRate));
 	createXMLSetting("crosshair", "Show Crosshair", toStr(GCSettings.crosshair));
+	createXMLSetting("AutoCrop", "Auto Crop Black Borders", toStr(GCSettings.AutoCrop));
+	createXMLSetting("AutoCropScale", "Auto Crop Scaling", toStr(GCSettings.AutoCropScale));
+	createXMLSetting("Bezel", "Bezel", GCSettings.Bezel);
 	createXMLSetting("xshift", "Horizontal Video Shift", toStr(GCSettings.xshift));
 	createXMLSetting("yshift", "Vertical Video Shift", toStr(GCSettings.yshift));
 
@@ -165,6 +171,7 @@ preparePrefsData ()
 	createXMLSection("Emulation", "Emulation Settings");
 
 	createXMLSetting("Satellaview", "Satellaview BIOS", toStr(GCSettings.Satellaview));
+	createXMLSetting("Region", "Region", toStr(GCSettings.Region));
 
 	createXMLSection("Menu", "Menu Settings");
 
@@ -341,6 +348,9 @@ decodePrefsData ()
 			loadXMLSetting(&GCSettings.FrameSkip, "FrameSkip");
 			loadXMLSetting(&GCSettings.ShowFrameRate, "ShowFrameRate");
 			loadXMLSetting(&GCSettings.crosshair, "crosshair");
+			loadXMLSetting(&GCSettings.AutoCrop, "AutoCrop");
+			loadXMLSetting(&GCSettings.AutoCropScale, "AutoCropScale");
+			loadXMLSetting(GCSettings.Bezel, "Bezel", sizeof(GCSettings.Bezel));
 			loadXMLSetting(&GCSettings.xshift, "xshift");
 			loadXMLSetting(&GCSettings.yshift, "yshift");
 
@@ -358,6 +368,7 @@ decodePrefsData ()
 			// Emulation Settings
 
 			loadXMLSetting(&GCSettings.Satellaview, "Satellaview");
+			loadXMLSetting(&GCSettings.Region, "Region");
 
 			// Menu Settings
 
@@ -416,6 +427,14 @@ void FixInvalidSettings()
 		GCSettings.yshift = 0;
 	if(!(GCSettings.MusicVolume >= 0 && GCSettings.MusicVolume <= 100))
 		GCSettings.MusicVolume = 80;
+	if(GCSettings.Region < REGION_AUTO || GCSettings.Region >= REGION_COUNT)
+		GCSettings.Region = REGION_AUTO;
+	if(GCSettings.cpuOverclock < CPU_OVERCLOCK_NONE || GCSettings.cpuOverclock >= CPU_OVERCLOCK_COUNT)
+		GCSettings.cpuOverclock = CPU_OVERCLOCK_NONE;
+	if(GCSettings.AutoCrop < AUTOCROP_OFF || GCSettings.AutoCrop >= AUTOCROP_MODES)
+		GCSettings.AutoCrop = AUTOCROP_OFF;
+	if(GCSettings.AutoCropScale < AUTOCROP_SCALE_SMOOTH || GCSettings.AutoCropScale >= AUTOCROP_SCALINGS)
+		GCSettings.AutoCropScale = AUTOCROP_SCALE_SMOOTH;
 	if(!(GCSettings.SFXVolume >= 0 && GCSettings.SFXVolume <= 100))
 		GCSettings.SFXVolume = 20;
 	if(GCSettings.language < 0 || GCSettings.language >= LANG_LENGTH)
@@ -426,6 +445,9 @@ void FixInvalidSettings()
 		GCSettings.videomode = 0;
 	if(!(GCSettings.render >= 0 && GCSettings.render < 2))
 		GCSettings.render = 0;
+	GCSettings.Bezel[sizeof(GCSettings.Bezel) - 1] = 0;
+	if(strchr(GCSettings.Bezel, '/') || strchr(GCSettings.Bezel, '\\'))
+		GCSettings.Bezel[0] = 0; // a file name only
 }
 
 /****************************************************************************
@@ -449,6 +471,9 @@ DefaultSettings ()
 	GCSettings.bilinear = 0; // Disabled by default
 	GCSettings.VideoFilter = FILTER_NONE; // No video filter
 	GCSettings.crosshair = 1; // Enabled by default
+	GCSettings.AutoCrop = AUTOCROP_OFF; // Disabled by default
+	GCSettings.AutoCropScale = AUTOCROP_SCALE_SMOOTH;
+	snprintf(GCSettings.Bezel, sizeof(GCSettings.Bezel), "%s", BEZEL_DEFAULT); // the built-in bezel (480i/480p)
 
 	GCSettings.aspect = 0;
 
@@ -463,6 +488,7 @@ DefaultSettings ()
 	GCSettings.yshift = 0; // Vertical video shift
 
 	GCSettings.Satellaview = 1; // Enabled by default
+	GCSettings.Region = REGION_AUTO;
 
 	GCSettings.WiimoteOrientation = 0;
 	GCSettings.ExitAction = 0;
@@ -559,8 +585,22 @@ DefaultSettings ()
  ***************************************************************************/
 static char prefpath[MAXPATHLEN] = { 0 };
 
+static bool SaveGlobalPrefs (bool silent);
+
+// The loaded game's own settings go to its file; the global preferences keep
+// the global values of those options.
 bool
 SavePrefs (bool silent)
+{
+	GameSettingsSave();
+	GameSettingsBeginGlobalSave();
+	bool result = SaveGlobalPrefs(silent);
+	GameSettingsEndGlobalSave();
+	return result;
+}
+
+static bool
+SaveGlobalPrefs (bool silent)
 {
 	char filepath[MAXPATHLEN];
 	int datasize;
@@ -759,6 +799,8 @@ bool LoadPrefs()
 		sprintf(dirPath, "%s%s", pathPrefix[GCSettings.LoadMethod], GCSettings.ArtworkFolder);
 		CreateDirectory(dirPath);
 		sprintf(dirPath, "%s%s", pathPrefix[GCSettings.LoadMethod], GCSettings.CheatFolder);
+		CreateDirectory(dirPath);
+		sprintf(dirPath, "%s%s/bezels", pathPrefix[GCSettings.LoadMethod], APPFOLDER);
 		CreateDirectory(dirPath);
 	}
 

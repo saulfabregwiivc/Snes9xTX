@@ -50,6 +50,10 @@ struct SGFX
 		}	OBJ[128];
 	}	OBJLines[SNES_HEIGHT_EXTENDED];
 
+	// Non-zero when the line was drawn with the display off: forced blank,
+	// zero brightness or no main-screen layers. Used by the auto crop.
+	uint8	LineBlank[SNES_HEIGHT_EXTENDED];
+
 	void	(*DrawBackdropMath) (uint32, uint32, uint32);
 	void	(*DrawBackdropNomath) (uint32, uint32, uint32);
 	void	(*DrawTileMath) (uint32, uint32, uint32, uint32);

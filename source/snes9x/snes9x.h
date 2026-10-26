@@ -226,6 +226,7 @@ struct SSettings
 	bool8	ForceNotInterleaved;
 	bool8	ForcePAL;
 	bool8	ForceNTSC;
+	bool8	NTSCLiePAL;	// Report PAL in STAT78 without changing NTSC timing.
 	bool8	PAL;
 	uint32	FrameTimePAL;
 	uint32	FrameTimeNTSC;

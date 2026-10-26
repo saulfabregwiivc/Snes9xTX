@@ -7,6 +7,54 @@ Snes9x TX is a fork of Snes9x GX: https://github.com/dborth/snes9xgx
 Update History
 --------------
 
+---Snes9x TX 1.1.3-usb.3 (VrepliroidV)---
+---October 25 2026---
+
+- PNG bezels (Video > Bezel), in 480i and 480p (not in 240p): the game
+  fills the transparent window found in the middle of the PNG, with the
+  bezel drawn over its edges; a PNG without a window is a background. Any
+  PNG size; the bezel covers the whole picture of the TV
+- Choices: Off, Default (TV) (a TV frame built into the emulator, on by
+  default), Auto (<game>.png, else default.png, else the TV frame) and each
+  PNG in snes9xtx/bezels on the SD card or USB drive. Kept per game too
+- pt-BR translations for the new texts
+
+---Snes9x TX 1.1.3-usb.2 (VrepliroidV)---
+---October 21 2026---
+
+- Auto Crop of black borders (Video > Auto Crop: Off / Fit / Stretch), with
+  the rules of the snes9x-ntsc-lie-pal Libretro core; layouts are remembered
+  per game in <game>.autocrop next to the saves
+- Auto Crop Scaling: Smooth (sharp scaling when bilinear filtering is off)
+  or Integer (whole-number scaling only)
+- Automatic CPU overclock (Emulation Hacks > CPU Overclocking: Auto): one
+  level more when the game slows down, one less when it is not needed; off
+  while the screen is dark or fading, while NMI is off, while music goes to
+  the sound chip and when a game starts. Shown under the frame rate
+- Per-game settings (Game Settings > Per-Game): video, audio and emulation
+  options kept for one game in <game>.cfg next to the saves
+- Cheats: Add Code types Game Genie or Action Replay codes (the - : and +
+  are added by themselves) and a name for them, Rename Code and Delete Code;
+  saved to the game's cheat file with their on/off state, and codes saved as
+  on work again when the game loads. Works with every controller, and the
+  d-pad reaches Go Back
+- Removed the L + R + Start and L + R + Plus menu combos
+- pt-BR and pt translations for the new texts
+
+---Snes9x TX 1.1.3-usb.1 (VrepliroidV)---
+---October 18 2026---
+
+- Xbox 360 (XInput) USB controllers, wired or through a 2.4 GHz receiver
+  plugged into the Wii (tested: Retroflag Classic Controller-M wireless and a
+  generic SNES Classic Mini wireless pad). Up to 4, hot-plug, read as
+  GameCube controllers. L + Select + Start opens the menu.
+- The region option is applied on every game load
+- New region option: NTSC (Lie to PAL), NTSC timing with a PAL console
+- bg_music.ogg is also looked for in the app folder and in usb:/snes9xtx
+- Fixed the DualShock 3 support polling an invalid handle whenever another
+  USB HID device was plugged in (crash at start-up with some receivers)
+- Downloads: https://github.com/VrepliroidV/Snes9xTX/releases
+
 ---Snes9x TX 1.1.3---
 ---January 15 2023---
 

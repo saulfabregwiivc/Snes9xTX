@@ -23,6 +23,7 @@
 #include "snes9x/snes9x.h"
 #include "snes9x/port.h"
 #include "snes9x/memmap.h"
+#include "snes9x/autooc.h"
 #include "snes9x/snapshot.h"
 #include "snes9x/language.h"
 
@@ -109,7 +110,10 @@ LoadSnapshot (char * filepath, bool silent)
 	CLOSE_STREAM(fp);
 
 	if (result == SUCCESS)
+	{
+		S9xAutoOCReset(); // the automatic overclock starts from none again
 		return 1;
+	}
 
 	switch (result)
 	{

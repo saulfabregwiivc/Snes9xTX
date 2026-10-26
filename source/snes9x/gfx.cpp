@@ -10,6 +10,7 @@
 #include "controls.h"
 #include "crosshairs.h"
 #include "cheats.h"
+#include "autooc.h"
 #include "movie.h"
 #include "screenshot.h"
 #include "font.h"
@@ -455,6 +456,12 @@ void S9xUpdateScreen (void)
 	GFX.StartY = IPPU.PreviousLine;
 	if ((GFX.EndY = IPPU.CurrentLine - 1) >= PPU.ScreenHeight)
 		GFX.EndY = PPU.ScreenHeight - 1;
+
+	{
+		const uint8 blank = PPU.ForcedBlanking || PPU.Brightness == 0 || !(Memory.FillRAM[0x212c] & 0x1f);
+		for (uint32 l = GFX.StartY; l <= GFX.EndY && l < SNES_HEIGHT_EXTENDED; l++)
+			GFX.LineBlank[l] = blank;
+	}
 
 	if (!PPU.ForcedBlanking)
 	{
@@ -1856,7 +1863,7 @@ static void DisplayTime (void)
 
 static void DisplayFrameRate (void)
 {
-	char	string[10];
+	char	string[16];
 	static uint32 lastFrameCount = 0, calcFps = 0;
 	static time_t lastTime = time(NULL);
 
@@ -1880,6 +1887,14 @@ static void DisplayFrameRate (void)
 #endif
 
 	S9xDisplayString(string, 1, IPPU.RenderedScreenWidth - (font_width - 1) * len - 1, false);
+
+	// automatic overclock: the level in use and how busy the CPU was
+	if (AutoOC.enabled)
+	{
+		static const char	*levels[AUTOOC_LEVELS] = { "Off", "Low", "Med", "Max" };
+		sprintf(string, "OC %s %3d%%", levels[AutoOC.level], (int) ((AutoOC.busy + 5) / 10));
+		S9xDisplayString(string, 3, IPPU.RenderedScreenWidth - (font_width - 1) * strlen(string) - 1, false);
+	}
 }
 
 static void DisplayPressedKeys (void)

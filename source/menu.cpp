@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <sys/stat.h>
 
 #ifdef HW_RVL
@@ -37,16 +38,20 @@
 #include "gui/gui.h"
 #include "menu.h"
 #include "utils/gettext.h"
+#include <ctype.h>
 #include "utils/FreeTypeGX.h"
 
 #include "snes9x/snes9x.h"
 #include "snes9x/fxemu.h"
 #include "snes9x/memmap.h"
+#include "snes9x/autooc.h"
 #include "snes9x/apu/apu.h"
 #include "snes9x/cheats.h"
 
+#include "cheatmgr.h"
+#include "gamesettings.h"
+
 extern SCheatData Cheat;
-extern void ToggleCheat(uint32);
 
 #define THREAD_SLEEP 100
 
@@ -336,6 +341,11 @@ UpdateGUI (void *arg)
 		if(guiHalt)
 			LWP_SuspendThread(guithread);
 
+		static bool firstFrame = true;
+		if(firstFrame) {
+			firstFrame = false;
+			STARTUP_NOTE("gui: first frame");
+		}
 		UpdatePads();
 		mainWindow->Draw();
 
@@ -456,6 +466,7 @@ ProgressWindow(char *title, char *msg)
 		return;
 
 	HaltGui();
+	STARTUP_NOTE("progress window shown: %s", msg);
 	int oldState = mainWindow->GetState();
 	mainWindow->SetState(STATE_DISABLED);
 	mainWindow->Append(&promptWindow);
@@ -497,6 +508,7 @@ ProgressWindow(char *title, char *msg)
 	HaltGui();
 	mainWindow->Remove(&promptWindow);
 	mainWindow->SetState(oldState);
+	STARTUP_NOTE("progress window hidden");
 	ResumeGui();
 }
 
@@ -588,6 +600,7 @@ ShowAction (const char *msg)
 	if(showProgress != 0)
 		CancelAction(); // wait for previous progress window to finish
 
+	STARTUP_NOTE("action: %s", msg);
 	snprintf(progressMsg, 200, "%s", msg);
 	sprintf(progressTitle, "Please Wait");
 	showProgress = 2;
@@ -598,6 +611,7 @@ ShowAction (const char *msg)
 
 void ErrorPrompt(const char *msg)
 {
+	STARTUP_NOTE("error prompt: %s", msg);
 	WindowPrompt("Error", msg, "OK", NULL);
 }
 
@@ -643,11 +657,20 @@ void AutoSave()
  * Opens an on-screen keyboard window, with the data entered being stored
  * into the specified variable.
  ***************************************************************************/
-static void OnScreenKeyboard(char * var, u32 maxlen)
+static void OnScreenKeyboard(char * var, u32 maxlen, void (*filter)(char * text, int size) = NULL, const char * title = NULL)
 {
 	int save = -1;
 
 	GuiKeyboard keyboard(var, maxlen);
+	if(filter)
+		keyboard.SetTextFilter(filter);
+
+	// what to type, above the keyboard (in the grey bar at the top)
+	GuiText titleTxt(title, 22, (GXColor){255, 255, 255, 255});
+	titleTxt.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
+	titleTxt.SetPosition(0, -32);
+	if(title)
+		keyboard.Append(&titleTxt);
 
 	GuiSound btnSoundOver(button_over_pcm, button_over_pcm_size, SOUND_PCM);
 	GuiSound btnSoundClick(button_click_pcm, button_click_pcm_size, SOUND_PCM);
@@ -882,7 +905,7 @@ static void WindowCredits(void * ptr)
 
 	char wiiDetails[30];
 	char wiiInfo[20];
-	char controllerInfo[50];
+	char controllerInfo[80] = "";
 
 #ifdef HW_RVL
 	if(!IsWiiU()) {
@@ -895,7 +918,7 @@ static void WindowCredits(void * ptr)
 		sprintf(wiiInfo, "vWii (729 MHz)");
 	}
 	sprintf(wiiDetails, "IOS: %d / %s", IOS_GetVersion(), wiiInfo);
-	sprintf(controllerInfo, GetUSBControllerInfo());
+	snprintf(controllerInfo, sizeof(controllerInfo), "%s", GetUSBControllerInfo());
 #endif
 
 	txt[i] = new GuiText(controllerInfo, 14, (GXColor){0, 0, 0, 255});
@@ -981,6 +1004,7 @@ static char* getImageFolder()
 
 static int MenuGameSelection()
 {
+	STARTUP_NOTE("menu: game selection");
 	int menu = MENU_NONE;
 	bool res;
 	int i;
@@ -1690,6 +1714,8 @@ static int MenuGame()
 			if (WindowPrompt("Reset Game", "Are you sure that you want to reset this game? Any unsaved progress will be lost.", "OK", "Cancel"))
 			{
 				S9xSoftReset ();
+				AutoCropReset();
+				S9xAutoOCReset();
 				menu = MENU_EXIT;
 			}
 		}
@@ -2283,9 +2309,28 @@ static int MenuGameSettings()
 	backBtn.SetTrigger(&trig1);
 	backBtn.SetEffectGrow();
 
+	// per-game settings: between Go Back and the logo
+	GuiImageData btnShortOutline(button_short_png);
+	GuiImageData btnShortOutlineOver(button_short_over_png);
+	GuiText perGameBtnTxt(GameSettingsActive() ? "Per-Game: On" : "Per-Game: Off", 18, (GXColor){0, 0, 0, 255});
+	GuiImage perGameBtnImg(&btnShortOutline);
+	GuiImage perGameBtnImgOver(&btnShortOutlineOver);
+	GuiButton perGameBtn(btnShortOutline.GetWidth(), btnShortOutline.GetHeight());
+	perGameBtn.SetAlignment(ALIGN_CENTRE, ALIGN_BOTTOM);
+	perGameBtn.SetPosition(30, -35);
+	perGameBtn.SetLabel(&perGameBtnTxt);
+	perGameBtn.SetImage(&perGameBtnImg);
+	perGameBtn.SetImageOver(&perGameBtnImgOver);
+	perGameBtn.SetSoundOver(&btnSoundOver);
+	perGameBtn.SetSoundClick(&btnSoundClick);
+	perGameBtn.SetTrigger(trigA);
+	perGameBtn.SetTrigger(trig2);
+	perGameBtn.SetEffectGrow();
+
 	HaltGui();
 	GuiWindow w(screenwidth, screenheight);
 	w.Append(&titleTxt);
+	w.Append(&perGameBtn);
 	w.Append(&mappingBtn);
 	w.Append(&videoBtn);
 	w.Append(&audioBtn);
@@ -2322,14 +2367,25 @@ static int MenuGameSettings()
 		else if(cheatsBtn.GetState() == STATE_CLICKED)
 		{
 			cheatsBtn.ResetState();
-			if(Cheat.g.size() > 0)
-				menu = MENU_GAMESETTINGS_CHEATS;
-			else
-				InfoPrompt("Cheats file not found!");
+			menu = MENU_GAMESETTINGS_CHEATS; // codes can be typed there
 		}
 		else if(hacksBtn.GetState() == STATE_CLICKED)
 		{
 			menu = MENU_GAMESETTINGS_HACKS;
+		}
+		else if(perGameBtn.GetState() == STATE_CLICKED)
+		{
+			perGameBtn.ResetState();
+			if(!GameSettingsActive())
+			{
+				if(GameSettingsEnable())
+					InfoPrompt("From now on, the video, audio and emulation settings you change are kept for this game only.");
+			}
+			else if(WindowPrompt("Per-Game Settings", "Use the global settings for this game again?", "Yes", "No"))
+			{
+				GameSettingsDisable();
+			}
+			perGameBtnTxt.SetText(GameSettingsActive() ? "Per-Game: On" : "Per-Game: Off");
 		}
 		else if(closeBtn.GetState() == STATE_CLICKED)
 		{
@@ -2352,35 +2408,157 @@ static int MenuGameSettings()
 		}
 	}
 
+	GameSettingsSave(); // the game's own options, when it has them
+
 	HaltGui();
 	mainWindow->Remove(&w);
 	return menu;
 }
 
 /****************************************************************************
+ * Cheat code typing
+ *
+ * Only hex digits are kept and the separators are put in by themselves:
+ * XXXX-XXXX for Game Genie, XXXXXX:XX for Pro Action Replay, several codes
+ * joined with +. A separator only appears once the digit after it is typed,
+ * so erasing never gets stuck on one.
+ ***************************************************************************/
+static void FormatCheatText(char * text, int size, int sepPos, char sep)
+{
+	char out[256];
+	int o = 0, n = 0;
+
+	for(const char * p = text; *p; p++)
+	{
+		if(!isxdigit((unsigned char) *p))
+			continue;
+		if(o + 3 > size || o + 3 > (int) sizeof(out))
+			break;
+		const int pos = n % 8;
+		if(n > 0 && pos == 0)
+			out[o++] = '+';
+		else if(pos == sepPos)
+			out[o++] = sep;
+		out[o++] = toupper((unsigned char) *p);
+		n++;
+	}
+	out[o] = 0;
+	strcpy(text, out);
+}
+
+static void FormatGameGenie(char * text, int size)
+{
+	FormatCheatText(text, size, 4, '-');
+}
+
+static void FormatActionReplay(char * text, int size)
+{
+	FormatCheatText(text, size, 6, ':');
+}
+
+/****************************************************************************
  * MenuGameCheats
  *
  * Displays a list of cheats available, and allows the user to enable/disable
- * them.
+ * them, type new codes (Game Genie or Pro Action Replay) and delete codes.
+ * Adding and deleting are the first lines of the list, so every controller
+ * can reach them. Changes are saved to the game's cheat file right away.
  ***************************************************************************/
+// Rename Code and Delete Code: the next code picked in the list
+enum { CHEAT_PICK_NONE, CHEAT_PICK_RENAME, CHEAT_PICK_DELETE };
+static int cheatPickMode = CHEAT_PICK_NONE;
+
+static void SaveCheatsOrWarn()
+{
+	if(!SaveCheats())
+		ErrorPrompt("Could not save the cheat file!");
+}
+
+static void AddCheatPrompt()
+{
+	if(CheatCount() >= MAX_OPTIONS - 2)
+	{
+		InfoPrompt("Too many codes! Delete one first.");
+		return;
+	}
+
+	const bool genie = WindowPrompt("Add Code", "Game Genie or Action Replay?", "Game Genie", "Action Replay") == 1;
+
+	char code[200] = "";
+	OnScreenKeyboard(code, sizeof(code), genie ? FormatGameGenie : FormatActionReplay,
+		genie ? "Game Genie code" : "Action Replay code");
+	if(code[0] == 0)
+		return; // cancelled or nothing typed
+
+	char bad[64];
+	const int index = AddCheatCode(code, bad, sizeof(bad));
+	if(index >= 0)
+	{
+		// what the code does; without a name the code itself is shown
+		char name[41] = "";
+		OnScreenKeyboard(name, sizeof(name), NULL, "Name of the code (optional)");
+		if(name[0])
+			RenameCheat(index, name);
+		SaveCheatsOrWarn();
+		return;
+	}
+
+	char msg[300];
+	snprintf(msg, sizeof(msg), "%s - %s", bad[0] ? bad : code,
+		gettext(genie ? "not a valid code. A Game Genie code has 8 letters and numbers."
+		              : "not a valid code. An Action Replay code has 8 letters and numbers."));
+	WindowPrompt("Invalid code", msg, "OK", NULL);
+}
+
 static int MenuGameCheats()
 {
 	int menu = MENU_NONE;
 	int ret;
-	u16 i = 0;
+	int i = 0;
 	OptionList options;
 
-	for(i=0; i < Cheat.g.size(); i++)
+	// first lines: actions
+	const int addLine = i;
+	sprintf(options.name[i], "Add Code");
+	options.value[i++][0] = 0;
+	int renameLine = -1, deleteLine = -1;
+	if(Cheat.g.size() > 0)
 	{
-		snprintf (options.name[i], 50, "%s", Cheat.g[i].name);
-		sprintf (options.value[i], "%s", Cheat.g[i].enabled == true ? "On" : "Off");
+		renameLine = i;
+		sprintf(options.name[i], "Rename Code");
+		sprintf(options.value[i++], "%s", cheatPickMode == CHEAT_PICK_RENAME ? gettext("Cancel") : "");
+		deleteLine = i;
+		sprintf(options.name[i], "Delete Code");
+		sprintf(options.value[i++], "%s", cheatPickMode == CHEAT_PICK_DELETE ? gettext("Cancel") : "");
+	}
+	else
+	{
+		cheatPickMode = CHEAT_PICK_NONE;
+	}
+
+	const int firstCheat = i;
+	for(unsigned int c = 0; c < Cheat.g.size() && i < MAX_OPTIONS; c++, i++)
+	{
+		snprintf (options.name[i], 50, "%s", Cheat.g[c].name);
+		sprintf (options.value[i], "%s", Cheat.g[c].enabled == true ? "On" : "Off");
 	}
 
 	options.length = i;
 
-	GuiText titleTxt("Game Settings - Cheats", 26, (GXColor){255, 255, 255, 255});
+	GuiText titleTxt(cheatPickMode == CHEAT_PICK_DELETE ? "Cheats - Choose a code to delete" :
+		cheatPickMode == CHEAT_PICK_RENAME ? "Cheats - Choose a code to rename" : "Game Settings - Cheats",
+		26, (GXColor){255, 255, 255, 255});
 	titleTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
-	titleTxt.SetPosition(50,50);
+	titleTxt.SetPosition(50,44);
+
+	// inside the grey bar at the top (98 pixels)
+	GuiText hintTxt("Game Genie: XXXX-XXXX   Action Replay: XXXXXXXX", 16, (GXColor){255, 255, 255, 255});
+	hintTxt.SetAlignment(ALIGN_LEFT, ALIGN_TOP);
+	hintTxt.SetPosition(52,74);
+
+	GuiText emptyTxt("No codes yet.", 20, (GXColor){0, 0, 0, 255});
+	emptyTxt.SetAlignment(ALIGN_CENTRE, ALIGN_TOP);
+	emptyTxt.SetPosition(0, 220);
 
 	GuiSound btnSoundOver(button_over_pcm, button_over_pcm_size, SOUND_PCM);
 	GuiSound btnSoundClick(button_click_pcm, button_click_pcm_size, SOUND_PCM);
@@ -2419,23 +2597,89 @@ static int MenuGameCheats()
 	mainWindow->Append(&optionBrowser);
 	mainWindow->Append(&w);
 	mainWindow->Append(&titleTxt);
+	mainWindow->Append(&hintTxt);
+	if(Cheat.g.size() == 0)
+		mainWindow->Append(&emptyTxt);
 	ResumeGui();
 
 	while(menu == MENU_NONE)
 	{
 		usleep(THREAD_SLEEP);
 
+		// d-pad: down from the last line to Go Back, up from Go Back to the list
+		if(optionBrowser.LeaveDownRequested() && optionBrowser.IsFocused())
+		{
+			HaltGui();
+			mainWindow->ChangeFocus(&w);
+			w.LeaveUpRequested(); // forget an older Up
+			ResumeGui();
+		}
+		else if(w.LeaveUpRequested() && w.IsFocused())
+		{
+			HaltGui();
+			mainWindow->ChangeFocus(&optionBrowser);
+			ResumeGui();
+		}
+
 		ret = optionBrowser.GetClickedOption();
 
-		if(ret >= 0)
+		if(ret == addLine)
 		{
-			ToggleCheat(ret);
-			sprintf (options.value[ret], "%s", Cheat.g[ret].enabled == true ? "On" : "Off");
-			optionBrowser.TriggerUpdate();
+			cheatPickMode = CHEAT_PICK_NONE;
+			AddCheatPrompt();
+			menu = MENU_GAMESETTINGS_CHEATS; // show the new list
+		}
+		else if(ret >= 0 && ret == renameLine)
+		{
+			cheatPickMode = cheatPickMode == CHEAT_PICK_RENAME ? CHEAT_PICK_NONE : CHEAT_PICK_RENAME;
+			menu = MENU_GAMESETTINGS_CHEATS; // change the title
+		}
+		else if(ret >= 0 && ret == deleteLine)
+		{
+			cheatPickMode = cheatPickMode == CHEAT_PICK_DELETE ? CHEAT_PICK_NONE : CHEAT_PICK_DELETE;
+			menu = MENU_GAMESETTINGS_CHEATS; // change the title
+		}
+		else if(ret >= firstCheat && ret < options.length && (unsigned int) (ret - firstCheat) < Cheat.g.size())
+		{
+			const int c = ret - firstCheat;
+
+			if(cheatPickMode == CHEAT_PICK_DELETE)
+			{
+				char msg[200];
+				snprintf(msg, sizeof(msg), "%s", Cheat.g[c].name);
+				if(WindowPrompt("Delete Code", msg, "Delete", "Cancel"))
+				{
+					DeleteCheat(c);
+					SaveCheatsOrWarn();
+				}
+				cheatPickMode = CHEAT_PICK_NONE;
+				menu = MENU_GAMESETTINGS_CHEATS; // show the new list
+			}
+			else if(cheatPickMode == CHEAT_PICK_RENAME)
+			{
+				char name[41];
+				snprintf(name, sizeof(name), "%s", Cheat.g[c].name);
+				OnScreenKeyboard(name, sizeof(name), NULL, "New name of the code");
+				if(name[0] && strcmp(name, Cheat.g[c].name) != 0)
+				{
+					RenameCheat(c, name);
+					SaveCheatsOrWarn();
+				}
+				cheatPickMode = CHEAT_PICK_NONE;
+				menu = MENU_GAMESETTINGS_CHEATS; // show the new list
+			}
+			else
+			{
+				ToggleCheat(c);
+				sprintf (options.value[ret], "%s", Cheat.g[c].enabled == true ? "On" : "Off");
+				optionBrowser.TriggerUpdate();
+				SaveCheatsOrWarn();
+			}
 		}
 
 		if(backBtn.GetState() == STATE_CLICKED)
 		{
+			cheatPickMode = CHEAT_PICK_NONE;
 			menu = MENU_GAMESETTINGS;
 		}
 	}
@@ -2443,6 +2687,8 @@ static int MenuGameCheats()
 	mainWindow->Remove(&optionBrowser);
 	mainWindow->Remove(&w);
 	mainWindow->Remove(&titleTxt);
+	mainWindow->Remove(&hintTxt);
+	mainWindow->Remove(&emptyTxt);
 	return menu;
 }
 
@@ -3638,6 +3884,34 @@ static int MenuSettingsFastForward()
 	return menu;
 }
 
+// Bezel option: Off, Default (built in), Auto (the game's name), then each file.
+#define MAX_BEZELS 512
+
+static void NextBezel(char (*names)[BEZEL_NAME_MAX], int count)
+{
+	int i = -1; // Auto: the first file next
+	if (GCSettings.Bezel[0] == 0)
+	{
+		snprintf(GCSettings.Bezel, sizeof(GCSettings.Bezel), "%s", BEZEL_DEFAULT);
+		return;
+	}
+	if (strcmp(GCSettings.Bezel, BEZEL_DEFAULT) == 0)
+	{
+		snprintf(GCSettings.Bezel, sizeof(GCSettings.Bezel), "%s", BEZEL_AUTO);
+		return;
+	}
+	if (strcmp(GCSettings.Bezel, BEZEL_AUTO) != 0)
+	{
+		for (i = 0; i < count && strcasecmp(names[i], GCSettings.Bezel) != 0; i++);
+		if (i == count)
+			i = count - 1; // not there any more: off next
+	}
+	if (i + 1 < count)
+		snprintf(GCSettings.Bezel, sizeof(GCSettings.Bezel), "%s", names[i + 1]);
+	else
+		GCSettings.Bezel[0] = 0;
+}
+
 static int MenuSettingsVideo()
 {
 	int menu = MENU_NONE;
@@ -3657,11 +3931,18 @@ static int MenuSettingsVideo()
 	sprintf(options.name[i++], "Frame Skipping");
 	sprintf(options.name[i++], "Show Frame Rate");
 	sprintf(options.name[i++], "Show Crosshair");
+	sprintf(options.name[i++], "Auto Crop");
+	sprintf(options.name[i++], "Auto Crop Scaling");
+	sprintf(options.name[i++], "Bezel");
 	options.length = i;
 
 #ifdef HW_DOL
 	options.name[6][0] = 0; // disable filtering on GameCube
 #endif
+
+	// the PNG files in snes9xtx/bezels
+	char (*bezelNames)[BEZEL_NAME_MAX] = (char (*)[BEZEL_NAME_MAX]) malloc(MAX_BEZELS * BEZEL_NAME_MAX);
+	int bezelCount = bezelNames ? BezelList(bezelNames, MAX_BEZELS) : 0;
 
 	for(i=0; i < options.length; i++)
 		options.value[i][0] = 0;
@@ -3765,6 +4046,18 @@ static int MenuSettingsVideo()
 			case 10:
 				GCSettings.crosshair ^= 1;
 				break;
+
+			case 11:
+				GCSettings.AutoCrop = (GCSettings.AutoCrop + 1) % AUTOCROP_MODES;
+				break;
+
+			case 12:
+				GCSettings.AutoCropScale = (GCSettings.AutoCropScale + 1) % AUTOCROP_SCALINGS;
+				break;
+
+			case 13:
+				NextBezel(bezelNames, bezelCount);
+				break;
 		}
 
 		if(ret >= 0 || firstRun)
@@ -3809,6 +4102,27 @@ static int MenuSettingsVideo()
 			sprintf (options.value[9], "%s", GCSettings.ShowFrameRate == 1 ? "On" : "Off");
 			sprintf (options.value[10], "%s", GCSettings.crosshair == 1 ? "On" : "Off");
 
+			if (GCSettings.AutoCrop == AUTOCROP_FIT)
+				sprintf (options.value[11], "Fit (keep proportions)");
+			else if (GCSettings.AutoCrop == AUTOCROP_STRETCH)
+				sprintf (options.value[11], "Stretch (fill frame)");
+			else
+				sprintf (options.value[11], "Off");
+
+			if (GCSettings.AutoCropScale == AUTOCROP_SCALE_INTEGER)
+				sprintf (options.value[12], "Integer (no blended lines)");
+			else
+				sprintf (options.value[12], "Smooth (fill the frame)");
+
+			if (GCSettings.Bezel[0] == 0)
+				sprintf (options.value[13], "Off");
+			else if (strcmp(GCSettings.Bezel, BEZEL_DEFAULT) == 0)
+				sprintf (options.value[13], "Default (TV)");
+			else if (strcmp(GCSettings.Bezel, BEZEL_AUTO) == 0)
+				sprintf (options.value[13], "Auto (game name)");
+			else
+				bezel_display_name(GCSettings.Bezel, options.value[13], 28);
+
 			optionBrowser.TriggerUpdate();
 		}
 
@@ -3821,6 +4135,7 @@ static int MenuSettingsVideo()
 	mainWindow->Remove(&optionBrowser);
 	mainWindow->Remove(&w);
 	mainWindow->Remove(&titleTxt);
+	free(bezelNames);
 	return menu;
 }
 
@@ -4043,36 +4358,15 @@ static int MenuSettingsHacks()
 				}
 				S9xResetSuperFX();
 				S9xReset();
+				S9xAutoOCReset();
 				break;
 
 			case 1:
 				GCSettings.cpuOverclock++;
-				if (GCSettings.cpuOverclock > 3) {
-					GCSettings.cpuOverclock = 0;
+				if (GCSettings.cpuOverclock >= CPU_OVERCLOCK_COUNT) {
+					GCSettings.cpuOverclock = CPU_OVERCLOCK_NONE;
 				}
-				switch(GCSettings.cpuOverclock)
-				{
-					case 0:
-						Settings.OneClockCycle = 6;
-						Settings.OneSlowClockCycle = 8;
-						Settings.TwoClockCycles = 12;
-						break;
-					case 1:
-						Settings.OneClockCycle = 6;
-						Settings.OneSlowClockCycle = 6;
-						Settings.TwoClockCycles = 12;
-						break;
-					case 2:
-						Settings.OneClockCycle = 4;
-						Settings.OneSlowClockCycle = 5;
-						Settings.TwoClockCycles = 6;
-						break;
-					case 3:
-						Settings.OneClockCycle = 3;
-						Settings.OneSlowClockCycle = 3;
-						Settings.TwoClockCycles = 3;
-						break;
-				}
+				ApplyCpuOverclock();
 				break;
 
 			case 2:
@@ -4112,6 +4406,8 @@ static int MenuSettingsHacks()
 					sprintf (options.value[1], "Medium"); break;
 				case 3:
 					sprintf (options.value[1], "Max"); break;
+				case CPU_OVERCLOCK_AUTO:
+					sprintf (options.value[1], "Auto"); break;
 			}
 
 			sprintf (options.value[2], "%s", GCSettings.NoSpriteLimit == 1 ? "On" : "Off");
@@ -4821,25 +5117,10 @@ static int MenuSettingsEmulation()
 				break;
 
 			case 1:
+				// applied on every ROM load (ApplyRegionSetting) and saved
 				GCSettings.Region++;
-				if (GCSettings.Region > 2) {
-					GCSettings.Region = 0;
-				}
-				switch(GCSettings.Region)
-				{
-					case 0:
-						Settings.ForceNTSC = false;
-						Settings.ForcePAL = false;
-						break;
-					case 1:
-						Settings.ForceNTSC = true;
-						Settings.ForcePAL = false;
-						break;
-					case 2:
-						Settings.ForceNTSC = false;
-						Settings.ForcePAL = true;
-						break;
-				}
+				if (GCSettings.Region >= REGION_COUNT)
+					GCSettings.Region = REGION_AUTO;
 				break;
 		}
 
@@ -4851,12 +5132,14 @@ static int MenuSettingsEmulation()
 
 			switch(GCSettings.Region)
 			{
-				case 0:
-					sprintf (options.value[1], "Automatic"); break;
-				case 1:
+				case REGION_NTSC:
 					sprintf (options.value[1], "NTSC"); break;
-				case 2:
+				case REGION_PAL:
 					sprintf (options.value[1], "PAL"); break;
+				case REGION_NTSC_LIE_PAL:
+					sprintf (options.value[1], "NTSC (Lie to PAL)"); break;
+				default:
+					sprintf (options.value[1], "Automatic"); break;
 			}
 			optionBrowser.TriggerUpdate();
 		}
@@ -4949,10 +5232,12 @@ MainMenu (int menu)
 
 	if(currentMenu == MENU_GAMESELECTION)
 		ResumeGui();
+	STARTUP_NOTE("menu: GUI running");
 
 	if(firstRun) {
 		if(!LoadPrefs())
 			SavePrefs(SILENT);
+		STARTUP_NOTE("menu: settings loaded");
 	}
 
 #ifdef HW_RVL

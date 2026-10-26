@@ -95,7 +95,8 @@ static ss_instance_t * _ss_instance_list[SS_MAX_DEV];
 		//Search for Sixaxis and DualShock3 controllers
 		uint8_t i;
 		usb_device_entry *de;
-		for(i = 0; i < usb_dev_count; i++)
+		bool found = false;
+		for(i = 0; i < usb_dev_count && !found; i++)
 		{
 			de = &usb_dev_entry_list[i];
 			//Is it a 6AXIS or a DS3?
@@ -108,19 +109,26 @@ static ss_instance_t * _ss_instance_list[SS_MAX_DEV];
 						if(USB_OpenDevice(de->device_id, SS_VENDOR_ID, SS_PRODUCT_ID, &ss->fd) < 0)
 						{
 							ss_debug_printf("Could not open the controller. fd: %i\n", ss->fd);
-							goto exit_close;
+							return 0;
 						}
 						ss->dev_id = de->device_id;
+						found = true;
 				}
 			}
 		}
+		// No new DualShock 3 among the HID devices. Without this check the
+		// code went on with ss->fd still 0 and, every frame, sent a removal
+		// hook, control messages and a close to IOS descriptor 0 whenever any
+		// other HID device was plugged in.
+		if(!found)
+			return 0;
 		//Now the device is opened, so we have to set the disconnect callback
 		if(USB_DeviceRemovalNotifyAsync(ss->fd, &_ss_disconnect_cb, (void *)ss) < 0)
 		{
 			ss_debug_printf("Error setting the device disconnect callback.\n");
 			goto exit_close;
 		}
-		printf("dev_id: %i   fd: %i\n", ss->dev_id, ss->fd);
+		ss_debug_printf("dev_id: %i   fd: %i\n", ss->dev_id, ss->fd);
 
 		//Setting operational mode
 		ss_debug_printf("Setting operational mode...");

@@ -22,6 +22,7 @@
 #include "input.h"
 #include "snes9x/snes9x.h"
 #include "snes9x/memmap.h"
+#include "snes9x/autooc.h"
 #include "snes9x/srtc.h"
 
 bool HiROM;
@@ -74,6 +75,7 @@ LoadSRAM (char * filepath, bool silent)
 			ErrorPrompt("SRAM file not found");
 		}
 		S9xSoftReset();
+		S9xAutoOCReset();
 	}
 	return result;
 }

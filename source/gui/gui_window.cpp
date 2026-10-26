@@ -15,6 +15,7 @@ GuiWindow::GuiWindow()
 	width = 0;
 	height = 0;
 	focus = 0; // allow focus
+	leaveUp = false;
 }
 
 GuiWindow::GuiWindow(int w, int h)
@@ -22,6 +23,14 @@ GuiWindow::GuiWindow(int w, int h)
 	width = w;
 	height = h;
 	focus = 0; // allow focus
+	leaveUp = false;
+}
+
+bool GuiWindow::LeaveUpRequested()
+{
+	bool r = leaveUp;
+	leaveUp = false;
+	return r;
 }
 
 GuiWindow::~GuiWindow()
@@ -443,7 +452,12 @@ void GuiWindow::Update(GuiTrigger * t)
 		else if(t->Down())
 			this->MoveSelectionVert(1);
 		else if(t->Up())
+		{
+			int selected = this->GetSelected();
 			this->MoveSelectionVert(-1);
+			if(this->GetSelected() == selected)
+				leaveUp = true; // nothing above
+		}
 	}
 
 	if(updateCB)

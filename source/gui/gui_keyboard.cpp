@@ -17,7 +17,12 @@ static char * GetDisplayText(char * t)
 	if(!t)
 		return NULL;
 
-	snprintf(tmptxt, MAX_KEYBOARD_DISPLAY, "%s", t);
+	// long texts: show the end, where the typing happens
+	int len = strlen(t);
+	if(len > MAX_KEYBOARD_DISPLAY - 1)
+		snprintf(tmptxt, MAX_KEYBOARD_DISPLAY, "...%s", t + len - (MAX_KEYBOARD_DISPLAY - 4));
+	else
+		snprintf(tmptxt, MAX_KEYBOARD_DISPLAY, "%s", t);
 	return &tmptxt[0];
 }
 
@@ -37,6 +42,7 @@ GuiKeyboard::GuiKeyboard(char * t, u32 max)
 	alignmentVert = ALIGN_MIDDLE;
 	snprintf(kbtextstr, 255, "%s", t);
 	kbtextmaxlen = max;
+	textFilter = NULL;
 
 	Key thekeys[4][11] = {
 	{
@@ -259,6 +265,19 @@ GuiKeyboard::~GuiKeyboard()
 	}
 }
 
+void GuiKeyboard::SetTextFilter(void (*f)(char * text, int size))
+{
+	textFilter = f;
+	TextChanged();
+}
+
+void GuiKeyboard::TextChanged()
+{
+	if(textFilter)
+		textFilter(kbtextstr, kbtextmaxlen < sizeof(kbtextstr) ? kbtextmaxlen : sizeof(kbtextstr));
+	kbText->SetText(GetDisplayText(kbtextstr));
+}
+
 void GuiKeyboard::Update(GuiTrigger * t)
 {
 	if(_elements.size() == 0 || (state == STATE_DISABLED && parentElement))
@@ -274,10 +293,12 @@ void GuiKeyboard::Update(GuiTrigger * t)
 
 	if(keySpace->GetState() == STATE_CLICKED)
 	{
-		if(strlen(kbtextstr) < kbtextmaxlen)
+		if(strlen(kbtextstr) < kbtextmaxlen - 1)
 		{
-			kbtextstr[strlen(kbtextstr)] = ' ';
-			kbText->SetText(kbtextstr);
+			int len = strlen(kbtextstr);
+			kbtextstr[len] = ' ';
+			kbtextstr[len+1] = '\0';
+			TextChanged();
 		}
 		keySpace->SetState(STATE_SELECTED, t->chan);
 	}
@@ -286,7 +307,7 @@ void GuiKeyboard::Update(GuiTrigger * t)
 		if(strlen(kbtextstr) > 0)
 		{
 			kbtextstr[strlen(kbtextstr)-1] = 0;
-			kbText->SetText(GetDisplayText(kbtextstr));
+			TextChanged();
 		}
 		keyBack->SetState(STATE_SELECTED, t->chan);
 	}
@@ -339,7 +360,7 @@ void GuiKeyboard::Update(GuiTrigger * t)
 						}
 						kbtextstr[len+1] = '\0';
 					}
-					kbText->SetText(GetDisplayText(kbtextstr));
+					TextChanged();
 					keyBtn[i][j]->SetState(STATE_SELECTED, t->chan);
 
 					if(shift)

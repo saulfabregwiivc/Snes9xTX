@@ -55,6 +55,9 @@ msgstr "Determinando o dispositivo de jogo salvo..."
 msgid "Audio"
 msgstr "Áudio"
 
+msgid "Auto"
+msgstr "Automático"
+
 msgid "Auto Detect"
 msgstr "Auto Detectar"
 
@@ -699,3 +702,90 @@ msgstr "Orientação do WiiMote"
 
 msgid "Yes"
 msgstr "Sim"
+
+msgid "Fit (keep proportions)"
+msgstr "Fit (manter proporções)"
+
+msgid "Stretch (fill frame)"
+msgstr "Stretch (preencher o quadro)"
+
+msgid "Add Code"
+msgstr "Adicionar Código"
+
+msgid "Delete Code"
+msgstr "Apagar Código"
+
+msgid "Cheats - Choose a code to delete"
+msgstr "Trapaças - Escolha o código para apagar"
+
+msgid "No codes yet."
+msgstr "Nenhum código ainda."
+
+msgid "Could not save the cheat file!"
+msgstr "Não foi possível salvar o arquivo de trapaças!"
+
+msgid "Too many codes! Delete one first."
+msgstr "Códigos demais! Apague um primeiro."
+
+msgid "Invalid code"
+msgstr "Código inválido"
+
+msgid "not a valid code. A Game Genie code has 8 letters and numbers."
+msgstr "não é um código válido. Um código de Game Genie tem 8 letras e números."
+
+msgid "not a valid code. An Action Replay code has 8 letters and numbers."
+msgstr "não é um código válido. Um código de Action Replay tem 8 letras e números."
+
+msgid "Game Genie or Action Replay?"
+msgstr "Game Genie ou Action Replay?"
+
+msgid "Auto Crop Scaling"
+msgstr "Escala do Auto Crop"
+
+msgid "Integer (no blended lines)"
+msgstr "Inteira (sem linhas misturadas)"
+
+msgid "Smooth (fill the frame)"
+msgstr "Suave (preenche o quadro)"
+
+msgid "Rename Code"
+msgstr "Renomear Código"
+
+msgid "Cheats - Choose a code to rename"
+msgstr "Trapaças - Escolha o código para renomear"
+
+msgid "Game Genie code"
+msgstr "Código de Game Genie"
+
+msgid "Action Replay code"
+msgstr "Código de Action Replay"
+
+msgid "Name of the code (optional)"
+msgstr "Nome do código (opcional)"
+
+msgid "New name of the code"
+msgstr "Novo nome do código"
+
+msgid "Per-Game: On"
+msgstr "Por Jogo: Sim"
+
+msgid "Per-Game: Off"
+msgstr "Por Jogo: Não"
+
+msgid "Per-Game Settings"
+msgstr "Configurações por Jogo"
+
+msgid "From now on, the video, audio and emulation settings you change are kept for this game only."
+msgstr "A partir de agora, as configurações de vídeo, som e emulação que você mudar valem só para este jogo."
+
+msgid "Use the global settings for this game again?"
+msgstr "Voltar a usar as configurações gerais neste jogo?"
+
+msgid "Bezel"
+msgstr "Moldura"
+
+msgid "Auto (game name)"
+msgstr "Automática (nome do jogo)"
+
+msgid "Default (TV)"
+msgstr "Padrão (TV)"

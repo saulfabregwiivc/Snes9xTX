@@ -12,6 +12,7 @@
 #include "fxemu.h"
 #include "snapshot.h"
 #include "movie.h"
+#include "autooc.h"
 #ifdef DEBUGGER
 #include "debug.h"
 #include "missing.h"
@@ -56,6 +57,8 @@ void S9xMainLoop (void)
 				Timings.NMITriggerPos = 0xffff;
 				if (CPU.WaitingForInterrupt)
 				{
+					if (AutoOC.waiting)
+						S9xAutoOCWaitEnd();
 					CPU.WaitingForInterrupt = FALSE;
 					Registers.PCw++;
 					CPU.Cycles += TWO_CYCLES + ONE_DOT_CYCLE / 2;
@@ -64,6 +67,7 @@ void S9xMainLoop (void)
 				}
 
 				CHECK_FOR_IRQ_CHANGE();
+				AutoOC.spinTarget = 0xffffffff; // the handler is no waiting loop
 				S9xOpcode_NMI();
 			}
 		}
@@ -82,6 +86,8 @@ void S9xMainLoop (void)
 		{
 			if (CPU.WaitingForInterrupt)
 			{
+				if (AutoOC.waiting)
+					S9xAutoOCWaitEnd();
 				CPU.WaitingForInterrupt = FALSE;
 				Registers.PCw++;
 				CPU.Cycles += TWO_CYCLES + ONE_DOT_CYCLE / 2;
@@ -93,6 +99,7 @@ void S9xMainLoop (void)
 			{
 				/* The flag pushed onto the stack is the new value */
 				CHECK_FOR_IRQ_CHANGE();
+				AutoOC.spinTarget = 0xffffffff;
 				S9xOpcode_IRQ();
 			}
 		}
@@ -273,6 +280,8 @@ void S9xDoHEventProcessing (void)
 				SA1.Cycles -= Timings.H_Max * 3;
 
 			CPU.V_Counter++;
+			if (CPU.V_Counter == AUTOOC_SAMPLE_LINE && AutoOC.enabled)
+				S9xAutoOCSample();
 			if (CPU.V_Counter >= Timings.V_Max)	// V ranges from 0 to Timings.V_Max - 1
 			{
 				CPU.V_Counter = 0;

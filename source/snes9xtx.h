@@ -19,6 +19,7 @@
 #include "snes9x.h"
 #include "filter.h"
 #include "filelist.h"
+#include "utils/autocrop.h"
 
 #define APPNAME 			"Snes9x TX"
 #define APPVERSION 			"1.1.3"
@@ -137,6 +138,9 @@ struct SGCSettings{
 	int		FrameSkip;
 	int		ShowFrameRate;
 	int		crosshair;
+	int		AutoCrop;	// AUTOCROP_OFF, AUTOCROP_FIT, AUTOCROP_STRETCH (utils/autocrop.h)
+	int		AutoCropScale;	// AUTOCROP_SCALE_SMOOTH, AUTOCROP_SCALE_INTEGER
+	char	Bezel[128];	// "" off, "<auto>" by the game's name, or a PNG in snes9xtx/bezels (utils/bezel.h)
 	int		aspect;
 	int		xshift;		// Video output shift
 	int		yshift;
@@ -146,7 +150,7 @@ struct SGCSettings{
 	int		cpuOverclock;
 	int		NoSpriteLimit;
 	int		Satellaview;
-	int		Region;
+	int		Region; // REGION_AUTO, REGION_NTSC, REGION_PAL, REGION_NTSC_LIE_PAL
 	int		WiimoteOrientation;
 	int		ExitAction;
 	int		MusicVolume;
@@ -175,4 +179,35 @@ static inline bool IsWiiUFastCPU(void)
 {
 	return ((*(vu16*)0xCD8005A0 == 0xCAFE) && ((*(vu32*)0xCD8005B0 & 0x20) == 0));
 }
+enum {
+	REGION_AUTO = 0,
+	REGION_NTSC,
+	REGION_PAL,
+	REGION_NTSC_LIE_PAL, // NTSC timing, the game is told PAL ($213F bit 4)
+	REGION_COUNT
+};
+
+// GCSettings.cpuOverclock
+enum {
+	CPU_OVERCLOCK_NONE = 0,
+	CPU_OVERCLOCK_LOW,
+	CPU_OVERCLOCK_MEDIUM,
+	CPU_OVERCLOCK_MAX,
+	CPU_OVERCLOCK_AUTO, // chosen while the game runs (snes9x/autooc.cpp)
+	CPU_OVERCLOCK_COUNT
+};
+
+void ApplyRegionSetting();
+void ApplyEmulationSettings();
+void ApplyCpuOverclock();
+
+// Start-up markers in the USB log (sd:/snes9xtx/xinput_usb.log), for the
+// crash that happens when a USB device connects while the menu opens.
+#ifdef HW_RVL
+#include "utils/xinput_usb.h"
+#define STARTUP_NOTE(...) XInput_LogNote(__VA_ARGS__)
+#else
+#define STARTUP_NOTE(...) do { } while (0)
+#endif
+
 #endif

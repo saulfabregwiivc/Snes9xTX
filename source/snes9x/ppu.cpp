@@ -14,6 +14,7 @@
 #include "controls.h"
 #include "movie.h"
 #include "display.h"
+#include "autooc.h"
 #ifdef NETPLAY_SUPPORT
 #include "netplay.h"
 #endif
@@ -246,8 +247,12 @@ void S9xSetPPU (uint8 Byte, uint16 Address)
 		S9xMSU1WritePort(Address & 7, Byte);
 	else
 	if ((Address & 0xffc0) == 0x2140) // APUIO0, APUIO1, APUIO2, APUIO3
+	{
+		if (AutoOC.enabled)
+			S9xAutoOCApuWrite();
 		// write_port will run the APU until given clock before writing value
 		S9xAPUWritePort(Address & 3, Byte);
+	}
 	else
 	if (Address <= 0x2183)
 	{
@@ -1183,7 +1188,8 @@ uint8 S9xGetPPU (uint16 Address)
 			case 0x213f: // STAT78
 				S9xTryGunLatch(false);
 				PPU.VBeamFlip = PPU.HBeamFlip = 0;
-				byte = (PPU.OpenBus2 & 0x20) | (Memory.FillRAM[0x213f] & 0xc0) | (Settings.PAL ? 0x10 : 0) | Model->_5C78;
+				// STAT78's region bit may differ from the region used for timing.
+				byte = (PPU.OpenBus2 & 0x20) | (Memory.FillRAM[0x213f] & 0xc0) | ((Settings.PAL || Settings.NTSCLiePAL) ? 0x10 : 0) | Model->_5C78;
 				Memory.FillRAM[0x213f] &= ~0x40;
 				return (PPU.OpenBus2 = byte);
 

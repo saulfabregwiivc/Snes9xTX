@@ -37,7 +37,7 @@
 
 #ifdef HW_RVL
 #include "utils/mayflash.h"
-#include "utils/xbox360.h"
+#include "utils/xinput_usb.h"
 #endif
 
 #define ANALOG_SENSITIVITY 30
@@ -49,6 +49,40 @@
 static ss_instance_t sicksaxis;
 int ds3chan = 0;
 #define SICKSAXIS_DEADZONE 115
+
+// Xbox 360 / XInput USB controllers (utils/xinput_usb.c) act as GameCube
+// controllers: controller N on the USB side feeds GameCube port N, in menus
+// and in game, and uses the GameCube button mapping.
+static u16 usbPadHeld[4] = {0,0,0,0};
+
+static u16 XInputToGCPad(u32 x)
+{
+	u16 p = 0;
+	if (x & (XI_ANY_UP    | XI_RSTICK_UP))    p |= PAD_BUTTON_UP;
+	if (x & (XI_ANY_DOWN  | XI_RSTICK_DOWN))  p |= PAD_BUTTON_DOWN;
+	if (x & (XI_ANY_LEFT  | XI_RSTICK_LEFT))  p |= PAD_BUTTON_LEFT;
+	if (x & (XI_ANY_RIGHT | XI_RSTICK_RIGHT)) p |= PAD_BUTTON_RIGHT;
+	// face buttons by position, like the SNES pad: bottom A -> B, right B -> A
+	if (x & XI_A) p |= PAD_BUTTON_B;
+	if (x & XI_B) p |= PAD_BUTTON_A;
+	if (x & XI_X) p |= PAD_BUTTON_Y;
+	if (x & XI_Y) p |= PAD_BUTTON_X;
+	if (x & (XI_LB | XI_LT)) p |= PAD_TRIGGER_L;
+	if (x & (XI_RB | XI_RT)) p |= PAD_TRIGGER_R;
+	if (x & XI_START) p |= PAD_BUTTON_START;
+	if (x & XI_BACK)  p |= PAD_TRIGGER_Z;
+	return p;
+}
+
+// Menu combo for XInput USB pads, which have no Home button: L + Select +
+// Start, read from the pad itself so the GameCube button mapping does not
+// change it. Some receivers send Guide instead of Select + Start, so L + Guide
+// counts too.
+static bool UsbPadMenuCombo(int port)
+{
+	u32 x = XInput_ButtonsHeld(port);
+	return (x & XI_LB) && (((x & XI_BACK) && (x & XI_START)) || (x & XI_GUIDE));
+}
 #endif
 
 int playerMapping[4] = {0,1,2,3};
@@ -340,7 +374,7 @@ UpdatePads()
 	#ifdef HW_RVL
 	WiiDRC_ScanPads();
 	Mayflash_ScanPads();
-	XBOX360_ScanPads();
+	XInput_Update();
 	WPAD_ScanPads();
 	#endif
 
@@ -377,6 +411,16 @@ UpdatePads()
 		userInput[i].pad.triggerL = PAD_TriggerL(i);
 		userInput[i].pad.triggerR = PAD_TriggerR(i);
 	}
+#ifdef HW_RVL
+	for(int i=0; i < 4; i++)
+	{
+		u16 usb = XInputToGCPad(XInput_ButtonsHeld(i));
+		userInput[i].pad.btns_d |= usb & ~usbPadHeld[i];
+		userInput[i].pad.btns_u |= usbPadHeld[i] & ~usb;
+		userInput[i].pad.btns_h |= usb;
+		usbPadHeld[i] = usb;
+	}
+#endif
 #ifdef HW_RVL
 	if(WiiDRC_Inited() && WiiDRC_Connected())
 	{
@@ -460,8 +504,8 @@ static void UpdateCursorPosition (int chan, int &pos_x, int &pos_y)
 #ifdef HW_RVL
 	if (userInput[chan].wpad->ir.valid)
 	{
-		pos_x = (userInput[chan].wpad->ir.x * 256) / 640;
-		pos_y = (userInput[chan].wpad->ir.y * 224) / 480;
+		// follows the auto crop; the whole screen otherwise
+		AutoCropMapPointer(userInput[chan].wpad->ir.x / 640.0f, userInput[chan].wpad->ir.y / 480.0f, &pos_x, &pos_y);
 	}
 	else
 	{
@@ -523,7 +567,7 @@ static void decodepad (int chan, int emuChan)
 	u32 wiidrcp = userInput[chan].wiidrcdata.btns_h;
 
 	jp |= Mayflash_ButtonsHeld(chan);
-    jp |= XBOX360_ButtonsHeld(chan);
+	// XInput USB controllers are already in userInput[chan].pad (UpdatePads)
 #endif
 
 #ifdef HW_RVL
@@ -732,22 +776,21 @@ static void decodepad (int chan, int emuChan)
 #endif
 }
 
+// The L + R + Start (GameCube) and L + R + Plus (Classic Controller) combos
+// were removed: they are common button combinations in games and cheat menus.
+// GameCube controllers open the menu with the C stick (left), Wii controllers
+// with Home, USB pads with L + Select + Start.
 bool MenuRequested()
 {
 	for(int i=0; i<4; i++)
 	{
 		if (
-			(userInput[i].pad.substickX < -70) ||
-			(userInput[i].pad.btns_h & PAD_TRIGGER_L &&
-			userInput[i].pad.btns_h & PAD_TRIGGER_R &&
-			userInput[i].pad.btns_h & PAD_BUTTON_START)
+			(userInput[i].pad.substickX < -70)
 			#ifdef HW_RVL
 			|| (userInput[i].wpad->btns_h & WPAD_BUTTON_HOME) ||
 			(userInput[i].wpad->btns_h & WPAD_CLASSIC_BUTTON_HOME) ||
 			(userInput[i].wiidrcdata.btns_h & WIIDRC_BUTTON_HOME) ||
-			(userInput[i].wpad->btns_h & WPAD_CLASSIC_BUTTON_FULL_L &&
-			userInput[i].wpad->btns_h & WPAD_CLASSIC_BUTTON_FULL_R &&
-			userInput[i].wpad->btns_h & WPAD_CLASSIC_BUTTON_PLUS)
+			UsbPadMenuCombo(i)
 			#endif
 		)
 		{
@@ -1029,8 +1072,8 @@ void SetDefaultButtonMap ()
 #ifdef HW_RVL
 char* GetUSBControllerInfo()
 {
-	static char info[50];
-	snprintf(info, 50, "Mayflash: %s, XBOX360: %s", Mayflash_Status(), XBOX360_Status());
+	static char info[80];
+	snprintf(info, sizeof(info), "Mayflash: %s, USB X360: %s", Mayflash_Status(), XInput_Status());
 	return info;
 }
 #endif

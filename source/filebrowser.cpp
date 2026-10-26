@@ -25,6 +25,7 @@
 #include "filebrowser.h"
 #include "menu.h"
 #include "video.h"
+#include "gamesettings.h"
 #include "fileop.h"
 #include "input.h"
 #include "gcunzip.h"
@@ -33,6 +34,7 @@
 
 #include "snes9x/snes9x.h"
 #include "snes9x/memmap.h"
+#include "snes9x/autooc.h"
 #include "snes9x/cheats.h"
 
 extern "C" {
@@ -78,6 +80,7 @@ int autoLoadMethod()
 
 	if(GCSettings.LoadMethod == DEVICE_AUTO)
 		GCSettings.LoadMethod = device; // save device found for later use
+	STARTUP_NOTE("load device found: %d", device);
 	CancelAction();
 	return device;
 }
@@ -519,6 +522,8 @@ int BrowserLoadFile()
 
 	SNESROMSize = 0;
 	S9xDeleteCheats();
+	GameSettingsLoad(); // the game's own video, audio and emulation options, if any
+	ApplyRegionSetting(); // the core clears the force flags after each load
 	Memory.LoadROM("ROM");
 
 	if (SNESROMSize == 0)
@@ -527,11 +532,15 @@ int BrowserLoadFile()
 	}
 	else
 	{
+		S9xAutoOCLoadGame(); // the automatic overclock starts from none
+
 		// load SRAM or snapshot
 		if (GCSettings.AutoLoad == 1)
 			LoadSRAMAuto(SILENT);
 		else if (GCSettings.AutoLoad == 2)
 			LoadSnapshotAuto(SILENT);
+
+		AutoCropLoadGame(); // black-border layouts learned for this game
 
 		ResetBrowser();
 		loaded = 1;

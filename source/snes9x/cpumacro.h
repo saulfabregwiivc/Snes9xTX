@@ -95,6 +95,15 @@ static void Op##OP (void) \
 #define mOPM(OP, ADDR, WRAP, FUNC) \
 mOPC(OP, Memory, ADDR, WRAP, FUNC)
 
+// a short loop back may be the game waiting (automatic overclock, autooc.cpp)
+#ifndef SA1_OPCODES
+#define AUTOOC_BRANCH(target) \
+	if (AutoOC.enabled && (uint16) (Registers.PCw - (target) - 1) < AUTOOC_SPIN_BYTES) \
+		S9xAutoOCSpin(ICPU.ShiftedPB + (target))
+#else
+#define AUTOOC_BRANCH(target)
+#endif
+
 #define bOP(OP, REL, COND, CHK, E) \
 static void Op##OP (void) \
 { \
@@ -105,6 +114,7 @@ static void Op##OP (void) \
 		AddCycles(ONE_CYCLE); \
 		if (E && Registers.PCh != newPC.B.h) \
 			AddCycles(ONE_CYCLE); \
+		AUTOOC_BRANCH(newPC.W); \
 		if ((Registers.PCw & ~MEMMAP_MASK) != (newPC.W & ~MEMMAP_MASK)) \
 			S9xSetPCBase(ICPU.ShiftedPB + newPC.W); \
 		else \
